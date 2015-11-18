@@ -38,16 +38,6 @@
                ReferencedContainer = "container:PenAndInk.xcodeproj">
             </BuildableReference>
          </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "2AD5C52F1BFC008500215D44"
-               BuildableName = "PenAndInkUITests.xctest"
-               BlueprintName = "PenAndInkUITests"
-               ReferencedContainer = "container:PenAndInk.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

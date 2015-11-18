@@ -7,7 +7,8 @@
 //
 
 
-// A Frame is a snapshot of the drawing plus a set of <N additional strokes to be drawn on to of that snapshot. Keeping those strokes separately makes it easy to undo and redo them.
+// A Frame is a snapshot of the drawing plus a set of <N additional strokes to be drawn on to of that snapshot.
+// Keeping those strokes separately makes it easy to undo and redo them.
 
 class Image : Drawable {
     var frames: [Frame] = []
