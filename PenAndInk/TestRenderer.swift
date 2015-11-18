@@ -9,7 +9,7 @@
 class TestRenderer : Renderer {
     var image :[String] = []
 
-    func line(ax: Double, ay: Double, bx: Double, by: Double) {
+    func line(ax: Double, _ ay: Double, _ bx: Double, _ by: Double) {
         image.append("line: \(ax), \(ay), \(bx), \(by)")
     }
 }

@@ -21,7 +21,7 @@ struct FixedPenStroke : Drawable {
     func draw(renderer: Renderer) {
         var last_point = points[0]
         points[1..<points.count].forEach {
-            renderer.line(last_point.x, ay: last_point.y, bx: $0.x, by: $0.y)
+            renderer.line(last_point.x, last_point.y, $0.x, $0.y)
             last_point = $0
         }
     }
