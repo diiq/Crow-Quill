@@ -14,6 +14,14 @@
 		2AD5C51F1BFC008500215D44 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2AD5C51D1BFC008500215D44 /* LaunchScreen.storyboard */; };
 		2AD5C52A1BFC008500215D44 /* PenAndInkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD5C5291BFC008500215D44 /* PenAndInkTests.swift */; };
 		2AD5C5351BFC008500215D44 /* PenAndInkUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD5C5341BFC008500215D44 /* PenAndInkUITests.swift */; };
+		2AD5C5451BFC00C500215D44 /* Renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD5C5441BFC00C500215D44 /* Renderer.swift */; };
+		2AD5C5471BFC010800215D44 /* Drawable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD5C5461BFC010800215D44 /* Drawable.swift */; };
+		2AD5C5491BFC013D00215D44 /* FixedPenStroke.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD5C5481BFC013D00215D44 /* FixedPenStroke.swift */; };
+		2AD5C54B1BFC015F00215D44 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD5C54A1BFC015F00215D44 /* Image.swift */; };
+		2AD5C54D1BFC017F00215D44 /* StrokePoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD5C54C1BFC017F00215D44 /* StrokePoint.swift */; };
+		2AD5C54F1BFC01A400215D44 /* Frame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD5C54E1BFC01A400215D44 /* Frame.swift */; };
+		2AD5C5511BFC01CE00215D44 /* TestRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD5C5501BFC01CE00215D44 /* TestRenderer.swift */; };
+		2AD5C5531BFC01E600215D44 /* FixedPenStrokeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD5C5521BFC01E600215D44 /* FixedPenStrokeTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +55,14 @@
 		2AD5C5301BFC008500215D44 /* PenAndInkUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PenAndInkUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AD5C5341BFC008500215D44 /* PenAndInkUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PenAndInkUITests.swift; sourceTree = "<group>"; };
 		2AD5C5361BFC008500215D44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2AD5C5441BFC00C500215D44 /* Renderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Renderer.swift; sourceTree = "<group>"; };
+		2AD5C5461BFC010800215D44 /* Drawable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Drawable.swift; sourceTree = "<group>"; };
+		2AD5C5481BFC013D00215D44 /* FixedPenStroke.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FixedPenStroke.swift; sourceTree = "<group>"; };
+		2AD5C54A1BFC015F00215D44 /* Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
+		2AD5C54C1BFC017F00215D44 /* StrokePoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StrokePoint.swift; sourceTree = "<group>"; };
+		2AD5C54E1BFC01A400215D44 /* Frame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Frame.swift; sourceTree = "<group>"; };
+		2AD5C5501BFC01CE00215D44 /* TestRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestRenderer.swift; sourceTree = "<group>"; };
+		2AD5C5521BFC01E600215D44 /* FixedPenStrokeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FixedPenStrokeTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +113,7 @@
 		2AD5C5131BFC008500215D44 /* PenAndInk */ = {
 			isa = PBXGroup;
 			children = (
+				2AD5C5431BFC00A000215D44 /* Drawing */,
 				2AD5C5141BFC008500215D44 /* AppDelegate.swift */,
 				2AD5C5161BFC008500215D44 /* ViewController.swift */,
 				2AD5C5181BFC008500215D44 /* Main.storyboard */,
@@ -110,6 +127,7 @@
 		2AD5C5281BFC008500215D44 /* PenAndInkTests */ = {
 			isa = PBXGroup;
 			children = (
+				2AD5C5421BFC009100215D44 /* DrawingTests */,
 				2AD5C5291BFC008500215D44 /* PenAndInkTests.swift */,
 				2AD5C52B1BFC008500215D44 /* Info.plist */,
 			);
@@ -123,6 +141,28 @@
 				2AD5C5361BFC008500215D44 /* Info.plist */,
 			);
 			path = PenAndInkUITests;
+			sourceTree = "<group>";
+		};
+		2AD5C5421BFC009100215D44 /* DrawingTests */ = {
+			isa = PBXGroup;
+			children = (
+				2AD5C5521BFC01E600215D44 /* FixedPenStrokeTests.swift */,
+			);
+			name = DrawingTests;
+			sourceTree = "<group>";
+		};
+		2AD5C5431BFC00A000215D44 /* Drawing */ = {
+			isa = PBXGroup;
+			children = (
+				2AD5C5441BFC00C500215D44 /* Renderer.swift */,
+				2AD5C5461BFC010800215D44 /* Drawable.swift */,
+				2AD5C5481BFC013D00215D44 /* FixedPenStroke.swift */,
+				2AD5C54A1BFC015F00215D44 /* Image.swift */,
+				2AD5C54C1BFC017F00215D44 /* StrokePoint.swift */,
+				2AD5C54E1BFC01A400215D44 /* Frame.swift */,
+				2AD5C5501BFC01CE00215D44 /* TestRenderer.swift */,
+			);
+			name = Drawing;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,8 +299,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2AD5C54D1BFC017F00215D44 /* StrokePoint.swift in Sources */,
+				2AD5C54F1BFC01A400215D44 /* Frame.swift in Sources */,
+				2AD5C5491BFC013D00215D44 /* FixedPenStroke.swift in Sources */,
+				2AD5C54B1BFC015F00215D44 /* Image.swift in Sources */,
+				2AD5C5511BFC01CE00215D44 /* TestRenderer.swift in Sources */,
 				2AD5C5171BFC008500215D44 /* ViewController.swift in Sources */,
+				2AD5C5451BFC00C500215D44 /* Renderer.swift in Sources */,
 				2AD5C5151BFC008500215D44 /* AppDelegate.swift in Sources */,
+				2AD5C5471BFC010800215D44 /* Drawable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,6 +315,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2AD5C5531BFC01E600215D44 /* FixedPenStrokeTests.swift in Sources */,
 				2AD5C52A1BFC008500215D44 /* PenAndInkTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
