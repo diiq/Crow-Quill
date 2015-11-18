@@ -1,11 +1,3 @@
-//
-//  FixedPenStroke.swift
-//  PenAndInk
-//
-//  Created by Sam Bleckley on 11/17/15.
-//  Copyright © 2015 Sam Bleckley. All rights reserved.
-//
-
 //: ## Strokes
 //:
 //: Strokes represent individual stokes of a stylus in the drawing. Each stroke type has a specific

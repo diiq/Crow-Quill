@@ -1,12 +1,12 @@
-//
-//  Renderers.swift
-//  PenAndInk
-//
-//  Created by Sam Bleckley on 11/17/15.
-//  Copyright © 2015 Sam Bleckley. All rights reserved.
-//
+// A renderer is something that takes a 
 
 protocol Renderer {
     func line(ax: Double, _ ay: Double, _ bx: Double, _ by: Double)
+}
+
+protocol ImageRenderer {
+    typealias ImageType
+    func line(ax: Double, _ ay: Double, _ bx: Double, _ by: Double)
+    func image(image: ImageType)
 }
 

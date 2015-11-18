@@ -1,14 +1,14 @@
-//
-//  Frame.swift
-//  PenAndInk
-//
-//  Created by Sam Bleckley on 11/17/15.
-//  Copyright © 2015 Sam Bleckley. All rights reserved.
-//
 
-class Frame : Drawable {
-    let initialImage: Int = 3
+
+class Frame<I> : ImageDrawable {
+    typealias ImageType = I
+    let initialImage: ImageType
     var strokes: [Drawable] = []
-
-    func draw(renderer: Renderer) {}
+    init(initialImage: ImageType) {
+        self.initialImage = initialImage
+    }
+    
+    func draw<R:ImageRenderer where R.ImageType == ImageType>(renderer: R) {
+        renderer.image(self.initialImage)
+    }
 }
