@@ -23,31 +23,28 @@ class DrawingTests: XCTestCase {
     XCTAssertEqual(renderer.currentImage, [], "An empty drawing is empty")
   }
 
-  func testAddStrokeClearsSnapshot() {
-    drawing.snapshot = ["CLEAR THIS"]
+  func testAddStrokeClearsCurrentImage() {
+    drawing.currentImage = ["CLEAR THIS"]
     drawing.addStroke(stroke)
 
-    XCTAssert(drawing.snapshot == nil,
+    XCTAssert(drawing.currentImage == nil,
       "Adding a stroke to a drawing clears the snapshot")
   }
 
   func testDrawSetsSnapshot() {
-    XCTAssert(drawing.snapshot == nil)
+    XCTAssert(drawing.currentImage == nil)
 
     drawing.draw(renderer)
 
-    XCTAssert(drawing.snapshot != nil,
+    XCTAssert(drawing.currentImage != nil,
       "draw()ing the Drawing sets the snapshot")
 
-    XCTAssertEqual(drawing.snapshot!, renderer.currentImage,
+    XCTAssertEqual(drawing.currentImage!, renderer.currentImage,
       "draw()ing the Drawing sets the snapshot to the image")
   }
 
   func testAddStrokeToEmpty() {
     drawing.addStroke(stroke)
-
-    XCTAssertEqual(drawing.frames.count, 1,
-      "Adding a single stroke to an empty drawing adds a frame")
 
     drawing.draw(renderer)
 
@@ -55,29 +52,27 @@ class DrawingTests: XCTestCase {
       "Adding a single stroke to a drawing draws one stroke")
   }
 
-  func testAddStrokeMakesNewFrame() {
+  func testAddStrokeMakesNewSnapshot() {
     for _ in 1...drawing.strokesPerFrame {
       drawing.addStroke(stroke)
     }
-    XCTAssertEqual(drawing.frames[0].strokes.count, drawing.strokesPerFrame)
-    XCTAssertEqual(drawing.frames.count, 1)
+    XCTAssertEqual(drawing.snapshots.count, 0)
 
-    drawing.snapshot = TestImage()
+    drawing.currentImage = TestImage()
     drawing.addStroke(stroke)
-    XCTAssertEqual(drawing.frames.count, 2,
+    XCTAssertEqual(drawing.snapshots.count, 1,
       "Adding a stroke adds a frame, when the current frame is full and the snapshot is up to date")
   }
 
-  func testAddStrokeMakesNoNewFrame() {
+  func testAddStrokeMakesNoNewSnapshot() {
     for _ in 1...drawing.strokesPerFrame {
       drawing.addStroke(stroke)
     }
-    XCTAssertEqual(drawing.frames[0].strokes.count, drawing.strokesPerFrame)
-    XCTAssertEqual(drawing.frames.count, 1)
+    XCTAssertEqual(drawing.snapshots.count, 0)
 
-    drawing.snapshot = nil
+    drawing.currentImage = nil
     drawing.addStroke(stroke)
-    XCTAssertEqual(drawing.frames.count, 1,
+    XCTAssertEqual(drawing.snapshots.count, 0,
       "Adding a stroke adds no new frame, when the snapshot is not up to date")
   }
 }

@@ -2,44 +2,46 @@
 
 class Drawing<I>: ImageDrawable {
   typealias ImageType = I
-  typealias Frame = UndoFrame<ImageType>
+  typealias Snap = Snapshot<ImageType>
 
-  var frames: [Frame] = []
-  var snapshot: ImageType?
+  var snapshots: [Snap] = []
+  var currentImage: ImageType?
+  var strokes: [Stroke] = []
   let strokesPerFrame = 10
 
+  var strokesSinceSnapshot: Int {
+    return strokes.count - lastSnapshotIndex
+  }
+
+  var lastSnapshotIndex: Int {
+    return (snapshots.last?.index ?? 0)
+  }
+
   func draw<R: ImageRenderer where R.ImageType == ImageType>(renderer: R) {
-    // renderer.reset
-    if let lastFrame = frames.last {
-      lastFrame.draw(renderer)
+    // Draw the last snapshot:
+    if snapshots.last != nil {
+      snapshots.last!.draw(renderer)
     }
-    snapshot = renderer.currentImage
+
+    // Draw every stroke since the last snapshot
+    for i in lastSnapshotIndex..<strokes.count {
+      strokes[i].draw(renderer)
+    }
+
+    currentImage = renderer.currentImage
   }
 
   func addStroke(stroke: Stroke) {
-    lastOpenFrame().addStroke(stroke)
-    snapshot = nil
-  }
-
-  private func newFrame() -> Frame {
-    let frame = snapshot == nil ? Frame() : Frame(initialImage: snapshot!)
-    frames.append(frame)
-    return frame
-  }
-
-  private func lastOpenFrame() -> Frame {
-    // If this will be the first frame
-    if frames.last == nil {
-      return newFrame()
-
-      // If the current frame is full and the snapshot is up to date
-    } else if snapshot != nil && frames.last!.strokes.count >= strokesPerFrame {
-      return newFrame()
-
-      // Otherwise, keep filling the current frame
-    } else {
-      return frames.last!
+    strokes.append(stroke)
+    if strokesSinceSnapshot >= strokesPerFrame {
+      addSnapshot()
     }
+    currentImage = nil
+  }
+
+  private func addSnapshot() {
+    guard let img = currentImage else { return }
+    snapshots.append(Snap(snapshot: img, index: snapshots.count))
   }
 }
 
@@ -48,5 +50,7 @@ class Drawing<I>: ImageDrawable {
 I think maybe get rid of UndoFrame and instead make a snapshot struct which stores an image and a pointer into the array of strokes. 
 
 Then we can abstract the array of strokes when necessary.
+
+drawSince, maybe
 
 */

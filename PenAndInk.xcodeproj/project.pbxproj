@@ -20,7 +20,7 @@
 		2AD5C5491BFC013D00215D44 /* FixedPenStroke.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD5C5481BFC013D00215D44 /* FixedPenStroke.swift */; };
 		2AD5C54B1BFC015F00215D44 /* Drawing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD5C54A1BFC015F00215D44 /* Drawing.swift */; };
 		2AD5C54D1BFC017F00215D44 /* StrokePoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD5C54C1BFC017F00215D44 /* StrokePoint.swift */; };
-		2AD5C54F1BFC01A400215D44 /* UndoFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD5C54E1BFC01A400215D44 /* UndoFrame.swift */; };
+		2AD5C54F1BFC01A400215D44 /* Snapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD5C54E1BFC01A400215D44 /* Snapshot.swift */; };
 		2AD5C5511BFC01CE00215D44 /* TestRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD5C5501BFC01CE00215D44 /* TestRenderer.swift */; };
 		2AD5C5531BFC01E600215D44 /* FixedPenStrokeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD5C5521BFC01E600215D44 /* FixedPenStrokeTests.swift */; };
 		2AD5C5571BFC17D700215D44 /* TestRendererTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD5C5561BFC17D700215D44 /* TestRendererTests.swift */; };
@@ -67,7 +67,7 @@
 		2AD5C5481BFC013D00215D44 /* FixedPenStroke.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FixedPenStroke.swift; sourceTree = "<group>"; };
 		2AD5C54A1BFC015F00215D44 /* Drawing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Drawing.swift; sourceTree = "<group>"; };
 		2AD5C54C1BFC017F00215D44 /* StrokePoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StrokePoint.swift; sourceTree = "<group>"; };
-		2AD5C54E1BFC01A400215D44 /* UndoFrame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UndoFrame.swift; sourceTree = "<group>"; };
+		2AD5C54E1BFC01A400215D44 /* Snapshot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Snapshot.swift; sourceTree = "<group>"; };
 		2AD5C5501BFC01CE00215D44 /* TestRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestRenderer.swift; sourceTree = "<group>"; };
 		2AD5C5521BFC01E600215D44 /* FixedPenStrokeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FixedPenStrokeTests.swift; sourceTree = "<group>"; };
 		2AD5C5561BFC17D700215D44 /* TestRendererTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestRendererTests.swift; sourceTree = "<group>"; };
@@ -176,7 +176,7 @@
 				2AD5C5581BFD46D500215D44 /* Stroke.swift */,
 				2AD5C54A1BFC015F00215D44 /* Drawing.swift */,
 				2AD5C54C1BFC017F00215D44 /* StrokePoint.swift */,
-				2AD5C54E1BFC01A400215D44 /* UndoFrame.swift */,
+				2AD5C54E1BFC01A400215D44 /* Snapshot.swift */,
 				2AD5C5501BFC01CE00215D44 /* TestRenderer.swift */,
 				2AD5C55E1BFD6DF100215D44 /* UIRenderer.swift */,
 			);
@@ -318,7 +318,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2AD5C54D1BFC017F00215D44 /* StrokePoint.swift in Sources */,
-				2AD5C54F1BFC01A400215D44 /* UndoFrame.swift in Sources */,
+				2AD5C54F1BFC01A400215D44 /* Snapshot.swift in Sources */,
 				2AD5C5611BFD810800215D44 /* CanvasView.swift in Sources */,
 				2AD5C5491BFC013D00215D44 /* FixedPenStroke.swift in Sources */,
 				2AD5C54B1BFC015F00215D44 /* Drawing.swift in Sources */,
