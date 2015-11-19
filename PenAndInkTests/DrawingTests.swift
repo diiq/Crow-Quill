@@ -53,7 +53,7 @@ class DrawingTests: XCTestCase {
   }
 
   func testAddStrokeMakesNewSnapshot() {
-    for _ in 1...drawing.strokesPerFrame {
+    for _ in 1...drawing.strokesPerSnapshot {
       drawing.addStroke(stroke)
     }
     XCTAssertEqual(drawing.snapshots.count, 0)
@@ -65,7 +65,7 @@ class DrawingTests: XCTestCase {
   }
 
   func testAddStrokeMakesNoNewSnapshot() {
-    for _ in 1...drawing.strokesPerFrame {
+    for _ in 1...drawing.strokesPerSnapshot {
       drawing.addStroke(stroke)
     }
     XCTAssertEqual(drawing.snapshots.count, 0)

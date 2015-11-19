@@ -1,4 +1,4 @@
-// An image is a series of undo frames -- but it is drawn as just it's most recent frame.
+// A drawing is a collection of strokes -- with intermediate snapshots to optimize rendering times.
 
 class Drawing<I>: ImageDrawable {
   typealias ImageType = I
@@ -7,33 +7,40 @@ class Drawing<I>: ImageDrawable {
   var snapshots: [Snap] = []
   var currentImage: ImageType?
   var strokes: [Stroke] = []
-  let strokesPerFrame = 10
-
-  var strokesSinceSnapshot: Int {
-    return strokes.count - lastSnapshotIndex
+  let strokesPerSnapshot = 10
+  var currentStrokeIndex = -1
+  var currentSnapshotIndex = -1
+  
+  var currentSnapshot: Snap? {
+    if snapshots.count == 0 {
+      return nil
+    }
+    return snapshots[currentSnapshotIndex]
   }
-
-  var lastSnapshotIndex: Int {
-    return (snapshots.last?.index ?? 0)
+  
+  var strokesSinceSnapshot: Int {
+    return currentStrokeIndex - (currentSnapshot?.strokeIndex ?? 0)
   }
 
   func draw<R: ImageRenderer where R.ImageType == ImageType>(renderer: R) {
     // Draw the last snapshot:
-    if snapshots.last != nil {
-      snapshots.last!.draw(renderer)
+    if snapshots.count > 0 {
+      snapshots[currentSnapshotIndex].draw(renderer)
     }
 
     // Draw every stroke since the last snapshot
-    for i in lastSnapshotIndex..<strokes.count {
+    for i in (currentSnapshot?.strokeIndex ?? 0)..<currentStrokeIndex {
       strokes[i].draw(renderer)
     }
 
+    // Preserve the current rendered state of the drawing
     currentImage = renderer.currentImage
   }
 
   func addStroke(stroke: Stroke) {
     strokes.append(stroke)
-    if strokesSinceSnapshot >= strokesPerFrame {
+    currentStrokeIndex += 1
+    if strokesSinceSnapshot >= strokesPerSnapshot {
       addSnapshot()
     }
     currentImage = nil
@@ -41,16 +48,21 @@ class Drawing<I>: ImageDrawable {
 
   private func addSnapshot() {
     guard let img = currentImage else { return }
-    snapshots.append(Snap(snapshot: img, index: snapshots.count))
+    snapshots.append(Snap(snapshot: img, strokeIndex: currentStrokeIndex))
+    currentSnapshotIndex += 1
   }
 }
 
 /*
 
-I think maybe get rid of UndoFrame and instead make a snapshot struct which stores an image and a pointer into the array of strokes. 
+Criteria to satisfy:
 
-Then we can abstract the array of strokes when necessary.
-
-drawSince, maybe
+- undo one stroke very quickly                         √
+- undo many-many strokes quickly                       √
+- redo strokes quickly                                 ?
+- fork from a small number of undos quickly            ?
+- fork from a large number of undos with confirmation  ?
+- replay whole drawing from the beginning easily       √
+- undo history preserved between saves                 √
 
 */

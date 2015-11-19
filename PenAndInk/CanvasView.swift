@@ -13,8 +13,8 @@ class CanvasView: UIView {
 
   func addStroke() {
     let points = (1...5).map { t -> StrokePoint in
-      let x = arc4random_uniform(500)
-      let y = arc4random_uniform(500)
+      let x = arc4random_uniform(1000)
+      let y = arc4random_uniform(1000)
 
       return StrokePoint(x: Double(x), y: Double(y), weight: 1)
     }
