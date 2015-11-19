@@ -1,9 +1,9 @@
 
 
-class UndoFrame<I:Image> : ImageDrawable {
+class UndoFrame<I> : ImageDrawable {
   typealias ImageType = I
 
-  let initialImage: ImageType
+  let initialImage: ImageType?
   var strokes: [Stroke] = []
 
   init(initialImage: ImageType) {
@@ -11,11 +11,13 @@ class UndoFrame<I:Image> : ImageDrawable {
   }
 
   init() {
-    self.initialImage = ImageType()
+    self.initialImage = nil
   }
 
   func draw<R: ImageRenderer where R.ImageType == ImageType>(renderer: R) {
-    renderer.image(self.initialImage)
+    if self.initialImage != nil {
+      renderer.image(self.initialImage!)
+    }
     strokes.forEach { $0.draw(renderer) }
   }
 

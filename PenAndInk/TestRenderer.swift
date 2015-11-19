@@ -1,7 +1,6 @@
 // This 'renders' images into an array of strings that are easy to test
 
 typealias TestImage = [String]
-extension Array: Image {}
 
 class TestRenderer: Renderer, ImageRenderer {
   typealias ImageType = TestImage

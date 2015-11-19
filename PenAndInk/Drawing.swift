@@ -1,6 +1,6 @@
 // An image is a series of undo frames -- but it is drawn as just it's most recent frame.
 
-class Drawing<I:Image>: ImageDrawable {
+class Drawing<I>: ImageDrawable {
   typealias ImageType = I
   typealias Frame = UndoFrame<ImageType>
 
@@ -43,3 +43,10 @@ class Drawing<I:Image>: ImageDrawable {
   }
 }
 
+/*
+
+I think maybe get rid of UndoFrame and instead make a snapshot struct which stores an image and a pointer into the array of strokes. 
+
+Then we can abstract the array of strokes when necessary.
+
+*/

@@ -5,8 +5,9 @@ protocol Renderer {
 }
 
 protocol ImageRenderer: Renderer {
-  typealias ImageType: Image
+  typealias ImageType
   var currentImage: ImageType { get }
   func image(image: ImageType)
+//  func reset()
 }
 

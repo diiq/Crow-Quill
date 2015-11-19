@@ -4,11 +4,16 @@ import XCTest
 class DrawingTests: XCTestCase {
   lazy var renderer = TestRenderer()
   lazy var stroke : Stroke = {
-    let points = (1...2).map {
+    let points = (1...5).map {
       return StrokePoint(x: 10.0 * Double($0), y: 50.0, weight: 1)
     }
     return FixedPenStroke(points: points)
   }()
+  let line = [
+    "line: 10.0, 50.0, 20.0, 50.0",
+    "line: 20.0, 50.0, 30.0, 50.0",
+    "line: 30.0, 50.0, 40.0, 50.0",
+    "line: 40.0, 50.0, 50.0, 50.0"]
 
   let drawing = Drawing<TestImage>()
 
@@ -46,8 +51,7 @@ class DrawingTests: XCTestCase {
 
     drawing.draw(renderer)
 
-    XCTAssertEqual(renderer.currentImage, [
-      "line: 10.0, 50.0, 20.0, 50.0"],
+    XCTAssertEqual(renderer.currentImage, line,
       "Adding a single stroke to a drawing draws one stroke")
   }
 
