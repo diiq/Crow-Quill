@@ -1,0 +1,3 @@
+protocol Image {
+  init()
+}
