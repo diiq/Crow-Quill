@@ -10,7 +10,7 @@ class DrawingTests: XCTestCase {
     return FixedPenStroke(points: points)
   }()
 
-  let drawing = Drawing<TestImage>()
+  let drawing = Drawing<TestImage>(strokesPerFrame: 2)
 
   func testDrawsEmpty() {
     drawing.draw(renderer)

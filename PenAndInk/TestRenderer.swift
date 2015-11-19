@@ -1,9 +1,9 @@
 // This 'renders' images into an array of strings that are easy to test
 
 typealias TestImage = [String]
-extension Array : Image {}
+extension Array: Image {}
 
-class TestRenderer : Renderer, ImageRenderer {
+class TestRenderer: Renderer, ImageRenderer {
   typealias ImageType = TestImage
   var image: ImageType = ImageType()
 

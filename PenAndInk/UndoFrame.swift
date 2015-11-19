@@ -14,7 +14,7 @@ class UndoFrame<I:Image> : ImageDrawable {
     self.initialImage = ImageType()
   }
 
-  func draw<R:ImageRenderer where R.ImageType == ImageType>(renderer: R) {
+  func draw<R: ImageRenderer where R.ImageType == ImageType>(renderer: R) {
     renderer.image(self.initialImage)
     strokes.forEach { $0.draw(renderer) }
   }

@@ -1,3 +1,1 @@
-protocol Stroke : Drawable {
-
-}
+protocol Stroke: Drawable {}
