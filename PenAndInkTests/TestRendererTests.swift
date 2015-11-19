@@ -9,7 +9,7 @@ class TestRendererTests: XCTestCase {
     let renderer = TestRenderer()
     renderer.line(10, 50, 20, 30)
 
-    XCTAssertEqual(renderer.image, ["line: 10.0, 50.0, 20.0, 30.0"],
+    XCTAssertEqual(renderer.currentImage, ["line: 10.0, 50.0, 20.0, 30.0"],
       "Calling line adds a single string")
   }
 }

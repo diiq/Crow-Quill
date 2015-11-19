@@ -13,7 +13,7 @@ class FixedPenStrokeTests: XCTestCase {
   func testDrawsAStraightLine() {
     stroke.draw(renderer)
 
-    XCTAssertEqual(renderer.image, [
+    XCTAssertEqual(renderer.currentImage, [
       "line: 10.0, 50.0, 20.0, 50.0",
       "line: 20.0, 50.0, 30.0, 50.0",
       "line: 30.0, 50.0, 40.0, 50.0",

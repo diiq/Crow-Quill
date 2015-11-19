@@ -14,14 +14,14 @@ class UndoFrameTests: XCTestCase {
   func testDrawsInitialImage() {
     frame.draw(renderer)
 
-    XCTAssertEqual(renderer.image, ["initial image"], "UndoFrame draws a the initial image")
+    XCTAssertEqual(renderer.currentImage, ["initial image"], "UndoFrame draws a the initial image")
   }
 
   func testAddStroke() {
     frame.addStroke(stroke)
     frame.draw(renderer)
 
-    XCTAssertEqual(renderer.image, [
+    XCTAssertEqual(renderer.currentImage, [
       "initial image",
       "line: 10.0, 50.0, 20.0, 50.0",
       "line: 20.0, 50.0, 30.0, 50.0",
@@ -35,7 +35,7 @@ class UndoFrameTests: XCTestCase {
     frame.addStroke(stroke)
     frame.draw(renderer)
 
-    XCTAssertEqual(renderer.image, [
+    XCTAssertEqual(renderer.currentImage, [
       "initial image",
       "line: 10.0, 50.0, 20.0, 50.0",
       "line: 20.0, 50.0, 30.0, 50.0",

@@ -5,14 +5,14 @@ extension Array: Image {}
 
 class TestRenderer: Renderer, ImageRenderer {
   typealias ImageType = TestImage
-  var image: ImageType = ImageType()
+  var currentImage: ImageType = ImageType()
 
   func line(ax: Double, _ ay: Double, _ bx: Double, _ by: Double) {
-    image.append("line: \(ax), \(ay), \(bx), \(by)")
+    currentImage.append("line: \(ax), \(ay), \(bx), \(by)")
   }
 
   func image(image: ImageType) {
-    self.image.appendContentsOf(image)
+    self.currentImage.appendContentsOf(image)
   }
 }
 
