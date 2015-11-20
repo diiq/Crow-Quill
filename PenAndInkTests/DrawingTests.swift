@@ -23,14 +23,6 @@ class DrawingTests: XCTestCase {
     XCTAssertEqual(renderer.currentImage, [], "An empty drawing is empty")
   }
 
-  func testAddStrokeClearsCurrentImage() {
-    drawing.currentImage = ["CLEAR THIS"]
-    drawing.addStroke(stroke)
-
-    XCTAssert(drawing.currentImage == nil,
-      "Adding a stroke to a drawing clears the snapshot")
-  }
-
   func testDrawSetsSnapshot() {
     XCTAssert(drawing.currentImage == nil)
 
@@ -67,29 +59,5 @@ class DrawingTests: XCTestCase {
     XCTAssertEqual(renderer.currentImage, [],
       "Undoing a stroke removes it from the rendered drawing.")
 
-  }
-
-  func testAddStrokeMakesNewSnapshot() {
-    for _ in 1...drawing.strokesPerSnapshot {
-      drawing.addStroke(stroke)
-    }
-    XCTAssertEqual(drawing.snapshots.count, 0)
-
-    drawing.currentImage = TestImage()
-    drawing.addStroke(stroke)
-    XCTAssertEqual(drawing.snapshots.count, 1,
-      "Adding a stroke adds a frame, when the current frame is full and the snapshot is up to date")
-  }
-
-  func testAddStrokeMakesNoNewSnapshot() {
-    for _ in 1...drawing.strokesPerSnapshot {
-      drawing.addStroke(stroke)
-    }
-    XCTAssertEqual(drawing.snapshots.count, 0)
-
-    drawing.currentImage = nil
-    drawing.addStroke(stroke)
-    XCTAssertEqual(drawing.snapshots.count, 0,
-      "Adding a stroke adds no new frame, when the snapshot is not up to date")
   }
 }

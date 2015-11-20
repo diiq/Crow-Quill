@@ -4,73 +4,42 @@ class Drawing<I>: ImageDrawable {
   typealias ImageType = I
   typealias Snap = Snapshot<ImageType>
 
-  var snapshots: [Snap] = []
   var currentImage: ImageType?
-  var strokes: [Stroke] = []
-  let strokesPerSnapshot = 20
-  var currentStrokeIndex = 0
-  var currentSnapshotIndex = -1
+  var strokes = UndoArray<Stroke>()
+  var lastDrawnStroke: Int = 0
   
-  var currentSnapshot: Snap? {
-    if snapshots.count == 0 {
-      return nil
-    }
-    return snapshots[currentSnapshotIndex]
-  }
-  
-  var strokesSinceSnapshot: Int {
-    return currentStrokeIndex - (currentSnapshot?.strokeIndex ?? 0)
-  }
-
-  func draw<R: ImageRenderer where R.ImageType == ImageType>(renderer: R) {
-    // Draw the last snapshot:
-    if snapshots.count > 0 {
-      snapshots[currentSnapshotIndex].draw(renderer)
-    }
-
+  func fastdraw<R: ImageRenderer where R.ImageType == ImageType>(renderer: R) {
     // Draw every stroke since the last snapshot
-    for i in (currentSnapshot?.strokeIndex ?? 0)..<currentStrokeIndex {
-      strokes[i].draw(renderer)
+    strokes.actions(since: lastDrawnStroke).forEach {
+      $0.draw(renderer)
     }
 
     // Preserve the current rendered state of the drawing
     currentImage = renderer.currentImage
+    lastDrawnStroke = strokes.currentIndex
+  }
+  
+  func draw<R: ImageRenderer where R.ImageType == ImageType>(renderer: R) {
+    // Draw every stroke since the last snapshot
+    strokes.actions().forEach {
+      $0.draw(renderer)
+    }
+    
+    // Preserve the current rendered state of the drawing
+    currentImage = renderer.currentImage
+    lastDrawnStroke = strokes.currentIndex
   }
 
   func addStroke(stroke: Stroke) {
-    strokes.append(stroke)
-    if strokesSinceSnapshot >= strokesPerSnapshot {
-      addSnapshot()
-    }
-    currentStrokeIndex += 1
-    currentImage = nil
+    strokes.add(stroke)
   }
 
   func undoStroke() {
-    if currentStrokeIndex > 0 {
-      currentStrokeIndex -= 1
-
-      // DANGER REDO THIS -- handle when no strokes, handle when either index is 0.
-      if currentSnapshot != nil && currentStrokeIndex < currentSnapshot!.strokeIndex && currentSnapshotIndex > 0 {
-        currentSnapshotIndex -= 1
-      }
-    }
+    strokes.undo()
   }
 
   func redoStroke() {
-    if currentStrokeIndex < strokes.count {
-      currentStrokeIndex += 1
-      // DANGER REDO THIS
-      if currentSnapshot != nil && currentSnapshotIndex + 1 < snapshots.count && currentStrokeIndex > snapshots[currentSnapshotIndex].strokeIndex {
-        currentSnapshotIndex += 1
-      }
-    }
-  }
-
-  private func addSnapshot() {
-    guard let img = currentImage else { return }
-    snapshots.append(Snap(snapshot: img, strokeIndex: currentStrokeIndex))
-    currentSnapshotIndex += 1
+    strokes.redo()
   }
 }
 
