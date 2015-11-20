@@ -15,11 +15,17 @@ class Drawing<I>: ImageDrawable {
     }
     
     // Preserve the current rendered state of the drawing
-    if strokes.currentIndex % 10 == 0 {
-      snapshots.add(renderer.currentImage, actionIndex: strokes.currentIndex)
+    if shouldSnapshot(){
+      snapshots.add(
+        renderer.currentImage,
+        actionIndex: strokes.currentIndex)
     }
   }
 
+  private func shouldSnapshot() -> Bool {
+    return strokes.currentIndex % 10 == 0
+  }
+  
   func addStroke(stroke: Stroke) {
     strokes.add(stroke)
     snapshots.modified()
@@ -39,16 +45,6 @@ class Drawing<I>: ImageDrawable {
 /*
 
 Criteria to satisfy:
-
-Drawing:
-  draw (draw from given index to current)
-  undo (devances the index if possible)
-  redo (advances the index)
-  addStroke (drops any future strokes; adds stroke)
-
-
-Let's separate the drawing protobol from the snapshotting stuff.
-
 
 - undo one stroke very quickly                         √
 - undo many-many strokes quickly                       √

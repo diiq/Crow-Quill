@@ -48,4 +48,20 @@ class DrawingTests: XCTestCase {
       "Undoing a stroke removes it from the rendered drawing.")
 
   }
+  
+  func testRedoStroke() {
+    drawing.addStroke(stroke)
+    
+    drawing.draw(renderer)
+    
+    XCTAssertEqual(renderer.currentImage, line)
+    renderer.clear()
+    
+    drawing.undoStroke()
+    drawing.redoStroke()
+    
+    drawing.draw(renderer)
+    
+    XCTAssertEqual(renderer.currentImage, line)
+  }
 }
