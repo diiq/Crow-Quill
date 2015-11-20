@@ -9,7 +9,8 @@
 /* Begin PBXBuildFile section */
 		2A1CFB971BFF706D00C7A111 /* UndoArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1CFB961BFF706D00C7A111 /* UndoArray.swift */; };
 		2A1CFB991BFF70FD00C7A111 /* UndoArrayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1CFB981BFF70FD00C7A111 /* UndoArrayTests.swift */; };
-		2A845A4E1BFD05C0004DE9FE /* UndoFrameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A845A4D1BFD05C0004DE9FE /* UndoFrameTests.swift */; };
+		2A1CFB9B1BFFB2BD00C7A111 /* SnapshotCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1CFB9A1BFFB2BD00C7A111 /* SnapshotCollection.swift */; };
+		2A1CFB9D1BFFB99600C7A111 /* SnapshotCollectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1CFB9C1BFFB99600C7A111 /* SnapshotCollectionTests.swift */; };
 		2AD5C5151BFC008500215D44 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD5C5141BFC008500215D44 /* AppDelegate.swift */; };
 		2AD5C5171BFC008500215D44 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD5C5161BFC008500215D44 /* ViewController.swift */; };
 		2AD5C51A1BFC008500215D44 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2AD5C5181BFC008500215D44 /* Main.storyboard */; };
@@ -52,7 +53,8 @@
 /* Begin PBXFileReference section */
 		2A1CFB961BFF706D00C7A111 /* UndoArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UndoArray.swift; sourceTree = "<group>"; };
 		2A1CFB981BFF70FD00C7A111 /* UndoArrayTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UndoArrayTests.swift; sourceTree = "<group>"; };
-		2A845A4D1BFD05C0004DE9FE /* UndoFrameTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UndoFrameTests.swift; sourceTree = "<group>"; };
+		2A1CFB9A1BFFB2BD00C7A111 /* SnapshotCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotCollection.swift; sourceTree = "<group>"; };
+		2A1CFB9C1BFFB99600C7A111 /* SnapshotCollectionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotCollectionTests.swift; sourceTree = "<group>"; };
 		2AD5C5111BFC008500215D44 /* PenAndInk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PenAndInk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AD5C5141BFC008500215D44 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2AD5C5161BFC008500215D44 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -165,7 +167,7 @@
 			children = (
 				2AD5C5521BFC01E600215D44 /* FixedPenStrokeTests.swift */,
 				2A1CFB981BFF70FD00C7A111 /* UndoArrayTests.swift */,
-				2A845A4D1BFD05C0004DE9FE /* UndoFrameTests.swift */,
+				2A1CFB9C1BFFB99600C7A111 /* SnapshotCollectionTests.swift */,
 				2AD5C55A1BFD4AE800215D44 /* DrawingTests.swift */,
 				2AD5C5561BFC17D700215D44 /* TestRendererTests.swift */,
 			);
@@ -181,6 +183,7 @@
 				2AD5C5581BFD46D500215D44 /* Stroke.swift */,
 				2AD5C54A1BFC015F00215D44 /* Drawing.swift */,
 				2A1CFB961BFF706D00C7A111 /* UndoArray.swift */,
+				2A1CFB9A1BFFB2BD00C7A111 /* SnapshotCollection.swift */,
 				2AD5C54C1BFC017F00215D44 /* StrokePoint.swift */,
 				2AD5C54E1BFC01A400215D44 /* Snapshot.swift */,
 				2AD5C5501BFC01CE00215D44 /* TestRenderer.swift */,
@@ -332,6 +335,7 @@
 				2AD5C55F1BFD6DF100215D44 /* UIRenderer.swift in Sources */,
 				2AD5C5511BFC01CE00215D44 /* TestRenderer.swift in Sources */,
 				2AD5C5591BFD46D500215D44 /* Stroke.swift in Sources */,
+				2A1CFB9B1BFFB2BD00C7A111 /* SnapshotCollection.swift in Sources */,
 				2AD5C5171BFC008500215D44 /* ViewController.swift in Sources */,
 				2AD5C5451BFC00C500215D44 /* Renderer.swift in Sources */,
 				2AD5C5151BFC008500215D44 /* AppDelegate.swift in Sources */,
@@ -344,9 +348,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				2AD5C5531BFC01E600215D44 /* FixedPenStrokeTests.swift in Sources */,
+				2A1CFB9D1BFFB99600C7A111 /* SnapshotCollectionTests.swift in Sources */,
 				2A1CFB991BFF70FD00C7A111 /* UndoArrayTests.swift in Sources */,
 				2AD5C55B1BFD4AE800215D44 /* DrawingTests.swift in Sources */,
-				2A845A4E1BFD05C0004DE9FE /* UndoFrameTests.swift in Sources */,
 				2AD5C52A1BFC008500215D44 /* PenAndInkTests.swift in Sources */,
 				2AD5C5571BFC17D700215D44 /* TestRendererTests.swift in Sources */,
 			);
@@ -482,10 +486,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = PenAndInk/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.diiq.PenAndInk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -493,10 +500,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = PenAndInk/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.diiq.PenAndInk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

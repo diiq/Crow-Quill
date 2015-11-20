@@ -1,20 +1,8 @@
 /*
  * An undo array is an array of actions which can efficiently be undone, redone, replayed, or jumped into.
- *
  */
 
-protocol UndoArrayType {
-  typealias ElementType
-  func canUndo() -> Bool
-  func canRedo() -> Bool
-  func undo()
-  func redo()
-  func add(element: ElementType)
-  func actions(since since: Int) -> ArraySlice<ElementType>
-  func actions() -> ArraySlice<ElementType>
-}
-
-class UndoArray<Element> : UndoArrayType {
+class UndoArray<Element> {
   typealias ElementType = Element
   private var array: Array<Element> = []
   private var maxRedoIndex: Int = 0
@@ -52,7 +40,7 @@ class UndoArray<Element> : UndoArrayType {
     }
     
     currentIndex += 1
-    maxRedoIndex = currentIndex
+    modified()
   }
   
   func actions(since start: Int) -> ArraySlice<Element> {
@@ -64,5 +52,16 @@ class UndoArray<Element> : UndoArrayType {
   
   func actions() -> ArraySlice<Element> {
     return array[0..<currentIndex]
+  }
+  
+  func latestAction() -> Element? {
+    guard currentIndex != 0 else {
+      return nil
+    }
+    return array[currentIndex - 1]
+  }
+  
+  func modified() {
+    maxRedoIndex = currentIndex
   }
 }

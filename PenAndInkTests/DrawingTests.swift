@@ -23,18 +23,6 @@ class DrawingTests: XCTestCase {
     XCTAssertEqual(renderer.currentImage, [], "An empty drawing is empty")
   }
 
-  func testDrawSetsSnapshot() {
-    XCTAssert(drawing.currentImage == nil)
-
-    drawing.draw(renderer)
-
-    XCTAssert(drawing.currentImage != nil,
-      "draw()ing the Drawing sets the snapshot")
-
-    XCTAssertEqual(drawing.currentImage!, renderer.currentImage,
-      "draw()ing the Drawing sets the snapshot to the image")
-  }
-
   func testAddStrokeToEmpty() {
     drawing.addStroke(stroke)
 
