@@ -78,9 +78,21 @@ class Drawing<I>: ImageDrawable {
 
 Criteria to satisfy:
 
+Drawing:
+  draw (draw from given index to current)
+  undo (devances the index if possible)
+  redo (advances the index)
+  addStroke (drops any future strokes; adds stroke)
+
+
+Let's add a struct for a undoable array -- it's got a 'current' pointer, a 'max' pointer, it has append, undo, and redo. It can, eventually, support serialization to disk.
+
+Let's separate the drawing protobol from the snapshotting stuff.
+
+
 - undo one stroke very quickly                         √
-- undo many-many strokes quickly                       √
-- redo strokes quickly                                 ?
+- undo many-many strokes quickly                       ?
+- redo strokes quickly                                 √
 - fork from a small number of undos quickly            ?
 - fork from a large number of undos with confirmation  ?
 - replay whole drawing from the beginning easily       √
