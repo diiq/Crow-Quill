@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -17,20 +18,35 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5ET-1e-xMD">
-                                <rect key="frame" x="20" y="550" width="98" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5ET-1e-xMD">
+                                <rect key="frame" x="20" y="550" width="76" height="30"/>
                                 <animations/>
                                 <state key="normal" title="Add Stroke"/>
                                 <connections>
                                     <action selector="addStroke:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2rh-zT-F6d"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lOQ-ho-3TY">
+                                <rect key="frame" x="494" y="550" width="86" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Undo Stroke"/>
+                                <connections>
+                                    <action selector="undoStroke:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Lj7-6i-T4h"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="5ET-1e-xMD" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="ZXT-NS-P6X"/>
+                            <constraint firstItem="lOQ-ho-3TY" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="k9v-Gl-q6i"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="5ET-1e-xMD" secondAttribute="bottom" constant="20" id="kY5-Ba-Bye"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="lOQ-ho-3TY" secondAttribute="bottom" constant="20" id="u0V-Wl-2vZ"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="addStrokeButton" destination="5ET-1e-xMD" id="cjy-th-yji"/>
+                        <outlet property="undoStrokeButton" destination="lOQ-ho-3TY" id="I9o-ry-bnC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

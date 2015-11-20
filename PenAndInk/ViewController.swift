@@ -3,13 +3,14 @@ import UIKit
 class ViewController: UIViewController {
 
   @IBOutlet weak var addStrokeButton: UIButton!
+  @IBOutlet weak var undoStrokeButton: UIButton!
 
   var canvasView: CanvasView {
     return view as! CanvasView
   }
 
   override func viewDidLoad() {
-    canvasView.addStroke()
+    canvasView.setup()
   }
 
   override func didReceiveMemoryWarning() {
@@ -19,7 +20,11 @@ class ViewController: UIViewController {
 
   @IBAction func addStroke(sender: UIButton) {
     canvasView.addStroke()
-    canvasView.setNeedsDisplay()
   }
+
+  @IBAction func undoStroke(sender: UIButton) {
+    canvasView.undoStroke()
+  }
+
 }
 

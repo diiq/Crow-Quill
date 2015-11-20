@@ -52,6 +52,23 @@ class DrawingTests: XCTestCase {
       "Adding a single stroke to a drawing draws one stroke")
   }
 
+  func testUndoStroke() {
+    drawing.addStroke(stroke)
+
+    drawing.draw(renderer)
+
+    XCTAssertEqual(renderer.currentImage, line)
+    renderer.clear()
+    
+    drawing.undoStroke()
+
+    drawing.draw(renderer)
+
+    XCTAssertEqual(renderer.currentImage, [],
+      "Undoing a stroke removes it from the rendered drawing.")
+
+  }
+
   func testAddStrokeMakesNewSnapshot() {
     for _ in 1...drawing.strokesPerSnapshot {
       drawing.addStroke(stroke)

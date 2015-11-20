@@ -4,18 +4,22 @@ import UIKit
 
 class UIRenderer: Renderer, ImageRenderer {
   typealias ImageType = CGImage
+  var bounds: CGRect
+  var context : CGContext!
   var currentImage: ImageType {
     get {
       return CGBitmapContextCreateImage(context)!
     }
   }
 
-  var context : CGContext!
+  init(bounds: CGRect) {
+    self.bounds = bounds
+  }
 
   func line(ax: Double, _ ay: Double, _ bx: Double, _ by: Double) {
-    let color = UIColor.blueColor()
+    let color = UIColor.blackColor()
     CGContextSetStrokeColorWithColor(context, color.CGColor)
-
+    CGContextSetLineCap(context, .Round)
     CGContextBeginPath(context)
 
     CGContextMoveToPoint(context, CGFloat(ax), CGFloat(ay))
@@ -28,7 +32,12 @@ class UIRenderer: Renderer, ImageRenderer {
 
   func image(image: ImageType) {
     // Gotta figure out scaling here.
-    CGContextDrawImage(context, CGRect(x: 0, y: 0, width: 1000, height: 1000), image)
+    CGContextTranslateCTM(context, 0, bounds.height);
+    CGContextScaleCTM(context, 1.0, -1.0);
+    CGContextDrawImage(context, bounds , image)
+    CGContextScaleCTM(context, 1.0, -1.0);
+    CGContextTranslateCTM(context, 0, -bounds.height);
+
   }
 }
 

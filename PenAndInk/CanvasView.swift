@@ -1,24 +1,34 @@
 import UIKit
 
 class CanvasView: UIView {
-  let renderer = UIRenderer()
+  var renderer: UIRenderer!
   let drawing = Drawing<CGImage>()
 
+  func setup() {
+    renderer = UIRenderer(bounds: bounds)
+  }
+  
   override func drawRect(rect: CGRect) {
     let context = UIGraphicsGetCurrentContext()!
     renderer.context = context
     drawing.draw(renderer)
-    //CGContextDrawImage(context, bounds, renderer.currentImage)
   }
 
   func addStroke() {
-    let points = (1...5).map { t -> StrokePoint in
-      let x = arc4random_uniform(1000)
-      let y = arc4random_uniform(1000)
+    var x = Int(arc4random_uniform(UInt32(bounds.width)))
+    var y = Int(arc4random_uniform(UInt32(bounds.height)))
+    let points = (1...500).map { t -> StrokePoint in
+      x = x + Int(arc4random_uniform(11)) - 5
+      y = y + Int(arc4random_uniform(11)) - 5
 
       return StrokePoint(x: Double(x), y: Double(y), weight: 1)
     }
     drawing.addStroke(FixedPenStroke(points: points))
+    setNeedsDisplay()
+  }
 
+  func undoStroke() {
+    drawing.undoStroke()
+    setNeedsDisplay()
   }
 }

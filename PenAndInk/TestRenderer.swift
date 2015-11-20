@@ -13,6 +13,10 @@ class TestRenderer: Renderer, ImageRenderer {
   func image(image: ImageType) {
     self.currentImage.appendContentsOf(image)
   }
+
+  func clear() {
+    self.currentImage = []
+  }
 }
 
 

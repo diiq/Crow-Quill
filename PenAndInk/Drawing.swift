@@ -7,8 +7,8 @@ class Drawing<I>: ImageDrawable {
   var snapshots: [Snap] = []
   var currentImage: ImageType?
   var strokes: [Stroke] = []
-  let strokesPerSnapshot = 10
-  var currentStrokeIndex = -1
+  let strokesPerSnapshot = 20
+  var currentStrokeIndex = 0
   var currentSnapshotIndex = -1
   
   var currentSnapshot: Snap? {
@@ -39,11 +39,32 @@ class Drawing<I>: ImageDrawable {
 
   func addStroke(stroke: Stroke) {
     strokes.append(stroke)
-    currentStrokeIndex += 1
     if strokesSinceSnapshot >= strokesPerSnapshot {
       addSnapshot()
     }
+    currentStrokeIndex += 1
     currentImage = nil
+  }
+
+  func undoStroke() {
+    if currentStrokeIndex > 0 {
+      currentStrokeIndex -= 1
+
+      // DANGER REDO THIS -- handle when no strokes, handle when either index is 0.
+      if currentSnapshot != nil && currentStrokeIndex < currentSnapshot!.strokeIndex && currentSnapshotIndex > 0 {
+        currentSnapshotIndex -= 1
+      }
+    }
+  }
+
+  func redoStroke() {
+    if currentStrokeIndex < strokes.count {
+      currentStrokeIndex += 1
+      // DANGER REDO THIS
+      if currentSnapshot != nil && currentSnapshotIndex + 1 < snapshots.count && currentStrokeIndex > snapshots[currentSnapshotIndex].strokeIndex {
+        currentSnapshotIndex += 1
+      }
+    }
   }
 
   private func addSnapshot() {
@@ -64,5 +85,6 @@ Criteria to satisfy:
 - fork from a large number of undos with confirmation  ?
 - replay whole drawing from the beginning easily       √
 - undo history preserved between saves                 √
+- fairly constant memory usage (serializable to disk?) X
 
 */
