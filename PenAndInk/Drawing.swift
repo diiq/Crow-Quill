@@ -31,9 +31,9 @@ class Drawing<Image>: ImageDrawable {
     }
     
     // Preserve the current rendered state of the drawing
-    if shouldSnapshot(){
-      snapshots.add(renderer.currentImage, index: strokes.currentIndex)
-    }
+    // is renderer.currentImage expensive enough I should skip it when 
+    // I'm not actually snapshotting?
+    snapshots.add(renderer.currentImage, index: strokes.currentIndex)
   }
   
   func addStroke(stroke: Stroke) {
@@ -53,10 +53,6 @@ class Drawing<Image>: ImageDrawable {
 
   private func mostRecentSnapshotIndex() -> Int {
     return snapshots.currentSnapshot()?.eventIndex ?? 0
-  }
-
-  private func shouldSnapshot() -> Bool {
-    return strokes.currentIndex % 15 == 0 && !strokes.canRedo()
   }
 }
 

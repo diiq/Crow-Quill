@@ -1,0 +1,18 @@
+MVP:
+- [ ] Smooth, full-history undo and redo
+- [ ] 'elastic' guides
+- [ ] export PNG or other transparent format
+- [ ] pan, zoom, and rotate
+- [ ] Interface adjusts for left/right handed
+
+V1.0
+- [ ] 1, 2, 3 pt. perspective guides
+- [ ] perspective ellipse guides
+- [ ] infinite canvas
+- [ ] interface adjusts for split-screen and portrait
+
+V2.0
+- [ ] Redraw at any resolution
+- [ ] Export timelapse to youtube (music?)
+- [ ] Support for Adonit, 53 styluses
+- [ ] Support for finger-only?

@@ -3,6 +3,10 @@ import UIKit
 class CanvasView: UIView {
   var renderer: UIRenderer!
   let drawing = Drawing<CGImage>()
+  // TODO move into activedrawing or something.
+  // TODO try a map and see what happens
+  var activeLinesByTouch = NSMapTable.strongToStrongObjectsMapTable()
+  var activeLines: [ActiveFixedPenStroke] = []
 
   func setup() {
     renderer = UIRenderer(bounds: bounds)
@@ -12,6 +16,9 @@ class CanvasView: UIView {
     let context = UIGraphicsGetCurrentContext()!
     renderer.context = context
     drawing.draw(renderer)
+    for line in activeLines {
+      line.draw(renderer)
+    }
   }
 
   func addStroke() {
@@ -35,5 +42,33 @@ class CanvasView: UIView {
   func redoStroke() {
     drawing.redoStroke()
     setNeedsDisplay()
+  }
+
+  func drawTouches(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    for touch in touches {
+      let line = activeLinesByTouch.objectForKey(touch) as? ActiveFixedPenStroke ?? addActiveLineForTouch(touch)
+      let coalescedTouches = event?.coalescedTouchesForTouch(touch) ?? []
+      for cTouch in coalescedTouches {
+        line.addPoint(cTouch)
+      }
+    }
+    setNeedsDisplay()
+  }
+
+  func endTouches(touches: Set<UITouch>, cancel: Bool) {
+    
+  }
+
+  func updateEstimatedPropertiesForTouches(touches: Set<NSObject>) {
+
+  }
+
+
+
+  func addActiveLineForTouch(touch: UITouch) -> ActiveFixedPenStroke {
+    let line = ActiveFixedPenStroke()
+    activeLinesByTouch.setObject(line, forKey: touch)
+    activeLines.append(line)
+    return line
   }
 }
