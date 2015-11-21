@@ -177,19 +177,35 @@
 		2AD5C5431BFC00A000215D44 /* Drawing */ = {
 			isa = PBXGroup;
 			children = (
-				2AD5C5441BFC00C500215D44 /* Renderer.swift */,
+				2AD5C5631BFFF7DE00215D44 /* Strokes */,
+				2AD5C5621BFFF7BA00215D44 /* Renderers */,
 				2AD5C5461BFC010800215D44 /* Drawable.swift */,
-				2AD5C5481BFC013D00215D44 /* FixedPenStroke.swift */,
-				2AD5C5581BFD46D500215D44 /* Stroke.swift */,
 				2AD5C54A1BFC015F00215D44 /* Drawing.swift */,
 				2A1CFB961BFF706D00C7A111 /* Timeline.swift */,
 				2A1CFB9A1BFFB2BD00C7A111 /* SnapshotTimeline.swift */,
-				2AD5C54C1BFC017F00215D44 /* StrokePoint.swift */,
 				2AD5C54E1BFC01A400215D44 /* Snapshot.swift */,
+			);
+			name = Drawing;
+			sourceTree = "<group>";
+		};
+		2AD5C5621BFFF7BA00215D44 /* Renderers */ = {
+			isa = PBXGroup;
+			children = (
+				2AD5C5441BFC00C500215D44 /* Renderer.swift */,
 				2AD5C5501BFC01CE00215D44 /* TestRenderer.swift */,
 				2AD5C55E1BFD6DF100215D44 /* UIRenderer.swift */,
 			);
-			name = Drawing;
+			name = Renderers;
+			sourceTree = "<group>";
+		};
+		2AD5C5631BFFF7DE00215D44 /* Strokes */ = {
+			isa = PBXGroup;
+			children = (
+				2AD5C54C1BFC017F00215D44 /* StrokePoint.swift */,
+				2AD5C5481BFC013D00215D44 /* FixedPenStroke.swift */,
+				2AD5C5581BFD46D500215D44 /* Stroke.swift */,
+			);
+			name = Strokes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

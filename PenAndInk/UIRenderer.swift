@@ -24,9 +24,8 @@ class UIRenderer: Renderer, ImageRenderer {
     CGContextMoveToPoint(context, CGFloat(ax), CGFloat(ay))
     CGContextAddLineToPoint(context, CGFloat(bx), CGFloat(by))
 
-    CGContextSetLineWidth(context, 5)
+    CGContextSetLineWidth(context, 1)
     CGContextStrokePath(context)
-
   }
 
   func image(image: ImageType) {

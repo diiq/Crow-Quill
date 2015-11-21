@@ -15,6 +15,7 @@
  - [ ] fairly constant memory usage
 
  */
+
 class Drawing<Image>: ImageDrawable {
   typealias ImageType = Image
   private var strokes = Timeline<Stroke>()
@@ -55,7 +56,7 @@ class Drawing<Image>: ImageDrawable {
   }
 
   private func shouldSnapshot() -> Bool {
-    return strokes.currentIndex % 10 == 0
+    return strokes.currentIndex % 15 == 0 && !strokes.canRedo()
   }
 }
 

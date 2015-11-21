@@ -1,6 +1,6 @@
 /**
- A Timeline represents a series of actions which can be efficiently undone, redone,
- replayed, or jumped into.
+ A Timeline represents a series of actions which can be efficiently undone, 
+ redone, replayed, or jumped into.
 
  TODO: Something about serializing these suckers to disk.
  */
@@ -58,11 +58,11 @@ class Timeline<Event> {
   /**
    Call modified() whenever a timeline event occurs.
 
-   It ensures that, if the event occurs after a series of undos, the now-obsolete events cannot be redone.
-
-   Note: as things stand, those obsolete events will not be dereferenced until they're overwritten.
+   It ensures that, if the event occurs after a series of undos, the 
+   now-obsolete events cannot be redone.
    */
   func modified() {
     maxRedoIndex = currentIndex
+    array[maxRedoIndex..<array.count] = []
   }
 }
