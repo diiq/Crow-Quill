@@ -1,7 +1,6 @@
-// This 'renders' images into a UIImage or something
-
 import UIKit
 
+/// Renders drawables into a CGContext
 class UIRenderer: Renderer, ImageRenderer {
   typealias ImageType = CGImage
   var bounds: CGRect

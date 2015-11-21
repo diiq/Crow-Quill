@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2A1CFB971BFF706D00C7A111 /* UndoArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1CFB961BFF706D00C7A111 /* UndoArray.swift */; };
-		2A1CFB991BFF70FD00C7A111 /* UndoArrayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1CFB981BFF70FD00C7A111 /* UndoArrayTests.swift */; };
-		2A1CFB9B1BFFB2BD00C7A111 /* SnapshotCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1CFB9A1BFFB2BD00C7A111 /* SnapshotCollection.swift */; };
-		2A1CFB9D1BFFB99600C7A111 /* SnapshotCollectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1CFB9C1BFFB99600C7A111 /* SnapshotCollectionTests.swift */; };
+		2A1CFB971BFF706D00C7A111 /* Timeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1CFB961BFF706D00C7A111 /* Timeline.swift */; };
+		2A1CFB991BFF70FD00C7A111 /* TimelineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1CFB981BFF70FD00C7A111 /* TimelineTests.swift */; };
+		2A1CFB9B1BFFB2BD00C7A111 /* SnapshotTimeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1CFB9A1BFFB2BD00C7A111 /* SnapshotTimeline.swift */; };
+		2A1CFB9D1BFFB99600C7A111 /* SnapshotTimelineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1CFB9C1BFFB99600C7A111 /* SnapshotTimelineTests.swift */; };
 		2AD5C5151BFC008500215D44 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD5C5141BFC008500215D44 /* AppDelegate.swift */; };
 		2AD5C5171BFC008500215D44 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD5C5161BFC008500215D44 /* ViewController.swift */; };
 		2AD5C51A1BFC008500215D44 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2AD5C5181BFC008500215D44 /* Main.storyboard */; };
@@ -51,10 +51,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2A1CFB961BFF706D00C7A111 /* UndoArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UndoArray.swift; sourceTree = "<group>"; };
-		2A1CFB981BFF70FD00C7A111 /* UndoArrayTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UndoArrayTests.swift; sourceTree = "<group>"; };
-		2A1CFB9A1BFFB2BD00C7A111 /* SnapshotCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotCollection.swift; sourceTree = "<group>"; };
-		2A1CFB9C1BFFB99600C7A111 /* SnapshotCollectionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotCollectionTests.swift; sourceTree = "<group>"; };
+		2A1CFB961BFF706D00C7A111 /* Timeline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timeline.swift; sourceTree = "<group>"; };
+		2A1CFB981BFF70FD00C7A111 /* TimelineTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineTests.swift; sourceTree = "<group>"; };
+		2A1CFB9A1BFFB2BD00C7A111 /* SnapshotTimeline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotTimeline.swift; sourceTree = "<group>"; };
+		2A1CFB9C1BFFB99600C7A111 /* SnapshotTimelineTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotTimelineTests.swift; sourceTree = "<group>"; };
 		2AD5C5111BFC008500215D44 /* PenAndInk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PenAndInk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AD5C5141BFC008500215D44 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2AD5C5161BFC008500215D44 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -71,7 +71,7 @@
 		2AD5C5441BFC00C500215D44 /* Renderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Renderer.swift; sourceTree = "<group>"; };
 		2AD5C5461BFC010800215D44 /* Drawable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Drawable.swift; sourceTree = "<group>"; };
 		2AD5C5481BFC013D00215D44 /* FixedPenStroke.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FixedPenStroke.swift; sourceTree = "<group>"; };
-		2AD5C54A1BFC015F00215D44 /* Drawing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Drawing.swift; sourceTree = "<group>"; };
+		2AD5C54A1BFC015F00215D44 /* Drawing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Drawing.swift; sourceTree = "<group>"; wrapsLines = 1; };
 		2AD5C54C1BFC017F00215D44 /* StrokePoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StrokePoint.swift; sourceTree = "<group>"; };
 		2AD5C54E1BFC01A400215D44 /* Snapshot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Snapshot.swift; sourceTree = "<group>"; };
 		2AD5C5501BFC01CE00215D44 /* TestRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestRenderer.swift; sourceTree = "<group>"; };
@@ -166,8 +166,8 @@
 			isa = PBXGroup;
 			children = (
 				2AD5C5521BFC01E600215D44 /* FixedPenStrokeTests.swift */,
-				2A1CFB981BFF70FD00C7A111 /* UndoArrayTests.swift */,
-				2A1CFB9C1BFFB99600C7A111 /* SnapshotCollectionTests.swift */,
+				2A1CFB981BFF70FD00C7A111 /* TimelineTests.swift */,
+				2A1CFB9C1BFFB99600C7A111 /* SnapshotTimelineTests.swift */,
 				2AD5C55A1BFD4AE800215D44 /* DrawingTests.swift */,
 				2AD5C5561BFC17D700215D44 /* TestRendererTests.swift */,
 			);
@@ -182,8 +182,8 @@
 				2AD5C5481BFC013D00215D44 /* FixedPenStroke.swift */,
 				2AD5C5581BFD46D500215D44 /* Stroke.swift */,
 				2AD5C54A1BFC015F00215D44 /* Drawing.swift */,
-				2A1CFB961BFF706D00C7A111 /* UndoArray.swift */,
-				2A1CFB9A1BFFB2BD00C7A111 /* SnapshotCollection.swift */,
+				2A1CFB961BFF706D00C7A111 /* Timeline.swift */,
+				2A1CFB9A1BFFB2BD00C7A111 /* SnapshotTimeline.swift */,
 				2AD5C54C1BFC017F00215D44 /* StrokePoint.swift */,
 				2AD5C54E1BFC01A400215D44 /* Snapshot.swift */,
 				2AD5C5501BFC01CE00215D44 /* TestRenderer.swift */,
@@ -328,14 +328,14 @@
 			files = (
 				2AD5C54D1BFC017F00215D44 /* StrokePoint.swift in Sources */,
 				2AD5C54F1BFC01A400215D44 /* Snapshot.swift in Sources */,
-				2A1CFB971BFF706D00C7A111 /* UndoArray.swift in Sources */,
+				2A1CFB971BFF706D00C7A111 /* Timeline.swift in Sources */,
 				2AD5C5611BFD810800215D44 /* CanvasView.swift in Sources */,
 				2AD5C5491BFC013D00215D44 /* FixedPenStroke.swift in Sources */,
 				2AD5C54B1BFC015F00215D44 /* Drawing.swift in Sources */,
 				2AD5C55F1BFD6DF100215D44 /* UIRenderer.swift in Sources */,
 				2AD5C5511BFC01CE00215D44 /* TestRenderer.swift in Sources */,
 				2AD5C5591BFD46D500215D44 /* Stroke.swift in Sources */,
-				2A1CFB9B1BFFB2BD00C7A111 /* SnapshotCollection.swift in Sources */,
+				2A1CFB9B1BFFB2BD00C7A111 /* SnapshotTimeline.swift in Sources */,
 				2AD5C5171BFC008500215D44 /* ViewController.swift in Sources */,
 				2AD5C5451BFC00C500215D44 /* Renderer.swift in Sources */,
 				2AD5C5151BFC008500215D44 /* AppDelegate.swift in Sources */,
@@ -348,8 +348,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				2AD5C5531BFC01E600215D44 /* FixedPenStrokeTests.swift in Sources */,
-				2A1CFB9D1BFFB99600C7A111 /* SnapshotCollectionTests.swift in Sources */,
-				2A1CFB991BFF70FD00C7A111 /* UndoArrayTests.swift in Sources */,
+				2A1CFB9D1BFFB99600C7A111 /* SnapshotTimelineTests.swift in Sources */,
+				2A1CFB991BFF70FD00C7A111 /* TimelineTests.swift in Sources */,
 				2AD5C55B1BFD4AE800215D44 /* DrawingTests.swift in Sources */,
 				2AD5C52A1BFC008500215D44 /* PenAndInkTests.swift in Sources */,
 				2AD5C5571BFC17D700215D44 /* TestRendererTests.swift in Sources */,

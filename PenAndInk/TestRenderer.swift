@@ -1,7 +1,6 @@
-// This 'renders' images into an array of strings that are easy to test
-
 typealias TestImage = [String]
 
+/// 'Renders' images into an array of strings that are easy to test
 class TestRenderer: Renderer, ImageRenderer {
   typealias ImageType = TestImage
   var currentImage: ImageType = ImageType()

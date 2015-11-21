@@ -1,10 +1,15 @@
+/**
+ A drawable is anything that has a draw method, which takes a renderer and produces an image.
+ */
 protocol Drawable {
-  /// draw() issues drawing commands to `renderer` to visually represent `self`.
   func draw(renderer: Renderer)
 }
 
+/**
+ An ImageDrawable is specialized to a specific kind of image -- most likley because
+ its draw method involves drawing *an already rendered image*, such as a snapshot.
+ */
 protocol ImageDrawable {
   typealias ImageType
-  /// draw() issues drawing commands to `renderer` to visually represent `self`.
   func draw<R: ImageRenderer where R.ImageType == ImageType>(renderer: R)
 }

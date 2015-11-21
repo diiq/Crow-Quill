@@ -1,11 +1,11 @@
 import XCTest
 @testable import PenAndInk
 
-class SnapshotCollectionTests: XCTestCase {
-  var snapshots = SnapshotCollection<String>()
+class SnapshotTimelineTests: XCTestCase {
+  var snapshots = SnapshotTimeline<String>()
 
   func testAddSnapshot() {
-    snapshots.add("first", actionIndex: 10)
+    snapshots.add("first", index: 10)
     XCTAssertEqual(
       snapshots.currentSnapshot()!.snapshot,
       "first",
@@ -13,9 +13,9 @@ class SnapshotCollectionTests: XCTestCase {
   }
   
   func testUndoTo() {
-    snapshots.add("no", actionIndex: 10)
-    snapshots.add("yes", actionIndex: 20)
-    snapshots.add("no", actionIndex: 30)
+    snapshots.add("no", index: 10)
+    snapshots.add("yes", index: 20)
+    snapshots.add("no", index: 30)
     snapshots.undoTo(25)
     XCTAssertEqual(
       snapshots.currentSnapshot()!.snapshot,
@@ -24,9 +24,9 @@ class SnapshotCollectionTests: XCTestCase {
   }
   
   func testUndoToExact() {
-    snapshots.add("no", actionIndex: 10)
-    snapshots.add("yes", actionIndex: 20)
-    snapshots.add("no", actionIndex: 30)
+    snapshots.add("no", index: 10)
+    snapshots.add("yes", index: 20)
+    snapshots.add("no", index: 30)
     snapshots.undoTo(20)
     XCTAssertEqual(
       snapshots.currentSnapshot()!.snapshot,
@@ -35,9 +35,9 @@ class SnapshotCollectionTests: XCTestCase {
   }
 
   func testUndoAllTheWay() {
-    snapshots.add("no", actionIndex: 10)
-    snapshots.add("yes", actionIndex: 20)
-    snapshots.add("no", actionIndex: 30)
+    snapshots.add("no", index: 10)
+    snapshots.add("yes", index: 20)
+    snapshots.add("no", index: 30)
     snapshots.undoTo(5)
     XCTAssert(
       snapshots.currentSnapshot() == nil,
@@ -45,9 +45,9 @@ class SnapshotCollectionTests: XCTestCase {
   }
   
   func testRedoTo() {
-    snapshots.add("no", actionIndex: 10)
-    snapshots.add("yes", actionIndex: 20)
-    snapshots.add("no", actionIndex: 30)
+    snapshots.add("no", index: 10)
+    snapshots.add("yes", index: 20)
+    snapshots.add("no", index: 30)
     snapshots.undoTo(5)
     snapshots.redoTo(25)
     XCTAssertEqual(

@@ -31,4 +31,9 @@ class CanvasView: UIView {
     drawing.undoStroke()
     setNeedsDisplay()
   }
+
+  func redoStroke() {
+    drawing.redoStroke()
+    setNeedsDisplay()
+  }
 }

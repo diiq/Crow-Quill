@@ -18,35 +18,44 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5ET-1e-xMD">
-                                <rect key="frame" x="20" y="550" width="76" height="30"/>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qXy-Jy-KTt">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
                                 <animations/>
-                                <state key="normal" title="Add Stroke"/>
-                                <connections>
-                                    <action selector="addStroke:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2rh-zT-F6d"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lOQ-ho-3TY">
-                                <rect key="frame" x="494" y="550" width="86" height="30"/>
-                                <animations/>
-                                <state key="normal" title="Undo Stroke"/>
-                                <connections>
-                                    <action selector="undoStroke:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Lj7-6i-T4h"/>
-                                </connections>
-                            </button>
+                                <items>
+                                    <barButtonItem title="Redo" id="Taj-Vp-M4T">
+                                        <connections>
+                                            <action selector="redoStroke:" destination="BYZ-38-t0r" id="DWf-UT-qP9"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="poZ-3K-96p"/>
+                                    <barButtonItem title="Add Stroke" id="AZQ-jX-yag">
+                                        <connections>
+                                            <action selector="addStroke:" destination="BYZ-38-t0r" id="5Mj-DX-keY"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="gTo-A3-obY"/>
+                                    <barButtonItem title="Undo" id="kvU-8j-LRc">
+                                        <connections>
+                                            <action selector="undoStroke:" destination="BYZ-38-t0r" id="278-aa-27N"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="5ET-1e-xMD" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="ZXT-NS-P6X"/>
-                            <constraint firstItem="lOQ-ho-3TY" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="k9v-Gl-q6i"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="5ET-1e-xMD" secondAttribute="bottom" constant="20" id="kY5-Ba-Bye"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="lOQ-ho-3TY" secondAttribute="bottom" constant="20" id="u0V-Wl-2vZ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="qXy-Jy-KTt" secondAttribute="trailing" constant="-20" id="DdL-lT-bFC"/>
+                            <constraint firstItem="qXy-Jy-KTt" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="JQI-Ec-xsp"/>
+                            <constraint firstItem="qXy-Jy-KTt" firstAttribute="bottom" secondItem="8bC-Xf-vdC" secondAttribute="bottomMargin" id="ZGK-G1-IZx"/>
                         </constraints>
                     </view>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="addStrokeButton" destination="5ET-1e-xMD" id="cjy-th-yji"/>
-                        <outlet property="undoStrokeButton" destination="lOQ-ho-3TY" id="I9o-ry-bnC"/>
+                        <outlet property="RedoButton" destination="Taj-Vp-M4T" id="6Cg-uQ-82t"/>
+                        <outlet property="UndoButton" destination="kvU-8j-LRc" id="LK3-sQ-C0r"/>
+                        <outlet property="addStrokeButton" destination="AZQ-jX-yag" id="Ra8-hq-dt4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
