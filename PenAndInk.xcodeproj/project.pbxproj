@@ -33,6 +33,7 @@
 		2AD5C5611BFD810800215D44 /* CanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD5C5601BFD810800215D44 /* CanvasView.swift */; };
 		2AD5C5651C00CD1700215D44 /* Goals in Resources */ = {isa = PBXBuildFile; fileRef = 2AD5C5641C00CD1700215D44 /* Goals */; };
 		2AD5C56B1C0120B600215D44 /* SmoothFixedPenStroke.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD5C56A1C0120B600215D44 /* SmoothFixedPenStroke.swift */; };
+		2AD5C56F1C0170CD00215D44 /* ActiveDrawing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD5C56E1C0170CD00215D44 /* ActiveDrawing.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +86,7 @@
 		2AD5C5601BFD810800215D44 /* CanvasView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanvasView.swift; sourceTree = "<group>"; };
 		2AD5C5641C00CD1700215D44 /* Goals */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Goals; sourceTree = "<group>"; };
 		2AD5C56A1C0120B600215D44 /* SmoothFixedPenStroke.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmoothFixedPenStroke.swift; sourceTree = "<group>"; };
+		2AD5C56E1C0170CD00215D44 /* ActiveDrawing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActiveDrawing.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,6 +188,7 @@
 				2AD5C5621BFFF7BA00215D44 /* Renderers */,
 				2AD5C5461BFC010800215D44 /* Drawable.swift */,
 				2AD5C54A1BFC015F00215D44 /* Drawing.swift */,
+				2AD5C56E1C0170CD00215D44 /* ActiveDrawing.swift */,
 				2A1CFB961BFF706D00C7A111 /* Timeline.swift */,
 				2A1CFB9A1BFFB2BD00C7A111 /* SnapshotTimeline.swift */,
 				2AD5C54E1BFC01A400215D44 /* Snapshot.swift */,
@@ -355,6 +358,7 @@
 				2AD5C5611BFD810800215D44 /* CanvasView.swift in Sources */,
 				2AD5C5491BFC013D00215D44 /* FixedPenStroke.swift in Sources */,
 				2AD5C54B1BFC015F00215D44 /* Drawing.swift in Sources */,
+				2AD5C56F1C0170CD00215D44 /* ActiveDrawing.swift in Sources */,
 				2AD5C55F1BFD6DF100215D44 /* UIRenderer.swift in Sources */,
 				2AD5C5511BFC01CE00215D44 /* TestRenderer.swift in Sources */,
 				2AD5C5591BFD46D500215D44 /* Stroke.swift in Sources */,

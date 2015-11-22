@@ -3,9 +3,7 @@ import UIKit
 class CanvasView: UIView {
   var renderer: UIRenderer!
   let drawing = Drawing<CGImage>()
-  // TODO move into activedrawing or something.
-  // TODO try a map and see what happens
-  var activeLinesByTouch = [UITouch : Stroke]()
+  let activeDrawing = ActiveDrawing()
 
   func setup() {
     renderer = UIRenderer(bounds: bounds)
@@ -15,9 +13,7 @@ class CanvasView: UIView {
     let context = UIGraphicsGetCurrentContext()!
     renderer.context = context
     drawing.draw(renderer)
-    for line in activeLinesByTouch.values {
-      line.draw(renderer)
-    }
+    activeDrawing.draw(renderer)
   }
 
   func addStroke() {
@@ -43,35 +39,20 @@ class CanvasView: UIView {
     setNeedsDisplay()
   }
 
-  func drawTouches(touches: Set<UITouch>, withEvent event: UIEvent?) {
-    for touch in touches {
-      var line = activeLinesByTouch[touch] ?? addActiveLineForTouch(touch)
-      let coalescedTouches = event?.coalescedTouchesForTouch(touch) ?? []
-      for cTouch in coalescedTouches {
-        line.addPoint(cTouch)
-      }
+  func drawTouches(indexTouches: Set<UITouch>, withEvent event: UIEvent?) {
+    for indexTouch in indexTouches {
+      let touches = event?.coalescedTouchesForTouch(indexTouch) ?? []
+      activeDrawing.addOrUpdateStroke(indexTouch, touches: touches)
     }
     setNeedsDisplay()
   }
 
   func endTouches(touches: Set<UITouch>, cancel: Bool) {
     for touch in touches {
-      guard let stroke = activeLinesByTouch[touch] else { continue }
-      stroke.finalize()
-      drawing.addStroke(stroke)
-      activeLinesByTouch.removeValueForKey(touch)
-      setNeedsDisplay()
+      if let stroke = activeDrawing.endStrokeForTouch(touch) {
+        drawing.addStroke(stroke)
+      }
     }
-  }
-
-  func updateEstimatedPropertiesForTouches(touches: Set<NSObject>) {
-    // TODO: Nothing I own produces this event
-  }
-
-  func addActiveLineForTouch(touch: UITouch) -> Stroke {
-    print("new line")
-    let line = SmoothFixedPenStroke(points: [])
-    activeLinesByTouch[touch] = line
-    return line
+    setNeedsDisplay()
   }
 }

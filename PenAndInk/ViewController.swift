@@ -50,7 +50,7 @@ class ViewController: UIViewController {
   }
 
   override func touchesEstimatedPropertiesUpdated(touches: Set<NSObject>) {
-    canvasView.updateEstimatedPropertiesForTouches(touches)
+    /// TODO once I have a device that calls this.
   }
 }
 
