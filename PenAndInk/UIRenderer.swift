@@ -15,14 +15,32 @@ class UIRenderer: Renderer, ImageRenderer {
     self.bounds = bounds
   }
 
-  func line(ax: Double, _ ay: Double, _ bx: Double, _ by: Double) {
+  func line(a: StrokePoint, _ b: StrokePoint) {
     let color = UIColor.blackColor()
     CGContextSetStrokeColorWithColor(context, color.CGColor)
     CGContextSetLineCap(context, .Round)
     CGContextBeginPath(context)
 
-    CGContextMoveToPoint(context, CGFloat(ax), CGFloat(ay))
-    CGContextAddLineToPoint(context, CGFloat(bx), CGFloat(by))
+    CGContextMoveToPoint(context, CGFloat(a.x), CGFloat(a.y))
+    CGContextAddLineToPoint(context, CGFloat(b.x), CGFloat(b.y))
+
+    CGContextSetLineWidth(context, 1)
+    CGContextStrokePath(context)
+  }
+
+  func bezier(a: StrokePoint, _ cp1: StrokePoint, _ cp2: StrokePoint, _ b: StrokePoint) {
+    let color = UIColor.blackColor()
+    CGContextSetStrokeColorWithColor(context, color.CGColor)
+    CGContextBeginPath(context)
+    CGContextMoveToPoint(context, CGFloat(a.x), CGFloat(a.y))
+    CGContextAddCurveToPoint(
+      context,
+      CGFloat(cp1.x),
+      CGFloat(cp1.y),
+      CGFloat(cp2.x),
+      CGFloat(cp2.y),
+      CGFloat(b.x),
+      CGFloat(b.y))
 
     CGContextSetLineWidth(context, 1)
     CGContextStrokePath(context)
@@ -38,5 +56,3 @@ class UIRenderer: Renderer, ImageRenderer {
 
   }
 }
-
-

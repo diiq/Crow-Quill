@@ -5,8 +5,12 @@ class TestRenderer: Renderer, ImageRenderer {
   typealias ImageType = TestImage
   var currentImage: ImageType = ImageType()
 
-  func line(ax: Double, _ ay: Double, _ bx: Double, _ by: Double) {
-    currentImage.append("line: \(ax), \(ay), \(bx), \(by)")
+  func line(a: StrokePoint, _ b: StrokePoint) {
+    currentImage.append("line: \(a), \(b)")
+  }
+
+  func bezier(a: StrokePoint, _ cp1: StrokePoint, _ cp2: StrokePoint, _ b: StrokePoint) {
+    currentImage.append("bezier: \(a), [\(cp1), \(cp2)], \(b)")
   }
 
   func image(image: ImageType) {

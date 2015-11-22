@@ -9,11 +9,12 @@
 */
 
 class SnapshotTimeline<ImageType> {
-  // TODO: This may want to become a linked list -- better memory usage, and I 
+  // TODO: This may want to become a linked list -- better memory usage if I
   // could prune old snapshots. But the interface can remain the same, so I'll
   // keep it as-is for now.
   var snapshots = Timeline<Snapshot<ImageType>>()
-  
+  let snapshotEveryNEvents = 10
+
   func currentSnapshot() -> Snapshot<ImageType>? {
     return snapshots.latest()
   }
@@ -51,10 +52,17 @@ class SnapshotTimeline<ImageType> {
   }
   
   func add(snapshot: ImageType, index: Int) {
-    if currentSnapshot()?.eventIndex != index && index % 15 == 0 && !snapshots.canRedo() {
+    if shouldSnapshot(index) {
       snapshots.add(
         Snapshot<ImageType>(snapshot: snapshot, eventIndex: index)
       )
     }
+  }
+
+  private func shouldSnapshot(index: Int) -> Bool {
+    return (
+      currentSnapshot()?.eventIndex != index &&
+      index % snapshotEveryNEvents == 0 &&
+      !snapshots.canRedo())
   }
 }

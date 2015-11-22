@@ -5,8 +5,7 @@ class CanvasView: UIView {
   let drawing = Drawing<CGImage>()
   // TODO move into activedrawing or something.
   // TODO try a map and see what happens
-  var activeLinesByTouch = NSMapTable.strongToStrongObjectsMapTable()
-  var activeLines: [ActiveFixedPenStroke] = []
+  var activeLinesByTouch = [UITouch : Stroke]()
 
   func setup() {
     renderer = UIRenderer(bounds: bounds)
@@ -16,7 +15,7 @@ class CanvasView: UIView {
     let context = UIGraphicsGetCurrentContext()!
     renderer.context = context
     drawing.draw(renderer)
-    for line in activeLines {
+    for line in activeLinesByTouch.values {
       line.draw(renderer)
     }
   }
@@ -46,7 +45,7 @@ class CanvasView: UIView {
 
   func drawTouches(touches: Set<UITouch>, withEvent event: UIEvent?) {
     for touch in touches {
-      let line = activeLinesByTouch.objectForKey(touch) as? ActiveFixedPenStroke ?? addActiveLineForTouch(touch)
+      var line = activeLinesByTouch[touch] ?? addActiveLineForTouch(touch)
       let coalescedTouches = event?.coalescedTouchesForTouch(touch) ?? []
       for cTouch in coalescedTouches {
         line.addPoint(cTouch)
@@ -56,19 +55,23 @@ class CanvasView: UIView {
   }
 
   func endTouches(touches: Set<UITouch>, cancel: Bool) {
-    
+    for touch in touches {
+      guard let stroke = activeLinesByTouch[touch] else { continue }
+      stroke.finalize()
+      drawing.addStroke(stroke)
+      activeLinesByTouch.removeValueForKey(touch)
+      setNeedsDisplay()
+    }
   }
 
   func updateEstimatedPropertiesForTouches(touches: Set<NSObject>) {
-
+    // TODO: Nothing I own produces this event
   }
 
-
-
-  func addActiveLineForTouch(touch: UITouch) -> ActiveFixedPenStroke {
-    let line = ActiveFixedPenStroke()
-    activeLinesByTouch.setObject(line, forKey: touch)
-    activeLines.append(line)
+  func addActiveLineForTouch(touch: UITouch) -> Stroke {
+    print("new line")
+    let line = SmoothFixedPenStroke(points: [])
+    activeLinesByTouch[touch] = line
     return line
   }
 }

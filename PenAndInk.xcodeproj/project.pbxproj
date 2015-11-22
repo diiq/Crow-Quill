@@ -32,8 +32,7 @@
 		2AD5C55F1BFD6DF100215D44 /* UIRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD5C55E1BFD6DF100215D44 /* UIRenderer.swift */; };
 		2AD5C5611BFD810800215D44 /* CanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD5C5601BFD810800215D44 /* CanvasView.swift */; };
 		2AD5C5651C00CD1700215D44 /* Goals in Resources */ = {isa = PBXBuildFile; fileRef = 2AD5C5641C00CD1700215D44 /* Goals */; };
-		2AD5C5671C00E78200215D44 /* ActiveStrokePoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD5C5661C00E78100215D44 /* ActiveStrokePoint.swift */; };
-		2AD5C5691C00EE4C00215D44 /* ActiveFixedPenStroke.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD5C5681C00EE4C00215D44 /* ActiveFixedPenStroke.swift */; };
+		2AD5C56B1C0120B600215D44 /* SmoothFixedPenStroke.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD5C56A1C0120B600215D44 /* SmoothFixedPenStroke.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,8 +84,7 @@
 		2AD5C55E1BFD6DF100215D44 /* UIRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIRenderer.swift; sourceTree = "<group>"; };
 		2AD5C5601BFD810800215D44 /* CanvasView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanvasView.swift; sourceTree = "<group>"; };
 		2AD5C5641C00CD1700215D44 /* Goals */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Goals; sourceTree = "<group>"; };
-		2AD5C5661C00E78100215D44 /* ActiveStrokePoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActiveStrokePoint.swift; sourceTree = "<group>"; };
-		2AD5C5681C00EE4C00215D44 /* ActiveFixedPenStroke.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActiveFixedPenStroke.swift; sourceTree = "<group>"; };
+		2AD5C56A1C0120B600215D44 /* SmoothFixedPenStroke.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmoothFixedPenStroke.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -209,9 +207,8 @@
 			isa = PBXGroup;
 			children = (
 				2AD5C54C1BFC017F00215D44 /* StrokePoint.swift */,
-				2AD5C5661C00E78100215D44 /* ActiveStrokePoint.swift */,
 				2AD5C5481BFC013D00215D44 /* FixedPenStroke.swift */,
-				2AD5C5681C00EE4C00215D44 /* ActiveFixedPenStroke.swift */,
+				2AD5C56A1C0120B600215D44 /* SmoothFixedPenStroke.swift */,
 				2AD5C5581BFD46D500215D44 /* Stroke.swift */,
 			);
 			name = Strokes;
@@ -359,12 +356,11 @@
 				2AD5C5491BFC013D00215D44 /* FixedPenStroke.swift in Sources */,
 				2AD5C54B1BFC015F00215D44 /* Drawing.swift in Sources */,
 				2AD5C55F1BFD6DF100215D44 /* UIRenderer.swift in Sources */,
-				2AD5C5671C00E78200215D44 /* ActiveStrokePoint.swift in Sources */,
 				2AD5C5511BFC01CE00215D44 /* TestRenderer.swift in Sources */,
 				2AD5C5591BFD46D500215D44 /* Stroke.swift in Sources */,
 				2A1CFB9B1BFFB2BD00C7A111 /* SnapshotTimeline.swift in Sources */,
+				2AD5C56B1C0120B600215D44 /* SmoothFixedPenStroke.swift in Sources */,
 				2AD5C5171BFC008500215D44 /* ViewController.swift in Sources */,
-				2AD5C5691C00EE4C00215D44 /* ActiveFixedPenStroke.swift in Sources */,
 				2AD5C5451BFC00C500215D44 /* Renderer.swift in Sources */,
 				2AD5C5151BFC008500215D44 /* AppDelegate.swift in Sources */,
 				2AD5C5471BFC010800215D44 /* Drawable.swift in Sources */,

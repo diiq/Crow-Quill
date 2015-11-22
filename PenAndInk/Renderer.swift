@@ -1,3 +1,5 @@
+import Darwin
+
 /**
  A Renderer is something that gets handed to a drawable and produces an image.
 
@@ -11,7 +13,8 @@
  */
 protocol Renderer {
   /// Draws a straight, unweighted, black line from <ax, ay> to <bx, by>
-  func line(ax: Double, _ ay: Double, _ bx: Double, _ by: Double)
+  func line(a: StrokePoint, _ b: StrokePoint)
+  func bezier(a: StrokePoint, _ cp1: StrokePoint, _ cp2: StrokePoint, _ b: StrokePoint)
 }
 
 /**
@@ -29,3 +32,46 @@ protocol ImageRenderer: Renderer {
   func image(image: ImageType)
 }
 
+// These are compound methods, that build on the universal atoms defined above.
+extension Renderer {
+  /**
+   Draws a Centripital Catmull-Rom Spline through a set of points.
+
+   This is a method for smoothly interpolating though all points, avoiding 
+   unexpected kinks or loops. See 
+   https://en.wikipedia.org/wiki/Centripetal_Catmull%E2%80%93Rom_spline
+   for more mathematical details.
+   */
+  func catmullRom(points: [StrokePoint]) {
+    for var i = 1; i < points.count - 2; ++i {
+      let p0 = points[i-1]
+      let p1 = points[i]
+      let p2 = points[i+1]
+      let p3 = points[i+2]
+
+      let d1 = p1.deltaTo(p0).length()
+      let d2 = p2.deltaTo(p1).length()
+      let d3 = p3.deltaTo(p2).length()
+
+      var controlPoint1 = p2.multiplyBy(d1)
+      controlPoint1 = controlPoint1.deltaTo(p0.multiplyBy(d2))
+      controlPoint1 = controlPoint1.addTo(p1.multiplyBy(2 * d1 + 3 * sqrt(d1) * sqrt(d2) + d2))
+      controlPoint1 = controlPoint1.multiplyBy(1.0 / (3 * sqrt(d1) * (sqrt(d1) + sqrt(d2))))
+
+      var controlPoint2 = p1.multiplyBy(d3)
+      controlPoint2 = controlPoint2.deltaTo(p3.multiplyBy(d2))
+      controlPoint2 = controlPoint2.addTo(p2.multiplyBy(2 * d3 + 3 * sqrt(d3) * sqrt(d2) + d2))
+      controlPoint2 = controlPoint2.multiplyBy(1.0 / (3 * sqrt(d3) * (sqrt(d3) + sqrt(d2))))
+
+      bezier(p1, controlPoint1, controlPoint2, p2)
+    }
+  }
+
+  func linear(points: [StrokePoint]) {
+    var lastPoint = points[0]
+    points[1..<points.count].forEach {
+      line(lastPoint, $0)
+      lastPoint = $0
+    }
+  }
+}
