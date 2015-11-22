@@ -5,6 +5,7 @@ class UIRenderer: Renderer, ImageRenderer {
   typealias ImageType = CGImage
   var bounds: CGRect
   var context : CGContext!
+  let color = UIColor(red:0.64, green:0.87, blue:0.93, alpha:1.0).CGColor
   var currentImage: ImageType {
     get {
       return CGBitmapContextCreateImage(context)!
@@ -16,21 +17,17 @@ class UIRenderer: Renderer, ImageRenderer {
   }
 
   func line(a: StrokePoint, _ b: StrokePoint) {
-    let color = UIColor.blackColor()
-    CGContextSetStrokeColorWithColor(context, color.CGColor)
-    CGContextSetLineCap(context, .Round)
     CGContextBeginPath(context)
-
     CGContextMoveToPoint(context, CGFloat(a.x), CGFloat(a.y))
     CGContextAddLineToPoint(context, CGFloat(b.x), CGFloat(b.y))
 
+    CGContextSetStrokeColorWithColor(context, color)
+    CGContextSetLineCap(context, .Round)
     CGContextSetLineWidth(context, 1)
     CGContextStrokePath(context)
   }
 
   func bezier(a: StrokePoint, _ cp1: StrokePoint, _ cp2: StrokePoint, _ b: StrokePoint) {
-    let color = UIColor.blackColor()
-    CGContextSetStrokeColorWithColor(context, color.CGColor)
     CGContextBeginPath(context)
     CGContextMoveToPoint(context, CGFloat(a.x), CGFloat(a.y))
     CGContextAddCurveToPoint(
@@ -42,6 +39,7 @@ class UIRenderer: Renderer, ImageRenderer {
       CGFloat(b.x),
       CGFloat(b.y))
 
+    CGContextSetStrokeColorWithColor(context, color)
     CGContextSetLineWidth(context, 1)
     CGContextStrokePath(context)
   }

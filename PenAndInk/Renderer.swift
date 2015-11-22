@@ -43,25 +43,47 @@ extension Renderer {
    for more mathematical details.
    */
   func catmullRom(points: [StrokePoint]) {
-    for var i = 1; i < points.count - 2; ++i {
-      let p0 = points[i-1]
+    for var i = 0; i < points.count - 1; ++i {
       let p1 = points[i]
       let p2 = points[i+1]
-      let p3 = points[i+2]
 
-      let d1 = p1.deltaTo(p0).length()
       let d2 = p2.deltaTo(p1).length()
-      let d3 = p3.deltaTo(p2).length()
 
-      var controlPoint1 = p2.multiplyBy(d1)
-      controlPoint1 = controlPoint1.deltaTo(p0.multiplyBy(d2))
-      controlPoint1 = controlPoint1.addTo(p1.multiplyBy(2 * d1 + 3 * sqrt(d1) * sqrt(d2) + d2))
-      controlPoint1 = controlPoint1.multiplyBy(1.0 / (3 * sqrt(d1) * (sqrt(d1) + sqrt(d2))))
+      guard d2 > 0.0001 else { continue }
 
-      var controlPoint2 = p1.multiplyBy(d3)
-      controlPoint2 = controlPoint2.deltaTo(p3.multiplyBy(d2))
-      controlPoint2 = controlPoint2.addTo(p2.multiplyBy(2 * d3 + 3 * sqrt(d3) * sqrt(d2) + d2))
-      controlPoint2 = controlPoint2.multiplyBy(1.0 / (3 * sqrt(d3) * (sqrt(d3) + sqrt(d2))))
+      let controlPoint1: StrokePoint = {
+        if i > 0 {
+          let p0 = points[i-1]
+          let d1 = p1.deltaTo(p0).length()
+
+          guard d1 > 0.0001 else { return p1 }
+
+          var cp1 = p2.multiplyBy(d1)
+          cp1 = cp1.deltaTo(p0.multiplyBy(d2))
+          cp1 = cp1.addTo(p1.multiplyBy(2 * d1 + 3 * sqrt(d1) * sqrt(d2) + d2))
+          cp1 = cp1.multiplyBy(1.0 / (3 * sqrt(d1) * (sqrt(d1) + sqrt(d2))))
+          return cp1
+        } else {
+          return p1
+        }
+      }()
+
+      let controlPoint2: StrokePoint = {
+        if i < points.count - 2 {
+          let p3 = points[i+2]
+          let d3 = p3.deltaTo(p2).length()
+
+          guard d3 > 0.0001 else { return p2 }
+
+          var cp2 = p1.multiplyBy(d3)
+          cp2 = cp2.deltaTo(p3.multiplyBy(d2))
+          cp2 = cp2.addTo(p2.multiplyBy(2 * d3 + 3 * sqrt(d3) * sqrt(d2) + d2))
+          cp2 = cp2.multiplyBy(1.0 / (3 * sqrt(d3) * (sqrt(d3) + sqrt(d2))))
+          return cp2
+        } else {
+          return p2
+        }
+      }()
 
       bezier(p1, controlPoint1, controlPoint2, p2)
     }

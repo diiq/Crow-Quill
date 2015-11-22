@@ -12,7 +12,7 @@ class SmoothFixedPenStroke : Stroke {
   }
 
   func draw(renderer: Renderer) {
-    guard points.count > 4 else {
+    guard points.count > 2 else {
       renderer.linear(points)
       return
     }

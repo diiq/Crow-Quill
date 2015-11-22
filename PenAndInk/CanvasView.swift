@@ -16,19 +16,6 @@ class CanvasView: UIView {
     activeDrawing.draw(renderer)
   }
 
-  func addStroke() {
-    var x = Int(arc4random_uniform(UInt32(bounds.width)))
-    var y = Int(arc4random_uniform(UInt32(bounds.height)))
-    let points = (1...500).map { t -> StrokePoint in
-      x = x + Int(arc4random_uniform(11)) - 5
-      y = y + Int(arc4random_uniform(11)) - 5
-
-      return StrokePoint(x: Double(x), y: Double(y), weight: 1)
-    }
-    drawing.addStroke(FixedPenStroke(points: points))
-    setNeedsDisplay()
-  }
-
   func undoStroke() {
     drawing.undoStroke()
     setNeedsDisplay()
@@ -47,11 +34,18 @@ class CanvasView: UIView {
     setNeedsDisplay()
   }
 
-  func endTouches(touches: Set<UITouch>, cancel: Bool) {
+  func endTouches(touches: Set<UITouch>) {
     for touch in touches {
       if let stroke = activeDrawing.endStrokeForTouch(touch) {
         drawing.addStroke(stroke)
       }
+    }
+    setNeedsDisplay()
+  }
+
+  func cancelTouches(touches: Set<UITouch>) {
+    for touch in touches {
+      activeDrawing.endStrokeForTouch(touch)
     }
     setNeedsDisplay()
   }

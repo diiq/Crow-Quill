@@ -34,6 +34,7 @@
 		2AD5C5651C00CD1700215D44 /* Goals in Resources */ = {isa = PBXBuildFile; fileRef = 2AD5C5641C00CD1700215D44 /* Goals */; };
 		2AD5C56B1C0120B600215D44 /* SmoothFixedPenStroke.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD5C56A1C0120B600215D44 /* SmoothFixedPenStroke.swift */; };
 		2AD5C56F1C0170CD00215D44 /* ActiveDrawing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD5C56E1C0170CD00215D44 /* ActiveDrawing.swift */; };
+		2AD5C5711C025D9300215D44 /* CanvasMotionGestureDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD5C5701C025D9300215D44 /* CanvasMotionGestureDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +88,7 @@
 		2AD5C5641C00CD1700215D44 /* Goals */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Goals; sourceTree = "<group>"; };
 		2AD5C56A1C0120B600215D44 /* SmoothFixedPenStroke.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmoothFixedPenStroke.swift; sourceTree = "<group>"; };
 		2AD5C56E1C0170CD00215D44 /* ActiveDrawing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActiveDrawing.swift; sourceTree = "<group>"; };
+		2AD5C5701C025D9300215D44 /* CanvasMotionGestureDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanvasMotionGestureDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +144,7 @@
 				2AD5C5141BFC008500215D44 /* AppDelegate.swift */,
 				2AD5C5161BFC008500215D44 /* ViewController.swift */,
 				2AD5C5601BFD810800215D44 /* CanvasView.swift */,
+				2AD5C5701C025D9300215D44 /* CanvasMotionGestureDelegate.swift */,
 				2AD5C5181BFC008500215D44 /* Main.storyboard */,
 				2AD5C51B1BFC008500215D44 /* Assets.xcassets */,
 				2AD5C51D1BFC008500215D44 /* LaunchScreen.storyboard */,
@@ -356,6 +359,7 @@
 				2AD5C54F1BFC01A400215D44 /* Snapshot.swift in Sources */,
 				2A1CFB971BFF706D00C7A111 /* Timeline.swift in Sources */,
 				2AD5C5611BFD810800215D44 /* CanvasView.swift in Sources */,
+				2AD5C5711C025D9300215D44 /* CanvasMotionGestureDelegate.swift in Sources */,
 				2AD5C5491BFC013D00215D44 /* FixedPenStroke.swift in Sources */,
 				2AD5C54B1BFC015F00215D44 /* Drawing.swift in Sources */,
 				2AD5C56F1C0170CD00215D44 /* ActiveDrawing.swift in Sources */,
