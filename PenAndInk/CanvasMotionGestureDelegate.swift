@@ -2,6 +2,7 @@ import UIKit
 
 class CanvasMotionGestureDelegate : NSObject, UIGestureRecognizerDelegate {
   let canvasMotions: [UIGestureRecognizer]
+  let actions: [UIGestureRecognizer]
   let canvasView: CanvasView
   let view: UIView
   let pinchRecognizer = UIPinchGestureRecognizer()
@@ -29,6 +30,7 @@ class CanvasMotionGestureDelegate : NSObject, UIGestureRecognizerDelegate {
     canvasView = canvas
     self.view = view
     self.canvasMotions = [pinchRecognizer, rotateRecognizer, panRecognizer]
+    self.actions = [undoTapRecognizer, redoTapRecognizer]
     super.init()
 
     pinchRecognizer.addTarget(self, action:"handleScale:")
@@ -52,39 +54,27 @@ class CanvasMotionGestureDelegate : NSObject, UIGestureRecognizerDelegate {
   }
 
   func handleScale(gestureRecognizer: UIPinchGestureRecognizer) {
-    let state = gestureRecognizer.state
-
-    if (state == UIGestureRecognizerState.Began || state == UIGestureRecognizerState.Changed)
-    {
-      guard let view = gestureRecognizer.view else { return }
-      let scale = gestureRecognizer.scale
-      view.transform = CGAffineTransformScale(view.transform, scale, scale)
-      gestureRecognizer.scale = 1.0
-    }
+    guard let view = readyWithView(gestureRecognizer) else { return }
+    print("scaling")
+    let scale = gestureRecognizer.scale
+    view.transform = CGAffineTransformScale(view.transform, scale, scale)
+    gestureRecognizer.scale = 1.0
   }
 
   func handleRotation(gestureRecognizer: UIRotationGestureRecognizer) {
-    let state = gestureRecognizer.state
-
-    if (state == UIGestureRecognizerState.Began || state == UIGestureRecognizerState.Changed)
-    {
-      guard let view = gestureRecognizer.view else { return }
-      let rotation = gestureRecognizer.rotation
-      view.transform = CGAffineTransformRotate(view.transform, rotation)
-      gestureRecognizer.rotation = 0
-    }
+    guard let view = readyWithView(gestureRecognizer) else { return }
+    print("rotating")
+    let rotation = gestureRecognizer.rotation
+    view.transform = CGAffineTransformRotate(view.transform, rotation)
+    gestureRecognizer.rotation = 0
   }
 
   func handlePan(gestureRecognizer: UIPanGestureRecognizer) {
-    let state = gestureRecognizer.state
-
-    if (state == UIGestureRecognizerState.Began || state == UIGestureRecognizerState.Changed)
-    {
-      guard let view = gestureRecognizer.view else { return }
-      let translation = gestureRecognizer.translationInView(view)
-      view.transform = CGAffineTransformTranslate(view.transform, translation.x, translation.y)
-      gestureRecognizer.setTranslation(CGPointZero, inView: view)
-    }
+    guard let view = readyWithView(gestureRecognizer) else { return }
+    print("panning")
+    let translation = gestureRecognizer.translationInView(view)
+    view.transform = CGAffineTransformTranslate(view.transform, translation.x, translation.y)
+    gestureRecognizer.setTranslation(CGPointZero, inView: view)
   }
 
   func undoStroke(gestureRecognizer: UITapGestureRecognizer) {
@@ -104,5 +94,15 @@ class CanvasMotionGestureDelegate : NSObject, UIGestureRecognizerDelegate {
     shouldRequireFailureOfGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
       let answer = canvasMotions.contains(otherGestureRecognizer) && gestureRecognizer == undoTapRecognizer
       return answer
+  }
+
+  private func readyWithView(gestureRecognizer: UIGestureRecognizer) -> UIView? {
+    let state = gestureRecognizer.state
+
+    if (state == UIGestureRecognizerState.Began || state == UIGestureRecognizerState.Changed) {
+      return gestureRecognizer.view
+    } else {
+      return nil
+    }
   }
 }
