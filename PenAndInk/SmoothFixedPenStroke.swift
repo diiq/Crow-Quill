@@ -3,8 +3,8 @@
  nor any roundness; it's just a line.
  */
 class SmoothFixedPenStroke : Stroke {
-  //var pointsByEstimationIndex = [Int : StrokePoint]()
   var points: [StrokePoint]
+  var predictedPoints: [StrokePoint] = []
   let brush_size: Double = 1
 
   init(points: [StrokePoint]) {
@@ -18,5 +18,8 @@ class SmoothFixedPenStroke : Stroke {
     }
 
     renderer.catmullRom(points)
+    if predictedPoints.count > 1 {
+      renderer.linear(predictedPoints)
+    }
   }
 }

@@ -4,6 +4,7 @@
 */
 class FixedPenStroke : Stroke {
   var points: [StrokePoint]
+  var predictedPoints: [StrokePoint] = []
   let brush_size: Double = 1
 
   init(points: [StrokePoint]) {

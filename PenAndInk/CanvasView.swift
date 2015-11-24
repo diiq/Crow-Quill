@@ -1,6 +1,7 @@
 import UIKit
 
 class CanvasView: UIView {
+  let isPredictionEnabled = UIDevice.currentDevice().userInterfaceIdiom == .Pad
   var renderer: UIRenderer!
   let drawing = Drawing<CGImage>()
   let activeDrawing = ActiveDrawing()
@@ -28,8 +29,15 @@ class CanvasView: UIView {
 
   func drawTouches(indexTouches: Set<UITouch>, withEvent event: UIEvent?) {
     for indexTouch in indexTouches {
+      activeDrawing.forgetPredictions(indexTouch)
+      
       let touches = event?.coalescedTouchesForTouch(indexTouch) ?? []
       activeDrawing.addOrUpdateStroke(indexTouch, touches: touches)
+
+      if isPredictionEnabled {
+        let predictedTouches = event?.predictedTouchesForTouch(indexTouch) ?? []
+        activeDrawing.updateStrokePredictions(indexTouch, touches: predictedTouches)
+      }
     }
     setNeedsDisplay()
   }

@@ -5,6 +5,7 @@ import UIKit
 
 protocol Stroke : Drawable {
   var points: [StrokePoint] { get set }
+  var predictedPoints: [StrokePoint] { get set }
 }
 
 extension Stroke {
@@ -14,7 +15,13 @@ extension Stroke {
     points.append(point)
   }
 
-  func finalize() {
-    //  return SmoothFixedPenStroke(points: points)
+  mutating func addPredictedPoint(touch: UITouch) {
+    let location = touch.preciseLocationInView(touch.view)
+    let point = StrokePoint(x: Double(location.x), y: Double(location.y), weight: 1)
+    predictedPoints.append(point)
+  }
+
+  mutating func finalize() {
+    predictedPoints = []
   }
 }

@@ -55,7 +55,6 @@ class CanvasMotionGestureDelegate : NSObject, UIGestureRecognizerDelegate {
 
   func handleScale(gestureRecognizer: UIPinchGestureRecognizer) {
     guard let view = readyWithView(gestureRecognizer) else { return }
-    print("scaling")
     let scale = gestureRecognizer.scale
     view.transform = CGAffineTransformScale(view.transform, scale, scale)
     gestureRecognizer.scale = 1.0
@@ -63,7 +62,6 @@ class CanvasMotionGestureDelegate : NSObject, UIGestureRecognizerDelegate {
 
   func handleRotation(gestureRecognizer: UIRotationGestureRecognizer) {
     guard let view = readyWithView(gestureRecognizer) else { return }
-    print("rotating")
     let rotation = gestureRecognizer.rotation
     view.transform = CGAffineTransformRotate(view.transform, rotation)
     gestureRecognizer.rotation = 0
@@ -71,7 +69,6 @@ class CanvasMotionGestureDelegate : NSObject, UIGestureRecognizerDelegate {
 
   func handlePan(gestureRecognizer: UIPanGestureRecognizer) {
     guard let view = readyWithView(gestureRecognizer) else { return }
-    print("panning")
     let translation = gestureRecognizer.translationInView(view)
     view.transform = CGAffineTransformTranslate(view.transform, translation.x, translation.y)
     gestureRecognizer.setTranslation(CGPointZero, inView: view)

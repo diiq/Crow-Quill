@@ -59,7 +59,7 @@
 		2A1CFB981BFF70FD00C7A111 /* TimelineTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineTests.swift; sourceTree = "<group>"; };
 		2A1CFB9A1BFFB2BD00C7A111 /* SnapshotTimeline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotTimeline.swift; sourceTree = "<group>"; };
 		2A1CFB9C1BFFB99600C7A111 /* SnapshotTimelineTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotTimelineTests.swift; sourceTree = "<group>"; };
-		2AD5C5111BFC008500215D44 /* PenAndInk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PenAndInk.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2AD5C5111BFC008500215D44 /* Crow Quill.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Crow Quill.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AD5C5141BFC008500215D44 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2AD5C5161BFC008500215D44 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		2AD5C5191BFC008500215D44 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -130,7 +130,7 @@
 		2AD5C5121BFC008500215D44 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2AD5C5111BFC008500215D44 /* PenAndInk.app */,
+				2AD5C5111BFC008500215D44 /* Crow Quill.app */,
 				2AD5C5251BFC008500215D44 /* PenAndInkTests.xctest */,
 				2AD5C5301BFC008500215D44 /* PenAndInkUITests.xctest */,
 			);
@@ -237,7 +237,7 @@
 			);
 			name = PenAndInk;
 			productName = PenAndInk;
-			productReference = 2AD5C5111BFC008500215D44 /* PenAndInk.app */;
+			productReference = 2AD5C5111BFC008500215D44 /* Crow Quill.app */;
 			productType = "com.apple.product-type.application";
 		};
 		2AD5C5241BFC008500215D44 /* PenAndInkTests */ = {
@@ -523,7 +523,7 @@
 				INFOPLIST_FILE = PenAndInk/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.diiq.PenAndInk;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Crow Quill";
 				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
@@ -537,7 +537,7 @@
 				INFOPLIST_FILE = PenAndInk/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.diiq.PenAndInk;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Crow Quill";
 				PROVISIONING_PROFILE = "";
 			};
 			name = Release;

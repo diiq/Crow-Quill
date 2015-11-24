@@ -17,13 +17,14 @@ class UIRenderer: Renderer, ImageRenderer {
   }
 
   func line(a: StrokePoint, _ b: StrokePoint) {
+    let color = UIColor(red:1, green:0, blue:0, alpha:1.0).CGColor
     CGContextBeginPath(context)
     CGContextMoveToPoint(context, CGFloat(a.x), CGFloat(a.y))
     CGContextAddLineToPoint(context, CGFloat(b.x), CGFloat(b.y))
 
     CGContextSetStrokeColorWithColor(context, color)
     CGContextSetLineCap(context, .Round)
-    CGContextSetLineWidth(context, 1)
+    CGContextSetLineWidth(context, 5)
     CGContextStrokePath(context)
   }
 

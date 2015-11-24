@@ -27,7 +27,6 @@ class TestRendererTests: XCTestCase {
     ]
 
     renderer.catmullRom(points)
-    print(renderer.currentImage)
     XCTAssertEqual(renderer.currentImage, [
       "bezier: <10.0, 50.0>, [<10.0, 50.0>, <10.7655948217843, 28.1320530324688>], <13.0, 20.0>",
       "bezier: <13.0, 20.0>, [<14.655612127817, 13.9744475371484>, <16.4674918456904, 5.62233954523958>], <20.0, 5.0>",
