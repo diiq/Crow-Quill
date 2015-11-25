@@ -17,9 +17,6 @@ class SmoothFixedPenStroke : Stroke {
       return
     }
 
-    renderer.catmullRom(points)
-    if predictedPoints.count > 1 {
-      renderer.linear(predictedPoints)
-    }
+    renderer.catmullRom(points + predictedPoints)
   }
 }
