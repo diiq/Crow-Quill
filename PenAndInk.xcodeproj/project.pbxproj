@@ -11,6 +11,8 @@
 		2A1CFB991BFF70FD00C7A111 /* TimelineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1CFB981BFF70FD00C7A111 /* TimelineTests.swift */; };
 		2A1CFB9B1BFFB2BD00C7A111 /* SnapshotTimeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1CFB9A1BFFB2BD00C7A111 /* SnapshotTimeline.swift */; };
 		2A1CFB9D1BFFB99600C7A111 /* SnapshotTimelineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1CFB9C1BFFB99600C7A111 /* SnapshotTimelineTests.swift */; };
+		2A73EAB31C053336009594E6 /* MetalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A73EAB21C053336009594E6 /* MetalViewController.swift */; };
+		2A73EAB51C053808009594E6 /* SimpleShader.metal in Sources */ = {isa = PBXBuildFile; fileRef = 2A73EAB41C053808009594E6 /* SimpleShader.metal */; };
 		2AD5C5151BFC008500215D44 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD5C5141BFC008500215D44 /* AppDelegate.swift */; };
 		2AD5C5171BFC008500215D44 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD5C5161BFC008500215D44 /* ViewController.swift */; };
 		2AD5C51A1BFC008500215D44 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2AD5C5181BFC008500215D44 /* Main.storyboard */; };
@@ -59,6 +61,8 @@
 		2A1CFB981BFF70FD00C7A111 /* TimelineTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineTests.swift; sourceTree = "<group>"; };
 		2A1CFB9A1BFFB2BD00C7A111 /* SnapshotTimeline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotTimeline.swift; sourceTree = "<group>"; };
 		2A1CFB9C1BFFB99600C7A111 /* SnapshotTimelineTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotTimelineTests.swift; sourceTree = "<group>"; };
+		2A73EAB21C053336009594E6 /* MetalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalViewController.swift; sourceTree = "<group>"; };
+		2A73EAB41C053808009594E6 /* SimpleShader.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = SimpleShader.metal; sourceTree = "<group>"; };
 		2AD5C5111BFC008500215D44 /* Crow Quill.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Crow Quill.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AD5C5141BFC008500215D44 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2AD5C5161BFC008500215D44 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -116,6 +120,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2A73EAB11C05330D009594E6 /* metal */ = {
+			isa = PBXGroup;
+			children = (
+				2A73EAB41C053808009594E6 /* SimpleShader.metal */,
+			);
+			name = metal;
+			sourceTree = "<group>";
+		};
 		2AD5C5081BFC008400215D44 = {
 			isa = PBXGroup;
 			children = (
@@ -143,6 +155,7 @@
 				2AD5C5431BFC00A000215D44 /* Drawing */,
 				2AD5C5141BFC008500215D44 /* AppDelegate.swift */,
 				2AD5C5161BFC008500215D44 /* ViewController.swift */,
+				2A73EAB21C053336009594E6 /* MetalViewController.swift */,
 				2AD5C5601BFD810800215D44 /* CanvasView.swift */,
 				2AD5C5701C025D9300215D44 /* CanvasMotionGestureDelegate.swift */,
 				2AD5C5181BFC008500215D44 /* Main.storyboard */,
@@ -202,6 +215,7 @@
 		2AD5C5621BFFF7BA00215D44 /* Renderers */ = {
 			isa = PBXGroup;
 			children = (
+				2A73EAB11C05330D009594E6 /* metal */,
 				2AD5C5441BFC00C500215D44 /* Renderer.swift */,
 				2AD5C5501BFC01CE00215D44 /* TestRenderer.swift */,
 				2AD5C55E1BFD6DF100215D44 /* UIRenderer.swift */,
@@ -363,12 +377,14 @@
 				2AD5C5491BFC013D00215D44 /* FixedPenStroke.swift in Sources */,
 				2AD5C54B1BFC015F00215D44 /* Drawing.swift in Sources */,
 				2AD5C56F1C0170CD00215D44 /* ActiveDrawing.swift in Sources */,
+				2A73EAB31C053336009594E6 /* MetalViewController.swift in Sources */,
 				2AD5C55F1BFD6DF100215D44 /* UIRenderer.swift in Sources */,
 				2AD5C5511BFC01CE00215D44 /* TestRenderer.swift in Sources */,
 				2AD5C5591BFD46D500215D44 /* Stroke.swift in Sources */,
 				2A1CFB9B1BFFB2BD00C7A111 /* SnapshotTimeline.swift in Sources */,
 				2AD5C56B1C0120B600215D44 /* SmoothFixedPenStroke.swift in Sources */,
 				2AD5C5171BFC008500215D44 /* ViewController.swift in Sources */,
+				2A73EAB51C053808009594E6 /* SimpleShader.metal in Sources */,
 				2AD5C5451BFC00C500215D44 /* Renderer.swift in Sources */,
 				2AD5C5151BFC008500215D44 /* AppDelegate.swift in Sources */,
 				2AD5C5471BFC010800215D44 /* Drawable.swift in Sources */,
