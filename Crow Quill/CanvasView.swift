@@ -12,6 +12,9 @@ class CanvasView: UIView {
 
   override func drawRect(rect: CGRect) {
     let context = UIGraphicsGetCurrentContext()!
+    if renderer == nil {
+      renderer = UIRenderer(bounds: bounds)
+    }
     renderer.context = context
     drawing.draw(renderer)
     activeDrawing.draw(renderer)

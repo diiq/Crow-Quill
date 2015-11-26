@@ -38,16 +38,6 @@
                ReferencedContainer = "container:Crow Quill.xcodeproj">
             </BuildableReference>
          </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "2AAF8DF01C06A25D00E0C356"
-               BuildableName = "Crow Quill UI Tests.xctest"
-               BlueprintName = "Crow Quill UI Tests"
-               ReferencedContainer = "container:Crow Quill.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

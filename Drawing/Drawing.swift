@@ -20,6 +20,7 @@ class Drawing<Image>: ImageDrawable {
   typealias ImageType = Image
   private var strokes = Timeline<Stroke>()
   private var snapshots = SnapshotTimeline<ImageType>()
+  var pointsPerSnapshot = 50
 
   func draw<R: ImageRenderer where R.ImageType == ImageType>(renderer: R) {
     // Draw the most recent snapshot
@@ -33,7 +34,10 @@ class Drawing<Image>: ImageDrawable {
     // Preserve the current rendered state of the drawing
     // is renderer.currentImage expensive enough I should skip it when
     // I'm not actually snapshotting?
-    snapshots.add(renderer.currentImage, index: strokes.currentIndex)
+    if shouldSnapshot() {
+      print("snapshot!")
+      snapshots.add(renderer.currentImage, index: strokes.currentIndex)
+    }
   }
 
   func addStroke(stroke: Stroke) {
@@ -53,6 +57,16 @@ class Drawing<Image>: ImageDrawable {
 
   private func mostRecentSnapshotIndex() -> Int {
     return snapshots.currentSnapshot()?.eventIndex ?? 0
+  }
+
+  private func shouldSnapshot() -> Bool {
+    return pointsSinceSnapshot() > pointsPerSnapshot
+  }
+
+  private func pointsSinceSnapshot() -> Int {
+    let liveStrokes = strokes.events(since: mostRecentSnapshotIndex())
+    let counts = liveStrokes.map { return $0.points.count }
+    return counts.reduce(0, combine: +)
   }
 }
 

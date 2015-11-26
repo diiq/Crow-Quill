@@ -2,13 +2,10 @@ import UIKit
 
 class ViewController: UIViewController {
   var gestureDelegate: CanvasGestureDelegate!
-  var canvasView: CanvasView {
-    return view as! CanvasView
-  }
+  @IBOutlet weak var canvas: CanvasView!
 
   override func viewDidLoad() {
-    canvasView.setup()
-    gestureDelegate = CanvasGestureDelegate(view: view, canvas: canvasView)
+    gestureDelegate = CanvasGestureDelegate(view: view, canvas: canvas)
   }
 
   override func didReceiveMemoryWarning() {
@@ -17,21 +14,21 @@ class ViewController: UIViewController {
   }
 
   override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-    canvasView.drawTouches(touches, withEvent: event)
+    canvas.drawTouches(touches, withEvent: event)
   }
 
   override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
-    canvasView.drawTouches(touches, withEvent: event)
+    canvas.drawTouches(touches, withEvent: event)
   }
 
   override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
-    canvasView.drawTouches(touches, withEvent: event)
-    canvasView.endTouches(touches)
+    canvas.drawTouches(touches, withEvent: event)
+    canvas.endTouches(touches)
   }
 
   override func touchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?) {
     guard let touches = touches else { return }
-    canvasView.cancelTouches(touches)
+    canvas.cancelTouches(touches)
   }
 
   override func touchesEstimatedPropertiesUpdated(touches: Set<NSObject>) {

@@ -13,12 +13,28 @@
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" customClass="CanvasView" customModule="Crow_Quill" customModuleProvider="target">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pk8-to-KMe" customClass="CanvasView" customModule="Crow_Quill" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Pk8-to-KMe" secondAttribute="trailing" id="0Aa-0V-JpL"/>
+                            <constraint firstItem="Pk8-to-KMe" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="GIV-cT-get"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Pk8-to-KMe" secondAttribute="bottom" id="ccb-nM-U5K"/>
+                            <constraint firstItem="Pk8-to-KMe" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="oQE-eX-cyu"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="canvas" destination="Pk8-to-KMe" id="5CN-l5-S0P"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

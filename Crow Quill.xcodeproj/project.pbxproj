@@ -599,6 +599,7 @@
 				2AAF8DFC1C06A25D00E0C356 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2AAF8DFD1C06A25D00E0C356 /* Build configuration list for PBXNativeTarget "Crow Quill Tests" */ = {
 			isa = XCConfigurationList;
@@ -607,6 +608,7 @@
 				2AAF8DFF1C06A25D00E0C356 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2AAF8E001C06A25D00E0C356 /* Build configuration list for PBXNativeTarget "Crow Quill UI Tests" */ = {
 			isa = XCConfigurationList;
@@ -615,6 +617,7 @@
 				2AAF8E021C06A25D00E0C356 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

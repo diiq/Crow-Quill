@@ -52,17 +52,8 @@ class SnapshotTimeline<ImageType> {
   }
 
   func add(snapshot: ImageType, index: Int) {
-    if shouldSnapshot(index) {
-      snapshots.add(
-        Snapshot<ImageType>(snapshot: snapshot, eventIndex: index)
-      )
-    }
-  }
-
-  private func shouldSnapshot(index: Int) -> Bool {
-    return (
-      currentSnapshot()?.eventIndex != index &&
-        index % snapshotEveryNEvents == 0 &&
-        !snapshots.canRedo())
+    snapshots.add(
+      Snapshot<ImageType>(snapshot: snapshot, eventIndex: index)
+    )
   }
 }

@@ -17,8 +17,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="launch" translatesAutoresizingMaskIntoConstraints="NO" id="ezQ-3L-fmn">
-                                <rect key="frame" x="134" y="10" width="333" height="332"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launch" translatesAutoresizingMaskIntoConstraints="NO" id="ezQ-3L-fmn">
+                                <rect key="frame" x="0.0" y="-724.5" width="600" height="2049"/>
                                 <animations/>
                             </imageView>
                         </subviews>
@@ -28,7 +28,6 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="ezQ-3L-fmn" secondAttribute="trailing" id="9Gf-b4-prU"/>
                             <constraint firstItem="ezQ-3L-fmn" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="Orw-oz-Ghe"/>
-                            <constraint firstItem="ezQ-3L-fmn" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Pfs-qA-5iB"/>
                             <constraint firstItem="ezQ-3L-fmn" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="uba-Tt-5y8"/>
                         </constraints>
                     </view>
