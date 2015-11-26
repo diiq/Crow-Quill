@@ -1,0 +1,510 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2AAF8DD61C06A25D00E0C356 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAF8DD51C06A25D00E0C356 /* AppDelegate.swift */; };
+		2AAF8DD81C06A25D00E0C356 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAF8DD71C06A25D00E0C356 /* ViewController.swift */; };
+		2AAF8DDB1C06A25D00E0C356 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2AAF8DD91C06A25D00E0C356 /* Main.storyboard */; };
+		2AAF8DDD1C06A25D00E0C356 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AAF8DDC1C06A25D00E0C356 /* Assets.xcassets */; };
+		2AAF8DE01C06A25D00E0C356 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2AAF8DDE1C06A25D00E0C356 /* LaunchScreen.storyboard */; };
+		2AAF8DEB1C06A25D00E0C356 /* Crow_QuillTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAF8DEA1C06A25D00E0C356 /* Crow_QuillTests.swift */; };
+		2AAF8DF61C06A25D00E0C356 /* Crow_QuillUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAF8DF51C06A25D00E0C356 /* Crow_QuillUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2AAF8DE71C06A25D00E0C356 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2AAF8DCA1C06A25D00E0C356 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2AAF8DD11C06A25D00E0C356;
+			remoteInfo = "Crow Quill";
+		};
+		2AAF8DF21C06A25D00E0C356 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2AAF8DCA1C06A25D00E0C356 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2AAF8DD11C06A25D00E0C356;
+			remoteInfo = "Crow Quill";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		2AAF8DD21C06A25D00E0C356 /* Crow Quill.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Crow Quill.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2AAF8DD51C06A25D00E0C356 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		2AAF8DD71C06A25D00E0C356 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		2AAF8DDA1C06A25D00E0C356 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		2AAF8DDC1C06A25D00E0C356 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2AAF8DDF1C06A25D00E0C356 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		2AAF8DE11C06A25D00E0C356 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2AAF8DE61C06A25D00E0C356 /* Crow QuillTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Crow QuillTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2AAF8DEA1C06A25D00E0C356 /* Crow_QuillTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Crow_QuillTests.swift; sourceTree = "<group>"; };
+		2AAF8DEC1C06A25D00E0C356 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2AAF8DF11C06A25D00E0C356 /* Crow QuillUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Crow QuillUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2AAF8DF51C06A25D00E0C356 /* Crow_QuillUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Crow_QuillUITests.swift; sourceTree = "<group>"; };
+		2AAF8DF71C06A25D00E0C356 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2AAF8DCF1C06A25D00E0C356 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2AAF8DE31C06A25D00E0C356 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2AAF8DEE1C06A25D00E0C356 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2AAF8DC91C06A25D00E0C356 = {
+			isa = PBXGroup;
+			children = (
+				2AAF8DD41C06A25D00E0C356 /* Crow Quill */,
+				2AAF8DE91C06A25D00E0C356 /* Crow QuillTests */,
+				2AAF8DF41C06A25D00E0C356 /* Crow QuillUITests */,
+				2AAF8DD31C06A25D00E0C356 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2AAF8DD31C06A25D00E0C356 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2AAF8DD21C06A25D00E0C356 /* Crow Quill.app */,
+				2AAF8DE61C06A25D00E0C356 /* Crow QuillTests.xctest */,
+				2AAF8DF11C06A25D00E0C356 /* Crow QuillUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2AAF8DD41C06A25D00E0C356 /* Crow Quill */ = {
+			isa = PBXGroup;
+			children = (
+				2AAF8DD51C06A25D00E0C356 /* AppDelegate.swift */,
+				2AAF8DD71C06A25D00E0C356 /* ViewController.swift */,
+				2AAF8DD91C06A25D00E0C356 /* Main.storyboard */,
+				2AAF8DDC1C06A25D00E0C356 /* Assets.xcassets */,
+				2AAF8DDE1C06A25D00E0C356 /* LaunchScreen.storyboard */,
+				2AAF8DE11C06A25D00E0C356 /* Info.plist */,
+			);
+			path = "Crow Quill";
+			sourceTree = "<group>";
+		};
+		2AAF8DE91C06A25D00E0C356 /* Crow QuillTests */ = {
+			isa = PBXGroup;
+			children = (
+				2AAF8DEA1C06A25D00E0C356 /* Crow_QuillTests.swift */,
+				2AAF8DEC1C06A25D00E0C356 /* Info.plist */,
+			);
+			path = "Crow QuillTests";
+			sourceTree = "<group>";
+		};
+		2AAF8DF41C06A25D00E0C356 /* Crow QuillUITests */ = {
+			isa = PBXGroup;
+			children = (
+				2AAF8DF51C06A25D00E0C356 /* Crow_QuillUITests.swift */,
+				2AAF8DF71C06A25D00E0C356 /* Info.plist */,
+			);
+			path = "Crow QuillUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2AAF8DD11C06A25D00E0C356 /* Crow Quill */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2AAF8DFA1C06A25D00E0C356 /* Build configuration list for PBXNativeTarget "Crow Quill" */;
+			buildPhases = (
+				2AAF8DCE1C06A25D00E0C356 /* Sources */,
+				2AAF8DCF1C06A25D00E0C356 /* Frameworks */,
+				2AAF8DD01C06A25D00E0C356 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Crow Quill";
+			productName = "Crow Quill";
+			productReference = 2AAF8DD21C06A25D00E0C356 /* Crow Quill.app */;
+			productType = "com.apple.product-type.application";
+		};
+		2AAF8DE51C06A25D00E0C356 /* Crow QuillTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2AAF8DFD1C06A25D00E0C356 /* Build configuration list for PBXNativeTarget "Crow QuillTests" */;
+			buildPhases = (
+				2AAF8DE21C06A25D00E0C356 /* Sources */,
+				2AAF8DE31C06A25D00E0C356 /* Frameworks */,
+				2AAF8DE41C06A25D00E0C356 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2AAF8DE81C06A25D00E0C356 /* PBXTargetDependency */,
+			);
+			name = "Crow QuillTests";
+			productName = "Crow QuillTests";
+			productReference = 2AAF8DE61C06A25D00E0C356 /* Crow QuillTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		2AAF8DF01C06A25D00E0C356 /* Crow QuillUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2AAF8E001C06A25D00E0C356 /* Build configuration list for PBXNativeTarget "Crow QuillUITests" */;
+			buildPhases = (
+				2AAF8DED1C06A25D00E0C356 /* Sources */,
+				2AAF8DEE1C06A25D00E0C356 /* Frameworks */,
+				2AAF8DEF1C06A25D00E0C356 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2AAF8DF31C06A25D00E0C356 /* PBXTargetDependency */,
+			);
+			name = "Crow QuillUITests";
+			productName = "Crow QuillUITests";
+			productReference = 2AAF8DF11C06A25D00E0C356 /* Crow QuillUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2AAF8DCA1C06A25D00E0C356 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0710;
+				LastUpgradeCheck = 0710;
+				ORGANIZATIONNAME = "Sam Bleckley";
+				TargetAttributes = {
+					2AAF8DD11C06A25D00E0C356 = {
+						CreatedOnToolsVersion = 7.1.1;
+						DevelopmentTeam = 5JV8UJL93W;
+					};
+					2AAF8DE51C06A25D00E0C356 = {
+						CreatedOnToolsVersion = 7.1.1;
+						DevelopmentTeam = 5JV8UJL93W;
+						TestTargetID = 2AAF8DD11C06A25D00E0C356;
+					};
+					2AAF8DF01C06A25D00E0C356 = {
+						CreatedOnToolsVersion = 7.1.1;
+						DevelopmentTeam = 5JV8UJL93W;
+						TestTargetID = 2AAF8DD11C06A25D00E0C356;
+					};
+				};
+			};
+			buildConfigurationList = 2AAF8DCD1C06A25D00E0C356 /* Build configuration list for PBXProject "Crow Quill" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2AAF8DC91C06A25D00E0C356;
+			productRefGroup = 2AAF8DD31C06A25D00E0C356 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2AAF8DD11C06A25D00E0C356 /* Crow Quill */,
+				2AAF8DE51C06A25D00E0C356 /* Crow QuillTests */,
+				2AAF8DF01C06A25D00E0C356 /* Crow QuillUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2AAF8DD01C06A25D00E0C356 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2AAF8DE01C06A25D00E0C356 /* LaunchScreen.storyboard in Resources */,
+				2AAF8DDD1C06A25D00E0C356 /* Assets.xcassets in Resources */,
+				2AAF8DDB1C06A25D00E0C356 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2AAF8DE41C06A25D00E0C356 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2AAF8DEF1C06A25D00E0C356 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2AAF8DCE1C06A25D00E0C356 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2AAF8DD81C06A25D00E0C356 /* ViewController.swift in Sources */,
+				2AAF8DD61C06A25D00E0C356 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2AAF8DE21C06A25D00E0C356 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2AAF8DEB1C06A25D00E0C356 /* Crow_QuillTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2AAF8DED1C06A25D00E0C356 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2AAF8DF61C06A25D00E0C356 /* Crow_QuillUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2AAF8DE81C06A25D00E0C356 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2AAF8DD11C06A25D00E0C356 /* Crow Quill */;
+			targetProxy = 2AAF8DE71C06A25D00E0C356 /* PBXContainerItemProxy */;
+		};
+		2AAF8DF31C06A25D00E0C356 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2AAF8DD11C06A25D00E0C356 /* Crow Quill */;
+			targetProxy = 2AAF8DF21C06A25D00E0C356 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		2AAF8DD91C06A25D00E0C356 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2AAF8DDA1C06A25D00E0C356 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		2AAF8DDE1C06A25D00E0C356 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2AAF8DDF1C06A25D00E0C356 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2AAF8DF81C06A25D00E0C356 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2AAF8DF91C06A25D00E0C356 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2AAF8DFB1C06A25D00E0C356 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Crow Quill/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.diiq.Crow-Quill";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		2AAF8DFC1C06A25D00E0C356 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Crow Quill/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.diiq.Crow-Quill";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		2AAF8DFE1C06A25D00E0C356 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "Crow QuillTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.diiq.Crow-QuillTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Crow Quill.app/Crow Quill";
+			};
+			name = Debug;
+		};
+		2AAF8DFF1C06A25D00E0C356 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "Crow QuillTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.diiq.Crow-QuillTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Crow Quill.app/Crow Quill";
+			};
+			name = Release;
+		};
+		2AAF8E011C06A25D00E0C356 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "Crow QuillUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.diiq.Crow-QuillUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "Crow Quill";
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		2AAF8E021C06A25D00E0C356 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "Crow QuillUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.diiq.Crow-QuillUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "Crow Quill";
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2AAF8DCD1C06A25D00E0C356 /* Build configuration list for PBXProject "Crow Quill" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2AAF8DF81C06A25D00E0C356 /* Debug */,
+				2AAF8DF91C06A25D00E0C356 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2AAF8DFA1C06A25D00E0C356 /* Build configuration list for PBXNativeTarget "Crow Quill" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2AAF8DFB1C06A25D00E0C356 /* Debug */,
+				2AAF8DFC1C06A25D00E0C356 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		2AAF8DFD1C06A25D00E0C356 /* Build configuration list for PBXNativeTarget "Crow QuillTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2AAF8DFE1C06A25D00E0C356 /* Debug */,
+				2AAF8DFF1C06A25D00E0C356 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		2AAF8E001C06A25D00E0C356 /* Build configuration list for PBXNativeTarget "Crow QuillUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2AAF8E011C06A25D00E0C356 /* Debug */,
+				2AAF8E021C06A25D00E0C356 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2AAF8DCA1C06A25D00E0C356 /* Project object */;
+}
