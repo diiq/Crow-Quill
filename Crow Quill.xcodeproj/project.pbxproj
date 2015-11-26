@@ -27,7 +27,7 @@
 		2AAF8E1B1C06A3C200E0C356 /* LinearFixedPenStroke.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAF8E1A1C06A3C200E0C356 /* LinearFixedPenStroke.swift */; };
 		2AAF8E1D1C06A3DC00E0C356 /* SmoothFixedPenStroke.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAF8E1C1C06A3DC00E0C356 /* SmoothFixedPenStroke.swift */; };
 		2AAF8E1F1C06A3E900E0C356 /* Stroke.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAF8E1E1C06A3E900E0C356 /* Stroke.swift */; };
-		2AAF8E211C06A41800E0C356 /* CanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAF8E201C06A41800E0C356 /* CanvasView.swift */; };
+		2AAF8E211C06A41800E0C356 /* DrawingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAF8E201C06A41800E0C356 /* DrawingView.swift */; };
 		2AAF8E231C06A43900E0C356 /* CanvasGestureDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAF8E221C06A43900E0C356 /* CanvasGestureDelegate.swift */; };
 		2AAF8E2C1C06A58900E0C356 /* TestRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAF8E131C06A36D00E0C356 /* TestRenderer.swift */; };
 		2AAF8E2D1C06A59700E0C356 /* TestRendererTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAF8E291C06A51C00E0C356 /* TestRendererTests.swift */; };
@@ -82,7 +82,7 @@
 		2AAF8E1A1C06A3C200E0C356 /* LinearFixedPenStroke.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinearFixedPenStroke.swift; sourceTree = "<group>"; };
 		2AAF8E1C1C06A3DC00E0C356 /* SmoothFixedPenStroke.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmoothFixedPenStroke.swift; sourceTree = "<group>"; };
 		2AAF8E1E1C06A3E900E0C356 /* Stroke.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stroke.swift; sourceTree = "<group>"; };
-		2AAF8E201C06A41800E0C356 /* CanvasView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanvasView.swift; sourceTree = "<group>"; };
+		2AAF8E201C06A41800E0C356 /* DrawingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawingView.swift; sourceTree = "<group>"; };
 		2AAF8E221C06A43900E0C356 /* CanvasGestureDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanvasGestureDelegate.swift; sourceTree = "<group>"; };
 		2AAF8E291C06A51C00E0C356 /* TestRendererTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestRendererTests.swift; sourceTree = "<group>"; };
 		2AAF8E2E1C06A6CC00E0C356 /* DrawingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawingTests.swift; sourceTree = "<group>"; };
@@ -143,7 +143,7 @@
 			children = (
 				2AAF8DD51C06A25D00E0C356 /* AppDelegate.swift */,
 				2AAF8DD71C06A25D00E0C356 /* ViewController.swift */,
-				2AAF8E201C06A41800E0C356 /* CanvasView.swift */,
+				2AAF8E201C06A41800E0C356 /* DrawingView.swift */,
 				2A2074871C07BF1E003B0918 /* ActiveDrawingView.swift */,
 				2AAF8E221C06A43900E0C356 /* CanvasGestureDelegate.swift */,
 				2AAF8DD91C06A25D00E0C356 /* Main.storyboard */,
@@ -356,7 +356,7 @@
 			files = (
 				2AAF8E0D1C06A31000E0C356 /* SnapshotTimeline.swift in Sources */,
 				2AAF8E0F1C06A32500E0C356 /* Snapshot.swift in Sources */,
-				2AAF8E211C06A41800E0C356 /* CanvasView.swift in Sources */,
+				2AAF8E211C06A41800E0C356 /* DrawingView.swift in Sources */,
 				2A2074881C07BF1E003B0918 /* ActiveDrawingView.swift in Sources */,
 				2AAF8E2C1C06A58900E0C356 /* TestRenderer.swift in Sources */,
 				2AAF8E1B1C06A3C200E0C356 /* LinearFixedPenStroke.swift in Sources */,

@@ -4,7 +4,7 @@ class ActiveDrawingView: UIView {
   let isPredictionEnabled = UIDevice.currentDevice().userInterfaceIdiom == .Pad
   var renderer: UIRenderer!
   let activeDrawing = ActiveDrawing()
-  var drawing: CanvasView!
+  var drawing: DrawingView!
   
   override func drawRect(rect: CGRect) {
     let context = UIGraphicsGetCurrentContext()!

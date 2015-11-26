@@ -1,13 +1,13 @@
 import UIKit
 
 class ViewController: UIViewController {
-  @IBOutlet weak var canvas: CanvasView!
+  @IBOutlet weak var drawing: DrawingView!
   @IBOutlet weak var activeDrawing: ActiveDrawingView!
   var gestureDelegate: CanvasGestureDelegate!
 
   override func viewDidLoad() {
-    gestureDelegate = CanvasGestureDelegate(view: view, canvas: canvas)
-    activeDrawing.drawing = canvas
+    gestureDelegate = CanvasGestureDelegate(view: view, drawing: drawing)
+    activeDrawing.drawing = drawing
   }
 
   override func didReceiveMemoryWarning() {

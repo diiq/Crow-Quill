@@ -1,33 +1,33 @@
 import UIKit
 
 class CanvasGestureDelegate : NSObject, UIGestureRecognizerDelegate {
-  let canvasMotions: [UIGestureRecognizer]
-  let actions: [UIGestureRecognizer]
-  let canvasView: CanvasView
+  private let canvasMotions: [UIGestureRecognizer]
+  private let actions: [UIGestureRecognizer]
+  let drawing: DrawingView
   let view: UIView
-  let pinchRecognizer = UIPinchGestureRecognizer()
-  let rotateRecognizer = UIRotationGestureRecognizer()
-  let panRecognizer: UIPanGestureRecognizer = {
+  private let pinchRecognizer = UIPinchGestureRecognizer()
+  private let rotateRecognizer = UIRotationGestureRecognizer()
+  private let panRecognizer: UIPanGestureRecognizer = {
     let it = UIPanGestureRecognizer()
     it.minimumNumberOfTouches = 2
     it.maximumNumberOfTouches = 2
     return it
   }()
 
-  let undoTapRecognizer: UITapGestureRecognizer = {
+  private let undoTapRecognizer: UITapGestureRecognizer = {
     let it = UITapGestureRecognizer()
     it.numberOfTouchesRequired = 2
     return it
   }()
 
-  let redoTapRecognizer: UITapGestureRecognizer = {
+  private let redoTapRecognizer: UITapGestureRecognizer = {
     let it = UITapGestureRecognizer()
     it.numberOfTouchesRequired = 3
     return it
   }()
 
-  init(view: UIView, canvas: CanvasView) {
-    canvasView = canvas
+  init(view: UIView, drawing: DrawingView) {
+    self.drawing = drawing
     self.view = view
     self.canvasMotions = [pinchRecognizer, rotateRecognizer, panRecognizer]
     self.actions = [undoTapRecognizer, redoTapRecognizer]
@@ -75,11 +75,11 @@ class CanvasGestureDelegate : NSObject, UIGestureRecognizerDelegate {
   }
 
   func undoStroke(gestureRecognizer: UITapGestureRecognizer) {
-    canvasView.undoStroke()
+    drawing.undoStroke()
   }
 
   func redoStroke(gestureRecognizer: UIPanGestureRecognizer) {
-    canvasView.redoStroke()
+    drawing.redoStroke()
   }
 
   func gestureRecognizer(gestureRecognizer: UIGestureRecognizer,

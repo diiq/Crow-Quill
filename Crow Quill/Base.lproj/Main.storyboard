@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pk8-to-KMe" customClass="CanvasView" customModule="Crow_Quill" customModuleProvider="target">
+                            <view multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pk8-to-KMe" customClass="DrawingView" customModule="Crow_Quill" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="20" width="600" height="580"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -43,7 +43,7 @@
                     </view>
                     <connections>
                         <outlet property="activeDrawing" destination="7zb-dU-yd1" id="lKI-4i-lpi"/>
-                        <outlet property="canvas" destination="Pk8-to-KMe" id="5CN-l5-S0P"/>
+                        <outlet property="drawing" destination="Pk8-to-KMe" id="ZX2-ee-r20"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

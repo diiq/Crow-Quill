@@ -1,6 +1,6 @@
 import UIKit
 
-class CanvasView: UIView {
+class DrawingView: UIView {
   let isPredictionEnabled = UIDevice.currentDevice().userInterfaceIdiom == .Pad
   var renderer: UIRenderer!
   var drawing = Drawing<CGImage>()
