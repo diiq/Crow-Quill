@@ -14,6 +14,26 @@
 		2AAF8DE01C06A25D00E0C356 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2AAF8DDE1C06A25D00E0C356 /* LaunchScreen.storyboard */; };
 		2AAF8DEB1C06A25D00E0C356 /* Crow_QuillTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAF8DEA1C06A25D00E0C356 /* Crow_QuillTests.swift */; };
 		2AAF8DF61C06A25D00E0C356 /* Crow_QuillUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAF8DF51C06A25D00E0C356 /* Crow_QuillUITests.swift */; };
+		2AAF8E051C06A2AB00E0C356 /* Drawable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAF8E041C06A2AB00E0C356 /* Drawable.swift */; };
+		2AAF8E071C06A2BF00E0C356 /* Drawing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAF8E061C06A2BF00E0C356 /* Drawing.swift */; };
+		2AAF8E091C06A2DD00E0C356 /* ActiveDrawing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAF8E081C06A2DD00E0C356 /* ActiveDrawing.swift */; };
+		2AAF8E0B1C06A2FF00E0C356 /* Timeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAF8E0A1C06A2FF00E0C356 /* Timeline.swift */; };
+		2AAF8E0D1C06A31000E0C356 /* SnapshotTimeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAF8E0C1C06A31000E0C356 /* SnapshotTimeline.swift */; };
+		2AAF8E0F1C06A32500E0C356 /* Snapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAF8E0E1C06A32500E0C356 /* Snapshot.swift */; };
+		2AAF8E121C06A35700E0C356 /* Renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAF8E111C06A35700E0C356 /* Renderer.swift */; };
+		2AAF8E161C06A37F00E0C356 /* UIRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAF8E151C06A37F00E0C356 /* UIRenderer.swift */; };
+		2AAF8E191C06A3A500E0C356 /* StrokePoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAF8E181C06A3A500E0C356 /* StrokePoint.swift */; };
+		2AAF8E1B1C06A3C200E0C356 /* LinearFixedPenStroke.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAF8E1A1C06A3C200E0C356 /* LinearFixedPenStroke.swift */; };
+		2AAF8E1D1C06A3DC00E0C356 /* SmoothFixedPenStroke.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAF8E1C1C06A3DC00E0C356 /* SmoothFixedPenStroke.swift */; };
+		2AAF8E1F1C06A3E900E0C356 /* Stroke.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAF8E1E1C06A3E900E0C356 /* Stroke.swift */; };
+		2AAF8E211C06A41800E0C356 /* CanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAF8E201C06A41800E0C356 /* CanvasView.swift */; };
+		2AAF8E231C06A43900E0C356 /* CanvasGestureDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAF8E221C06A43900E0C356 /* CanvasGestureDelegate.swift */; };
+		2AAF8E2C1C06A58900E0C356 /* TestRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAF8E131C06A36D00E0C356 /* TestRenderer.swift */; };
+		2AAF8E2D1C06A59700E0C356 /* TestRendererTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAF8E291C06A51C00E0C356 /* TestRendererTests.swift */; };
+		2AAF8E331C06A6FE00E0C356 /* TimelineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAF8E321C06A6FE00E0C356 /* TimelineTests.swift */; };
+		2AAF8E351C06A71200E0C356 /* LinearFixedPenStrokeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAF8E341C06A71200E0C356 /* LinearFixedPenStrokeTests.swift */; };
+		2AAF8E361C06A72700E0C356 /* SnapshotTimelineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAF8E301C06A6EA00E0C356 /* SnapshotTimelineTests.swift */; };
+		2AAF8E371C06A72A00E0C356 /* DrawingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAF8E2E1C06A6CC00E0C356 /* DrawingTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,12 +61,32 @@
 		2AAF8DDC1C06A25D00E0C356 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2AAF8DDF1C06A25D00E0C356 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2AAF8DE11C06A25D00E0C356 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2AAF8DE61C06A25D00E0C356 /* Crow QuillTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Crow QuillTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2AAF8DE61C06A25D00E0C356 /* Crow Quill Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Crow Quill Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AAF8DEA1C06A25D00E0C356 /* Crow_QuillTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Crow_QuillTests.swift; sourceTree = "<group>"; };
 		2AAF8DEC1C06A25D00E0C356 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2AAF8DF11C06A25D00E0C356 /* Crow QuillUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Crow QuillUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2AAF8DF11C06A25D00E0C356 /* Crow Quill UI Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Crow Quill UI Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AAF8DF51C06A25D00E0C356 /* Crow_QuillUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Crow_QuillUITests.swift; sourceTree = "<group>"; };
 		2AAF8DF71C06A25D00E0C356 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2AAF8E041C06A2AB00E0C356 /* Drawable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Drawable.swift; sourceTree = "<group>"; };
+		2AAF8E061C06A2BF00E0C356 /* Drawing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Drawing.swift; sourceTree = "<group>"; };
+		2AAF8E081C06A2DD00E0C356 /* ActiveDrawing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActiveDrawing.swift; sourceTree = "<group>"; };
+		2AAF8E0A1C06A2FF00E0C356 /* Timeline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timeline.swift; sourceTree = "<group>"; };
+		2AAF8E0C1C06A31000E0C356 /* SnapshotTimeline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotTimeline.swift; sourceTree = "<group>"; };
+		2AAF8E0E1C06A32500E0C356 /* Snapshot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Snapshot.swift; sourceTree = "<group>"; };
+		2AAF8E111C06A35700E0C356 /* Renderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Renderer.swift; sourceTree = "<group>"; };
+		2AAF8E131C06A36D00E0C356 /* TestRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestRenderer.swift; sourceTree = "<group>"; };
+		2AAF8E151C06A37F00E0C356 /* UIRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIRenderer.swift; sourceTree = "<group>"; };
+		2AAF8E181C06A3A500E0C356 /* StrokePoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StrokePoint.swift; sourceTree = "<group>"; };
+		2AAF8E1A1C06A3C200E0C356 /* LinearFixedPenStroke.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinearFixedPenStroke.swift; sourceTree = "<group>"; };
+		2AAF8E1C1C06A3DC00E0C356 /* SmoothFixedPenStroke.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmoothFixedPenStroke.swift; sourceTree = "<group>"; };
+		2AAF8E1E1C06A3E900E0C356 /* Stroke.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stroke.swift; sourceTree = "<group>"; };
+		2AAF8E201C06A41800E0C356 /* CanvasView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanvasView.swift; sourceTree = "<group>"; };
+		2AAF8E221C06A43900E0C356 /* CanvasGestureDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanvasGestureDelegate.swift; sourceTree = "<group>"; };
+		2AAF8E291C06A51C00E0C356 /* TestRendererTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestRendererTests.swift; sourceTree = "<group>"; };
+		2AAF8E2E1C06A6CC00E0C356 /* DrawingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawingTests.swift; sourceTree = "<group>"; };
+		2AAF8E301C06A6EA00E0C356 /* SnapshotTimelineTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotTimelineTests.swift; sourceTree = "<group>"; };
+		2AAF8E321C06A6FE00E0C356 /* TimelineTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineTests.swift; sourceTree = "<group>"; };
+		2AAF8E341C06A71200E0C356 /* LinearFixedPenStrokeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinearFixedPenStrokeTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,9 +117,11 @@
 		2AAF8DC91C06A25D00E0C356 = {
 			isa = PBXGroup;
 			children = (
+				2AAF8E031C06A27000E0C356 /* Drawing */,
 				2AAF8DD41C06A25D00E0C356 /* Crow Quill */,
-				2AAF8DE91C06A25D00E0C356 /* Crow QuillTests */,
-				2AAF8DF41C06A25D00E0C356 /* Crow QuillUITests */,
+				2AAF8E251C06A4AD00E0C356 /* Drawing Tests */,
+				2AAF8DE91C06A25D00E0C356 /* Crow Quill Tests */,
+				2AAF8DF41C06A25D00E0C356 /* Crow Quill UI Tests */,
 				2AAF8DD31C06A25D00E0C356 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -88,8 +130,8 @@
 			isa = PBXGroup;
 			children = (
 				2AAF8DD21C06A25D00E0C356 /* Crow Quill.app */,
-				2AAF8DE61C06A25D00E0C356 /* Crow QuillTests.xctest */,
-				2AAF8DF11C06A25D00E0C356 /* Crow QuillUITests.xctest */,
+				2AAF8DE61C06A25D00E0C356 /* Crow Quill Tests.xctest */,
+				2AAF8DF11C06A25D00E0C356 /* Crow Quill UI Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -99,6 +141,8 @@
 			children = (
 				2AAF8DD51C06A25D00E0C356 /* AppDelegate.swift */,
 				2AAF8DD71C06A25D00E0C356 /* ViewController.swift */,
+				2AAF8E201C06A41800E0C356 /* CanvasView.swift */,
+				2AAF8E221C06A43900E0C356 /* CanvasGestureDelegate.swift */,
 				2AAF8DD91C06A25D00E0C356 /* Main.storyboard */,
 				2AAF8DDC1C06A25D00E0C356 /* Assets.xcassets */,
 				2AAF8DDE1C06A25D00E0C356 /* LaunchScreen.storyboard */,
@@ -107,22 +151,70 @@
 			path = "Crow Quill";
 			sourceTree = "<group>";
 		};
-		2AAF8DE91C06A25D00E0C356 /* Crow QuillTests */ = {
+		2AAF8DE91C06A25D00E0C356 /* Crow Quill Tests */ = {
 			isa = PBXGroup;
 			children = (
 				2AAF8DEA1C06A25D00E0C356 /* Crow_QuillTests.swift */,
 				2AAF8DEC1C06A25D00E0C356 /* Info.plist */,
 			);
-			path = "Crow QuillTests";
+			path = "Crow Quill Tests";
 			sourceTree = "<group>";
 		};
-		2AAF8DF41C06A25D00E0C356 /* Crow QuillUITests */ = {
+		2AAF8DF41C06A25D00E0C356 /* Crow Quill UI Tests */ = {
 			isa = PBXGroup;
 			children = (
 				2AAF8DF51C06A25D00E0C356 /* Crow_QuillUITests.swift */,
 				2AAF8DF71C06A25D00E0C356 /* Info.plist */,
 			);
-			path = "Crow QuillUITests";
+			path = "Crow Quill UI Tests";
+			sourceTree = "<group>";
+		};
+		2AAF8E031C06A27000E0C356 /* Drawing */ = {
+			isa = PBXGroup;
+			children = (
+				2AAF8E171C06A38800E0C356 /* Strokes */,
+				2AAF8E101C06A33900E0C356 /* Renderers */,
+				2AAF8E041C06A2AB00E0C356 /* Drawable.swift */,
+				2AAF8E061C06A2BF00E0C356 /* Drawing.swift */,
+				2AAF8E081C06A2DD00E0C356 /* ActiveDrawing.swift */,
+				2AAF8E0A1C06A2FF00E0C356 /* Timeline.swift */,
+				2AAF8E0C1C06A31000E0C356 /* SnapshotTimeline.swift */,
+				2AAF8E0E1C06A32500E0C356 /* Snapshot.swift */,
+			);
+			path = Drawing;
+			sourceTree = "<group>";
+		};
+		2AAF8E101C06A33900E0C356 /* Renderers */ = {
+			isa = PBXGroup;
+			children = (
+				2AAF8E111C06A35700E0C356 /* Renderer.swift */,
+				2AAF8E131C06A36D00E0C356 /* TestRenderer.swift */,
+				2AAF8E151C06A37F00E0C356 /* UIRenderer.swift */,
+			);
+			path = Renderers;
+			sourceTree = "<group>";
+		};
+		2AAF8E171C06A38800E0C356 /* Strokes */ = {
+			isa = PBXGroup;
+			children = (
+				2AAF8E181C06A3A500E0C356 /* StrokePoint.swift */,
+				2AAF8E1A1C06A3C200E0C356 /* LinearFixedPenStroke.swift */,
+				2AAF8E1C1C06A3DC00E0C356 /* SmoothFixedPenStroke.swift */,
+				2AAF8E1E1C06A3E900E0C356 /* Stroke.swift */,
+			);
+			path = Strokes;
+			sourceTree = "<group>";
+		};
+		2AAF8E251C06A4AD00E0C356 /* Drawing Tests */ = {
+			isa = PBXGroup;
+			children = (
+				2AAF8E291C06A51C00E0C356 /* TestRendererTests.swift */,
+				2AAF8E2E1C06A6CC00E0C356 /* DrawingTests.swift */,
+				2AAF8E301C06A6EA00E0C356 /* SnapshotTimelineTests.swift */,
+				2AAF8E321C06A6FE00E0C356 /* TimelineTests.swift */,
+				2AAF8E341C06A71200E0C356 /* LinearFixedPenStrokeTests.swift */,
+			);
+			path = "Drawing Tests";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -145,9 +237,9 @@
 			productReference = 2AAF8DD21C06A25D00E0C356 /* Crow Quill.app */;
 			productType = "com.apple.product-type.application";
 		};
-		2AAF8DE51C06A25D00E0C356 /* Crow QuillTests */ = {
+		2AAF8DE51C06A25D00E0C356 /* Crow Quill Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2AAF8DFD1C06A25D00E0C356 /* Build configuration list for PBXNativeTarget "Crow QuillTests" */;
+			buildConfigurationList = 2AAF8DFD1C06A25D00E0C356 /* Build configuration list for PBXNativeTarget "Crow Quill Tests" */;
 			buildPhases = (
 				2AAF8DE21C06A25D00E0C356 /* Sources */,
 				2AAF8DE31C06A25D00E0C356 /* Frameworks */,
@@ -158,14 +250,14 @@
 			dependencies = (
 				2AAF8DE81C06A25D00E0C356 /* PBXTargetDependency */,
 			);
-			name = "Crow QuillTests";
+			name = "Crow Quill Tests";
 			productName = "Crow QuillTests";
-			productReference = 2AAF8DE61C06A25D00E0C356 /* Crow QuillTests.xctest */;
+			productReference = 2AAF8DE61C06A25D00E0C356 /* Crow Quill Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		2AAF8DF01C06A25D00E0C356 /* Crow QuillUITests */ = {
+		2AAF8DF01C06A25D00E0C356 /* Crow Quill UI Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2AAF8E001C06A25D00E0C356 /* Build configuration list for PBXNativeTarget "Crow QuillUITests" */;
+			buildConfigurationList = 2AAF8E001C06A25D00E0C356 /* Build configuration list for PBXNativeTarget "Crow Quill UI Tests" */;
 			buildPhases = (
 				2AAF8DED1C06A25D00E0C356 /* Sources */,
 				2AAF8DEE1C06A25D00E0C356 /* Frameworks */,
@@ -176,9 +268,9 @@
 			dependencies = (
 				2AAF8DF31C06A25D00E0C356 /* PBXTargetDependency */,
 			);
-			name = "Crow QuillUITests";
+			name = "Crow Quill UI Tests";
 			productName = "Crow QuillUITests";
-			productReference = 2AAF8DF11C06A25D00E0C356 /* Crow QuillUITests.xctest */;
+			productReference = 2AAF8DF11C06A25D00E0C356 /* Crow Quill UI Tests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -221,8 +313,8 @@
 			projectRoot = "";
 			targets = (
 				2AAF8DD11C06A25D00E0C356 /* Crow Quill */,
-				2AAF8DE51C06A25D00E0C356 /* Crow QuillTests */,
-				2AAF8DF01C06A25D00E0C356 /* Crow QuillUITests */,
+				2AAF8DE51C06A25D00E0C356 /* Crow Quill Tests */,
+				2AAF8DF01C06A25D00E0C356 /* Crow Quill UI Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -259,7 +351,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2AAF8E0D1C06A31000E0C356 /* SnapshotTimeline.swift in Sources */,
+				2AAF8E0F1C06A32500E0C356 /* Snapshot.swift in Sources */,
+				2AAF8E211C06A41800E0C356 /* CanvasView.swift in Sources */,
+				2AAF8E2C1C06A58900E0C356 /* TestRenderer.swift in Sources */,
+				2AAF8E1B1C06A3C200E0C356 /* LinearFixedPenStroke.swift in Sources */,
+				2AAF8E161C06A37F00E0C356 /* UIRenderer.swift in Sources */,
+				2AAF8E0B1C06A2FF00E0C356 /* Timeline.swift in Sources */,
+				2AAF8E231C06A43900E0C356 /* CanvasGestureDelegate.swift in Sources */,
+				2AAF8E1D1C06A3DC00E0C356 /* SmoothFixedPenStroke.swift in Sources */,
+				2AAF8E1F1C06A3E900E0C356 /* Stroke.swift in Sources */,
+				2AAF8E091C06A2DD00E0C356 /* ActiveDrawing.swift in Sources */,
+				2AAF8E071C06A2BF00E0C356 /* Drawing.swift in Sources */,
+				2AAF8E051C06A2AB00E0C356 /* Drawable.swift in Sources */,
 				2AAF8DD81C06A25D00E0C356 /* ViewController.swift in Sources */,
+				2AAF8E121C06A35700E0C356 /* Renderer.swift in Sources */,
+				2AAF8E191C06A3A500E0C356 /* StrokePoint.swift in Sources */,
 				2AAF8DD61C06A25D00E0C356 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -268,7 +375,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2AAF8E2D1C06A59700E0C356 /* TestRendererTests.swift in Sources */,
+				2AAF8E361C06A72700E0C356 /* SnapshotTimelineTests.swift in Sources */,
 				2AAF8DEB1C06A25D00E0C356 /* Crow_QuillTests.swift in Sources */,
+				2AAF8E331C06A6FE00E0C356 /* TimelineTests.swift in Sources */,
+				2AAF8E371C06A72A00E0C356 /* DrawingTests.swift in Sources */,
+				2AAF8E351C06A71200E0C356 /* LinearFixedPenStrokeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -424,7 +536,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = "Crow QuillTests/Info.plist";
+				INFOPLIST_FILE = "Crow Quill Tests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.diiq.Crow-QuillTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -436,7 +548,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = "Crow QuillTests/Info.plist";
+				INFOPLIST_FILE = "Crow Quill Tests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.diiq.Crow-QuillTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -447,7 +559,7 @@
 		2AAF8E011C06A25D00E0C356 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				INFOPLIST_FILE = "Crow QuillUITests/Info.plist";
+				INFOPLIST_FILE = "Crow Quill UI Tests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.diiq.Crow-QuillUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -459,7 +571,7 @@
 		2AAF8E021C06A25D00E0C356 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				INFOPLIST_FILE = "Crow QuillUITests/Info.plist";
+				INFOPLIST_FILE = "Crow Quill UI Tests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.diiq.Crow-QuillUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -488,7 +600,7 @@
 			);
 			defaultConfigurationIsVisible = 0;
 		};
-		2AAF8DFD1C06A25D00E0C356 /* Build configuration list for PBXNativeTarget "Crow QuillTests" */ = {
+		2AAF8DFD1C06A25D00E0C356 /* Build configuration list for PBXNativeTarget "Crow Quill Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2AAF8DFE1C06A25D00E0C356 /* Debug */,
@@ -496,7 +608,7 @@
 			);
 			defaultConfigurationIsVisible = 0;
 		};
-		2AAF8E001C06A25D00E0C356 /* Build configuration list for PBXNativeTarget "Crow QuillUITests" */ = {
+		2AAF8E001C06A25D00E0C356 /* Build configuration list for PBXNativeTarget "Crow Quill UI Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2AAF8E011C06A25D00E0C356 /* Debug */,

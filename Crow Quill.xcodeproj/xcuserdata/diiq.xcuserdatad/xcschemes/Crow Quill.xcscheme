@@ -33,8 +33,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2AAF8DE51C06A25D00E0C356"
-               BuildableName = "Crow QuillTests.xctest"
-               BlueprintName = "Crow QuillTests"
+               BuildableName = "Crow Quill Tests.xctest"
+               BlueprintName = "Crow Quill Tests"
                ReferencedContainer = "container:Crow Quill.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -43,8 +43,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2AAF8DF01C06A25D00E0C356"
-               BuildableName = "Crow QuillUITests.xctest"
-               BlueprintName = "Crow QuillUITests"
+               BuildableName = "Crow Quill UI Tests.xctest"
+               BlueprintName = "Crow Quill UI Tests"
                ReferencedContainer = "container:Crow Quill.xcodeproj">
             </BuildableReference>
          </TestableReference>
