@@ -22,17 +22,27 @@
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7zb-dU-yd1" customClass="ActiveDrawingView" customModule="Crow_Quill" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
+                                <animations/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Pk8-to-KMe" secondAttribute="trailing" id="0Aa-0V-JpL"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="7zb-dU-yd1" secondAttribute="bottom" id="Aie-mw-3VL"/>
                             <constraint firstItem="Pk8-to-KMe" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="GIV-cT-get"/>
+                            <constraint firstAttribute="trailing" secondItem="7zb-dU-yd1" secondAttribute="trailing" id="Imc-MB-lGO"/>
+                            <constraint firstItem="7zb-dU-yd1" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="cMn-lw-ybc"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Pk8-to-KMe" secondAttribute="bottom" id="ccb-nM-U5K"/>
                             <constraint firstItem="Pk8-to-KMe" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="oQE-eX-cyu"/>
+                            <constraint firstItem="7zb-dU-yd1" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="wf1-c7-RZo"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activeDrawing" destination="7zb-dU-yd1" id="lKI-4i-lpi"/>
                         <outlet property="canvas" destination="Pk8-to-KMe" id="5CN-l5-S0P"/>
                     </connections>
                 </viewController>

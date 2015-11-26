@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A2074881C07BF1E003B0918 /* ActiveDrawingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2074871C07BF1E003B0918 /* ActiveDrawingView.swift */; };
 		2AAF8DD61C06A25D00E0C356 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAF8DD51C06A25D00E0C356 /* AppDelegate.swift */; };
 		2AAF8DD81C06A25D00E0C356 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAF8DD71C06A25D00E0C356 /* ViewController.swift */; };
 		2AAF8DDB1C06A25D00E0C356 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2AAF8DD91C06A25D00E0C356 /* Main.storyboard */; };
@@ -54,6 +55,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2A2074871C07BF1E003B0918 /* ActiveDrawingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActiveDrawingView.swift; sourceTree = "<group>"; };
 		2AAF8DD21C06A25D00E0C356 /* Crow Quill.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Crow Quill.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AAF8DD51C06A25D00E0C356 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2AAF8DD71C06A25D00E0C356 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 				2AAF8DD51C06A25D00E0C356 /* AppDelegate.swift */,
 				2AAF8DD71C06A25D00E0C356 /* ViewController.swift */,
 				2AAF8E201C06A41800E0C356 /* CanvasView.swift */,
+				2A2074871C07BF1E003B0918 /* ActiveDrawingView.swift */,
 				2AAF8E221C06A43900E0C356 /* CanvasGestureDelegate.swift */,
 				2AAF8DD91C06A25D00E0C356 /* Main.storyboard */,
 				2AAF8DDC1C06A25D00E0C356 /* Assets.xcassets */,
@@ -354,6 +357,7 @@
 				2AAF8E0D1C06A31000E0C356 /* SnapshotTimeline.swift in Sources */,
 				2AAF8E0F1C06A32500E0C356 /* Snapshot.swift in Sources */,
 				2AAF8E211C06A41800E0C356 /* CanvasView.swift in Sources */,
+				2A2074881C07BF1E003B0918 /* ActiveDrawingView.swift in Sources */,
 				2AAF8E2C1C06A58900E0C356 /* TestRenderer.swift in Sources */,
 				2AAF8E1B1C06A3C200E0C356 /* LinearFixedPenStroke.swift in Sources */,
 				2AAF8E161C06A37F00E0C356 /* UIRenderer.swift in Sources */,
