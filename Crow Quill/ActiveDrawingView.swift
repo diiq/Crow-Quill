@@ -27,7 +27,7 @@ class ActiveDrawingView: UIView {
         activeDrawing.updateStrokePredictions(indexTouch, touches: predictedTouches)
       }
     }
-    setNeedsDisplay()
+    setNeedsDisplayInRect(activeDrawing.rectForUpdatedPoints())
   }
 
   func endTouches(touches: Set<UITouch>) {

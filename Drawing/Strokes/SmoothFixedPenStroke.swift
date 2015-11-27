@@ -3,20 +3,26 @@
  nor any roundness; it's just a line.
  */
 class SmoothFixedPenStroke : Stroke {
-  var points: [StrokePoint]
-  var predictedPoints: [StrokePoint] = []
   let brush_size: Double = 1
+  override var undrawnPointOffset: Int { return 3 }
 
-  init(points: [StrokePoint]) {
-    self.points = points
-  }
-
-  func draw(renderer: Renderer) {
+  override func draw(renderer: Renderer) {
     guard points.count > 2 else {
       renderer.linear(points)
       return
     }
 
     renderer.catmullRom(points + predictedPoints)
+    undrawnPointIndex = nil
+  }
+
+  override func drawUndrawnPoints(renderer: Renderer) {
+    guard points.count > 2 else {
+      renderer.linear(points)
+      return
+    }
+
+    renderer.catmullRom(points + predictedPoints)
+    undrawnPointIndex = nil
   }
 }

@@ -1,4 +1,4 @@
-import Darwin
+import UIKit
 
 /**
  A single point in a stroke. Doesn't necessarily correspond to a specific
@@ -36,4 +36,13 @@ extension StrokePoint {
   }
 }
 
-
+extension UITouch {
+  /**
+   Testing is miles easier not using apple's contructorless objects, so we want 
+   to convert to a friendly point type ASAP.
+   */
+  func strokePoint() -> StrokePoint {
+    let location = preciseLocationInView(view)
+    return StrokePoint(x: Double(location.x), y: Double(location.y), weight: 1)
+  }
+}
