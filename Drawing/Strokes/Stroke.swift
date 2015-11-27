@@ -35,6 +35,10 @@ class Stroke: Drawable {
     draw(renderer)
   }
 
+  func drawPredictedPoints(renderer: Renderer) {
+    draw(renderer)
+  }
+
   func undrawnPoints() -> [StrokePoint] {
     guard undrawnPointIndex != nil else { return [] }
     return points[undrawnPointIndex!..<points.count] + predictedPoints

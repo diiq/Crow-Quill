@@ -3,8 +3,10 @@ import UIKit
 /**
  TODO: Explain what this is for
 */
-class ActiveDrawing {
+class ActiveDrawing : ImageDrawable {
+  typealias ImageType = CGImage
   var strokesByTouch = [UITouch : Stroke]()
+  var frozen: CGImage? = nil
 
   func addOrUpdateStroke(indexTouch: UITouch, touches: [UITouch]) {
     let stroke = strokesByTouch[indexTouch] ?? newStrokeForTouch(indexTouch)
@@ -44,12 +46,20 @@ class ActiveDrawing {
     guard let stroke = strokesByTouch[touch] else { return nil }
     strokesByTouch.removeValueForKey(touch)
     stroke.finalize()
+    frozen = nil
     return stroke
   }
 
-  func draw(renderer: Renderer) {
+  func draw<R: ImageRenderer where R.ImageType == ImageType>(renderer: R) {
+    if frozen != nil {
+      renderer.image(frozen!)
+    }
     for stroke in strokesByTouch.values {
-      stroke.draw(renderer)
+      stroke.drawUndrawnPoints(renderer)
+    }
+    frozen = renderer.currentImage
+    for stroke in strokesByTouch.values {
+      stroke.drawPredictedPoints(renderer)
     }
   }
 }

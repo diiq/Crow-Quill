@@ -41,9 +41,18 @@ extension Renderer {
    unexpected kinks or loops. See
    https://en.wikipedia.org/wiki/Centripetal_Catmull%E2%80%93Rom_spline
    for more mathematical details.
+   
+   If initial is true, an additional bezier is added to include the first point 
+   (which is otherwise treated as an invisible control point)
+   
+   If final is true, an additional bezier is added to include the final point
+   (which is otherwise treated as an invisible control point)
    */
-  func catmullRom(points: [StrokePoint]) {
-    for var i = 0; i < points.count - 1; ++i {
+  func catmullRom(points: [StrokePoint], initial: Bool=true, final: Bool=true) {
+    let start = initial ? 0 : 1
+    let end = final ? points.count - 1 : points.count - 2
+
+    for var i = start; i < end; ++i {
       let p1 = points[i]
       let p2 = points[i+1]
 
@@ -84,11 +93,11 @@ extension Renderer {
           return p2
         }
       }()
-
+      
       bezier(p1, controlPoint1, controlPoint2, p2)
     }
   }
-
+  
   func linear(points: [StrokePoint]) {
     var lastPoint = points[0]
     points[1..<points.count].forEach {
