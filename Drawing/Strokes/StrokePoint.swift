@@ -1,4 +1,4 @@
-import UIKit
+import Darwin
 
 /**
  A single point in a stroke. Doesn't necessarily correspond to a specific
@@ -35,6 +35,9 @@ extension StrokePoint {
     return sqrt(x*x + y*y)
   }
 }
+
+
+import UIKit
 
 extension UITouch {
   /**

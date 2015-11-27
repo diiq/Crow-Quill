@@ -1,50 +1,50 @@
-import UIKit
-
 /**
  TODO: Explain what this is for
 */
-class ActiveDrawing : ImageDrawable {
-  typealias ImageType = CGImage
-  var strokesByTouch = [UITouch : Stroke]()
-  var frozen: CGImage? = nil
+class ActiveDrawing<I, IndexType: Hashable> : ImageDrawable {
+  typealias ImageType = I
+  var strokesByIndex = [IndexType : Stroke]()
+  var frozen: ImageType? = nil
 
-  func addOrUpdateStroke(indexTouch: UITouch, touches: [UITouch]) {
-    let stroke = strokesByTouch[indexTouch] ?? newStrokeForTouch(indexTouch)
-    for touch in touches {
-      stroke.addPoint(touch.strokePoint())
+  func addOrUpdateStroke(index: IndexType, points: [StrokePoint]) {
+    let stroke = strokesByIndex[index] ?? newStrokeForIndex(index)
+    for point in points {
+      stroke.addPoint(point)
     }
   }
 
-  func updateStrokePredictions(indexTouch: UITouch, touches: [UITouch]) {
-    guard let stroke = strokesByTouch[indexTouch] else { return }
-    for touch in touches {
-      stroke.addPredictedPoint(touch.strokePoint())
+  func updateStrokePredictions(index: IndexType, points: [StrokePoint]) {
+    guard let stroke = strokesByIndex[index] else { return }
+    for point in points {
+      stroke.addPredictedPoint(point)
     }
   }
 
-  func rectForUpdatedPoints() -> CGRect {
-    let rects = strokesByTouch.values.map { CGRect($0.undrawnRect()) }
-    return rects.reduce(CGRect(x: 0, y: 0, width: 0, height: 0), combine: {
-      (r1: CGRect, r2: CGRect) -> CGRect in
-      return r1.union(r2)
-    })
+  func rectForUpdatedPoints() -> (x: Double, y: Double, width: Double, height: Double) {
+    let rects = strokesByIndex.values.map { $0.undrawnRect() }
+    let maxX = (rects.map { $0.maxX }).maxElement()!
+    let maxY = (rects.map { $0.maxY }).maxElement()!
+    let minX = (rects.map { $0.minX }).minElement()!
+    let minY = (rects.map { $0.minY }).minElement()!
+
+    return (x: minX, y: minY, width: maxX - minX, height: maxY - minY)
   }
 
-  func forgetPredictions(indexTouch: UITouch) {
-    guard let stroke = strokesByTouch[indexTouch] else { return }
+  func forgetPredictions(index: IndexType) {
+    guard let stroke = strokesByIndex[index] else { return }
     stroke.predictedPoints = []
   }
 
-  func newStrokeForTouch(touch: UITouch) -> Stroke {
+  func newStrokeForIndex(index: IndexType) -> Stroke {
     // TODO: How to choose the stroke type
     let line = SmoothFixedPenStroke(points: [])
-    strokesByTouch[touch] = line
+    strokesByIndex[index] = line
     return line
   }
 
-  func endStrokeForTouch(touch: UITouch) -> Stroke? {
-    guard let stroke = strokesByTouch[touch] else { return nil }
-    strokesByTouch.removeValueForKey(touch)
+  func endStroke(index: IndexType) -> Stroke? {
+    guard let stroke = strokesByIndex[index] else { return nil }
+    strokesByIndex.removeValueForKey(index)
     stroke.finalize()
     frozen = nil
     return stroke
@@ -54,11 +54,11 @@ class ActiveDrawing : ImageDrawable {
     if frozen != nil {
       renderer.image(frozen!)
     }
-    for stroke in strokesByTouch.values {
+    for stroke in strokesByIndex.values {
       stroke.drawUndrawnPoints(renderer)
     }
     frozen = renderer.currentImage
-    for stroke in strokesByTouch.values {
+    for stroke in strokesByIndex.values {
       stroke.drawPredictedPoints(renderer)
     }
   }

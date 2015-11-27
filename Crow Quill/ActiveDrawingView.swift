@@ -3,7 +3,7 @@ import UIKit
 class ActiveDrawingView: UIView {
   let isPredictionEnabled = UIDevice.currentDevice().userInterfaceIdiom == .Pad
   var renderer: UIRenderer!
-  let activeDrawing = ActiveDrawing()
+  let activeDrawing = ActiveDrawing<CGImage, UITouch>()
   var drawing: DrawingView!
   
   override func drawRect(rect: CGRect) {
@@ -20,19 +20,19 @@ class ActiveDrawingView: UIView {
       activeDrawing.forgetPredictions(indexTouch)
 
       let touches = event?.coalescedTouchesForTouch(indexTouch) ?? []
-      activeDrawing.addOrUpdateStroke(indexTouch, touches: touches)
+      activeDrawing.addOrUpdateStroke(indexTouch, points: touches.map { $0.strokePoint() })
 
       if isPredictionEnabled {
         let predictedTouches = event?.predictedTouchesForTouch(indexTouch) ?? []
-        activeDrawing.updateStrokePredictions(indexTouch, touches: predictedTouches)
+        activeDrawing.updateStrokePredictions(indexTouch, points: predictedTouches.map { $0.strokePoint() })
       }
     }
-    setNeedsDisplayInRect(activeDrawing.rectForUpdatedPoints())
+    setNeedsDisplayInRect(CGRect(activeDrawing.rectForUpdatedPoints()))
   }
 
   func endTouches(touches: Set<UITouch>) {
     for touch in touches {
-      if let stroke = activeDrawing.endStrokeForTouch(touch) {
+      if let stroke = activeDrawing.endStroke(touch) {
         drawing.addStroke(stroke)
       }
     }
@@ -41,7 +41,7 @@ class ActiveDrawingView: UIView {
 
   func cancelTouches(touches: Set<UITouch>) {
     for touch in touches {
-      activeDrawing.endStrokeForTouch(touch)
+      activeDrawing.endStroke(touch)
     }
     setNeedsDisplay()
   }

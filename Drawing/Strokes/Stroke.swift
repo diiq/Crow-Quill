@@ -44,17 +44,19 @@ class Stroke: Drawable {
     return points[undrawnPointIndex!..<points.count] + predictedPoints
   }
 
-  func undrawnRect() -> (x: Double, y: Double, width: Double, height: Double) {
+  func undrawnRect() -> (minX: Double, minY: Double, maxX: Double, maxY: Double) {
     let points = undrawnPoints()
-    guard points.count > 0 else { return (x: 0, y: 0, width: 0, height: 0) }
+    // This line might be wrong -- might cause over-drawing:
+    guard points.count > 0 else { return (minX: 0, minY: 0, maxX: 0, maxY: 0) }
+
     let maxX = (points.map { $0.x }).maxElement()!
     let maxY = (points.map { $0.y }).maxElement()!
     let minX = (points.map { $0.x }).minElement()!
     let minY = (points.map { $0.y }).minElement()!
     return (
-      x: minX - rectOffset,
-      y: minY - rectOffset,
-      width: maxX - minX + rectOffset*2,
-      height: maxY - minY + rectOffset*2)
+      minX: minX - rectOffset,
+      minY: minY - rectOffset,
+      maxX: maxX + rectOffset ,
+      maxY: maxY + rectOffset)
   }
 }
