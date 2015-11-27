@@ -1,5 +1,4 @@
 import XCTest
-import UIKit
 @testable import Crow_Quill
 
 class LinearFixedPenStrokeTests: XCTestCase {
@@ -26,7 +25,7 @@ class LinearFixedPenStrokeTests: XCTestCase {
   func testUndrawnRect() {
     stroke.undrawnPointIndex = 1
     let rect = stroke.undrawnRect()
-    let expectedRect = (minX: 10.0, minY: 40.0, maxX: 60.0, maxY: 60.0)
+    let expectedRect = (minX: 0.0, minY: 40.0, maxX: 60.0, maxY: 60.0)
     XCTAssertEqual(rect.minX, expectedRect.minX, "undrawnRect contains all undrawn points")
     XCTAssertEqual(rect.minY, expectedRect.minY, "undrawnRect contains all undrawn points")
     XCTAssertEqual(rect.maxX, expectedRect.maxX, "undrawnRect contains all undrawn points")
@@ -36,7 +35,7 @@ class LinearFixedPenStrokeTests: XCTestCase {
   func testUndrawnPoints() {
     XCTAssertEqual(stroke.undrawnPoints().count, 5, "no points have been drawn")
     stroke.addPoint(StrokePoint(x: 2, y: 6, weight: 1))
-    XCTAssertEqual(stroke.undrawnPoints().count, 2, "there are undrawn points after adding points")
+    XCTAssertEqual(stroke.undrawnPoints().count, 3, "there are undrawn points after adding points")
     stroke.draw(renderer)
     XCTAssertEqual(stroke.undrawnPoints().count, 0, "there are no undrawn points after a draw")
   }

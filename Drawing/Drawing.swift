@@ -35,7 +35,6 @@ class Drawing<Image>: ImageDrawable {
     // is renderer.currentImage expensive enough I should skip it when
     // I'm not actually snapshotting?
     if shouldSnapshot() {
-      print("snapshot!")
       snapshots.add(renderer.currentImage, index: strokes.currentIndex)
     }
   }

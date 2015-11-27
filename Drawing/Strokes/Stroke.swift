@@ -40,12 +40,21 @@ class Stroke: Drawable {
   }
 
   func undrawnPoints() -> [StrokePoint] {
-    guard undrawnPointIndex != nil else { return [] }
-    return points[undrawnPointIndex!..<points.count] + predictedPoints
+    guard var start = undrawnPointIndex else { return [] }
+    start  = max(start - undrawnPointOffset, 0)
+    return Array(points[start..<points.count])
   }
 
+  /**
+   Returns a tuple that represents a rect which contains all as-yet-undrawn 
+   segments of the stroke.
+   
+   The rect comes pre-outset, expanded by the stroke's rectOffset value on each 
+   side. This prevents clipping, and also zero-area rects for horizontal 
+   or vertical segments.
+   */
   func undrawnRect() -> (minX: Double, minY: Double, maxX: Double, maxY: Double) {
-    let points = undrawnPoints()
+    let points = undrawnPoints() + predictedPoints
     // This line might be wrong -- might cause over-drawing:
     guard points.count > 0 else { return (minX: 0, minY: 0, maxX: 0, maxY: 0) }
 

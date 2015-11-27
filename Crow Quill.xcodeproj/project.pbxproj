@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2A2074881C07BF1E003B0918 /* ActiveDrawingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2074871C07BF1E003B0918 /* ActiveDrawingView.swift */; };
+		2A20748A1C08AD81003B0918 /* ActiveDrawingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2074891C08AD81003B0918 /* ActiveDrawingTests.swift */; };
+		2A20748C1C08AD9E003B0918 /* SmoothFixedPenStrokeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A20748B1C08AD9E003B0918 /* SmoothFixedPenStrokeTests.swift */; };
 		2AAF8DD61C06A25D00E0C356 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAF8DD51C06A25D00E0C356 /* AppDelegate.swift */; };
 		2AAF8DD81C06A25D00E0C356 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAF8DD71C06A25D00E0C356 /* ViewController.swift */; };
 		2AAF8DDB1C06A25D00E0C356 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2AAF8DD91C06A25D00E0C356 /* Main.storyboard */; };
@@ -56,6 +58,8 @@
 
 /* Begin PBXFileReference section */
 		2A2074871C07BF1E003B0918 /* ActiveDrawingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActiveDrawingView.swift; sourceTree = "<group>"; };
+		2A2074891C08AD81003B0918 /* ActiveDrawingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActiveDrawingTests.swift; sourceTree = "<group>"; };
+		2A20748B1C08AD9E003B0918 /* SmoothFixedPenStrokeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmoothFixedPenStrokeTests.swift; sourceTree = "<group>"; };
 		2AAF8DD21C06A25D00E0C356 /* Crow Quill.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Crow Quill.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AAF8DD51C06A25D00E0C356 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2AAF8DD71C06A25D00E0C356 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -216,6 +220,8 @@
 				2AAF8E301C06A6EA00E0C356 /* SnapshotTimelineTests.swift */,
 				2AAF8E321C06A6FE00E0C356 /* TimelineTests.swift */,
 				2AAF8E341C06A71200E0C356 /* LinearFixedPenStrokeTests.swift */,
+				2A2074891C08AD81003B0918 /* ActiveDrawingTests.swift */,
+				2A20748B1C08AD9E003B0918 /* SmoothFixedPenStrokeTests.swift */,
 			);
 			path = "Drawing Tests";
 			sourceTree = "<group>";
@@ -380,6 +386,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				2AAF8E2D1C06A59700E0C356 /* TestRendererTests.swift in Sources */,
+				2A20748A1C08AD81003B0918 /* ActiveDrawingTests.swift in Sources */,
+				2A20748C1C08AD9E003B0918 /* SmoothFixedPenStrokeTests.swift in Sources */,
 				2AAF8E361C06A72700E0C356 /* SnapshotTimelineTests.swift in Sources */,
 				2AAF8DEB1C06A25D00E0C356 /* Crow_QuillTests.swift in Sources */,
 				2AAF8E331C06A6FE00E0C356 /* TimelineTests.swift in Sources */,

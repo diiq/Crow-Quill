@@ -6,39 +6,30 @@ class SmoothFixedPenStroke : Stroke {
   let brush_size: Double = 1
   override var undrawnPointOffset: Int { return 3 }
 
-  override func draw(renderer: Renderer) {
+  private func drawPoints(points: [StrokePoint], renderer: Renderer, initial: Bool=true, final: Bool=true) {
     guard points.count > 2 else {
       renderer.linear(points)
       return
     }
 
-    renderer.catmullRom(points + predictedPoints)
+    renderer.catmullRom(points, initial:  initial, final: final)
     undrawnPointIndex = nil
+  }
+
+  override func draw(renderer: Renderer) {
+    drawPoints(points + predictedPoints, renderer: renderer)
   }
 
   override func drawUndrawnPoints(renderer: Renderer) {
-    guard undrawnPointIndex != nil else { return }
-    let newPoints = Array(points[undrawnPointIndex!..<points.count])
-
-    guard newPoints.count > 2 else {
-      renderer.linear(newPoints)
-      return
-    }
-
-    renderer.catmullRom(newPoints, initial: false, final: false)
-    undrawnPointIndex = nil
+    drawPoints(undrawnPoints(), renderer: renderer, initial: false, final: false)
   }
 
   override func drawPredictedPoints(renderer: Renderer) {
+    // Because Catmull-Rom makes use previous and next points to calculate 
+    // control points, we have to hand the renderer a few previous points in 
+    // addition to the predicted points themselves.
     let start = max(0, points.count - undrawnPointOffset)
     let newPoints = Array(points[start..<points.count] + predictedPoints)
-
-    guard newPoints.count > 2 else {
-      renderer.linear(newPoints)
-      return
-    }
-
-    renderer.catmullRom(newPoints, initial: false)
-    undrawnPointIndex = nil
+    drawPoints(newPoints, renderer: renderer, initial: false)
   }
 }

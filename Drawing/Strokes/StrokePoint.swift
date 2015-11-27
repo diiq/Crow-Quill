@@ -1,7 +1,7 @@
 import Darwin
 
 /**
- A single point in a stroke. Doesn't necessarily correspond to a specific
+ A single point in a stroke. Doesn't *necessarily* correspond to a specific
  UITouch.
  */
 
@@ -41,8 +41,11 @@ import UIKit
 
 extension UITouch {
   /**
+   Returns a StrokePoint that mirrors the UITouch.
+
    Testing is miles easier not using apple's contructorless objects, so we want 
-   to convert to a friendly point type ASAP.
+   to convert to a testing-friendly point type as high as possible in the 
+   abstraction stack.
    */
   func strokePoint() -> StrokePoint {
     let location = preciseLocationInView(view)

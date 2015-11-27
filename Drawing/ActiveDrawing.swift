@@ -1,5 +1,11 @@
 /**
- TODO: Explain what this is for
+ The ActiveDrawing represents just the strokes that are still incomplete -- 
+ either because they're still being made, or because estimated properties have
+ not yet been finalized.
+ 
+ Unlike the Drawing proper, the ActiveDrawing needs to be very highly tuned to 
+ draw *quickly*, to keep latency down. It attempts to only draw the most
+ recent few points, and only rerender inside the rect that contains those points.
 */
 class ActiveDrawing<I, IndexType: Hashable> : ImageDrawable {
   typealias ImageType = I
@@ -20,6 +26,18 @@ class ActiveDrawing<I, IndexType: Hashable> : ImageDrawable {
     }
   }
 
+  func endStroke(index: IndexType) -> Stroke? {
+    guard let stroke = strokesByIndex[index] else { return nil }
+    strokesByIndex.removeValueForKey(index)
+    stroke.finalize()
+    frozen = nil
+    return stroke
+  }
+
+  /**
+   Returns a tuple that can be passed to CGRect. That rect will contain all
+   parts of the ActiveDrawing that need to be redrawn at the next update.
+   */
   func rectForUpdatedPoints() -> (x: Double, y: Double, width: Double, height: Double) {
     let rects = strokesByIndex.values.map { $0.undrawnRect() }
     let maxX = (rects.map { $0.maxX }).maxElement()!
@@ -35,21 +53,6 @@ class ActiveDrawing<I, IndexType: Hashable> : ImageDrawable {
     stroke.predictedPoints = []
   }
 
-  func newStrokeForIndex(index: IndexType) -> Stroke {
-    // TODO: How to choose the stroke type
-    let line = SmoothFixedPenStroke(points: [])
-    strokesByIndex[index] = line
-    return line
-  }
-
-  func endStroke(index: IndexType) -> Stroke? {
-    guard let stroke = strokesByIndex[index] else { return nil }
-    strokesByIndex.removeValueForKey(index)
-    stroke.finalize()
-    frozen = nil
-    return stroke
-  }
-
   func draw<R: ImageRenderer where R.ImageType == ImageType>(renderer: R) {
     if frozen != nil {
       renderer.image(frozen!)
@@ -61,5 +64,12 @@ class ActiveDrawing<I, IndexType: Hashable> : ImageDrawable {
     for stroke in strokesByIndex.values {
       stroke.drawPredictedPoints(renderer)
     }
+  }
+
+  private func newStrokeForIndex(index: IndexType) -> Stroke {
+    // TODO: How to choose the stroke type
+    let line = SmoothFixedPenStroke(points: [])
+    strokesByIndex[index] = line
+    return line
   }
 }
