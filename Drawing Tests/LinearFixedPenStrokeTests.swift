@@ -10,10 +10,12 @@ class LinearFixedPenStrokeTests: XCTestCase {
     return LinearFixedPenStroke(points: points)
   }()
   let line = [
+    "move: <10.0, 50.0>",
     "line: <10.0, 50.0>, <20.0, 50.0>",
     "line: <20.0, 50.0>, <30.0, 50.0>",
     "line: <30.0, 50.0>, <40.0, 50.0>",
-    "line: <40.0, 50.0>, <50.0, 50.0>"]
+    "line: <40.0, 50.0>, <50.0, 50.0>",
+    "stroke"]
 
   func testDrawsAStraightLine() {
     stroke.draw(renderer)
@@ -34,6 +36,8 @@ class LinearFixedPenStrokeTests: XCTestCase {
 
   func testUndrawnPoints() {
     XCTAssertEqual(stroke.undrawnPoints().count, 5, "no points have been drawn")
+    stroke.draw(renderer)
+    XCTAssertEqual(stroke.undrawnPoints().count, 0)
     stroke.addPoint(StrokePoint(x: 2, y: 6, weight: 1))
     XCTAssertEqual(stroke.undrawnPoints().count, 3, "there are undrawn points after adding points")
     stroke.draw(renderer)

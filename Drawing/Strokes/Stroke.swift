@@ -14,7 +14,9 @@ class Stroke: Drawable {
   }
 
   func addPoint(point: StrokePoint) {
-    undrawnPointIndex = max(points.count - undrawnPointOffset, 0)
+    if undrawnPointIndex == nil {
+      undrawnPointIndex = max(points.count - undrawnPointOffset, 0)
+    }
     points.append(point)
   }
 
@@ -41,7 +43,7 @@ class Stroke: Drawable {
 
   func undrawnPoints() -> [StrokePoint] {
     guard var start = undrawnPointIndex else { return [] }
-    start  = max(start - undrawnPointOffset, 0)
+    start = max(start - undrawnPointOffset, 0)
     return Array(points[start..<points.count])
   }
 

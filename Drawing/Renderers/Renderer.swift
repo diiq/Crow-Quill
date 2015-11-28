@@ -15,6 +15,8 @@ protocol Renderer {
   /// Draws a straight, unweighted, black line from <ax, ay> to <bx, by>
   func line(a: StrokePoint, _ b: StrokePoint)
   func bezier(a: StrokePoint, _ cp1: StrokePoint, _ cp2: StrokePoint, _ b: StrokePoint)
+  func moveTo(point: StrokePoint)
+  func stroke()
 }
 
 /**
@@ -51,6 +53,7 @@ extension Renderer {
   func catmullRom(points: [StrokePoint], initial: Bool=true, final: Bool=true) {
     let start = initial ? 0 : 1
     let end = final ? points.count - 1 : points.count - 2
+    moveTo(points[start])
 
     for var i = start; i < end; ++i {
       let p1 = points[i]
@@ -100,6 +103,7 @@ extension Renderer {
   
   func linear(points: [StrokePoint]) {
     var lastPoint = points[0]
+    moveTo(lastPoint)
     points[1..<points.count].forEach {
       line(lastPoint, $0)
       lastPoint = $0

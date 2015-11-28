@@ -17,6 +17,14 @@ class TestRenderer: Renderer, ImageRenderer {
     self.currentImage.appendContentsOf(image)
   }
 
+  func moveTo(point: StrokePoint) {
+    currentImage.append("move: \(point)")
+  }
+
+  func stroke() {
+    currentImage.append("stroke")
+  }
+
   func clear() {
     self.currentImage = []
   }

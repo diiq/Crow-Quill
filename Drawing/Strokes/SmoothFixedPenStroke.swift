@@ -8,11 +8,14 @@ class SmoothFixedPenStroke : Stroke {
 
   private func drawPoints(points: [StrokePoint], renderer: Renderer, initial: Bool=true, final: Bool=true) {
     guard points.count > 2 else {
-      renderer.linear(points)
+      if initial && final {
+        renderer.linear(points)
+      }
       return
     }
 
     renderer.catmullRom(points, initial:  initial, final: final)
+    renderer.stroke()
     undrawnPointIndex = nil
   }
 
@@ -21,7 +24,7 @@ class SmoothFixedPenStroke : Stroke {
   }
 
   override func drawUndrawnPoints(renderer: Renderer) {
-    drawPoints(undrawnPoints(), renderer: renderer, initial: false, final: false)
+    drawPoints(undrawnPoints(), renderer: renderer, initial: undrawnPoints().count == points.count, final: false)
   }
 
   override func drawPredictedPoints(renderer: Renderer) {

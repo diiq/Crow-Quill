@@ -10,10 +10,12 @@ class DrawingTests: XCTestCase {
     return LinearFixedPenStroke(points: points)
   }()
   let line = [
+    "move: <10.0, 50.0>",
     "line: <10.0, 50.0>, <20.0, 50.0>",
     "line: <20.0, 50.0>, <30.0, 50.0>",
     "line: <30.0, 50.0>, <40.0, 50.0>",
-    "line: <40.0, 50.0>, <50.0, 50.0>"]
+    "line: <40.0, 50.0>, <50.0, 50.0>",
+    "stroke"]
 
   let drawing = Drawing<TestImage>()
 
