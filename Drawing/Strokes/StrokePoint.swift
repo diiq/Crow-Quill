@@ -19,21 +19,38 @@ extension StrokePoint : CustomStringConvertible {
 
 // Maths
 extension StrokePoint {
-  func addTo(a: StrokePoint) -> StrokePoint {
-    return StrokePoint(x: x + a.x, y: y + a.y, weight: -1)
-  }
-
-  func deltaTo(a: StrokePoint) -> StrokePoint {
-    return StrokePoint(x: x - a.x, y: y - a.y, weight: -1)
-  }
-
-  func multiplyBy(value: Double) -> StrokePoint {
-    return StrokePoint(x: x * value, y: y * value, weight: -1)
-  }
-
   func length() -> Double {
     return sqrt(x*x + y*y)
   }
+
+  func unit() -> StrokePoint {
+    let len = length()
+    return StrokePoint(x: x/len, y: y/len, weight: weight)
+  }
+
+  func perpendicular() -> StrokePoint {
+    return StrokePoint(x: -y, y: x, weight: -1).unit()
+  }
+
+  func radians() -> Double {
+    return atan2(y, x)
+  }
+}
+
+func *(left: StrokePoint, right: Double) -> StrokePoint {
+  return StrokePoint(x: left.x * right, y: left.y * right, weight: -1)
+}
+
+func *(left: Double, right: StrokePoint) -> StrokePoint {
+  return right * left
+}
+
+func +(left: StrokePoint, right: StrokePoint) -> StrokePoint {
+  return StrokePoint(x: left.x + right.x, y: left.y + right.y, weight: -1)
+}
+
+func -(left: StrokePoint, right: StrokePoint) -> StrokePoint {
+  return StrokePoint(x: left.x - right.x, y: left.y - right.y, weight: -1)
 }
 
 
@@ -49,6 +66,6 @@ extension UITouch {
    */
   func strokePoint() -> StrokePoint {
     let location = preciseLocationInView(view)
-    return StrokePoint(x: Double(location.x), y: Double(location.y), weight: 1)
+    return StrokePoint(x: Double(location.x), y: Double(location.y), weight: 5)
   }
 }

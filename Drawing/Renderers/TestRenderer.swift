@@ -9,6 +9,10 @@ class TestRenderer: Renderer, ImageRenderer {
     currentImage.append("line: \(a), \(b)")
   }
 
+  func arc(a: StrokePoint, _ b: StrokePoint) {
+    currentImage.append("arc: \(a), \(b)")
+  }
+  
   func bezier(a: StrokePoint, _ cp1: StrokePoint, _ cp2: StrokePoint, _ b: StrokePoint) {
     currentImage.append("bezier: \(a), [\(cp1), \(cp2)], \(b)")
   }
@@ -23,6 +27,10 @@ class TestRenderer: Renderer, ImageRenderer {
 
   func stroke() {
     currentImage.append("stroke")
+  }
+
+  func fill() {
+    currentImage.append("fill")
   }
 
   func clear() {

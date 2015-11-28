@@ -25,6 +25,19 @@ class UIRenderer: Renderer, ImageRenderer {
     CGContextAddLineToPoint(context, CGFloat(b.x), CGFloat(b.y))
   }
 
+  func arc(a: StrokePoint, _ b: StrokePoint) {
+    let delta = b - a
+    let center = a + delta * 0.5
+    let radius = delta.length() / 2
+    CGContextAddArc(context,
+      CGFloat(center.x),
+      CGFloat(center.y),
+      CGFloat(radius),
+      CGFloat((a - center).radians()),
+      CGFloat((b - center).radians()),
+      1)
+  }
+
   func bezier(a: StrokePoint, _ cp1: StrokePoint, _ cp2: StrokePoint, _ b: StrokePoint) {
     CGContextAddCurveToPoint(
       context,
@@ -43,6 +56,12 @@ class UIRenderer: Renderer, ImageRenderer {
     CGContextStrokePath(context)
   }
 
+  func fill() {
+    CGContextSetFillColorWithColor(context, color)
+    CGContextClosePath(context)
+    CGContextFillPath(context)
+  }
+
   func image(image: ImageType) {
     // Gotta figure out scaling here.
     CGContextTranslateCTM(context, 0, bounds.height);
@@ -50,6 +69,5 @@ class UIRenderer: Renderer, ImageRenderer {
     CGContextDrawImage(context, bounds , image)
     CGContextScaleCTM(context, 1.0, -1.0);
     CGContextTranslateCTM(context, 0, -bounds.height);
-    
   }
 }

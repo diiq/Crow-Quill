@@ -6,7 +6,9 @@ class SmoothFixedPenStroke : Stroke {
   let brush_size: Double = 1
   override var undrawnPointOffset: Int { return 3 }
 
-  private func drawPoints(points: [StrokePoint], renderer: Renderer, initial: Bool=true, final: Bool=true) {
+  func drawPoints(points: [StrokePoint], renderer: Renderer, initial: Bool=true, final: Bool=true) {
+    renderer.moveTo(points[initial ? 0 : 1])
+    
     guard points.count > 2 else {
       if initial && final {
         renderer.linear(points)

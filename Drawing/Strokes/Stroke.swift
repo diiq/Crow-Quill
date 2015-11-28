@@ -6,7 +6,7 @@ class Stroke: Drawable {
   var points: [StrokePoint] = []
   var predictedPoints: [StrokePoint] = []
   var undrawnPointIndex: Int? = 0
-  let rectOffset = 10.0
+  var rectOffset: Double { return 10.0 }
   var undrawnPointOffset: Int { return 1 }
 
   init(points: [StrokePoint]) {
@@ -34,11 +34,11 @@ class Stroke: Drawable {
   }
 
   func drawUndrawnPoints(renderer: Renderer) {
-    draw(renderer)
+    fatalError("Strokes must override draw")
   }
 
   func drawPredictedPoints(renderer: Renderer) {
-    draw(renderer)
+    fatalError("Strokes must override draw")
   }
 
   func undrawnPoints() -> [StrokePoint] {
