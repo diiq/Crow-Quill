@@ -36,83 +36,7 @@ protocol ImageRenderer: Renderer {
   func image(image: ImageType)
 }
 
-// These are compound methods, that build on the universal atoms defined above.
 extension Renderer {
-  /**
-   Draws a Centripital Catmull-Rom Spline through a set of points.
-
-   This is a method for smoothly interpolating though all points, avoiding
-   unexpected kinks or loops. See
-   https://en.wikipedia.org/wiki/Centripetal_Catmull%E2%80%93Rom_spline
-   for more mathematical details.
-   
-   If initial is true, an additional bezier is added to include the first point 
-   (which is otherwise treated as an invisible control point)
-   
-   If final is true, an additional bezier is added to include the final point
-   (which is otherwise treated as an invisible control point)
-   */
-  func catmullRom(points: [StrokePoint], initial: Bool=true, final: Bool=true) {
-    let start = initial ? 0 : 1
-    let end = final ? points.count - 1 : points.count - 2
-
-    for var i = start; i < end; ++i {
-      let p1 = points[i]
-      let p2 = points[i+1]
-
-      let d2 = (p2 - p1).length()
-
-      guard d2 > 0.0001 else { continue }
-
-      let controlPoint1: StrokePoint = {
-        if i > 0 {
-          let p0 = points[i-1]
-          return catmullControlPoint1(p0, p1: p1, p2: p2)
-        } else {
-          return p1
-        }
-      }()
-
-      let controlPoint2: StrokePoint = {
-        if i < points.count - 2 {
-          let p3 = points[i+2]
-          return catmullControlPoint2(p1, p2: p2, p3: p3)
-        } else {
-          return p2
-        }
-      }()
-      
-      bezier(p1, controlPoint1, controlPoint2, p2)
-    }
-  }
-
-  private func catmullControlPoint1(p0: StrokePoint, p1: StrokePoint, p2: StrokePoint) -> StrokePoint {
-    let d2 = (p2 - p1).length()
-    let d1 = (p1 - p0).length()
-
-    guard d1 > 0.0001 else { return p1 }
-
-    var cp1 = p2 * d1
-    cp1 = cp1 - p0 * d2
-    cp1 = cp1 + p1 * (2 * d1 + 3 * sqrt(d1) * sqrt(d2) + d2)
-    cp1 = cp1 * (1.0 / (3 * sqrt(d1) * (sqrt(d1) + sqrt(d2))))
-    return cp1
-  }
-
-  private func catmullControlPoint2(p1: StrokePoint, p2: StrokePoint, p3: StrokePoint) -> StrokePoint {
-    let d2 = (p2 - p1).length()
-    let d3 = (p3 - p2).length()
-
-
-    guard d3 > 0.0001 else { return p2 }
-
-    var cp2 = p1 * d3
-    cp2 = cp2 - p3 * d2
-    cp2 = cp2 + p2 * (2 * d3 + 3 * sqrt(d3) * sqrt(d2) + d2)
-    cp2 = cp2 * (1.0 / (3 * sqrt(d3) * (sqrt(d3) + sqrt(d2))))
-    return cp2
-  }
-
   func linear(points: [StrokePoint]) {
     var lastPoint = points[0]
     moveTo(lastPoint)
@@ -144,27 +68,5 @@ extension Renderer {
       weightedLine(lastPoint, $0)
       lastPoint = $0
     }
-  }
-
-  func weightedCatmullRom(points: [StrokePoint]) {
-    // This is done in two passes; one to get the outset points, and one to draw
-    // the catmull-rom interpolation between those points.
-    var outsetPointsForward: [StrokePoint] = []
-    var outsetPointsBack: [StrokePoint] = []
-    for var i = 1; i < points.count - 2; ++i {
-      let a = points[i]
-      let cp1 = points[i - 1]
-      let cp2 = points[i + 1]
-      let perpendicularA = (cp2 - cp1).perpendicular()
-      outsetPointsForward.append(a + perpendicularA * a.weight)
-      outsetPointsBack.append(a - perpendicularA * a.weight)
-    }
-    outsetPointsBack = outsetPointsBack.reverse()
-    moveTo(outsetPointsForward[0])
-    catmullRom(outsetPointsForward)
-    arc(outsetPointsForward.last!, outsetPointsBack[0])
-    catmullRom(outsetPointsBack)
-    arc(outsetPointsBack.last!, outsetPointsForward[0])
-    fill()
   }
 }

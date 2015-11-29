@@ -27,7 +27,7 @@ class UIRenderer: Renderer, ImageRenderer {
 
   func arc(a: StrokePoint, _ b: StrokePoint) {
     let delta = b - a
-    let center = a + delta * 0.5
+    let center = a + delta / 2
     let radius = delta.length() / 2
     CGContextAddArc(context,
       CGFloat(center.x),

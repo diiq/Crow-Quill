@@ -9,6 +9,20 @@ struct StrokePoint {
   let x: Double
   let y: Double
   let weight: Double
+  init(x: Double, y: Double, weight: Double = -1) {
+    if x.isNaN || y.isNaN {
+      fatalError("NaNish point created.")
+    }
+    self.x = x
+    self.y = y
+    self.weight = weight
+  }
+}
+
+extension StrokePoint : Equatable {}
+
+func ==(left: StrokePoint, right: StrokePoint) -> Bool {
+  return left.x == right.x && left.y == right.y && left.weight == right.weight
 }
 
 extension StrokePoint : CustomStringConvertible {
@@ -43,6 +57,10 @@ func *(left: StrokePoint, right: Double) -> StrokePoint {
 
 func *(left: Double, right: StrokePoint) -> StrokePoint {
   return right * left
+}
+
+func /(left: StrokePoint, right: Double) -> StrokePoint {
+  return StrokePoint(x: left.x / right, y: left.y / right, weight: -1)
 }
 
 func +(left: StrokePoint, right: StrokePoint) -> StrokePoint {

@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A1245F41C0B77C5003064A6 /* ArrayExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1245F31C0B77C5003064A6 /* ArrayExtensionTests.swift */; };
+		2A1CDDC61C0B52A50070D254 /* CatmullRomRendererExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1CDDC51C0B52A50070D254 /* CatmullRomRendererExtension.swift */; };
+		2A1CDDCB1C0B5DDA0070D254 /* StrokeTransformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1CDDCA1C0B5DDA0070D254 /* StrokeTransformation.swift */; };
+		2A1CDDCD1C0B5F0A0070D254 /* PerpendicularOutset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1CDDCC1C0B5F0A0070D254 /* PerpendicularOutset.swift */; };
+		2A1CDDCF1C0B6E850070D254 /* PerpendicularOutsetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1CDDCE1C0B6E850070D254 /* PerpendicularOutsetTests.swift */; };
 		2A2074881C07BF1E003B0918 /* ActiveDrawingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2074871C07BF1E003B0918 /* ActiveDrawingView.swift */; };
 		2A20748A1C08AD81003B0918 /* ActiveDrawingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2074891C08AD81003B0918 /* ActiveDrawingTests.swift */; };
 		2A20748C1C08AD9E003B0918 /* SmoothFixedPenStrokeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A20748B1C08AD9E003B0918 /* SmoothFixedPenStrokeTests.swift */; };
@@ -59,6 +64,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2A1245F31C0B77C5003064A6 /* ArrayExtensionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayExtensionTests.swift; sourceTree = "<group>"; };
+		2A1CDDC51C0B52A50070D254 /* CatmullRomRendererExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CatmullRomRendererExtension.swift; sourceTree = "<group>"; };
+		2A1CDDCA1C0B5DDA0070D254 /* StrokeTransformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StrokeTransformation.swift; sourceTree = "<group>"; };
+		2A1CDDCC1C0B5F0A0070D254 /* PerpendicularOutset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerpendicularOutset.swift; sourceTree = "<group>"; };
+		2A1CDDCE1C0B6E850070D254 /* PerpendicularOutsetTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerpendicularOutsetTests.swift; sourceTree = "<group>"; };
 		2A2074871C07BF1E003B0918 /* ActiveDrawingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActiveDrawingView.swift; sourceTree = "<group>"; };
 		2A2074891C08AD81003B0918 /* ActiveDrawingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActiveDrawingTests.swift; sourceTree = "<group>"; };
 		2A20748B1C08AD9E003B0918 /* SmoothFixedPenStrokeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmoothFixedPenStrokeTests.swift; sourceTree = "<group>"; };
@@ -124,6 +134,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2A1CDDC71C0B5CFA0070D254 /* StrokeTransformations */ = {
+			isa = PBXGroup;
+			children = (
+				2A1CDDCA1C0B5DDA0070D254 /* StrokeTransformation.swift */,
+				2A1CDDCC1C0B5F0A0070D254 /* PerpendicularOutset.swift */,
+			);
+			path = StrokeTransformations;
+			sourceTree = "<group>";
+		};
 		2AAF8DC91C06A25D00E0C356 = {
 			isa = PBXGroup;
 			children = (
@@ -183,6 +202,7 @@
 		2AAF8E031C06A27000E0C356 /* Drawing */ = {
 			isa = PBXGroup;
 			children = (
+				2A1CDDC71C0B5CFA0070D254 /* StrokeTransformations */,
 				2AAF8E171C06A38800E0C356 /* Strokes */,
 				2AAF8E101C06A33900E0C356 /* Renderers */,
 				2AAF8E041C06A2AB00E0C356 /* Drawable.swift */,
@@ -199,6 +219,7 @@
 			isa = PBXGroup;
 			children = (
 				2AAF8E111C06A35700E0C356 /* Renderer.swift */,
+				2A1CDDC51C0B52A50070D254 /* CatmullRomRendererExtension.swift */,
 				2AAF8E131C06A36D00E0C356 /* TestRenderer.swift */,
 				2AAF8E151C06A37F00E0C356 /* UIRenderer.swift */,
 			);
@@ -228,6 +249,8 @@
 				2AAF8E341C06A71200E0C356 /* LinearFixedPenStrokeTests.swift */,
 				2A2074891C08AD81003B0918 /* ActiveDrawingTests.swift */,
 				2A20748B1C08AD9E003B0918 /* SmoothFixedPenStrokeTests.swift */,
+				2A1CDDCE1C0B6E850070D254 /* PerpendicularOutsetTests.swift */,
+				2A1245F31C0B77C5003064A6 /* ArrayExtensionTests.swift */,
 			);
 			path = "Drawing Tests";
 			sourceTree = "<group>";
@@ -366,15 +389,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A1CDDCB1C0B5DDA0070D254 /* StrokeTransformation.swift in Sources */,
 				2AAF8E0D1C06A31000E0C356 /* SnapshotTimeline.swift in Sources */,
 				2AAF8E0F1C06A32500E0C356 /* Snapshot.swift in Sources */,
 				2AAF8E211C06A41800E0C356 /* DrawingView.swift in Sources */,
 				2A2074881C07BF1E003B0918 /* ActiveDrawingView.swift in Sources */,
 				2AAF8E2C1C06A58900E0C356 /* TestRenderer.swift in Sources */,
+				2A1CDDCD1C0B5F0A0070D254 /* PerpendicularOutset.swift in Sources */,
 				2AAF8E1B1C06A3C200E0C356 /* LinearFixedPenStroke.swift in Sources */,
 				2AAF8E161C06A37F00E0C356 /* UIRenderer.swift in Sources */,
 				2AAF8E0B1C06A2FF00E0C356 /* Timeline.swift in Sources */,
 				2AAF8E231C06A43900E0C356 /* CanvasGestureDelegate.swift in Sources */,
+				2A1CDDC61C0B52A50070D254 /* CatmullRomRendererExtension.swift in Sources */,
 				2AAF8E1D1C06A3DC00E0C356 /* SmoothFixedPenStroke.swift in Sources */,
 				2AAF8E1F1C06A3E900E0C356 /* Stroke.swift in Sources */,
 				2AAF8E091C06A2DD00E0C356 /* ActiveDrawing.swift in Sources */,
@@ -395,6 +421,8 @@
 			files = (
 				2AAF8E2D1C06A59700E0C356 /* TestRendererTests.swift in Sources */,
 				2A20748A1C08AD81003B0918 /* ActiveDrawingTests.swift in Sources */,
+				2A1CDDCF1C0B6E850070D254 /* PerpendicularOutsetTests.swift in Sources */,
+				2A1245F41C0B77C5003064A6 /* ArrayExtensionTests.swift in Sources */,
 				2A20748C1C08AD9E003B0918 /* SmoothFixedPenStrokeTests.swift in Sources */,
 				2AAF8E361C06A72700E0C356 /* SnapshotTimelineTests.swift in Sources */,
 				2AAF8DEB1C06A25D00E0C356 /* Crow_QuillTests.swift in Sources */,

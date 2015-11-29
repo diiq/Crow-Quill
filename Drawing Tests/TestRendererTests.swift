@@ -37,7 +37,6 @@ class TestRendererTests: XCTestCase {
       "Catmull Rom interpolates smooth beziers")
 
 
-
     renderer.currentImage = []
 
     renderer.catmullRom(points, initial: false)
@@ -47,7 +46,8 @@ class TestRendererTests: XCTestCase {
       "bezier: <40.0, 25.0>, [<39.5713791456192, 27.6412807156333>, <30.2187834822991, 30.3419387419195>], <30.0, 30.0>",
       "bezier: <30.0, 30.0>, [<29.7658479365523, 29.6340415594826>, <36.7819717026072, 25.0211962453936>], <40.0, 22.0>",
       "bezier: <40.0, 22.0>, [<43.4671846009055, 18.7448872010141>, <50.0, 11.0>], <50.0, 11.0>"],
-      "Calling line adds a single string")
+      "Catmull Rom interpolates smooth beziers")
+
 
     renderer.currentImage = []
 
@@ -58,7 +58,7 @@ class TestRendererTests: XCTestCase {
       "bezier: <20.0, 5.0>, [<24.6176182841822, 4.18649120184987>, <40.6817392384564, 20.7989335208>], <40.0, 25.0>",
       "bezier: <40.0, 25.0>, [<39.5713791456192, 27.6412807156333>, <30.2187834822991, 30.3419387419195>], <30.0, 30.0>",
       "bezier: <30.0, 30.0>, [<29.7658479365523, 29.6340415594826>, <36.7819717026072, 25.0211962453936>], <40.0, 22.0>"],
-      "Calling line adds a single string")
+      "Catmull Rom interpolates smooth beziers")
   }
 }
 

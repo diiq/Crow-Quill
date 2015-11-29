@@ -10,7 +10,10 @@ class SmoothVariablePenStroke: SmoothFixedPenStroke {
     var weightedPoints: [StrokePoint] = []
     for (var i = 1; i < points.count; i++) {
       let a = points[i]
-      let aWeight = max(min(brushSize, (1/(a - points[i-1]).length() + 0.01) * brushSize * 5), 0.5)
+      var aWeight = max(min(brushSize, (1/(a - points[i-1]).length() + 0.01) * brushSize * 5), 0.5)
+      if let lastWeight = weightedPoints.last?.weight {
+        aWeight = (aWeight + lastWeight) / 2
+      }
       weightedPoints.append(StrokePoint(x: a.x, y: a.y, weight: aWeight))
     }
 
