@@ -39,6 +39,8 @@ extension StrokePoint {
 
   func unit() -> StrokePoint {
     let len = length()
+    // Not sure this is the right solution to unitizing 0 length vector.
+    guard len > 0 else { return StrokePoint(x: 0, y: 0, weight: weight) }
     return StrokePoint(x: x/len, y: y/len, weight: weight)
   }
 
