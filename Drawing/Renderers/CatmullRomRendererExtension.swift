@@ -60,18 +60,35 @@ extension Renderer {
    https://en.wikipedia.org/wiki/Centripetal_Catmull%E2%80%93Rom_spline
    for more mathematical details.
    */
-  func weightedCatmullRom(points: [StrokePoint]) {
+  func weightedCatmullRom(points: [StrokePoint], initial: Bool=true, final: Bool=true) {
     // This is done in two passes; one to get the outset points, and one to draw
     // the catmull-rom interpolation between those points.
+    if points.count < 2 {
+      return
+    }
     var outsetPointsForward = ForwardPerpendicularOutset().apply(points)
     var outsetPointsBack = BackwardPerpendicularOutset().apply(points)
-    outsetPointsBack = outsetPointsBack.reverse()
-    moveTo(outsetPointsForward[0])
-    catmullRom(outsetPointsForward)
-    arc(outsetPointsForward.last!, outsetPointsBack[0])
-    catmullRom(outsetPointsBack)
-    arc(outsetPointsBack.last!, outsetPointsForward[0])
-    fill()
-  }
 
+    let fwdControlPoints1: [StrokePoint] = outsetPointsForward.slidingWindow(catmullControlPoint)
+    let fwdControlPoints2: [StrokePoint] = outsetPointsForward.slidingWindow {
+      focus, before, after in
+      return self.catmullControlPoint(focus, before: after, after: before)
+    }
+    let bwdControlPoints1: [StrokePoint] = outsetPointsBack.slidingWindow(catmullControlPoint)
+    let bwdControlPoints2: [StrokePoint] = outsetPointsBack.slidingWindow {
+      focus, before, after in
+      return self.catmullControlPoint(focus, before: after, after: before)
+    }
+
+    let start = initial ? 0 : 1
+    let end = final ? points.count : points.count - 1
+    for var i = start; i < end - 1; i++ {
+      moveTo(outsetPointsForward[i])
+      bezier(outsetPointsForward[i], fwdControlPoints1[i], fwdControlPoints2[i+1], outsetPointsForward[i+1])
+      arc(outsetPointsForward[i+1], outsetPointsBack[i+1])
+      bezier(outsetPointsBack[i+1], bwdControlPoints2[i+1], bwdControlPoints1[i], outsetPointsBack[i])
+      arc(outsetPointsBack[i], outsetPointsForward[i])
+      fill()
+    }
+  }
 }

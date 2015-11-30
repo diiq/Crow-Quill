@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		2A1245F41C0B77C5003064A6 /* ArrayExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1245F31C0B77C5003064A6 /* ArrayExtensionTests.swift */; };
+		2A1245F61C0B98FE003064A6 /* WeightedByVelocity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1245F51C0B98FE003064A6 /* WeightedByVelocity.swift */; };
+		2A1245F81C0B9AC1003064A6 /* WeightedByVelocityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1245F71C0B9AC1003064A6 /* WeightedByVelocityTests.swift */; };
+		2A1245FA1C0B9D53003064A6 /* ThreePointWeightAverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1245F91C0B9D53003064A6 /* ThreePointWeightAverage.swift */; };
 		2A1CDDC61C0B52A50070D254 /* CatmullRomRendererExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1CDDC51C0B52A50070D254 /* CatmullRomRendererExtension.swift */; };
 		2A1CDDCB1C0B5DDA0070D254 /* StrokeTransformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1CDDCA1C0B5DDA0070D254 /* StrokeTransformation.swift */; };
 		2A1CDDCD1C0B5F0A0070D254 /* PerpendicularOutset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1CDDCC1C0B5F0A0070D254 /* PerpendicularOutset.swift */; };
@@ -65,6 +68,9 @@
 
 /* Begin PBXFileReference section */
 		2A1245F31C0B77C5003064A6 /* ArrayExtensionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayExtensionTests.swift; sourceTree = "<group>"; };
+		2A1245F51C0B98FE003064A6 /* WeightedByVelocity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeightedByVelocity.swift; sourceTree = "<group>"; };
+		2A1245F71C0B9AC1003064A6 /* WeightedByVelocityTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeightedByVelocityTests.swift; sourceTree = "<group>"; };
+		2A1245F91C0B9D53003064A6 /* ThreePointWeightAverage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThreePointWeightAverage.swift; sourceTree = "<group>"; };
 		2A1CDDC51C0B52A50070D254 /* CatmullRomRendererExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CatmullRomRendererExtension.swift; sourceTree = "<group>"; };
 		2A1CDDCA1C0B5DDA0070D254 /* StrokeTransformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StrokeTransformation.swift; sourceTree = "<group>"; };
 		2A1CDDCC1C0B5F0A0070D254 /* PerpendicularOutset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerpendicularOutset.swift; sourceTree = "<group>"; };
@@ -139,6 +145,8 @@
 			children = (
 				2A1CDDCA1C0B5DDA0070D254 /* StrokeTransformation.swift */,
 				2A1CDDCC1C0B5F0A0070D254 /* PerpendicularOutset.swift */,
+				2A1245F51C0B98FE003064A6 /* WeightedByVelocity.swift */,
+				2A1245F91C0B9D53003064A6 /* ThreePointWeightAverage.swift */,
 			);
 			path = StrokeTransformations;
 			sourceTree = "<group>";
@@ -250,6 +258,7 @@
 				2A2074891C08AD81003B0918 /* ActiveDrawingTests.swift */,
 				2A20748B1C08AD9E003B0918 /* SmoothFixedPenStrokeTests.swift */,
 				2A1CDDCE1C0B6E850070D254 /* PerpendicularOutsetTests.swift */,
+				2A1245F71C0B9AC1003064A6 /* WeightedByVelocityTests.swift */,
 				2A1245F31C0B77C5003064A6 /* ArrayExtensionTests.swift */,
 			);
 			path = "Drawing Tests";
@@ -395,6 +404,7 @@
 				2AAF8E211C06A41800E0C356 /* DrawingView.swift in Sources */,
 				2A2074881C07BF1E003B0918 /* ActiveDrawingView.swift in Sources */,
 				2AAF8E2C1C06A58900E0C356 /* TestRenderer.swift in Sources */,
+				2A1245F61C0B98FE003064A6 /* WeightedByVelocity.swift in Sources */,
 				2A1CDDCD1C0B5F0A0070D254 /* PerpendicularOutset.swift in Sources */,
 				2AAF8E1B1C06A3C200E0C356 /* LinearFixedPenStroke.swift in Sources */,
 				2AAF8E161C06A37F00E0C356 /* UIRenderer.swift in Sources */,
@@ -411,6 +421,7 @@
 				2AAF8DD81C06A25D00E0C356 /* ViewController.swift in Sources */,
 				2AAF8E121C06A35700E0C356 /* Renderer.swift in Sources */,
 				2AAF8E191C06A3A500E0C356 /* StrokePoint.swift in Sources */,
+				2A1245FA1C0B9D53003064A6 /* ThreePointWeightAverage.swift in Sources */,
 				2AAF8DD61C06A25D00E0C356 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -422,6 +433,7 @@
 				2AAF8E2D1C06A59700E0C356 /* TestRendererTests.swift in Sources */,
 				2A20748A1C08AD81003B0918 /* ActiveDrawingTests.swift in Sources */,
 				2A1CDDCF1C0B6E850070D254 /* PerpendicularOutsetTests.swift in Sources */,
+				2A1245F81C0B9AC1003064A6 /* WeightedByVelocityTests.swift in Sources */,
 				2A1245F41C0B77C5003064A6 /* ArrayExtensionTests.swift in Sources */,
 				2A20748C1C08AD9E003B0918 /* SmoothFixedPenStrokeTests.swift in Sources */,
 				2AAF8E361C06A72700E0C356 /* SnapshotTimelineTests.swift in Sources */,

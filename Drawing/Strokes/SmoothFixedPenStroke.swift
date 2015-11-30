@@ -35,6 +35,6 @@ class SmoothFixedPenStroke : Stroke {
     // addition to the predicted points themselves.
     let start = max(0, points.count - undrawnPointOffset)
     let newPoints = Array(points[start..<points.count] + predictedPoints)
-    drawPoints(newPoints, renderer: renderer, initial: false)
+    drawPoints(newPoints, renderer: renderer, initial: true)
   }
 }

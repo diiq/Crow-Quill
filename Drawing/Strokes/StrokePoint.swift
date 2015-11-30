@@ -11,6 +11,7 @@ struct StrokePoint {
   let weight: Double
   init(x: Double, y: Double, weight: Double = -1) {
     if x.isNaN || y.isNaN {
+      // TODO For development env only. Remove before deploy.
       fatalError("NaNish point created.")
     }
     self.x = x
