@@ -14,7 +14,7 @@ struct ForwardPerpendicularOutset : StrokeTransformation {
         }
       }()
 
-      return focus + perpendicular * focus.weight
+      return focus + perpendicular * focus.weight / 2.0
     }
   }
 }
@@ -34,7 +34,7 @@ struct BackwardPerpendicularOutset : StrokeTransformation {
         }
       }()
 
-      return focus - perpendicular * focus.weight
+      return focus - perpendicular * focus.weight / 2.0
     }
   }
 }

@@ -6,13 +6,13 @@ class ForwardPerpendicularOutsetTests: XCTestCase {
   lazy var bwdTransformation = BackwardPerpendicularOutset()
   lazy var horizontalPoints : [StrokePoint] = {
     return (1...5).map {
-      return StrokePoint(x: 10.0 * Double($0), y: 50.0, weight: Double($0))
+      return StrokePoint(x: 10.0 * Double($0), y: 50.0, weight: 2*Double($0))
     }
   }()
 
   lazy var verticalPoints : [StrokePoint] = {
     return (1...5).map {
-      return StrokePoint(x: 50.0, y: 10.0 * Double($0), weight: Double($0))
+      return StrokePoint(x: 50.0, y: 10.0 * Double($0), weight: 2*Double($0))
     }
   }()
 

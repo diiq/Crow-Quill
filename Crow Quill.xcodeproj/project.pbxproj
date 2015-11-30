@@ -20,6 +20,8 @@
 		2A20748C1C08AD9E003B0918 /* SmoothFixedPenStrokeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A20748B1C08AD9E003B0918 /* SmoothFixedPenStrokeTests.swift */; };
 		2A20748E1C09FB0A003B0918 /* LinearVariablePenStroke.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A20748D1C09FB0A003B0918 /* LinearVariablePenStroke.swift */; };
 		2A2074901C0A3B20003B0918 /* SmoothVariablePenStroke.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A20748F1C0A3B20003B0918 /* SmoothVariablePenStroke.swift */; };
+		2A8321DC1C0BCF2C00EADC0F /* FewerPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A8321DB1C0BCF2C00EADC0F /* FewerPoints.swift */; };
+		2A8321DE1C0BD68300EADC0F /* ExtraPrediction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A8321DD1C0BD68300EADC0F /* ExtraPrediction.swift */; };
 		2AAF8DD61C06A25D00E0C356 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAF8DD51C06A25D00E0C356 /* AppDelegate.swift */; };
 		2AAF8DD81C06A25D00E0C356 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAF8DD71C06A25D00E0C356 /* ViewController.swift */; };
 		2AAF8DDB1C06A25D00E0C356 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2AAF8DD91C06A25D00E0C356 /* Main.storyboard */; };
@@ -80,6 +82,8 @@
 		2A20748B1C08AD9E003B0918 /* SmoothFixedPenStrokeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmoothFixedPenStrokeTests.swift; sourceTree = "<group>"; };
 		2A20748D1C09FB0A003B0918 /* LinearVariablePenStroke.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinearVariablePenStroke.swift; sourceTree = "<group>"; };
 		2A20748F1C0A3B20003B0918 /* SmoothVariablePenStroke.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmoothVariablePenStroke.swift; sourceTree = "<group>"; };
+		2A8321DB1C0BCF2C00EADC0F /* FewerPoints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FewerPoints.swift; sourceTree = "<group>"; };
+		2A8321DD1C0BD68300EADC0F /* ExtraPrediction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtraPrediction.swift; sourceTree = "<group>"; };
 		2AAF8DD21C06A25D00E0C356 /* Crow Quill.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Crow Quill.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AAF8DD51C06A25D00E0C356 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2AAF8DD71C06A25D00E0C356 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -147,6 +151,8 @@
 				2A1CDDCC1C0B5F0A0070D254 /* PerpendicularOutset.swift */,
 				2A1245F51C0B98FE003064A6 /* WeightedByVelocity.swift */,
 				2A1245F91C0B9D53003064A6 /* ThreePointWeightAverage.swift */,
+				2A8321DB1C0BCF2C00EADC0F /* FewerPoints.swift */,
+				2A8321DD1C0BD68300EADC0F /* ExtraPrediction.swift */,
 			);
 			path = StrokeTransformations;
 			sourceTree = "<group>";
@@ -414,10 +420,12 @@
 				2AAF8E1D1C06A3DC00E0C356 /* SmoothFixedPenStroke.swift in Sources */,
 				2AAF8E1F1C06A3E900E0C356 /* Stroke.swift in Sources */,
 				2AAF8E091C06A2DD00E0C356 /* ActiveDrawing.swift in Sources */,
+				2A8321DE1C0BD68300EADC0F /* ExtraPrediction.swift in Sources */,
 				2AAF8E071C06A2BF00E0C356 /* Drawing.swift in Sources */,
 				2A20748E1C09FB0A003B0918 /* LinearVariablePenStroke.swift in Sources */,
 				2AAF8E051C06A2AB00E0C356 /* Drawable.swift in Sources */,
 				2A2074901C0A3B20003B0918 /* SmoothVariablePenStroke.swift in Sources */,
+				2A8321DC1C0BCF2C00EADC0F /* FewerPoints.swift in Sources */,
 				2AAF8DD81C06A25D00E0C356 /* ViewController.swift in Sources */,
 				2AAF8E121C06A35700E0C356 /* Renderer.swift in Sources */,
 				2AAF8E191C06A3A500E0C356 /* StrokePoint.swift in Sources */,
