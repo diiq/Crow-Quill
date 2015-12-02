@@ -18,7 +18,6 @@ class SmoothFixedPenStroke : Stroke {
 
     renderer.catmullRom(points, initial:  initial, final: final)
     renderer.stroke()
-    undrawnPointIndex = nil
   }
 
   override func draw(renderer: Renderer) {
@@ -27,6 +26,8 @@ class SmoothFixedPenStroke : Stroke {
 
   override func drawUndrawnPoints(renderer: Renderer) {
     drawPoints(undrawnPoints(), renderer: renderer, initial: undrawnPoints().count == points.count, final: false)
+
+    undrawnPointIndex = nil
   }
 
   override func drawPredictedPoints(renderer: Renderer) {
@@ -35,6 +36,6 @@ class SmoothFixedPenStroke : Stroke {
     // addition to the predicted points themselves.
     let start = max(0, points.count - undrawnPointOffset)
     let newPoints = Array(points[start..<points.count] + predictedPoints)
-    drawPoints(newPoints, renderer: renderer, initial: true)
+    drawPoints(newPoints, renderer: renderer, initial: false)
   }
 }

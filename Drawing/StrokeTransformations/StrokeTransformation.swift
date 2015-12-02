@@ -9,7 +9,6 @@ protocol StrokeTransformation {
   func apply(points: [StrokePoint]) -> [StrokePoint]
 }
 
-
 extension Array {
   func partition (n: Int, step maybeStep: Int? = nil, includeHead: Bool=false, includeTail: Bool=false) -> [Array] {
     var result = [Array]()

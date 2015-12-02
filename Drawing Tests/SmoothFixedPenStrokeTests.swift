@@ -44,7 +44,7 @@ class SmoothFixedPenStrokeTests: XCTestCase {
   }
 
   func testDrawUndrawnPoints() {
-    stroke.undrawnPointIndex = 4
+    stroke.undrawnPointIndex = 1
     stroke.drawUndrawnPoints(renderer)
     XCTAssertEqual(renderer.currentImage, [
       "move: <30.0, 50.0>",

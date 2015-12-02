@@ -87,6 +87,7 @@ extension UITouch {
    */
   func strokePoint() -> StrokePoint {
     let location = preciseLocationInView(view)
-    return StrokePoint(x: Double(location.x), y: Double(location.y), weight: 5)
+    let weight = (type == .Stylus) ? force : -1
+    return StrokePoint(x: Double(location.x), y: Double(location.y), weight: Double(weight))
   }
 }

@@ -5,7 +5,7 @@ class UIRenderer: Renderer, ImageRenderer {
   typealias ImageType = CGImage
   var bounds: CGRect
   var context : CGContext!
-  let color = UIColor(red:0.1, green:0.1, blue:0.1, alpha:1.0).CGColor
+  let color = UIColor(red:0.2, green:0.2, blue:0.2, alpha:1.0).CGColor
   var currentImage: ImageType {
     get {
       return CGBitmapContextCreateImage(context)!
