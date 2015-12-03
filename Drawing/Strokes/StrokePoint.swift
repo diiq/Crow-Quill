@@ -52,6 +52,10 @@ extension StrokePoint {
   func radians() -> Double {
     return atan2(y, x)
   }
+
+  func dot(point: StrokePoint) -> Double {
+    return x * point.x + y * point.y
+  }
 }
 
 func *(left: StrokePoint, right: Double) -> StrokePoint {

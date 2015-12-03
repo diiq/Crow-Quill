@@ -19,6 +19,7 @@ protocol Renderer {
   func moveTo(point: StrokePoint)
   func stroke()
   func fill()
+  func color(r: Double, _ g: Double, _ b: Double, _ a: Double)
 }
 
 /**

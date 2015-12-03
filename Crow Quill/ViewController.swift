@@ -3,6 +3,7 @@ import UIKit
 class ViewController: UIViewController {
   @IBOutlet weak var drawing: DrawingView!
   @IBOutlet weak var activeDrawing: ActiveDrawingView!
+  @IBOutlet weak var guide: GuideView!
   var gestureDelegate: CanvasGestureDelegate!
 
   override func viewDidLoad() {

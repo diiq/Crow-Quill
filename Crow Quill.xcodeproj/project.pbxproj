@@ -22,6 +22,9 @@
 		2A2074901C0A3B20003B0918 /* SmoothVariablePenStroke.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A20748F1C0A3B20003B0918 /* SmoothVariablePenStroke.swift */; };
 		2A8321DC1C0BCF2C00EADC0F /* FewerPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A8321DB1C0BCF2C00EADC0F /* FewerPoints.swift */; };
 		2A8321DE1C0BD68300EADC0F /* ExtraPrediction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A8321DD1C0BD68300EADC0F /* ExtraPrediction.swift */; };
+		2A8321E31C0E78FF00EADC0F /* Guide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A8321E21C0E78FF00EADC0F /* Guide.swift */; };
+		2A8321E51C0E790B00EADC0F /* GuideTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A8321E41C0E790B00EADC0F /* GuideTests.swift */; };
+		2A8321E71C0FBF9400EADC0F /* GuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A8321E61C0FBF9400EADC0F /* GuideView.swift */; };
 		2AAF8DD61C06A25D00E0C356 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAF8DD51C06A25D00E0C356 /* AppDelegate.swift */; };
 		2AAF8DD81C06A25D00E0C356 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAF8DD71C06A25D00E0C356 /* ViewController.swift */; };
 		2AAF8DDB1C06A25D00E0C356 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2AAF8DD91C06A25D00E0C356 /* Main.storyboard */; };
@@ -84,6 +87,9 @@
 		2A20748F1C0A3B20003B0918 /* SmoothVariablePenStroke.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmoothVariablePenStroke.swift; sourceTree = "<group>"; };
 		2A8321DB1C0BCF2C00EADC0F /* FewerPoints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FewerPoints.swift; sourceTree = "<group>"; };
 		2A8321DD1C0BD68300EADC0F /* ExtraPrediction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtraPrediction.swift; sourceTree = "<group>"; };
+		2A8321E21C0E78FF00EADC0F /* Guide.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Guide.swift; sourceTree = "<group>"; };
+		2A8321E41C0E790B00EADC0F /* GuideTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuideTests.swift; sourceTree = "<group>"; };
+		2A8321E61C0FBF9400EADC0F /* GuideView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuideView.swift; sourceTree = "<group>"; };
 		2AAF8DD21C06A25D00E0C356 /* Crow Quill.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Crow Quill.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AAF8DD51C06A25D00E0C356 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2AAF8DD71C06A25D00E0C356 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -157,11 +163,29 @@
 			path = StrokeTransformations;
 			sourceTree = "<group>";
 		};
+		2A8321E01C0E77F900EADC0F /* Guides */ = {
+			isa = PBXGroup;
+			children = (
+				2A8321E21C0E78FF00EADC0F /* Guide.swift */,
+			);
+			path = Guides;
+			sourceTree = "<group>";
+		};
+		2A8321E11C0E78DA00EADC0F /* Guide Tests */ = {
+			isa = PBXGroup;
+			children = (
+				2A8321E41C0E790B00EADC0F /* GuideTests.swift */,
+			);
+			path = "Guide Tests";
+			sourceTree = "<group>";
+		};
 		2AAF8DC91C06A25D00E0C356 = {
 			isa = PBXGroup;
 			children = (
-				2AAF8E031C06A27000E0C356 /* Drawing */,
 				2AAF8DD41C06A25D00E0C356 /* Crow Quill */,
+				2AAF8E031C06A27000E0C356 /* Drawing */,
+				2A8321E01C0E77F900EADC0F /* Guides */,
+				2A8321E11C0E78DA00EADC0F /* Guide Tests */,
 				2AAF8E251C06A4AD00E0C356 /* Drawing Tests */,
 				2AAF8DE91C06A25D00E0C356 /* Crow Quill Tests */,
 				2AAF8DF41C06A25D00E0C356 /* Crow Quill UI Tests */,
@@ -185,6 +209,7 @@
 				2AAF8DD51C06A25D00E0C356 /* AppDelegate.swift */,
 				2AAF8DD71C06A25D00E0C356 /* ViewController.swift */,
 				2AAF8E201C06A41800E0C356 /* DrawingView.swift */,
+				2A8321E61C0FBF9400EADC0F /* GuideView.swift */,
 				2A2074871C07BF1E003B0918 /* ActiveDrawingView.swift */,
 				2AAF8E221C06A43900E0C356 /* CanvasGestureDelegate.swift */,
 				2AAF8DD91C06A25D00E0C356 /* Main.storyboard */,
@@ -410,9 +435,11 @@
 				2AAF8E211C06A41800E0C356 /* DrawingView.swift in Sources */,
 				2A2074881C07BF1E003B0918 /* ActiveDrawingView.swift in Sources */,
 				2AAF8E2C1C06A58900E0C356 /* TestRenderer.swift in Sources */,
+				2A8321E71C0FBF9400EADC0F /* GuideView.swift in Sources */,
 				2A1245F61C0B98FE003064A6 /* WeightedByVelocity.swift in Sources */,
 				2A1CDDCD1C0B5F0A0070D254 /* PerpendicularOutset.swift in Sources */,
 				2AAF8E1B1C06A3C200E0C356 /* LinearFixedPenStroke.swift in Sources */,
+				2A8321E31C0E78FF00EADC0F /* Guide.swift in Sources */,
 				2AAF8E161C06A37F00E0C356 /* UIRenderer.swift in Sources */,
 				2AAF8E0B1C06A2FF00E0C356 /* Timeline.swift in Sources */,
 				2AAF8E231C06A43900E0C356 /* CanvasGestureDelegate.swift in Sources */,
@@ -439,6 +466,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2AAF8E2D1C06A59700E0C356 /* TestRendererTests.swift in Sources */,
+				2A8321E51C0E790B00EADC0F /* GuideTests.swift in Sources */,
 				2A20748A1C08AD81003B0918 /* ActiveDrawingTests.swift in Sources */,
 				2A1CDDCF1C0B6E850070D254 /* PerpendicularOutsetTests.swift in Sources */,
 				2A1245F81C0B9AC1003064A6 /* WeightedByVelocityTests.swift in Sources */,

@@ -36,6 +36,10 @@ class TestRenderer: Renderer, ImageRenderer {
   func clear() {
     self.currentImage = []
   }
+
+  func color(r: Double, _ g: Double, _ b: Double, _ a: Double) {
+    currentImage.append("color")
+  }
 }
 
 

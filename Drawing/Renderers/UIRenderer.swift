@@ -5,7 +5,7 @@ class UIRenderer: Renderer, ImageRenderer {
   typealias ImageType = CGImage
   var bounds: CGRect
   var context : CGContext!
-  let color = UIColor(red:0.2, green:0.2, blue:0.2, alpha:1.0).CGColor
+  var currentColor = UIColor(red:0.2, green:0.2, blue:0.2, alpha:1.0).CGColor
   var currentImage: ImageType {
     get {
       return CGBitmapContextCreateImage(context)!
@@ -49,15 +49,19 @@ class UIRenderer: Renderer, ImageRenderer {
       CGFloat(b.y))
   }
 
+  func color(r: Double, _ g: Double, _ b: Double, _ a: Double) {
+    currentColor = UIColor(red:CGFloat(r), green:CGFloat(g), blue:CGFloat(b), alpha:CGFloat(a)).CGColor
+  }
+
   func stroke() {
     CGContextSetLineCap(context, .Round)
-    CGContextSetStrokeColorWithColor(context, color)
+    CGContextSetStrokeColorWithColor(context, currentColor)
     CGContextSetLineWidth(context, 1)
     CGContextStrokePath(context)
   }
 
   func fill() {
-    CGContextSetFillColorWithColor(context, color)
+    CGContextSetFillColorWithColor(context, currentColor)
     CGContextClosePath(context)
     CGContextFillPath(context)
   }
