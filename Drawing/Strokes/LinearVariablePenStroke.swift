@@ -7,16 +7,16 @@ class LinearVariablePenStroke : Stroke {
   override var rectOffset: Double { return 50.0 }
   override var undrawnPointOffset: Int { return 2 }
 
-  func drawPoints(points: [StrokePoint], renderer: Renderer) {
+  func drawPoints(points: [Point], renderer: Renderer) {
     guard points.count > 2 else {
       return
     }
 
-    var weightedPoints: [StrokePoint] = []
+    var weightedPoints: [Point] = []
     for (var i = 1; i < points.count; i++) {
       let a = points[i]
       let aWeight = min(brushSize, (1/(a - points[i-1]).length() + 0.01) * brushSize * 5)
-      weightedPoints.append(StrokePoint(x: a.x, y: a.y, weight: aWeight))
+      weightedPoints.append(Point(x: a.x, y: a.y, weight: aWeight))
     }
 
     renderer.weightedLinear(weightedPoints)

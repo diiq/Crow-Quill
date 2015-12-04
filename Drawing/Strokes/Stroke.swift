@@ -3,17 +3,17 @@
  */
 
 class Stroke: Drawable {
-  var points: [StrokePoint] = []
-  var predictedPoints: [StrokePoint] = []
+  var points: [Point] = []
+  var predictedPoints: [Point] = []
   var undrawnPointIndex: Int? = 0
   var rectOffset: Double { return 10.0 }
   var undrawnPointOffset: Int { return 1 }
 
-  init(points: [StrokePoint]) {
+  init(points: [Point]) {
     self.points = points
   }
 
-  func addPoint(point: StrokePoint) {
+  func addPoint(point: Point) {
     if undrawnPointIndex == nil {
       undrawnPointIndex = max(points.count - undrawnPointOffset, 0)
       // [ done done gmove ] [ predicted predicted 
@@ -21,7 +21,7 @@ class Stroke: Drawable {
     points.append(point)
   }
 
-  func addPredictedPoint(point: StrokePoint) {
+  func addPredictedPoint(point: Point) {
     predictedPoints.append(point)
   }
 
@@ -42,7 +42,7 @@ class Stroke: Drawable {
     fatalError("Strokes must override draw")
   }
 
-  func undrawnPoints() -> [StrokePoint] {
+  func undrawnPoints() -> [Point] {
     guard let start = undrawnPointIndex else { return [] }
     return Array(points[start..<points.count])
   }

@@ -1,7 +1,7 @@
 struct WeightedByVelocity : StrokeTransformation {
   let scale: Double
 
-  func apply(points: [StrokePoint]) -> [StrokePoint] {
+  func apply(points: [Point]) -> [Point] {
     return points.slidingWindow { focus, before, after in
       guard let point = before ?? after else { return nil }
 
@@ -14,7 +14,7 @@ struct WeightedByVelocity : StrokeTransformation {
       }()
 
       weight = max(min(weight, self.scale), 0.5)
-      return StrokePoint(x: focus.x, y: focus.y, weight: weight)
+      return Point(x: focus.x, y: focus.y, weight: weight)
     }
   }
 }

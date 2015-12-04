@@ -41,7 +41,7 @@
 		2AAF8E0F1C06A32500E0C356 /* Snapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAF8E0E1C06A32500E0C356 /* Snapshot.swift */; };
 		2AAF8E121C06A35700E0C356 /* Renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAF8E111C06A35700E0C356 /* Renderer.swift */; };
 		2AAF8E161C06A37F00E0C356 /* UIRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAF8E151C06A37F00E0C356 /* UIRenderer.swift */; };
-		2AAF8E191C06A3A500E0C356 /* StrokePoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAF8E181C06A3A500E0C356 /* StrokePoint.swift */; };
+		2AAF8E191C06A3A500E0C356 /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAF8E181C06A3A500E0C356 /* Point.swift */; };
 		2AAF8E1B1C06A3C200E0C356 /* LinearFixedPenStroke.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAF8E1A1C06A3C200E0C356 /* LinearFixedPenStroke.swift */; };
 		2AAF8E1D1C06A3DC00E0C356 /* SmoothFixedPenStroke.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAF8E1C1C06A3DC00E0C356 /* SmoothFixedPenStroke.swift */; };
 		2AAF8E1F1C06A3E900E0C356 /* Stroke.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAF8E1E1C06A3E900E0C356 /* Stroke.swift */; };
@@ -114,7 +114,7 @@
 		2AAF8E111C06A35700E0C356 /* Renderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Renderer.swift; sourceTree = "<group>"; };
 		2AAF8E131C06A36D00E0C356 /* TestRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestRenderer.swift; sourceTree = "<group>"; };
 		2AAF8E151C06A37F00E0C356 /* UIRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIRenderer.swift; sourceTree = "<group>"; };
-		2AAF8E181C06A3A500E0C356 /* StrokePoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StrokePoint.swift; sourceTree = "<group>"; };
+		2AAF8E181C06A3A500E0C356 /* Point.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Point.swift; sourceTree = "<group>"; };
 		2AAF8E1A1C06A3C200E0C356 /* LinearFixedPenStroke.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinearFixedPenStroke.swift; sourceTree = "<group>"; };
 		2AAF8E1C1C06A3DC00E0C356 /* SmoothFixedPenStroke.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmoothFixedPenStroke.swift; sourceTree = "<group>"; };
 		2AAF8E1E1C06A3E900E0C356 /* Stroke.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stroke.swift; sourceTree = "<group>"; };
@@ -271,7 +271,7 @@
 		2AAF8E171C06A38800E0C356 /* Strokes */ = {
 			isa = PBXGroup;
 			children = (
-				2AAF8E181C06A3A500E0C356 /* StrokePoint.swift */,
+				2AAF8E181C06A3A500E0C356 /* Point.swift */,
 				2AAF8E1A1C06A3C200E0C356 /* LinearFixedPenStroke.swift */,
 				2A20748D1C09FB0A003B0918 /* LinearVariablePenStroke.swift */,
 				2AAF8E1C1C06A3DC00E0C356 /* SmoothFixedPenStroke.swift */,
@@ -459,7 +459,7 @@
 				2A8321DC1C0BCF2C00EADC0F /* FewerPoints.swift in Sources */,
 				2AAF8DD81C06A25D00E0C356 /* ViewController.swift in Sources */,
 				2AAF8E121C06A35700E0C356 /* Renderer.swift in Sources */,
-				2AAF8E191C06A3A500E0C356 /* StrokePoint.swift in Sources */,
+				2AAF8E191C06A3A500E0C356 /* Point.swift in Sources */,
 				2A1245FA1C0B9D53003064A6 /* ThreePointWeightAverage.swift in Sources */,
 				2AAF8DD61C06A25D00E0C356 /* AppDelegate.swift in Sources */,
 			);

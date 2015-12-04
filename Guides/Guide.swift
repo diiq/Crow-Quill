@@ -17,11 +17,11 @@ class Guide : Drawable {
   var width: Double = 50
 
   init() {
-    handleA = NormalHandle(point: StrokePoint(x: 200, y: 200), line: self)
-    handleB = NormalHandle(point: StrokePoint(x: 800, y: 300), line: self)
+    handleA = NormalHandle(point: Point(x: 200, y: 200), line: self)
+    handleB = NormalHandle(point: Point(x: 800, y: 300), line: self)
   }
 
-  var unitVector: StrokePoint {
+  var unitVector: Point {
     return (handleB.point - handleA.point).unit()
   }
 
@@ -55,11 +55,11 @@ class Guide : Drawable {
     handleB.draw(renderer)
   }
 
-  func projected(point: StrokePoint) -> StrokePoint {
+  func projected(point: Point) -> Point {
     return unitVector.dot(point) * unitVector
   }
 
-  func handleFor(point: StrokePoint) -> Handle? {
+  func handleFor(point: Point) -> Handle? {
     if handleA.pointInside(point) {
       return handleA
     } else if handleB.pointInside(point) {

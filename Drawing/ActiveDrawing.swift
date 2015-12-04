@@ -12,14 +12,14 @@ class ActiveDrawing<I, IndexType: Hashable> : ImageDrawable {
   var strokesByIndex = [IndexType : Stroke]()
   var frozen: ImageType? = nil
 
-  func addOrUpdateStroke(index: IndexType, points: [StrokePoint]) {
+  func addOrUpdateStroke(index: IndexType, points: [Point]) {
     let stroke = strokesByIndex[index] ?? newStrokeForIndex(index)
     for point in points {
       stroke.addPoint(point)
     }
   }
 
-  func updateStrokePredictions(index: IndexType, points: [StrokePoint]) {
+  func updateStrokePredictions(index: IndexType, points: [Point]) {
     guard let stroke = strokesByIndex[index] else { return }
     for point in points {
       stroke.addPredictedPoint(point)

@@ -17,12 +17,12 @@ extension Renderer {
    If final is true, an additional bezier is added to include the final point
    (which is otherwise treated as an invisible control point)
    */
-  func catmullRom(points: [StrokePoint], initial: Bool=true, final: Bool=true) {
-    let controlPoints1: [StrokePoint] = points.slidingWindow(catmullControlPoint)
+  func catmullRom(points: [Point], initial: Bool=true, final: Bool=true) {
+    let controlPoints1: [Point] = points.slidingWindow(catmullControlPoint)
 
     // Could also be points.reverse().slidingWindow(catmullControlPoint).reverse()
     // but that's slower and looks silly.
-    let controlPoints2: [StrokePoint] = points.slidingWindow {
+    let controlPoints2: [Point] = points.slidingWindow {
       focus, before, after in
       return self.catmullControlPoint(focus, before: after, after: before)
     }
@@ -38,7 +38,7 @@ extension Renderer {
    A control point is chosen in order to make the curve at p1 tangent to the
    line from p0 tp p2.
    */
-  private func catmullControlPoint(focus: StrokePoint, before b: StrokePoint?, after a: StrokePoint?) -> StrokePoint {
+  private func catmullControlPoint(focus: Point, before b: Point?, after a: Point?) -> Point {
     guard let before = b, after = a else { return focus }
 
     let d1 = (focus - before).length()
@@ -60,7 +60,7 @@ extension Renderer {
    https://en.wikipedia.org/wiki/Centripetal_Catmull%E2%80%93Rom_spline
    for more mathematical details.
    */
-  func weightedCatmullRom(points: [StrokePoint], initial: Bool=true, final: Bool=true) {
+  func weightedCatmullRom(points: [Point], initial: Bool=true, final: Bool=true) {
     // This is done in two passes; one to get the outset points, and one to draw
     // the catmull-rom interpolation between those points.
     if points.count < 2 {
@@ -69,13 +69,13 @@ extension Renderer {
     var outsetPointsForward = ForwardPerpendicularOutset().apply(points)
     var outsetPointsBack = BackwardPerpendicularOutset().apply(points)
 
-    let fwdControlPoints1: [StrokePoint] = outsetPointsForward.slidingWindow(catmullControlPoint)
-    let fwdControlPoints2: [StrokePoint] = outsetPointsForward.slidingWindow {
+    let fwdControlPoints1: [Point] = outsetPointsForward.slidingWindow(catmullControlPoint)
+    let fwdControlPoints2: [Point] = outsetPointsForward.slidingWindow {
       focus, before, after in
       return self.catmullControlPoint(focus, before: after, after: before)
     }
-    let bwdControlPoints1: [StrokePoint] = outsetPointsBack.slidingWindow(catmullControlPoint)
-    let bwdControlPoints2: [StrokePoint] = outsetPointsBack.slidingWindow {
+    let bwdControlPoints1: [Point] = outsetPointsBack.slidingWindow(catmullControlPoint)
+    let bwdControlPoints2: [Point] = outsetPointsBack.slidingWindow {
       focus, before, after in
       return self.catmullControlPoint(focus, before: after, after: before)
     }

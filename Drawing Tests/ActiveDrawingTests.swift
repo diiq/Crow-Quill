@@ -3,27 +3,27 @@ import XCTest
 
 class ActiveDrawingTests: XCTestCase {
   lazy var renderer = TestRenderer()
-  lazy var points : [StrokePoint] = {
+  lazy var points : [Point] = {
     return (1...5).map {
-      StrokePoint(x: 10.0 * Double($0), y: 50.0, weight: 1)
+      Point(x: 10.0 * Double($0), y: 50.0, weight: 1)
     }
   }()
 
-  lazy var predictedPoints : [StrokePoint] = {
+  lazy var predictedPoints : [Point] = {
     return (5...10).map {
-      StrokePoint(x: 10.0 * Double($0), y: 50.0, weight: 1)
+      Point(x: 10.0 * Double($0), y: 50.0, weight: 1)
     }
   }()
 
-  lazy var morePoints : [StrokePoint] = {
+  lazy var morePoints : [Point] = {
     return (5...10).map {
-      StrokePoint(x: 10.0 * Double($0), y: 51.0, weight: 1)
+      Point(x: 10.0 * Double($0), y: 51.0, weight: 1)
     }
   }()
 
-  lazy var morePredictedPoints : [StrokePoint] = {
+  lazy var morePredictedPoints : [Point] = {
     return (10...15).map {
-      StrokePoint(x: 10.0 * Double($0), y: 51.0, weight: 1)
+      Point(x: 10.0 * Double($0), y: 51.0, weight: 1)
     }
   }()
 

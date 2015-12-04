@@ -3,9 +3,9 @@ import XCTest
 
 class WeightedByVelocityTests: XCTestCase {
   lazy var transformation = WeightedByVelocity(scale: 5)
-  lazy var points : [StrokePoint] = {
+  lazy var points : [Point] = {
     return (1...5).map {
-      return StrokePoint(x: Double($0) * Double($0), y: 50.0, weight: -1)
+      return Point(x: Double($0) * Double($0), y: 50.0, weight: -1)
     }
   }()
 

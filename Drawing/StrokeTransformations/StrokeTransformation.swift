@@ -6,7 +6,7 @@
  chained.
 */
 protocol StrokeTransformation {
-  func apply(points: [StrokePoint]) -> [StrokePoint]
+  func apply(points: [Point]) -> [Point]
 }
 
 extension Array {

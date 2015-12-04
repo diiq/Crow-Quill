@@ -13,11 +13,11 @@ import Darwin
  */
 protocol Renderer {
   /// Draws a straight, unweighted, black line from <ax, ay> to <bx, by>
-  func moveTo(point: StrokePoint)
-  func line(a: StrokePoint, _ b: StrokePoint)
-  func arc(a: StrokePoint, _ b: StrokePoint)
-  func circle(center: StrokePoint, radius: Double)
-  func bezier(a: StrokePoint, _ cp1: StrokePoint, _ cp2: StrokePoint, _ b: StrokePoint)
+  func moveTo(point: Point)
+  func line(a: Point, _ b: Point)
+  func arc(a: Point, _ b: Point)
+  func circle(center: Point, radius: Double)
+  func bezier(a: Point, _ cp1: Point, _ cp2: Point, _ b: Point)
   func color(r: Double, _ g: Double, _ b: Double, _ a: Double)
   func stroke()
   func fill()
@@ -39,7 +39,7 @@ protocol ImageRenderer: Renderer {
 }
 
 extension Renderer {
-  func linear(points: [StrokePoint]) {
+  func linear(points: [Point]) {
     var lastPoint = points[0]
     moveTo(lastPoint)
     points[1..<points.count].forEach {
@@ -48,7 +48,7 @@ extension Renderer {
     }
   }
 
-  func weightedLine(a: StrokePoint, _ b: StrokePoint) {
+  func weightedLine(a: Point, _ b: Point) {
     let perpendicular = (b - a).perpendicular()
     let aPlus = a + perpendicular * a.weight
     let aMinus = a - perpendicular * a.weight
@@ -63,7 +63,7 @@ extension Renderer {
     fill()
   }
 
-  func weightedLinear(points: [StrokePoint]) {
+  func weightedLinear(points: [Point]) {
     var lastPoint = points[0]
     moveTo(lastPoint)
     points[1..<points.count].forEach {

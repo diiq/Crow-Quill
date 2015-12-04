@@ -5,7 +5,7 @@ class LinearFixedPenStrokeTests: XCTestCase {
   lazy var renderer = TestRenderer()
   lazy var stroke : Stroke = {
     let points = (1...5).map {
-      return StrokePoint(x: 10.0 * Double($0), y: 50.0, weight: 1)
+      return Point(x: 10.0 * Double($0), y: 50.0, weight: 1)
     }
     return LinearFixedPenStroke(points: points)
   }()
@@ -38,7 +38,7 @@ class LinearFixedPenStrokeTests: XCTestCase {
     XCTAssertEqual(stroke.undrawnPoints().count, 5, "no points have been drawn")
     stroke.draw(renderer)
     XCTAssertEqual(stroke.undrawnPoints().count, 0)
-    stroke.addPoint(StrokePoint(x: 2, y: 6, weight: 1))
+    stroke.addPoint(Point(x: 2, y: 6, weight: 1))
     XCTAssertEqual(stroke.undrawnPoints().count, 2, "there are undrawn points after adding points")
     stroke.draw(renderer)
     XCTAssertEqual(stroke.undrawnPoints().count, 0, "there are no undrawn points after a draw")

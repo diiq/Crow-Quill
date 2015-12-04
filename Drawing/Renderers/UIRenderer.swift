@@ -16,16 +16,16 @@ class UIRenderer: Renderer, ImageRenderer {
     self.bounds = bounds
   }
 
-  func moveTo(point: StrokePoint) {
+  func moveTo(point: Point) {
     CGContextBeginPath(context)
     CGContextMoveToPoint(context, CGFloat(point.x), CGFloat(point.y))
   }
 
-  func line(a: StrokePoint, _ b: StrokePoint) {
+  func line(a: Point, _ b: Point) {
     CGContextAddLineToPoint(context, CGFloat(b.x), CGFloat(b.y))
   }
 
-  func arc(a: StrokePoint, _ b: StrokePoint) {
+  func arc(a: Point, _ b: Point) {
     let delta = b - a
     let center = a + delta / 2
     let radius = delta.length() / 2
@@ -38,7 +38,7 @@ class UIRenderer: Renderer, ImageRenderer {
       1)
   }
 
-  func circle(center: StrokePoint, radius: Double) {
+  func circle(center: Point, radius: Double) {
     CGContextAddArc(context,
       CGFloat(center.x),
       CGFloat(center.y),
@@ -48,7 +48,7 @@ class UIRenderer: Renderer, ImageRenderer {
       1)
   }
 
-  func bezier(a: StrokePoint, _ cp1: StrokePoint, _ cp2: StrokePoint, _ b: StrokePoint) {
+  func bezier(a: Point, _ cp1: Point, _ cp2: Point, _ b: Point) {
     CGContextAddCurveToPoint(
       context,
       CGFloat(cp1.x),

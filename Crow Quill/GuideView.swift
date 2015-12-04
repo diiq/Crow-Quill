@@ -16,12 +16,12 @@ class GuideView: UIView {
   }
 
   override func pointInside(point: CGPoint, withEvent event: UIEvent?) -> Bool {
-    return guide.handleFor(point.strokePoint()) != nil
+    return guide.handleFor(point.point()) != nil
   }
 
   override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
     for touch in (event?.allTouches() ?? touches) {
-      guard let handle = guide.handleFor(touch.strokePoint()) else { continue }
+      guard let handle = guide.handleFor(touch.point()) else { continue }
       handleForTouch[touch] = handle
     }
     setNeedsDisplay()
@@ -30,7 +30,7 @@ class GuideView: UIView {
   override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
     for touch in (event?.allTouches() ?? touches) {
       guard let handle = handleForTouch[touch] else { return }
-      handle.move(touch.strokePoint())
+      handle.move(touch.point())
     }
     setNeedsDisplay()
   }

@@ -20,11 +20,11 @@ class ActiveDrawingView: UIView {
       activeDrawing.forgetPredictions(indexTouch)
 
       let touches = event?.coalescedTouchesForTouch(indexTouch) ?? []
-      activeDrawing.addOrUpdateStroke(indexTouch, points: touches.map { $0.strokePoint() })
+      activeDrawing.addOrUpdateStroke(indexTouch, points: touches.map { $0.point() })
 
       if isPredictionEnabled {
         let predictedTouches = event?.predictedTouchesForTouch(indexTouch) ?? []
-        activeDrawing.updateStrokePredictions(indexTouch, points: predictedTouches.map { $0.strokePoint() })
+        activeDrawing.updateStrokePredictions(indexTouch, points: predictedTouches.map { $0.point() })
       }
     }
     setNeedsDisplayInRect(CGRect(activeDrawing.rectForUpdatedPoints()))

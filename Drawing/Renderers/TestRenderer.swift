@@ -5,19 +5,19 @@ class TestRenderer: Renderer, ImageRenderer {
   typealias ImageType = TestImage
   var currentImage: ImageType = ImageType()
 
-  func line(a: StrokePoint, _ b: StrokePoint) {
+  func line(a: Point, _ b: Point) {
     currentImage.append("line: \(a), \(b)")
   }
 
-  func arc(a: StrokePoint, _ b: StrokePoint) {
+  func arc(a: Point, _ b: Point) {
     currentImage.append("arc: \(a), \(b)")
   }
 
-  func circle(center: StrokePoint, radius: Double) {
+  func circle(center: Point, radius: Double) {
     currentImage.append("circle: \(center), \(radius)")
   }
 
-  func bezier(a: StrokePoint, _ cp1: StrokePoint, _ cp2: StrokePoint, _ b: StrokePoint) {
+  func bezier(a: Point, _ cp1: Point, _ cp2: Point, _ b: Point) {
     currentImage.append("bezier: \(a), [\(cp1), \(cp2)], \(b)")
   }
 
@@ -25,7 +25,7 @@ class TestRenderer: Renderer, ImageRenderer {
     self.currentImage.appendContentsOf(image)
   }
 
-  func moveTo(point: StrokePoint) {
+  func moveTo(point: Point) {
     currentImage.append("move: \(point)")
   }
 

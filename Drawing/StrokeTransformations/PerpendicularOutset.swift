@@ -1,10 +1,10 @@
 
 struct ForwardPerpendicularOutset : StrokeTransformation {
-  func apply(points: [StrokePoint]) -> [StrokePoint] {
+  func apply(points: [Point]) -> [Point] {
     return points.slidingWindow { focus, before, after in
       guard before != nil || after != nil else { return nil }
 
-      let perpendicular: StrokePoint = {
+      let perpendicular: Point = {
         if before == nil {
           return (after! - focus).perpendicular()
         } else if after == nil {
@@ -20,11 +20,11 @@ struct ForwardPerpendicularOutset : StrokeTransformation {
 }
 
 struct BackwardPerpendicularOutset : StrokeTransformation {
-  func apply(points: [StrokePoint]) -> [StrokePoint] {
+  func apply(points: [Point]) -> [Point] {
     return points.slidingWindow { focus, before, after in
       guard before != nil || after != nil else { return nil }
 
-      let perpendicular: StrokePoint = {
+      let perpendicular: Point = {
         if before == nil {
           return (after! - focus).perpendicular()
         } else if after == nil {

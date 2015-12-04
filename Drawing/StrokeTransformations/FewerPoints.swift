@@ -1,7 +1,7 @@
 struct FewerPoints : StrokeTransformation {
-  func apply(points: [StrokePoint]) -> [StrokePoint] {
+  func apply(points: [Point]) -> [Point] {
     guard points.count > 0 else { return [] }
-    var res: [StrokePoint] = []
+    var res: [Point] = []
     for var i = 0; i < points.count; i = i + 2 {
       res.append(points[i])
     }

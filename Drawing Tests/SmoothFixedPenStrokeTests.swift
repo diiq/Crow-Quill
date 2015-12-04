@@ -5,12 +5,12 @@ class SmoothFixedPenStrokeTests: XCTestCase {
   lazy var renderer = TestRenderer()
   lazy var stroke : Stroke = {
     let points = (1...5).map {
-      return StrokePoint(x: 10.0 * Double($0), y: 50.0, weight: 1)
+      return Point(x: 10.0 * Double($0), y: 50.0, weight: 1)
     }
     let stroke = SmoothFixedPenStroke(points: points)
 
     let predictedPoints = (6...8).map {
-      return StrokePoint(x: 10.0 * Double($0), y: 50.0, weight: 1)
+      return Point(x: 10.0 * Double($0), y: 50.0, weight: 1)
     }
     stroke.predictedPoints = predictedPoints
     return stroke

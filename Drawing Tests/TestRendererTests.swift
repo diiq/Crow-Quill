@@ -8,8 +8,8 @@ class TestRendererTests: XCTestCase {
     // This is an example of a functional test case.
     // Use XCTAssert and related functions to verify your tests produce the correct results.
     renderer.line(
-      StrokePoint(x: 10, y: 50, weight: 1),
-      StrokePoint(x: 20, y: 30, weight: 1))
+      Point(x: 10, y: 50, weight: 1),
+      Point(x: 20, y: 30, weight: 1))
 
     XCTAssertEqual(renderer.currentImage, ["line: <10.0, 50.0>, <20.0, 30.0>"],
       "Calling line adds a single string")
@@ -17,13 +17,13 @@ class TestRendererTests: XCTestCase {
 
   func testDrawsCentripitalCatmullRom() {
     let points = [
-      StrokePoint(x: 10, y: 50, weight: 1),
-      StrokePoint(x: 13, y: 20, weight: 1),
-      StrokePoint(x: 20, y: 5, weight: 1),
-      StrokePoint(x: 40, y: 25, weight: 1),
-      StrokePoint(x: 30, y: 30, weight: 1),
-      StrokePoint(x: 40, y: 22, weight: 1),
-      StrokePoint(x: 50, y: 11, weight: 1)
+      Point(x: 10, y: 50, weight: 1),
+      Point(x: 13, y: 20, weight: 1),
+      Point(x: 20, y: 5, weight: 1),
+      Point(x: 40, y: 25, weight: 1),
+      Point(x: 30, y: 30, weight: 1),
+      Point(x: 40, y: 22, weight: 1),
+      Point(x: 50, y: 11, weight: 1)
     ]
 
     renderer.catmullRom(points)

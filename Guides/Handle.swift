@@ -1,18 +1,18 @@
 protocol Handle : Drawable {
-  func move(newPoint: StrokePoint)
+  func move(newPoint: Point)
 }
 
 class NormalHandle: Handle {
-  var point: StrokePoint
+  var point: Point
   var length: Double
   weak var line: Guide!
   let handleSize: Double = 25
-  private var handleEnd: StrokePoint {
+  private var handleEnd: Point {
     let direction = line.unitVector.perpendicular()
     return point + direction * length
   }
 
-  init(point: StrokePoint, line: Guide, length: Double = 100) {
+  init(point: Point, line: Guide, length: Double = 100) {
     self.point = point
     self.line = line
     self.length = length
@@ -31,11 +31,11 @@ class NormalHandle: Handle {
     renderer.fill()
   }
 
-  func pointInside(point: StrokePoint) -> Bool {
+  func pointInside(point: Point) -> Bool {
     return (point - handleEnd).length() < handleSize
   }
 
-  func move(newPoint: StrokePoint) {
+  func move(newPoint: Point) {
     let projected = line.projected(newPoint)
     let direction = (newPoint - projected).unit()
     point = newPoint - (direction * length)

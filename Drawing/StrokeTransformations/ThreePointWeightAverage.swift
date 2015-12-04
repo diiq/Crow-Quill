@@ -1,5 +1,5 @@
 struct ThreePointWeightAverage : StrokeTransformation {
-  func apply(points: [StrokePoint]) -> [StrokePoint] {
+  func apply(points: [Point]) -> [Point] {
     return points.slidingWindow { focus, before, after in
       var count: Double = 1
       var sum = focus.weight
@@ -11,7 +11,7 @@ struct ThreePointWeightAverage : StrokeTransformation {
         count += 1
         sum += after!.weight
       }
-      return StrokePoint(x: focus.x, y: focus.y, weight: sum/count)
+      return Point(x: focus.x, y: focus.y, weight: sum/count)
     }
   }
 }
