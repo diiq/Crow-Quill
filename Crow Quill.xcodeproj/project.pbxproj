@@ -54,6 +54,7 @@
 		2AAF8E361C06A72700E0C356 /* SnapshotTimelineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAF8E301C06A6EA00E0C356 /* SnapshotTimelineTests.swift */; };
 		2AAF8E371C06A72A00E0C356 /* DrawingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAF8E2E1C06A6CC00E0C356 /* DrawingTests.swift */; };
 		2AB438111C11E67A007AF436 /* PointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB438101C11E67A007AF436 /* PointTests.swift */; };
+		2AB438171C11F685007AF436 /* Workspace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB438161C11F685007AF436 /* Workspace.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,9 +107,9 @@
 		2AAF8DF11C06A25D00E0C356 /* Crow Quill UI Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Crow Quill UI Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AAF8DF51C06A25D00E0C356 /* Crow_QuillUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Crow_QuillUITests.swift; sourceTree = "<group>"; };
 		2AAF8DF71C06A25D00E0C356 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2AAF8E041C06A2AB00E0C356 /* Drawable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Drawable.swift; sourceTree = "<group>"; };
+		2AAF8E041C06A2AB00E0C356 /* Drawable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Drawable.swift; path = ../Drawable.swift; sourceTree = "<group>"; };
 		2AAF8E061C06A2BF00E0C356 /* Drawing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Drawing.swift; sourceTree = "<group>"; };
-		2AAF8E081C06A2DD00E0C356 /* ActiveDrawing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActiveDrawing.swift; sourceTree = "<group>"; };
+		2AAF8E081C06A2DD00E0C356 /* ActiveDrawing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ActiveDrawing.swift; path = ../Drawing/ActiveDrawing.swift; sourceTree = "<group>"; };
 		2AAF8E0A1C06A2FF00E0C356 /* Timeline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timeline.swift; sourceTree = "<group>"; };
 		2AAF8E0C1C06A31000E0C356 /* SnapshotTimeline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotTimeline.swift; sourceTree = "<group>"; };
 		2AAF8E0E1C06A32500E0C356 /* Snapshot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Snapshot.swift; sourceTree = "<group>"; };
@@ -127,6 +128,7 @@
 		2AAF8E321C06A6FE00E0C356 /* TimelineTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineTests.swift; sourceTree = "<group>"; };
 		2AAF8E341C06A71200E0C356 /* LinearFixedPenStrokeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinearFixedPenStrokeTests.swift; sourceTree = "<group>"; };
 		2AB438101C11E67A007AF436 /* PointTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PointTests.swift; sourceTree = "<group>"; };
+		2AB438161C11F685007AF436 /* Workspace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Workspace.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,7 +166,8 @@
 				2A8321DB1C0BCF2C00EADC0F /* FewerPoints.swift */,
 				2A8321DD1C0BD68300EADC0F /* ExtraPrediction.swift */,
 			);
-			path = StrokeTransformations;
+			name = StrokeTransformations;
+			path = ../StrokeTransformations;
 			sourceTree = "<group>";
 		};
 		2A8321E01C0E77F900EADC0F /* Guides */ = {
@@ -189,8 +192,9 @@
 		2AAF8DC91C06A25D00E0C356 = {
 			isa = PBXGroup;
 			children = (
-				2AAF8DD41C06A25D00E0C356 /* Crow Quill */,
+				2AAF8E101C06A33900E0C356 /* Renderers */,
 				2AB438121C11F51D007AF436 /* Workspace */,
+				2AAF8DD41C06A25D00E0C356 /* Crow Quill */,
 				2AB438131C11F54D007AF436 /* Tests */,
 				2AAF8DD31C06A25D00E0C356 /* Products */,
 			);
@@ -246,12 +250,7 @@
 		2AAF8E031C06A27000E0C356 /* Drawing */ = {
 			isa = PBXGroup;
 			children = (
-				2A1CDDC71C0B5CFA0070D254 /* StrokeTransformations */,
-				2AAF8E171C06A38800E0C356 /* Strokes */,
-				2AAF8E101C06A33900E0C356 /* Renderers */,
-				2AAF8E041C06A2AB00E0C356 /* Drawable.swift */,
 				2AAF8E061C06A2BF00E0C356 /* Drawing.swift */,
-				2AAF8E081C06A2DD00E0C356 /* ActiveDrawing.swift */,
 				2AAF8E0A1C06A2FF00E0C356 /* Timeline.swift */,
 				2AAF8E0C1C06A31000E0C356 /* SnapshotTimeline.swift */,
 				2AAF8E0E1C06A32500E0C356 /* Snapshot.swift */,
@@ -263,24 +262,28 @@
 		2AAF8E101C06A33900E0C356 /* Renderers */ = {
 			isa = PBXGroup;
 			children = (
+				2AAF8E041C06A2AB00E0C356 /* Drawable.swift */,
 				2AAF8E111C06A35700E0C356 /* Renderer.swift */,
 				2A1CDDC51C0B52A50070D254 /* CatmullRomRendererExtension.swift */,
 				2AAF8E131C06A36D00E0C356 /* TestRenderer.swift */,
 				2AAF8E151C06A37F00E0C356 /* UIRenderer.swift */,
 			);
-			path = Renderers;
+			name = Renderers;
+			path = Drawing/Renderers;
 			sourceTree = "<group>";
 		};
 		2AAF8E171C06A38800E0C356 /* Strokes */ = {
 			isa = PBXGroup;
 			children = (
+				2A1CDDC71C0B5CFA0070D254 /* StrokeTransformations */,
 				2AAF8E1A1C06A3C200E0C356 /* LinearFixedPenStroke.swift */,
 				2A20748D1C09FB0A003B0918 /* LinearVariablePenStroke.swift */,
 				2AAF8E1C1C06A3DC00E0C356 /* SmoothFixedPenStroke.swift */,
 				2A20748F1C0A3B20003B0918 /* SmoothVariablePenStroke.swift */,
 				2AAF8E1E1C06A3E900E0C356 /* Stroke.swift */,
 			);
-			path = Strokes;
+			name = Strokes;
+			path = ../Drawing/Strokes;
 			sourceTree = "<group>";
 		};
 		2AAF8E251C06A4AD00E0C356 /* Drawing Tests */ = {
@@ -306,7 +309,10 @@
 			isa = PBXGroup;
 			children = (
 				2AAF8E181C06A3A500E0C356 /* Point.swift */,
+				2AB438161C11F685007AF436 /* Workspace.swift */,
+				2AAF8E081C06A2DD00E0C356 /* ActiveDrawing.swift */,
 				2A8321E01C0E77F900EADC0F /* Guides */,
+				2AAF8E171C06A38800E0C356 /* Strokes */,
 				2AAF8E031C06A27000E0C356 /* Drawing */,
 			);
 			path = Workspace;
@@ -460,6 +466,7 @@
 				2A1CDDCB1C0B5DDA0070D254 /* StrokeTransformation.swift in Sources */,
 				2AAF8E0D1C06A31000E0C356 /* SnapshotTimeline.swift in Sources */,
 				2AAF8E0F1C06A32500E0C356 /* Snapshot.swift in Sources */,
+				2AB438171C11F685007AF436 /* Workspace.swift in Sources */,
 				2AAF8E211C06A41800E0C356 /* DrawingView.swift in Sources */,
 				2A2074881C07BF1E003B0918 /* ActiveDrawingView.swift in Sources */,
 				2AAF8E2C1C06A58900E0C356 /* TestRenderer.swift in Sources */,
