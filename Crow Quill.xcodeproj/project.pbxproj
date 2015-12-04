@@ -25,6 +25,7 @@
 		2A8321E31C0E78FF00EADC0F /* Guide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A8321E21C0E78FF00EADC0F /* Guide.swift */; };
 		2A8321E51C0E790B00EADC0F /* GuideTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A8321E41C0E790B00EADC0F /* GuideTests.swift */; };
 		2A8321E71C0FBF9400EADC0F /* GuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A8321E61C0FBF9400EADC0F /* GuideView.swift */; };
+		2A8321E91C110B9600EADC0F /* Handle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A8321E81C110B9600EADC0F /* Handle.swift */; };
 		2AAF8DD61C06A25D00E0C356 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAF8DD51C06A25D00E0C356 /* AppDelegate.swift */; };
 		2AAF8DD81C06A25D00E0C356 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAF8DD71C06A25D00E0C356 /* ViewController.swift */; };
 		2AAF8DDB1C06A25D00E0C356 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2AAF8DD91C06A25D00E0C356 /* Main.storyboard */; };
@@ -90,6 +91,7 @@
 		2A8321E21C0E78FF00EADC0F /* Guide.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Guide.swift; sourceTree = "<group>"; };
 		2A8321E41C0E790B00EADC0F /* GuideTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuideTests.swift; sourceTree = "<group>"; };
 		2A8321E61C0FBF9400EADC0F /* GuideView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuideView.swift; sourceTree = "<group>"; };
+		2A8321E81C110B9600EADC0F /* Handle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Handle.swift; sourceTree = "<group>"; };
 		2AAF8DD21C06A25D00E0C356 /* Crow Quill.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Crow Quill.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AAF8DD51C06A25D00E0C356 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2AAF8DD71C06A25D00E0C356 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				2A8321E21C0E78FF00EADC0F /* Guide.swift */,
+				2A8321E81C110B9600EADC0F /* Handle.swift */,
 			);
 			path = Guides;
 			sourceTree = "<group>";
@@ -446,6 +449,7 @@
 				2A1CDDC61C0B52A50070D254 /* CatmullRomRendererExtension.swift in Sources */,
 				2AAF8E1D1C06A3DC00E0C356 /* SmoothFixedPenStroke.swift in Sources */,
 				2AAF8E1F1C06A3E900E0C356 /* Stroke.swift in Sources */,
+				2A8321E91C110B9600EADC0F /* Handle.swift in Sources */,
 				2AAF8E091C06A2DD00E0C356 /* ActiveDrawing.swift in Sources */,
 				2A8321DE1C0BD68300EADC0F /* ExtraPrediction.swift in Sources */,
 				2AAF8E071C06A2BF00E0C356 /* Drawing.swift in Sources */,

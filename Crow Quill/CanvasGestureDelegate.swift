@@ -35,15 +35,15 @@ class CanvasGestureDelegate : NSObject, UIGestureRecognizerDelegate {
 
     pinchRecognizer.addTarget(self, action:"handleScale:")
     pinchRecognizer.delegate = self
-    view.addGestureRecognizer(pinchRecognizer)
+    //view.addGestureRecognizer(pinchRecognizer)
 
     rotateRecognizer.addTarget(self, action:"handleRotation:")
     rotateRecognizer.delegate = self
-    view.addGestureRecognizer(rotateRecognizer)
+    //view.addGestureRecognizer(rotateRecognizer)
 
     panRecognizer.addTarget(self, action:"handlePan:")
     panRecognizer.delegate = self
-    view.addGestureRecognizer(panRecognizer)
+    //view.addGestureRecognizer(panRecognizer)
 
     undoTapRecognizer.addTarget(self, action:"undoStroke:")
     undoTapRecognizer.delegate = self

@@ -95,3 +95,16 @@ extension UITouch {
     return StrokePoint(x: Double(location.x), y: Double(location.y), weight: Double(weight))
   }
 }
+
+extension CGPoint {
+  /**
+   Returns a StrokePoint that mirrors the UITouch.
+
+   Testing is miles easier not using apple's contructorless objects, so we want
+   to convert to a testing-friendly point type as high as possible in the
+   abstraction stack.
+   */
+  func strokePoint() -> StrokePoint {
+    return StrokePoint(x: Double(x), y: Double(y))
+  }
+}

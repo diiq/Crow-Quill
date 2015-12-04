@@ -3,6 +3,7 @@ import UIKit
 class GuideView: UIView {
   var renderer: UIRenderer!
   var guide = Guide()
+  var handleForTouch = [UITouch: Handle]()
 
   override func drawRect(rect: CGRect) {
     let context = UIGraphicsGetCurrentContext()!
@@ -10,9 +11,35 @@ class GuideView: UIView {
       renderer = UIRenderer(bounds: bounds)
     }
 
-    guide.handleA.move(StrokePoint(x: 50, y: 1000))
-    print(guide.handleA.point)
     renderer.context = context
     guide.draw(renderer)
+  }
+
+  override func pointInside(point: CGPoint, withEvent event: UIEvent?) -> Bool {
+    return guide.handleFor(point.strokePoint()) != nil
+  }
+
+  override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    for touch in (event?.allTouches() ?? touches) {
+      guard let handle = guide.handleFor(touch.strokePoint()) else { continue }
+      handleForTouch[touch] = handle
+    }
+    setNeedsDisplay()
+  }
+
+  override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    for touch in (event?.allTouches() ?? touches) {
+      guard let handle = handleForTouch[touch] else { return }
+      handle.move(touch.strokePoint())
+    }
+    setNeedsDisplay()
+  }
+
+  override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    for touch in (event?.allTouches() ?? touches) {
+      guard handleForTouch[touch] != nil else { return }
+      handleForTouch.removeValueForKey(touch)
+    }
+    setNeedsDisplay()
   }
 }

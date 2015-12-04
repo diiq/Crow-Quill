@@ -12,7 +12,11 @@ class TestRenderer: Renderer, ImageRenderer {
   func arc(a: StrokePoint, _ b: StrokePoint) {
     currentImage.append("arc: \(a), \(b)")
   }
-  
+
+  func circle(center: StrokePoint, radius: Double) {
+    currentImage.append("circle: \(center), \(radius)")
+  }
+
   func bezier(a: StrokePoint, _ cp1: StrokePoint, _ cp2: StrokePoint, _ b: StrokePoint) {
     currentImage.append("bezier: \(a), [\(cp1), \(cp2)], \(b)")
   }

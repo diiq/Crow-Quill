@@ -38,6 +38,16 @@ class UIRenderer: Renderer, ImageRenderer {
       1)
   }
 
+  func circle(center: StrokePoint, radius: Double) {
+    CGContextAddArc(context,
+      CGFloat(center.x),
+      CGFloat(center.y),
+      CGFloat(radius),
+      0,
+      2*3.141593,
+      1)
+  }
+
   func bezier(a: StrokePoint, _ cp1: StrokePoint, _ cp2: StrokePoint, _ b: StrokePoint) {
     CGContextAddCurveToPoint(
       context,

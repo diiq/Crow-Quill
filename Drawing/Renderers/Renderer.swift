@@ -13,13 +13,14 @@ import Darwin
  */
 protocol Renderer {
   /// Draws a straight, unweighted, black line from <ax, ay> to <bx, by>
+  func moveTo(point: StrokePoint)
   func line(a: StrokePoint, _ b: StrokePoint)
   func arc(a: StrokePoint, _ b: StrokePoint)
+  func circle(center: StrokePoint, radius: Double)
   func bezier(a: StrokePoint, _ cp1: StrokePoint, _ cp2: StrokePoint, _ b: StrokePoint)
-  func moveTo(point: StrokePoint)
+  func color(r: Double, _ g: Double, _ b: Double, _ a: Double)
   func stroke()
   func fill()
-  func color(r: Double, _ g: Double, _ b: Double, _ a: Double)
 }
 
 /**

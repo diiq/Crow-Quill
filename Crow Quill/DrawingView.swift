@@ -28,4 +28,8 @@ class DrawingView: UIView {
     drawing.addStroke(stroke)
     setNeedsDisplay()
   }
+
+  override func pointInside(point: CGPoint, withEvent event: UIEvent?) -> Bool {
+    return false
+  }
 }

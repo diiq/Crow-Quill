@@ -45,4 +45,8 @@ class ActiveDrawingView: UIView {
     }
     setNeedsDisplay()
   }
+
+  override func pointInside(point: CGPoint, withEvent event: UIEvent?) -> Bool {
+    return false
+  }
 }

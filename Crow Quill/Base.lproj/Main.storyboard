@@ -13,22 +13,22 @@
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" multipleTouchEnabled="YES" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pk8-to-KMe" customClass="DrawingView" customModule="Crow_Quill" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
-                                <animations/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </view>
-                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qsm-Ch-wx0" customClass="GuideView" customModule="Crow_Quill" customModuleProvider="target">
+                            <view opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qsm-Ch-wx0" customClass="GuideView" customModule="Crow_Quill" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <animations/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
-                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7zb-dU-yd1" customClass="ActiveDrawingView" customModule="Crow_Quill" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
+                            <view opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7zb-dU-yd1" customClass="ActiveDrawingView" customModule="Crow_Quill" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <animations/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pk8-to-KMe" customClass="DrawingView" customModule="Crow_Quill" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <animations/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
@@ -36,22 +36,18 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="Pk8-to-KMe" secondAttribute="trailing" id="0Aa-0V-JpL"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="7zb-dU-yd1" secondAttribute="bottom" id="Aie-mw-3VL"/>
-                            <constraint firstItem="7zb-dU-yd1" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="EtJ-s0-ppi"/>
-                            <constraint firstItem="7zb-dU-yd1" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="FKN-PP-PZ7"/>
-                            <constraint firstItem="qsm-Ch-wx0" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="G1Q-YU-NXX"/>
-                            <constraint firstItem="Pk8-to-KMe" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="GIV-cT-get"/>
-                            <constraint firstAttribute="trailing" secondItem="7zb-dU-yd1" secondAttribute="trailing" id="HaQ-Ji-SjW"/>
-                            <constraint firstAttribute="trailing" secondItem="7zb-dU-yd1" secondAttribute="trailing" id="Imc-MB-lGO"/>
-                            <constraint firstItem="qsm-Ch-wx0" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="JVx-EM-pFm"/>
-                            <constraint firstItem="7zb-dU-yd1" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="cMn-lw-ybc"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Pk8-to-KMe" secondAttribute="bottom" id="ccb-nM-U5K"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="7zb-dU-yd1" secondAttribute="bottom" id="ghV-PW-4hL"/>
-                            <constraint firstAttribute="trailing" secondItem="qsm-Ch-wx0" secondAttribute="trailing" id="kwV-RY-pRf"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="qsm-Ch-wx0" secondAttribute="bottom" id="kxY-7f-3we"/>
-                            <constraint firstItem="Pk8-to-KMe" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="oQE-eX-cyu"/>
-                            <constraint firstItem="7zb-dU-yd1" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="wf1-c7-RZo"/>
+                            <constraint firstItem="Pk8-to-KMe" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="4X9-N7-3TF"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="qsm-Ch-wx0" secondAttribute="bottom" id="69m-qN-gU7"/>
+                            <constraint firstAttribute="trailing" secondItem="7zb-dU-yd1" secondAttribute="trailing" id="AnI-dy-U76"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Pk8-to-KMe" secondAttribute="bottom" id="QUl-1z-A0v"/>
+                            <constraint firstAttribute="trailing" secondItem="Pk8-to-KMe" secondAttribute="trailing" id="Qg0-OW-QSL"/>
+                            <constraint firstItem="Pk8-to-KMe" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="QmT-T0-oyC"/>
+                            <constraint firstAttribute="trailing" secondItem="qsm-Ch-wx0" secondAttribute="trailing" id="XOx-4X-W15"/>
+                            <constraint firstItem="7zb-dU-yd1" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="oVw-iH-OFW"/>
+                            <constraint firstItem="qsm-Ch-wx0" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="oiI-1N-X6I"/>
+                            <constraint firstItem="qsm-Ch-wx0" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="sXB-Zq-gwZ"/>
+                            <constraint firstItem="7zb-dU-yd1" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="tvV-Jv-vgr"/>
+                            <constraint firstAttribute="bottom" secondItem="7zb-dU-yd1" secondAttribute="bottom" id="xhc-bW-P0H"/>
                         </constraints>
                     </view>
                     <connections>
@@ -62,6 +58,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="463" y="238"/>
         </scene>
     </scenes>
 </document>
