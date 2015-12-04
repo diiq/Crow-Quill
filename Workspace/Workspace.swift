@@ -3,7 +3,8 @@
  active, and any settings or state (like tool selection, etc)
 */
 
-class Workspace {
-  let activeDrawing = ActiveDrawing()
-  
+class Workspace<ImageType, IndexType: Hashable> {
+  let activeDrawing = ActiveDrawing<ImageType, IndexType>()
+  let drawing = Drawing<ImageType>()
+  let guides = GuideCollection<IndexType>()
 }

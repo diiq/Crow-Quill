@@ -18,7 +18,7 @@ protocol Renderer {
   func arc(a: Point, _ b: Point)
   func circle(center: Point, radius: Double)
   func bezier(a: Point, _ cp1: Point, _ cp2: Point, _ b: Point)
-  func color(r: Double, _ g: Double, _ b: Double, _ a: Double)
+  func color(r r: Double, g: Double, b: Double, a: Double)
   func stroke(lineWidth: Double)
   func fill()
 }

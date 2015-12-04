@@ -4,35 +4,35 @@ protocol Handle : Drawable {
   func pointInside(point: Point) -> Bool
 }
 
-class NormalHandle: Handle {
+class RulerHandle: Handle {
   var point: Point
   var length: Double
-  weak var line: Guide!
+  weak var line: RulerGuide!
   let handleSize: Double = 35
   private var handleEnd: Point {
     let direction = line.unitVector.perpendicular()
     return point + direction * length
   }
   
-  init(point: Point, line: Guide, length: Double = 100) {
+  init(point: Point, line: RulerGuide, length: Double = 100) {
     self.point = point
     self.line = line
     self.length = length
   }
 
   func draw(renderer: Renderer) {
-    renderer.color(0.64, 0.86, 0.92, 0.75)
+    renderer.color(r: 0.6, g: 0.6, b: 0.6, a: 0.75)
     let direction = line.unitVector.perpendicular()
     renderer.moveTo(point)
     renderer.line(point, handleEnd - handleSize * direction)
     renderer.stroke(1)
     renderer.circle(handleEnd, radius: handleSize)
     renderer.stroke(0.5)
-    renderer.color(0.64, 0.86, 0.92, 0.25)
+    renderer.color(r: 0.6, g: 0.6, b: 0.6, a: 0.125)
     renderer.circle(handleEnd, radius: handleSize)
     renderer.fill()
     
-    renderer.color(0.64, 0.86, 0.92, 1)
+    renderer.color(r: 0.6, g: 0.6, b: 0.6, a: 1)
     renderer.circle(handleEnd, radius: handleSize / 5)
     renderer.fill()
   }

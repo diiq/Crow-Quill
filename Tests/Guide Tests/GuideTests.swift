@@ -2,7 +2,7 @@ import XCTest
 @testable import Crow_Quill
 
 class GuideTests: XCTestCase {
-  lazy var guide = Guide()
+  lazy var guide = RulerGuide()
   lazy var renderer = TestRenderer()
 
   func testDraw() {

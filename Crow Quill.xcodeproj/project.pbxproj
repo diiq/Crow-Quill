@@ -56,6 +56,7 @@
 		2AB438111C11E67A007AF436 /* PointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB438101C11E67A007AF436 /* PointTests.swift */; };
 		2AB438171C11F685007AF436 /* Workspace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB438161C11F685007AF436 /* Workspace.swift */; };
 		2AB438191C1213F1007AF436 /* GuideCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB438181C1213F1007AF436 /* GuideCollection.swift */; };
+		2ACCA5D81C122DF6005CE39B /* RulerGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ACCA5D71C122DF6005CE39B /* RulerGuide.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -131,6 +132,7 @@
 		2AB438101C11E67A007AF436 /* PointTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PointTests.swift; sourceTree = "<group>"; };
 		2AB438161C11F685007AF436 /* Workspace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Workspace.swift; sourceTree = "<group>"; };
 		2AB438181C1213F1007AF436 /* GuideCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuideCollection.swift; sourceTree = "<group>"; };
+		2ACCA5D71C122DF6005CE39B /* RulerGuide.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RulerGuide.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				2A8321E21C0E78FF00EADC0F /* Guide.swift */,
+				2ACCA5D71C122DF6005CE39B /* RulerGuide.swift */,
 				2A8321E81C110B9600EADC0F /* Handle.swift */,
 				2AB438181C1213F1007AF436 /* GuideCollection.swift */,
 			);
@@ -467,6 +470,7 @@
 				2A8321E71C0FBF9400EADC0F /* GuideView.swift in Sources */,
 				2A1245F61C0B98FE003064A6 /* WeightedByVelocity.swift in Sources */,
 				2A1CDDCD1C0B5F0A0070D254 /* PerpendicularOutset.swift in Sources */,
+				2ACCA5D81C122DF6005CE39B /* RulerGuide.swift in Sources */,
 				2AB438191C1213F1007AF436 /* GuideCollection.swift in Sources */,
 				2AAF8E1B1C06A3C200E0C356 /* LinearFixedPenStroke.swift in Sources */,
 				2A8321E31C0E78FF00EADC0F /* Guide.swift in Sources */,

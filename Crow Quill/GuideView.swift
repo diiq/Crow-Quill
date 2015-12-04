@@ -2,7 +2,7 @@ import UIKit
 
 class GuideView: UIView {
   var renderer: UIRenderer!
-  var guide = Guide()
+  var guide: Guide = RulerGuide()
   var handleForTouch = [UITouch: Handle]()
 
   override func drawRect(rect: CGRect) {
