@@ -63,10 +63,10 @@ class UIRenderer: Renderer, ImageRenderer {
     currentColor = UIColor(red:CGFloat(r), green:CGFloat(g), blue:CGFloat(b), alpha:CGFloat(a)).CGColor
   }
 
-  func stroke() {
-    CGContextSetLineCap(context, .Round)
+  func stroke(lineWidth: Double) {
+    CGContextSetLineCap(context, .Butt)
     CGContextSetStrokeColorWithColor(context, currentColor)
-    CGContextSetLineWidth(context, 1)
+    CGContextSetLineWidth(context, CGFloat(lineWidth))
     CGContextStrokePath(context)
   }
 

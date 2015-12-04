@@ -29,7 +29,7 @@ class TestRenderer: Renderer, ImageRenderer {
     currentImage.append("move: \(point)")
   }
 
-  func stroke() {
+  func stroke(lineWidth: Double) {
     currentImage.append("stroke")
   }
 

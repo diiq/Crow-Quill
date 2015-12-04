@@ -17,7 +17,7 @@ class SmoothFixedPenStroke : Stroke {
     }
 
     renderer.catmullRom(points, initial:  initial, final: final)
-    renderer.stroke()
+    renderer.stroke(1)
   }
 
   override func draw(renderer: Renderer) {

@@ -7,7 +7,7 @@ class LinearFixedPenStroke : Stroke {
 
   override func draw(renderer: Renderer) {
     renderer.linear(points)
-    renderer.stroke()
+    renderer.stroke(1)
     undrawnPointIndex = nil
   }
 }

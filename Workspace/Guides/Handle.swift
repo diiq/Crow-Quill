@@ -8,7 +8,7 @@ class NormalHandle: Handle {
   var point: Point
   var length: Double
   weak var line: Guide!
-  let handleSize: Double = 25
+  let handleSize: Double = 35
   private var handleEnd: Point {
     let direction = line.unitVector.perpendicular()
     return point + direction * length
@@ -25,11 +25,15 @@ class NormalHandle: Handle {
     let direction = line.unitVector.perpendicular()
     renderer.moveTo(point)
     renderer.line(point, handleEnd - handleSize * direction)
-    renderer.stroke()
+    renderer.stroke(1)
     renderer.circle(handleEnd, radius: handleSize)
-    renderer.stroke()
+    renderer.stroke(0.5)
     renderer.color(0.64, 0.86, 0.92, 0.25)
     renderer.circle(handleEnd, radius: handleSize)
+    renderer.fill()
+    
+    renderer.color(0.64, 0.86, 0.92, 1)
+    renderer.circle(handleEnd, radius: handleSize / 5)
     renderer.fill()
   }
 
@@ -38,7 +42,11 @@ class NormalHandle: Handle {
   }
 
   func move(newPoint: Point) {
+    let oldPoint = point
     let direction = line.unitVector.perpendicular()
     point = newPoint - (direction * length)
+    if line.hystericalZone() {
+      point = oldPoint
+    } 
   }
 }

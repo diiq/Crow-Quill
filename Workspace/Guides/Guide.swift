@@ -16,26 +16,18 @@ class Guide : Drawable {
   var handleB: Handle! = nil
   var width: Double = 50
   
-  private var center: Handle {
-    return handleA
-  }
-  
-  private var direction: Handle {
-    return handleB
-  }
-  
   init() {
     handleA = NormalHandle(point: Point(x: 200, y: 200), line: self)
     handleB = NormalHandle(point: Point(x: 800, y: 300), line: self)
   }
 
   var unitVector: Point {
-    return (center.point - direction.point).unit()
+    return (handleA.point - handleB.point).unit()
   }
 
   func boundary(renderer: Renderer) {
-    let start = center.point - 10000 * unitVector
-    let end = center.point + 10000 * unitVector
+    let start = handleA.point - 10000 * unitVector
+    let end = handleA.point + 10000 * unitVector
     let perp = unitVector.perpendicular() * width
 
     renderer.moveTo(start + perp)
@@ -52,10 +44,10 @@ class Guide : Drawable {
     let end = handleA.point + 10000 * unitVector
     renderer.moveTo(start)
     renderer.line(start, end)
-    renderer.stroke()
+    renderer.stroke(1)
 
     boundary(renderer)
-    renderer.stroke()
+    renderer.stroke(0.5)
     renderer.color(0.64, 0.86, 0.92, 0.25)
     boundary(renderer)
     renderer.fill()
@@ -75,5 +67,9 @@ class Guide : Drawable {
     } else {
       return nil
     }
+  }
+  
+  func hystericalZone() -> Bool {
+    return (handleB.point - handleA.point).length() < 100
   }
 }
