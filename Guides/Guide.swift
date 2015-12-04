@@ -12,22 +12,30 @@ Is there something simpler that can be done?
 */
 
 class Guide : Drawable {
-  var handleA: NormalHandle! = nil
-  var handleB: NormalHandle! = nil
+  var handleA: Handle! = nil
+  var handleB: Handle! = nil
   var width: Double = 50
-
+  
+  private var center: Handle {
+    return handleA
+  }
+  
+  private var direction: Handle {
+    return handleB
+  }
+  
   init() {
     handleA = NormalHandle(point: Point(x: 200, y: 200), line: self)
     handleB = NormalHandle(point: Point(x: 800, y: 300), line: self)
   }
 
   var unitVector: Point {
-    return (handleB.point - handleA.point).unit()
+    return (center.point - direction.point).unit()
   }
 
   func boundary(renderer: Renderer) {
-    let start = handleA.point - 10000 * unitVector
-    let end = handleA.point + 10000 * unitVector
+    let start = center.point - 10000 * unitVector
+    let end = center.point + 10000 * unitVector
     let perp = unitVector.perpendicular() * width
 
     renderer.moveTo(start + perp)

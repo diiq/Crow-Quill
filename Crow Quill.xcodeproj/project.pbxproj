@@ -53,6 +53,7 @@
 		2AAF8E351C06A71200E0C356 /* LinearFixedPenStrokeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAF8E341C06A71200E0C356 /* LinearFixedPenStrokeTests.swift */; };
 		2AAF8E361C06A72700E0C356 /* SnapshotTimelineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAF8E301C06A6EA00E0C356 /* SnapshotTimelineTests.swift */; };
 		2AAF8E371C06A72A00E0C356 /* DrawingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAF8E2E1C06A6CC00E0C356 /* DrawingTests.swift */; };
+		2AB438111C11E67A007AF436 /* PointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB438101C11E67A007AF436 /* PointTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,7 +115,7 @@
 		2AAF8E111C06A35700E0C356 /* Renderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Renderer.swift; sourceTree = "<group>"; };
 		2AAF8E131C06A36D00E0C356 /* TestRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestRenderer.swift; sourceTree = "<group>"; };
 		2AAF8E151C06A37F00E0C356 /* UIRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIRenderer.swift; sourceTree = "<group>"; };
-		2AAF8E181C06A3A500E0C356 /* Point.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Point.swift; sourceTree = "<group>"; };
+		2AAF8E181C06A3A500E0C356 /* Point.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Point.swift; path = ../Drawing/Strokes/Point.swift; sourceTree = "<group>"; };
 		2AAF8E1A1C06A3C200E0C356 /* LinearFixedPenStroke.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinearFixedPenStroke.swift; sourceTree = "<group>"; };
 		2AAF8E1C1C06A3DC00E0C356 /* SmoothFixedPenStroke.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmoothFixedPenStroke.swift; sourceTree = "<group>"; };
 		2AAF8E1E1C06A3E900E0C356 /* Stroke.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stroke.swift; sourceTree = "<group>"; };
@@ -125,6 +126,7 @@
 		2AAF8E301C06A6EA00E0C356 /* SnapshotTimelineTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotTimelineTests.swift; sourceTree = "<group>"; };
 		2AAF8E321C06A6FE00E0C356 /* TimelineTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineTests.swift; sourceTree = "<group>"; };
 		2AAF8E341C06A71200E0C356 /* LinearFixedPenStrokeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinearFixedPenStrokeTests.swift; sourceTree = "<group>"; };
+		2AB438101C11E67A007AF436 /* PointTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PointTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,7 +173,8 @@
 				2A8321E21C0E78FF00EADC0F /* Guide.swift */,
 				2A8321E81C110B9600EADC0F /* Handle.swift */,
 			);
-			path = Guides;
+			name = Guides;
+			path = ../Guides;
 			sourceTree = "<group>";
 		};
 		2A8321E11C0E78DA00EADC0F /* Guide Tests */ = {
@@ -179,19 +182,16 @@
 			children = (
 				2A8321E41C0E790B00EADC0F /* GuideTests.swift */,
 			);
-			path = "Guide Tests";
+			name = "Guide Tests";
+			path = "../Guide Tests";
 			sourceTree = "<group>";
 		};
 		2AAF8DC91C06A25D00E0C356 = {
 			isa = PBXGroup;
 			children = (
 				2AAF8DD41C06A25D00E0C356 /* Crow Quill */,
-				2AAF8E031C06A27000E0C356 /* Drawing */,
-				2A8321E01C0E77F900EADC0F /* Guides */,
-				2A8321E11C0E78DA00EADC0F /* Guide Tests */,
-				2AAF8E251C06A4AD00E0C356 /* Drawing Tests */,
-				2AAF8DE91C06A25D00E0C356 /* Crow Quill Tests */,
-				2AAF8DF41C06A25D00E0C356 /* Crow Quill UI Tests */,
+				2AB438121C11F51D007AF436 /* Workspace */,
+				2AB438131C11F54D007AF436 /* Tests */,
 				2AAF8DD31C06A25D00E0C356 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -229,7 +229,8 @@
 				2AAF8DEA1C06A25D00E0C356 /* Crow_QuillTests.swift */,
 				2AAF8DEC1C06A25D00E0C356 /* Info.plist */,
 			);
-			path = "Crow Quill Tests";
+			name = "Crow Quill Tests";
+			path = "../Crow Quill Tests";
 			sourceTree = "<group>";
 		};
 		2AAF8DF41C06A25D00E0C356 /* Crow Quill UI Tests */ = {
@@ -238,7 +239,8 @@
 				2AAF8DF51C06A25D00E0C356 /* Crow_QuillUITests.swift */,
 				2AAF8DF71C06A25D00E0C356 /* Info.plist */,
 			);
-			path = "Crow Quill UI Tests";
+			name = "Crow Quill UI Tests";
+			path = "../Crow Quill UI Tests";
 			sourceTree = "<group>";
 		};
 		2AAF8E031C06A27000E0C356 /* Drawing */ = {
@@ -254,7 +256,8 @@
 				2AAF8E0C1C06A31000E0C356 /* SnapshotTimeline.swift */,
 				2AAF8E0E1C06A32500E0C356 /* Snapshot.swift */,
 			);
-			path = Drawing;
+			name = Drawing;
+			path = ../Drawing;
 			sourceTree = "<group>";
 		};
 		2AAF8E101C06A33900E0C356 /* Renderers */ = {
@@ -271,7 +274,6 @@
 		2AAF8E171C06A38800E0C356 /* Strokes */ = {
 			isa = PBXGroup;
 			children = (
-				2AAF8E181C06A3A500E0C356 /* Point.swift */,
 				2AAF8E1A1C06A3C200E0C356 /* LinearFixedPenStroke.swift */,
 				2A20748D1C09FB0A003B0918 /* LinearVariablePenStroke.swift */,
 				2AAF8E1C1C06A3DC00E0C356 /* SmoothFixedPenStroke.swift */,
@@ -285,6 +287,7 @@
 			isa = PBXGroup;
 			children = (
 				2AAF8E291C06A51C00E0C356 /* TestRendererTests.swift */,
+				2AB438101C11E67A007AF436 /* PointTests.swift */,
 				2AAF8E2E1C06A6CC00E0C356 /* DrawingTests.swift */,
 				2AAF8E301C06A6EA00E0C356 /* SnapshotTimelineTests.swift */,
 				2AAF8E321C06A6FE00E0C356 /* TimelineTests.swift */,
@@ -295,7 +298,29 @@
 				2A1245F71C0B9AC1003064A6 /* WeightedByVelocityTests.swift */,
 				2A1245F31C0B77C5003064A6 /* ArrayExtensionTests.swift */,
 			);
-			path = "Drawing Tests";
+			name = "Drawing Tests";
+			path = "../Drawing Tests";
+			sourceTree = "<group>";
+		};
+		2AB438121C11F51D007AF436 /* Workspace */ = {
+			isa = PBXGroup;
+			children = (
+				2AAF8E181C06A3A500E0C356 /* Point.swift */,
+				2A8321E01C0E77F900EADC0F /* Guides */,
+				2AAF8E031C06A27000E0C356 /* Drawing */,
+			);
+			path = Workspace;
+			sourceTree = "<group>";
+		};
+		2AB438131C11F54D007AF436 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				2AAF8E251C06A4AD00E0C356 /* Drawing Tests */,
+				2A8321E11C0E78DA00EADC0F /* Guide Tests */,
+				2AAF8DF41C06A25D00E0C356 /* Crow Quill UI Tests */,
+				2AAF8DE91C06A25D00E0C356 /* Crow Quill Tests */,
+			);
+			path = Tests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -473,6 +498,7 @@
 				2A8321E51C0E790B00EADC0F /* GuideTests.swift in Sources */,
 				2A20748A1C08AD81003B0918 /* ActiveDrawingTests.swift in Sources */,
 				2A1CDDCF1C0B6E850070D254 /* PerpendicularOutsetTests.swift in Sources */,
+				2AB438111C11E67A007AF436 /* PointTests.swift in Sources */,
 				2A1245F81C0B9AC1003064A6 /* WeightedByVelocityTests.swift in Sources */,
 				2A1245F41C0B77C5003064A6 /* ArrayExtensionTests.swift in Sources */,
 				2A20748C1C08AD9E003B0918 /* SmoothFixedPenStrokeTests.swift in Sources */,

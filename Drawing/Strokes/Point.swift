@@ -20,43 +20,38 @@ struct Point {
   }
 }
 
-extension Point : Equatable {}
-
-func ==(left: Point, right: Point) -> Bool {
-  return left.x == right.x && left.y == right.y && left.weight == right.weight
-}
-
-extension Point : CustomStringConvertible {
-  var description: String {
-    return "<\(x), \(y)>"
-  }
-}
-
 // Maths
+
 extension Point {
   func length() -> Double {
     return sqrt(x*x + y*y)
   }
-
+  
   func unit() -> Point {
     let len = length()
     // Not sure this is the right solution to unitizing 0 length vector.
     guard len > 0 else { return Point(x: 0, y: 0, weight: weight) }
     return Point(x: x/len, y: y/len, weight: weight)
   }
-
+  
   func perpendicular() -> Point {
     return Point(x: -y, y: x, weight: -1).unit()
   }
-
+  
   func radians() -> Double {
     return atan2(y, x)
   }
-
+  
   func dot(point: Point) -> Double {
     return x * point.x + y * point.y
   }
+  
+  func downward() -> Point {
+    return Point(x: x * y/abs(y), y: abs(y))
+  }
 }
+
+// Operators
 
 func *(left: Point, right: Double) -> Point {
   return Point(x: left.x * right, y: left.y * right, weight: -1)
@@ -76,6 +71,19 @@ func +(left: Point, right: Point) -> Point {
 
 func -(left: Point, right: Point) -> Point {
   return Point(x: left.x - right.x, y: left.y - right.y, weight: -1)
+}
+
+
+extension Point : Equatable {}
+
+func ==(left: Point, right: Point) -> Bool {
+  return left.x == right.x && left.y == right.y && left.weight == right.weight
+}
+
+extension Point : CustomStringConvertible {
+  var description: String {
+    return "<\(x), \(y)>"
+  }
 }
 
 

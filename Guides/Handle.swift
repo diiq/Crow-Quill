@@ -1,5 +1,7 @@
 protocol Handle : Drawable {
+  var point: Point { get }
   func move(newPoint: Point)
+  func pointInside(point: Point) -> Bool
 }
 
 class NormalHandle: Handle {
@@ -11,7 +13,7 @@ class NormalHandle: Handle {
     let direction = line.unitVector.perpendicular()
     return point + direction * length
   }
-
+  
   init(point: Point, line: Guide, length: Double = 100) {
     self.point = point
     self.line = line
@@ -36,8 +38,7 @@ class NormalHandle: Handle {
   }
 
   func move(newPoint: Point) {
-    let projected = line.projected(newPoint)
-    let direction = (newPoint - projected).unit()
+    let direction = line.unitVector.perpendicular()
     point = newPoint - (direction * length)
   }
 }
