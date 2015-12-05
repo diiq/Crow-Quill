@@ -9,21 +9,62 @@ class Workspace<ImageType, IndexType: Hashable> {
   let guides = GuideCollection<IndexType>()
 
   // from active drawing
-  func updateActiveStroke(index: IndexType, points: [Point]) {}
-  func commitActiveStroke(index: IndexType) {}
-  func cancelActiveStroke(index: IndexType) {}
-  func drawActiveStrokes<R: ImageRenderer where R.ImageType == ImageType>(renderer: R) {}
+  func updateActiveStroke(index: IndexType, points: [Point]) {
+    // if there's an active guide, transform points here
+    activeDrawing.updateStroke(index, points: points)
+  }
+
+  func updateActiveStrokePredictions(index: IndexType, points: [Point]) {
+    // if there's an active guide, transform points here
+    activeDrawing.updateStrokePredictions(index, points: points)
+  }
+// rectforupdatedpoints
+  func forgetActiveStrokePredictions(index: IndexType) {
+    activeDrawing.forgetPredictions(index)
+  }
+
+  func commitActiveStroke(index: IndexType) {
+    guard let stroke = activeDrawing.endStroke(index) else { return }
+    drawing.addStroke(stroke)
+  }
+
+  func cancelActiveStroke(index: IndexType) {
+    activeDrawing.endStroke(index)
+  }
+
+  func drawActiveStrokes<R: ImageRenderer where R.ImageType == ImageType>(renderer: R) {
+    activeDrawing.draw(renderer)
+  }
 
   // From committed drawing
-  func undo() {}
-  func redo() {}
-  func drawDrawing<R: ImageRenderer where R.ImageType == ImageType>(renderer: R) {}
+  func undo() {
+    drawing.undoStroke()
+  }
+
+  func redo() {
+    drawing.redoStroke()
+  }
+
+  func drawDrawing<R: ImageRenderer where R.ImageType == ImageType>(renderer: R) {
+    drawing.draw(renderer)
+  }
 
   // from guides
-  func pointIsInGuideHandle(point: Point) -> Bool { return false }
-  func moveGuide(index: IndexType, point: Point) {}
-  func stopMovingGuide(index: IndexType) {}
-  func drawGuides<R: ImageRenderer where R.ImageType == ImageType>(renderer: R) {}
+  func pointIsInGuideHandle(point: Point) -> Bool {
+    return guides.pointInside(point)
+  }
+
+  func moveGuide(index: IndexType, point: Point) {
+    guides.move(index, point: point)
+  }
+
+  func stopMovingGuide(index: IndexType) {
+    guides.endMove(index)
+  }
+
+  func drawGuides<R: ImageRenderer where R.ImageType == ImageType>(renderer: R) {
+    guides.draw(renderer)
+  }
 
   /**
    // Still to come

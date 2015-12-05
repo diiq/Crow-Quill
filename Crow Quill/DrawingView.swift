@@ -1,35 +1,26 @@
 import UIKit
 
 class DrawingView: UIView {
-  let isPredictionEnabled = UIDevice.currentDevice().userInterfaceIdiom == .Pad
-  var renderer: UIRenderer!
-  var drawing = Drawing<CGImage>()
+  var workspace: Workspace<CGImage, UITouch>!
+
+  func setup(workspace: Workspace<CGImage, UITouch>) {
+    self.workspace = workspace
+  }
 
   override func drawRect(rect: CGRect) {
     let context = UIGraphicsGetCurrentContext()!
-    if renderer == nil {
-      renderer = UIRenderer(bounds: bounds)
-    }
+    let renderer = UIRenderer(bounds: bounds)
     renderer.context = context
-    drawing.draw(renderer)
+    workspace?.drawDrawing(renderer)
   }
 
   func undoStroke() {
-    drawing.undoStroke()
+    workspace.undo()
     setNeedsDisplay()
   }
 
   func redoStroke() {
-    drawing.redoStroke()
+    workspace.redo()
     setNeedsDisplay()
-  }
-
-  func addStroke(stroke: Stroke) {
-    drawing.addStroke(stroke)
-    setNeedsDisplay()
-  }
-
-  override func pointInside(point: CGPoint, withEvent event: UIEvent?) -> Bool {
-    return false
   }
 }

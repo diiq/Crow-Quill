@@ -217,15 +217,15 @@
 			isa = PBXGroup;
 			children = (
 				2A2074871C07BF1E003B0918 /* ActiveDrawingView.swift */,
-				2AAF8DD51C06A25D00E0C356 /* AppDelegate.swift */,
-				2AAF8DDC1C06A25D00E0C356 /* Assets.xcassets */,
-				2AAF8E221C06A43900E0C356 /* CanvasGestureDelegate.swift */,
 				2AAF8E201C06A41800E0C356 /* DrawingView.swift */,
 				2A8321E61C0FBF9400EADC0F /* GuideView.swift */,
+				2AAF8DD71C06A25D00E0C356 /* ViewController.swift */,
+				2AAF8E221C06A43900E0C356 /* CanvasGestureDelegate.swift */,
+				2AAF8DD51C06A25D00E0C356 /* AppDelegate.swift */,
+				2AAF8DDC1C06A25D00E0C356 /* Assets.xcassets */,
 				2AAF8DE11C06A25D00E0C356 /* Info.plist */,
 				2AAF8DDE1C06A25D00E0C356 /* LaunchScreen.storyboard */,
 				2AAF8DD91C06A25D00E0C356 /* Main.storyboard */,
-				2AAF8DD71C06A25D00E0C356 /* ViewController.swift */,
 			);
 			path = "Crow Quill";
 			sourceTree = "<group>";
@@ -652,6 +652,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.diiq.Crow-Quill";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -663,6 +664,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.diiq.Crow-Quill";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

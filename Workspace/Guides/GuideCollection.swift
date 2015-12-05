@@ -13,20 +13,12 @@ class GuideCollection<IndexType: Hashable> {
     return handleFor(point) != nil
   }
 
-  func startMove(point: Point, index: IndexType) {
-    guard let handle = handleFor(point) else { return }
-    handleForIndex[index] = handle
+  func move(index: IndexType, point: Point) {
+    guard let handle = handleForIndex[index] ?? savedHandleForIndex(index, point: point) else { return }
     handle.move(point)
   }
 
-  func continueMove(point: Point, index: IndexType) {
-    guard let handle = handleForIndex[index] else { return }
-    handle.move(point)
-  }
-
-  func endMove(point: Point, index: IndexType) {
-    guard let handle = handleForIndex[index] else { return }
-    handle.move(point)
+  func endMove(index: IndexType) {
     handleForIndex.removeValueForKey(index)
   }
 
@@ -38,5 +30,11 @@ class GuideCollection<IndexType: Hashable> {
       }
     }
     return nil
+  }
+
+  private func savedHandleForIndex(index: IndexType, point: Point) -> Handle? {
+    guard let handle = handleFor(point) else { return nil }
+    handleForIndex[index] = handle
+    return handle
   }
 }

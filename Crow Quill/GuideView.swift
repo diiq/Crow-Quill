@@ -1,40 +1,41 @@
 import UIKit
 
 class GuideView: UIView {
-  var renderer: UIRenderer!
-  var guides = GuideCollection<UITouch>()
+  var workspace: Workspace<CGImage, UITouch>!
+
+  func setup(workspace: Workspace<CGImage, UITouch>) {
+    self.workspace = workspace
+  }
 
   override func drawRect(rect: CGRect) {
     let context = UIGraphicsGetCurrentContext()!
-    if renderer == nil {
-      renderer = UIRenderer(bounds: bounds)
-    }
-
+    let renderer = UIRenderer(bounds: bounds)
     renderer.context = context
-    guides.draw(renderer)
+    workspace?.drawGuides(renderer)
   }
 
   override func pointInside(point: CGPoint, withEvent event: UIEvent?) -> Bool {
-    return guides.pointInside(point.point())
+    return workspace.pointIsInGuideHandle(point.point())
   }
 
   override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-    for touch in (event?.allTouches() ?? touches) {
-      guides.startMove(touch.point(), index: touch)
+    for touch in touches {
+      workspace.moveGuide(touch, point: touch.point())
     }
     setNeedsDisplay()
   }
 
   override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
-    for touch in (event?.allTouches() ?? touches) {
-      guides.continueMove(touch.point(), index: touch)
+    for touch in touches {
+      workspace.moveGuide(touch, point: touch.point())
     }
     setNeedsDisplay()
   }
 
   override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
-    for touch in (event?.allTouches() ?? touches) {
-      guides.endMove(touch.point(), index: touch)
+    for touch in touches {
+      workspace.moveGuide(touch, point: touch.point())
+      workspace.stopMovingGuide(touch)
     }
     setNeedsDisplay()
   }

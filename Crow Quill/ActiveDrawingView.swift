@@ -2,55 +2,61 @@ import UIKit
 
 class ActiveDrawingView: UIView {
   let isPredictionEnabled = UIDevice.currentDevice().userInterfaceIdiom == .Pad
-  var renderer: UIRenderer!
-  let activeDrawing = ActiveDrawing<CGImage, UITouch>()
-  var drawing: DrawingView!
+  var workspace: Workspace<CGImage, UITouch>!
+  var drawingView: DrawingView!
 
-  func setup() {
-    activeDrawing.strokeFactory = SmoothVariablePenStroke.init
+  func setup(workspace: Workspace<CGImage, UITouch>) {
+    self.workspace = workspace
+    workspace.activeDrawing.strokeFactory = SmoothVariablePenStroke.init
   }
 
   override func drawRect(rect: CGRect) {
     let context = UIGraphicsGetCurrentContext()!
-    if renderer == nil {
-      renderer = UIRenderer(bounds: bounds)
-    }
+    let renderer = UIRenderer(bounds: bounds)
     renderer.context = context
-    activeDrawing.draw(renderer)
+    workspace?.drawActiveStrokes(renderer)
   }
 
+  override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    drawTouches(touches, withEvent: event)
+  }
+
+  override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    drawTouches(touches, withEvent: event)
+  }
+  
   func drawTouches(indexTouches: Set<UITouch>, withEvent event: UIEvent?) {
+    // TODO clean up this mess
     for indexTouch in indexTouches {
-      activeDrawing.forgetPredictions(indexTouch)
+      workspace.forgetActiveStrokePredictions(indexTouch)
 
       let touches = event?.coalescedTouchesForTouch(indexTouch) ?? []
-      activeDrawing.addOrUpdateStroke(indexTouch, points: touches.map { $0.point() })
+      workspace.updateActiveStroke(indexTouch, points: touches.map { $0.point() })
 
       if isPredictionEnabled {
         let predictedTouches = event?.predictedTouchesForTouch(indexTouch) ?? []
-        activeDrawing.updateStrokePredictions(indexTouch, points: predictedTouches.map { $0.point() })
+        workspace.updateActiveStrokePredictions(indexTouch, points: predictedTouches.map { $0.point() })
       }
     }
-    setNeedsDisplayInRect(CGRect(activeDrawing.rectForUpdatedPoints()))
+    setNeedsDisplayInRect(CGRect(workspace.activeDrawing.rectForUpdatedPoints()))
   }
 
-  func endTouches(touches: Set<UITouch>) {
+  override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
     for touch in touches {
-      if let stroke = activeDrawing.endStroke(touch) {
-        drawing.addStroke(stroke)
-      }
+      workspace.commitActiveStroke(touch)
+      drawingView.setNeedsDisplay()
     }
     setNeedsDisplay()
   }
 
-  func cancelTouches(touches: Set<UITouch>) {
-    for touch in touches {
-      activeDrawing.endStroke(touch)
+  override func touchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?) {
+    for touch in touches ?? [] {
+      workspace.cancelActiveStroke(touch)
     }
     setNeedsDisplay()
   }
 
-  override func pointInside(point: CGPoint, withEvent event: UIEvent?) -> Bool {
-    return false
+  override func touchesEstimatedPropertiesUpdated(touches: Set<NSObject>) {
+    /// TODO once I have a device that calls this.
   }
 }
