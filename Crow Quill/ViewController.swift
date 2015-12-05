@@ -9,6 +9,7 @@ class ViewController: UIViewController {
   override func viewDidLoad() {
     gestureDelegate = CanvasGestureDelegate(view: view, drawing: drawing)
     activeDrawing.drawing = drawing
+    activeDrawing.setup()
   }
 
   override func didReceiveMemoryWarning() {

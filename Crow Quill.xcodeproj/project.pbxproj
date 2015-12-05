@@ -197,9 +197,9 @@
 			children = (
 				2AAF8DD41C06A25D00E0C356 /* Crow Quill */,
 				2AAF8DD31C06A25D00E0C356 /* Products */,
+				2AB438121C11F51D007AF436 /* Workspace */,
 				2AAF8E101C06A33900E0C356 /* Renderers */,
 				2AB438131C11F54D007AF436 /* Tests */,
-				2AB438121C11F51D007AF436 /* Workspace */,
 			);
 			sourceTree = "<group>";
 		};

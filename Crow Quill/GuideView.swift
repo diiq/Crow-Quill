@@ -2,8 +2,7 @@ import UIKit
 
 class GuideView: UIView {
   var renderer: UIRenderer!
-  var guide: Guide = RulerGuide()
-  var handleForTouch = [UITouch: Handle]()
+  var guides = GuideCollection<UITouch>()
 
   override func drawRect(rect: CGRect) {
     let context = UIGraphicsGetCurrentContext()!
@@ -12,33 +11,30 @@ class GuideView: UIView {
     }
 
     renderer.context = context
-    guide.draw(renderer)
+    guides.draw(renderer)
   }
 
   override func pointInside(point: CGPoint, withEvent event: UIEvent?) -> Bool {
-    return guide.handleFor(point.point()) != nil
+    return guides.pointInside(point.point())
   }
 
   override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
     for touch in (event?.allTouches() ?? touches) {
-      guard let handle = guide.handleFor(touch.point()) else { continue }
-      handleForTouch[touch] = handle
+      guides.startMove(touch.point(), index: touch)
     }
     setNeedsDisplay()
   }
 
   override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
     for touch in (event?.allTouches() ?? touches) {
-      guard let handle = handleForTouch[touch] else { return }
-      handle.move(touch.point())
+      guides.continueMove(touch.point(), index: touch)
     }
     setNeedsDisplay()
   }
 
   override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
     for touch in (event?.allTouches() ?? touches) {
-      guard handleForTouch[touch] != nil else { return }
-      handleForTouch.removeValueForKey(touch)
+      guides.endMove(touch.point(), index: touch)
     }
     setNeedsDisplay()
   }

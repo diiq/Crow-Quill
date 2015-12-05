@@ -5,7 +5,11 @@ class ActiveDrawingView: UIView {
   var renderer: UIRenderer!
   let activeDrawing = ActiveDrawing<CGImage, UITouch>()
   var drawing: DrawingView!
-  
+
+  func setup() {
+    activeDrawing.strokeFactory = SmoothVariablePenStroke.init
+  }
+
   override func drawRect(rect: CGRect) {
     let context = UIGraphicsGetCurrentContext()!
     if renderer == nil {

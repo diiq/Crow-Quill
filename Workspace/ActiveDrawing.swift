@@ -11,6 +11,7 @@ class ActiveDrawing<I, IndexType: Hashable> : ImageDrawable {
   typealias ImageType = I
   var strokesByIndex = [IndexType : Stroke]()
   var frozen: ImageType? = nil
+  var strokeFactory: ((points: [Point]) -> Stroke)!
 
   func addOrUpdateStroke(index: IndexType, points: [Point]) {
     let stroke = strokesByIndex[index] ?? newStrokeForIndex(index)
@@ -68,7 +69,7 @@ class ActiveDrawing<I, IndexType: Hashable> : ImageDrawable {
 
   private func newStrokeForIndex(index: IndexType) -> Stroke {
     // TODO: How to choose the stroke type
-    let line = SmoothVariablePenStroke(points: [])
+    let line = strokeFactory(points: [])
     strokesByIndex[index] = line
     return line
   }
