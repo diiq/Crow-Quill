@@ -59,8 +59,12 @@ class UIRenderer: Renderer, ImageRenderer {
       CGFloat(b.y))
   }
 
-  func color(r r: Double, g: Double, b: Double, a: Double) {
-    currentColor = UIColor(red:CGFloat(r), green:CGFloat(g), blue:CGFloat(b), alpha:CGFloat(a)).CGColor
+  func color(color: Color) {
+    currentColor = UIColor(
+      red:CGFloat(color.r),
+      green:CGFloat(color.g),
+      blue:CGFloat(color.b),
+      alpha:CGFloat(color.a)).CGColor
   }
 
   func stroke(lineWidth: Double) {
@@ -74,6 +78,14 @@ class UIRenderer: Renderer, ImageRenderer {
     CGContextSetFillColorWithColor(context, currentColor)
     CGContextClosePath(context)
     CGContextFillPath(context)
+  }
+
+  func shadowOn() {
+    CGContextSetShadowWithColor(context, CGSize(width: 0, height: 0), 1.5, UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).CGColor)
+  }
+
+  func shadowOff() {
+    CGContextSetShadowWithColor(context, CGSize(width: 0.5, height: 0.5), 1, nil)
   }
 
   func image(image: ImageType) {

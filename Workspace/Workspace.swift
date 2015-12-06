@@ -10,15 +10,23 @@ class Workspace<ImageType, IndexType: Hashable> {
 
   // from active drawing
   func updateActiveStroke(index: IndexType, points: [Point]) {
-    // if there's an active guide, transform points here
+    var points = points
+    if let guide = guides.transformationForIndex[index] {
+      points = guide.apply(points)
+    }
     activeDrawing.updateStroke(index, points: points)
   }
 
   func updateActiveStrokePredictions(index: IndexType, points: [Point]) {
-    // if there's an active guide, transform points here
+    var points = points
+    if let guide = guides.transformationForIndex[index] {
+      points = guide.apply(points)
+    }
     activeDrawing.updateStrokePredictions(index, points: points)
   }
-// rectforupdatedpoints
+
+  // rectforupdatedpoints
+
   func forgetActiveStrokePredictions(index: IndexType) {
     activeDrawing.forgetPredictions(index)
   }
@@ -64,6 +72,14 @@ class Workspace<ImageType, IndexType: Hashable> {
 
   func drawGuides<R: ImageRenderer where R.ImageType == ImageType>(renderer: R) {
     guides.draw(renderer)
+  }
+
+  func toggleGuides() {
+    guides.toggleActive()
+  }
+
+  func setGuideTransform(index: IndexType, point: Point) {
+    guides.setGuideTransformationForIndex(index, point: point)
   }
 
   /**

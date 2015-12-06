@@ -37,11 +37,19 @@ class TestRenderer: Renderer, ImageRenderer {
     currentImage.append("fill")
   }
 
+  func shadowOn() {
+    currentImage.append("shadow on")
+  }
+
+  func shadowOff() {
+    currentImage.append("shadow off")
+  }
+
   func clear() {
     self.currentImage = []
   }
 
-  func color(r r: Double, g: Double, b: Double, a: Double) {
+  func color(color: Color) {
     currentImage.append("color")
   }
 }

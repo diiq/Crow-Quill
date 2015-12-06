@@ -21,18 +21,24 @@ class RulerHandle: Handle {
   }
 
   func draw(renderer: Renderer) {
-    renderer.color(r: 0.6, g: 0.6, b: 0.6, a: 0.75)
+    renderer.color(GuideFill)
+
+    renderer.shadowOn()
+    renderer.circle(handleEnd, radius: handleSize)
+    renderer.stroke(1)
+    renderer.shadowOff()
+
+    renderer.circle(handleEnd, radius: handleSize)
+    renderer.fill()
+
+    renderer.color(GuideEdges)
     let direction = line.unitVector.perpendicular()
     renderer.moveTo(point)
     renderer.line(point, handleEnd - handleSize * direction)
     renderer.stroke(1)
     renderer.circle(handleEnd, radius: handleSize)
     renderer.stroke(0.5)
-    renderer.color(r: 0.6, g: 0.6, b: 0.6, a: 0.125)
-    renderer.circle(handleEnd, radius: handleSize)
-    renderer.fill()
     
-    renderer.color(r: 0.6, g: 0.6, b: 0.6, a: 1)
     renderer.circle(handleEnd, radius: handleSize / 5)
     renderer.fill()
   }

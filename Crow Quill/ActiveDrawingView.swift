@@ -18,27 +18,31 @@ class ActiveDrawingView: UIView {
   }
 
   override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-    drawTouches(touches, withEvent: event)
+    for touch in touches {
+      workspace.setGuideTransform(touch, point: touch.point())
+      drawTouch(touch, withEvent: event)
+    }
+    setNeedsDisplayInRect(CGRect(workspace.activeDrawing.rectForUpdatedPoints()))
   }
 
   override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
-    drawTouches(touches, withEvent: event)
-  }
-  
-  func drawTouches(indexTouches: Set<UITouch>, withEvent event: UIEvent?) {
-    // TODO clean up this mess
-    for indexTouch in indexTouches {
-      workspace.forgetActiveStrokePredictions(indexTouch)
-
-      let touches = event?.coalescedTouchesForTouch(indexTouch) ?? []
-      workspace.updateActiveStroke(indexTouch, points: touches.map { $0.point() })
-
-      if isPredictionEnabled {
-        let predictedTouches = event?.predictedTouchesForTouch(indexTouch) ?? []
-        workspace.updateActiveStrokePredictions(indexTouch, points: predictedTouches.map { $0.point() })
-      }
+    for touch in touches {
+      drawTouch(touch, withEvent: event)
     }
     setNeedsDisplayInRect(CGRect(workspace.activeDrawing.rectForUpdatedPoints()))
+  }
+
+  func drawTouch(indexTouch: UITouch, withEvent event: UIEvent?) {
+    // TODO clean up this mess
+    workspace.forgetActiveStrokePredictions(indexTouch)
+
+    let touches = event?.coalescedTouchesForTouch(indexTouch) ?? []
+    workspace.updateActiveStroke(indexTouch, points: touches.map { $0.point() })
+
+    if isPredictionEnabled {
+      let predictedTouches = event?.predictedTouchesForTouch(indexTouch) ?? []
+      workspace.updateActiveStrokePredictions(indexTouch, points: predictedTouches.map { $0.point() })
+    }
   }
 
   override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {

@@ -1,6 +1,8 @@
 class GuideCollection<IndexType: Hashable> {
   let guides: [Guide] = [RulerGuide()]
   var handleForIndex = [IndexType: Handle]()
+  var transformationForIndex = [IndexType: StrokeTransformation]()
+
   var activeGuides: [Guide] {
     return guides.filter { return $0.active }
   }
@@ -20,6 +22,23 @@ class GuideCollection<IndexType: Hashable> {
 
   func endMove(index: IndexType) {
     handleForIndex.removeValueForKey(index)
+  }
+
+  func toggleActive() {
+    // TODO this is silly if currently effective.
+    guides.forEach {
+      var guide = $0
+      guide.active = !guide.active
+    }
+  }
+
+  func setGuideTransformationForIndex(index: IndexType, point: Point) {
+    for guide in activeGuides {
+      if guide.appliesToPoint(point) {
+        transformationForIndex[index] = guide.transformation
+        return
+      }
+    }
   }
 
   private func handleFor(point: Point) -> Handle? {

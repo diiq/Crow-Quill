@@ -12,10 +12,11 @@ Is there something simpler that can be done?
 */
 protocol Guide : Drawable {
   func handleFor(point: Point) -> Handle?
+  func appliesToPoint(point: Point) -> Bool
+  var transformation: StrokeTransformation { get }
   var active: Bool { get set }
 }
 
 
-let GuideColor = (r: 0.6, g: 0.6, b: 0.6, a: 1.0)
-
-typealias Color = (r: Double, g: Double, b: Double, a: Double)
+let GuideEdges = Color(r: 0.7, g: 0.7, b: 0.7, a: 1.0)
+let GuideFill = Color(r: 0.98, g: 0.98, b: 0.99, a: 0.75)

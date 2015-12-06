@@ -4,6 +4,9 @@ class RulerGuide : Guide {
   var handleB: Handle! = nil
   var width: Double = 50
   var active: Bool = true
+  var transformation: StrokeTransformation {
+    return ApplyRulerGuide(guide: self)
+  }
   
   init() {
     handleA = RulerHandle(point: Point(x: 200, y: 200), line: self)
@@ -27,25 +30,32 @@ class RulerGuide : Guide {
   }
   
   func draw(renderer: Renderer) {
-    renderer.color(GuideColor)
-    
+    renderer.color(GuideFill)
+
+    renderer.shadowOn()
+    boundary(renderer)
+    renderer.stroke(1)
+    renderer.shadowOff()
+
+    boundary(renderer)
+    renderer.fill()
+
+    renderer.color(GuideEdges)
+    boundary(renderer)
+    renderer.stroke(0.5)
+
     let start = handleA.point - 10000 * unitVector
     let end = handleA.point + 10000 * unitVector
     renderer.moveTo(start)
     renderer.line(start, end)
     renderer.stroke(1)
-    
-    boundary(renderer)
-    renderer.stroke(0.5)
-    renderer.color(r: 0.6, g: 0.6, b: 0.6, a: 0.125)
-    boundary(renderer)
-    renderer.fill()
+
     handleA.draw(renderer)
     handleB.draw(renderer)
   }
   
   func projected(point: Point) -> Point {
-    return unitVector.dot(point) * unitVector
+    return unitVector.dot(point - handleA.point) * unitVector + handleA.point
   }
   
   func handleFor(point: Point) -> Handle? {
@@ -56,6 +66,10 @@ class RulerGuide : Guide {
     } else {
       return nil
     }
+  }
+
+  func appliesToPoint(point: Point) -> Bool {
+    return (point - projected(point)).length() < width
   }
   
   func hystericalZone() -> Bool {
