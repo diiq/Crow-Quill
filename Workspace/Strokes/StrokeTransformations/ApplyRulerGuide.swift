@@ -9,7 +9,7 @@ struct ApplyRulerGuide : StrokeTransformation {
       let projected = guide.projected($0)
       let direction = ($0 - projected).unit()
       let distance = ($0 - projected).length()
-      return projected + pow(distance, 0.25) * direction
+      return (projected + pow(distance, 0.5) * direction).withWeight($0.weight)
     }
   }
 }

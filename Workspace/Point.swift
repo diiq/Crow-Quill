@@ -18,6 +18,10 @@ struct Point {
     self.y = y
     self.weight = weight
   }
+
+  func withWeight(weight: Double) -> Point {
+    return Point(x: x, y: y, weight: weight)
+  }
 }
 
 // Maths

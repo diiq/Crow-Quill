@@ -50,5 +50,13 @@ class ViewController: UIViewController {
     workspace.toggleGuides()
     guideView.setNeedsDisplay()
   }
+
+  @IBAction func choosePencil(sender: AnyObject) {
+    workspace.activeDrawing.strokeFactory = SmoothFixedPenStroke.init
+  }
+
+  @IBAction func choosePen(sender: AnyObject) {
+    workspace.activeDrawing.strokeFactory = SmoothVariablePenStroke.init
+  }
 }
 

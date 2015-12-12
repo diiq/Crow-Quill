@@ -77,11 +77,17 @@
                                                 <rect key="frame" x="0.0" y="140" width="75" height="70"/>
                                                 <animations/>
                                                 <state key="normal" title="Pencil"/>
+                                                <connections>
+                                                    <action selector="choosePencil:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LFE-pc-lj7"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gme-yo-YJV">
                                                 <rect key="frame" x="0.0" y="210" width="75" height="70"/>
                                                 <animations/>
                                                 <state key="normal" title="Pen"/>
+                                                <connections>
+                                                    <action selector="choosePen:" destination="BYZ-38-t0r" eventType="touchUpInside" id="M9T-7X-s9f"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wPt-cG-Hwh">
                                                 <rect key="frame" x="0.0" y="280" width="75" height="70"/>
