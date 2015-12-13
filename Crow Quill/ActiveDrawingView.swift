@@ -7,7 +7,7 @@ class ActiveDrawingView: UIView {
 
   func setup(workspace: Workspace<CGImage, UITouch>) {
     self.workspace = workspace
-    workspace.activeDrawing.strokeFactory = SmoothVariablePenStroke.init
+    workspace.activeDrawing.strokeFactory = SmoothVariableGuidedStroke.init
   }
 
   override func drawRect(rect: CGRect) {

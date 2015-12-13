@@ -7,13 +7,16 @@ class Stroke: Drawable {
   var predictedPoints: [Point] = []
   var undrawnPointIndex: Int? = 0
   var rectOffset: Double { return 10.0 }
+  var guideTransform: StrokeTransformation?
+  
   /**
    If a new point is added to the line, how many previous points will we need
    to redraw?
    */
   var undrawnPointOffset: Int { return 1 }
 
-  init(points: [Point]) {
+  init(points: [Point], transform: StrokeTransformation?) {
+    self.guideTransform = transform
     self.points = points
   }
 

@@ -5,7 +5,7 @@ class RulerGuide : Guide {
   var width: Double = 50
   var active: Bool = true
   var transformation: StrokeTransformation {
-    return ApplyRulerGuide(guide: self)
+    return ApplyRulerGuide(projector: projector())
   }
   
   init() {
@@ -56,6 +56,14 @@ class RulerGuide : Guide {
   
   func projected(point: Point) -> Point {
     return unitVector.dot(point - handleA.point) * unitVector + handleA.point
+  }
+
+  func projector() -> (point: Point) -> Point {
+    let permaUnit = unitVector
+    let permaA = handleA.point
+    return {
+      return permaUnit.dot($0 - permaA) * permaUnit + permaA
+    }
   }
   
   func handleFor(point: Point) -> Handle? {

@@ -12,6 +12,7 @@
 		2A1245F81C0B9AC1003064A6 /* WeightedByVelocityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1245F71C0B9AC1003064A6 /* WeightedByVelocityTests.swift */; };
 		2A1245FA1C0B9D53003064A6 /* ThreePointWeightAverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1245F91C0B9D53003064A6 /* ThreePointWeightAverage.swift */; };
 		2A1967261C1CFB910088D949 /* SmoothFixedGuidedStroke.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1967251C1CFB910088D949 /* SmoothFixedGuidedStroke.swift */; };
+		2A1967281C1D114F0088D949 /* SmoothVariableGuidedStroke.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1967271C1D114F0088D949 /* SmoothVariableGuidedStroke.swift */; };
 		2A1CDDC61C0B52A50070D254 /* CatmullRomRendererExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1CDDC51C0B52A50070D254 /* CatmullRomRendererExtension.swift */; };
 		2A1CDDCB1C0B5DDA0070D254 /* StrokeTransformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1CDDCA1C0B5DDA0070D254 /* StrokeTransformation.swift */; };
 		2A1CDDCD1C0B5F0A0070D254 /* PerpendicularOutset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1CDDCC1C0B5F0A0070D254 /* PerpendicularOutset.swift */; };
@@ -85,6 +86,7 @@
 		2A1245F71C0B9AC1003064A6 /* WeightedByVelocityTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeightedByVelocityTests.swift; sourceTree = "<group>"; };
 		2A1245F91C0B9D53003064A6 /* ThreePointWeightAverage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThreePointWeightAverage.swift; sourceTree = "<group>"; };
 		2A1967251C1CFB910088D949 /* SmoothFixedGuidedStroke.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmoothFixedGuidedStroke.swift; sourceTree = "<group>"; };
+		2A1967271C1D114F0088D949 /* SmoothVariableGuidedStroke.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmoothVariableGuidedStroke.swift; sourceTree = "<group>"; };
 		2A1CDDC51C0B52A50070D254 /* CatmullRomRendererExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CatmullRomRendererExtension.swift; sourceTree = "<group>"; };
 		2A1CDDCA1C0B5DDA0070D254 /* StrokeTransformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StrokeTransformation.swift; sourceTree = "<group>"; };
 		2A1CDDCC1C0B5F0A0070D254 /* PerpendicularOutset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerpendicularOutset.swift; sourceTree = "<group>"; };
@@ -287,6 +289,7 @@
 				2A20748D1C09FB0A003B0918 /* LinearVariablePenStroke.swift */,
 				2AAF8E1C1C06A3DC00E0C356 /* SmoothFixedPenStroke.swift */,
 				2A1967251C1CFB910088D949 /* SmoothFixedGuidedStroke.swift */,
+				2A1967271C1D114F0088D949 /* SmoothVariableGuidedStroke.swift */,
 				2A20748F1C0A3B20003B0918 /* SmoothVariablePenStroke.swift */,
 				2AAF8E1E1C06A3E900E0C356 /* Stroke.swift */,
 			);
@@ -501,6 +504,7 @@
 				2A2074901C0A3B20003B0918 /* SmoothVariablePenStroke.swift in Sources */,
 				2A76FFD01C149CAC0027C447 /* Color.swift in Sources */,
 				2A8321DC1C0BCF2C00EADC0F /* FewerPoints.swift in Sources */,
+				2A1967281C1D114F0088D949 /* SmoothVariableGuidedStroke.swift in Sources */,
 				2AAF8DD81C06A25D00E0C356 /* ViewController.swift in Sources */,
 				2AAF8E121C06A35700E0C356 /* Renderer.swift in Sources */,
 				2AAF8E191C06A3A500E0C356 /* Point.swift in Sources */,

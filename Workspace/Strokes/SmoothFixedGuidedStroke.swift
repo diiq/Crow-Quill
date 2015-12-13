@@ -4,9 +4,11 @@
  */
 class SmoothFixedGuidedStroke : Stroke {
   let brushSize: Double = 1
-  override var undrawnPointOffset: Int { return 3 }
+  override var rectOffset: Double { return 80.0 }
+  override var undrawnPointOffset: Int { return 16 }
 
   override func drawPoints(points: [Point], renderer: Renderer, initial: Bool=true, final: Bool=true) {
+    var points = points
     renderer.color(NonPhotoBlue)
 
     guard points.count > 2 else {
@@ -15,6 +17,10 @@ class SmoothFixedGuidedStroke : Stroke {
         renderer.linear(points)
       }
       return
+    }
+
+    if guideTransform != nil {
+      points = guideTransform!.apply(points)
     }
 
     renderer.moveTo(points[initial ? 0 : 1])
