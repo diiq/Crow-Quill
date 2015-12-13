@@ -27,14 +27,6 @@ class ViewController: UIViewController {
     // Dispose of any resources that can be recreated.
   }
 
-  override func shouldAutorotate() -> Bool {
-    return false
-  }
-
-  override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
-    return UIInterfaceOrientationMask.Landscape
-  }
-
   /// MARK Actions
   @IBAction func undo(sender: AnyObject) {
     workspace.undo()

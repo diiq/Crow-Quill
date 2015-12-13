@@ -3,11 +3,11 @@
  nor any roundness; it's just a line.
  */
 class LinearFixedPenStroke : Stroke {
-  let brush_size: Double = 1
+  let brushSize: Double = 1
 
-  override func draw(renderer: Renderer) {
+  override func drawPoints(points: [Point], renderer: Renderer, initial: Bool, final: Bool) {
     renderer.linear(points)
-    renderer.stroke(1)
+    renderer.stroke(brushSize)
     undrawnPointIndex = nil
   }
 }

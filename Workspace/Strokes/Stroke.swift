@@ -7,6 +7,10 @@ class Stroke: Drawable {
   var predictedPoints: [Point] = []
   var undrawnPointIndex: Int? = 0
   var rectOffset: Double { return 10.0 }
+  /**
+   If a new point is added to the line, how many previous points will we need
+   to redraw?
+   */
   var undrawnPointOffset: Int { return 1 }
 
   init(points: [Point]) {
@@ -30,16 +34,34 @@ class Stroke: Drawable {
     undrawnPointIndex = nil
   }
 
-  func draw(renderer: Renderer) {
+  func drawPoints(points: [Point], renderer: Renderer, initial: Bool, final: Bool) {
     fatalError("Strokes must override draw")
+  }
+
+  func draw(renderer: Renderer) {
+    drawPoints(
+      points + predictedPoints,
+      renderer: renderer,
+      initial: true,
+      final: true)
   }
 
   func drawUndrawnPoints(renderer: Renderer) {
-    fatalError("Strokes must override draw")
+    drawPoints(
+      undrawnPoints(),
+      renderer: renderer,
+      initial: undrawnPoints().count == points.count,
+      final: false)
+
+    undrawnPointIndex = nil
   }
 
   func drawPredictedPoints(renderer: Renderer) {
-    fatalError("Strokes must override draw")
+    // We have to hand the renderer a few previous points in
+    // addition to the predicted points themselves.
+    let start = max(0, points.count - undrawnPointOffset)
+    let newPoints = Array(points[start..<points.count] + predictedPoints)
+    drawPoints(newPoints, renderer: renderer, initial: false, final: true)
   }
 
   func undrawnPoints() -> [Point] {

@@ -7,7 +7,7 @@ class LinearVariablePenStroke : Stroke {
   override var rectOffset: Double { return 50.0 }
   override var undrawnPointOffset: Int { return 2 }
 
-  func drawPoints(points: [Point], renderer: Renderer) {
+  override func drawPoints(points: [Point], renderer: Renderer, initial: Bool, final: Bool) {
     guard points.count > 2 else {
       return
     }
@@ -21,18 +21,5 @@ class LinearVariablePenStroke : Stroke {
 
     renderer.weightedLinear(weightedPoints)
     undrawnPointIndex = nil
-  }
-
-
-  override func draw(renderer: Renderer) {
-    drawPoints(points, renderer: renderer)
-  }
-
-  override func drawUndrawnPoints(renderer: Renderer) {
-    drawPoints(undrawnPoints(), renderer: renderer)
-  }
-
-  override func drawPredictedPoints(renderer: Renderer) {
-    drawPoints(points[points.count - 1..<points.count] + predictedPoints, renderer: renderer)
   }
 }

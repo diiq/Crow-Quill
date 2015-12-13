@@ -1,10 +1,8 @@
-let NonPhotoBlue = Color(r: 0.64, g: 0.86, b: 0.93, a: 1)
-
 /**
  A FixedPenStroke is a specific kind of stroke -- it has no variation in width,
  nor any roundness; it's just a line.
  */
-class SmoothFixedPenStroke : Stroke {
+class SmoothFixedGuidedStroke : Stroke {
   let brushSize: Double = 1
   override var undrawnPointOffset: Int { return 3 }
 
