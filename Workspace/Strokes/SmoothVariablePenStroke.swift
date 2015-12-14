@@ -5,7 +5,7 @@ class SmoothVariablePenStroke: SmoothFixedPenStroke {
     renderer.color(Color(r: 0, g: 0, b: 0, a: 1))
     var weightedPoints: [Point] = WeightedByVelocity(scale: brushSize).apply(points)
     weightedPoints = ThreePointWeightAverage().apply(weightedPoints)
-
+    
     renderer.weightedCatmullRom(weightedPoints, initial: initial, final: final)
     undrawnPointIndex = nil
   }

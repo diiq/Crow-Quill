@@ -5,7 +5,7 @@
 class SmoothFixedGuidedStroke : Stroke {
   let brushSize: Double = 1
   override var rectOffset: Double { return 80.0 }
-  override var undrawnPointOffset: Int { return 16 }
+  override var undrawnPointOffset: Int { return 100 }
 
   override func drawPoints(points: [Point], renderer: Renderer, initial: Bool=true, final: Bool=true) {
     var points = points
@@ -26,5 +26,12 @@ class SmoothFixedGuidedStroke : Stroke {
     renderer.moveTo(points[initial ? 0 : 1])
     renderer.catmullRom(points, initial:  initial, final: final)
     renderer.stroke(brushSize)
+  }
+
+  override func drawPredictedPoints(renderer: Renderer) {
+    drawPoints(points + predictedPoints, renderer: renderer)
+  }
+
+  override func drawUndrawnPoints(renderer: Renderer) {
   }
 }

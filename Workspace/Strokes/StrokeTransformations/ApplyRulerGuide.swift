@@ -2,6 +2,8 @@ import Darwin
 
 struct ApplyRulerGuide : StrokeTransformation {
   let projector: (Point) -> Point
+  let power: Double = 0.95
+  let diminishingReturns = 0.1
 
   func apply(points: [Point]) -> [Point] {
     let distances: [Double] = points.map {
@@ -9,13 +11,28 @@ struct ApplyRulerGuide : StrokeTransformation {
       return ($0 - projected).length()
     }
 
+    // Weighted average of distances, fading out
+    let scale = log(diminishingReturns) / log(power)
+    print(scale)
     var runningAverages: [Double] = []
     for var i = 0; i < distances.count; i++ {
-      let start = max(0, i - 15)
-      let end = min(i + 16, distances.count)
-      let sum = distances[start..<end].reduce(0, combine: +)
-      let avg = sum / Double(end - start)
-      runningAverages.append(avg)
+      var sum: Double = 0
+      var count: Double = 0
+      var distance: Double = 0
+      for var j = i; j >= 0 && distance < scale; j-- {
+        distance = (points[j] - points[i]).length()
+        sum += distances[j] * pow(0.95, distance)
+        count += pow(0.95, distance)
+      }
+      distance = 0
+      for var j = i; j < distances.count && distance < scale; j++ {
+        distance = (points[j] - points[i]).length()
+        sum += distances[j] * pow(0.95, distance)
+        count += pow(0.95, distance)
+      }
+      count--
+      sum -= distances[i]
+      runningAverages.append(sum / count)
     }
 
     return zip(points, runningAverages).map {
