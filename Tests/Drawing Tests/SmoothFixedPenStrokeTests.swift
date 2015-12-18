@@ -19,6 +19,7 @@ class SmoothFixedPenStrokeTests: XCTestCase {
   func testDraw() {
     stroke.draw(renderer)
     XCTAssertEqual(renderer.currentImage, [
+      "color",
       "move: <10.0, 50.0>",
       "bezier: <10.0, 50.0>, [<10.0, 50.0>, <16.6666666666667, 50.0>], <20.0, 50.0>",
       "bezier: <20.0, 50.0>, [<23.3333333333333, 50.0>, <26.6666666666667, 50.0>], <30.0, 50.0>",
@@ -34,6 +35,7 @@ class SmoothFixedPenStrokeTests: XCTestCase {
   func testDrawPredictedPoints() {
     stroke.drawPredictedPoints(renderer)
     XCTAssertEqual(renderer.currentImage, [
+      "color",
       "move: <40.0, 50.0>",
       "bezier: <40.0, 50.0>, [<43.3333333333333, 50.0>, <46.6666666666667, 50.0>], <50.0, 50.0>",
       "bezier: <50.0, 50.0>, [<53.3333333333333, 50.0>, <56.6666666666667, 50.0>], <60.0, 50.0>",
@@ -47,6 +49,7 @@ class SmoothFixedPenStrokeTests: XCTestCase {
     stroke.undrawnPointIndex = 1
     stroke.drawUndrawnPoints(renderer)
     XCTAssertEqual(renderer.currentImage, [
+      "color",
       "move: <30.0, 50.0>",
       "bezier: <30.0, 50.0>, [<33.3333333333333, 50.0>, <36.6666666666667, 50.0>], <40.0, 50.0>",
       "stroke"],

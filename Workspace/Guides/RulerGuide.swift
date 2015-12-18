@@ -30,8 +30,6 @@ class RulerGuide : Guide {
   }
   
   func draw(renderer: Renderer) {
-    renderer.color(GuideFill)
-
     renderer.color(GuideEdges)
     boundary(renderer)
     renderer.stroke(0.25)

@@ -3,12 +3,14 @@
  */
 
 class Stroke: Drawable {
-  var points: [Point] = []
+  var finalPoints: [Point] = []
   var predictedPoints: [Point] = []
   var undrawnPointIndex: Int? = 0
   var rectOffset: Double { return 10.0 }
   var uncommittedTransforms: [StrokeTransformation] = []
-  
+  var points: [Point] {
+    return finalPoints + predictedPoints
+  }
   /**
    If a new point is added to the line, how many previous points will we need
    to redraw?
@@ -17,15 +19,15 @@ class Stroke: Drawable {
 
   init(points: [Point], transforms: [StrokeTransformation] = []) {
     self.uncommittedTransforms = transforms
-    self.points = points
+    self.finalPoints = points
   }
 
   func addPoint(point: Point) {
     if undrawnPointIndex == nil {
-      undrawnPointIndex = max(points.count - undrawnPointOffset, 0)
+      undrawnPointIndex = max(finalPoints.count - undrawnPointOffset, 0)
       // [ done done gmove ] [ predicted predicted 
     }
-    points.append(point)
+    finalPoints.append(point)
   }
 
   func addPredictedPoint(point: Point) {
@@ -34,18 +36,19 @@ class Stroke: Drawable {
 
   func finalize() {
     predictedPoints = []
-    uncommittedTransforms.forEach { points = $0.apply(points) }
+    uncommittedTransforms.forEach { finalPoints = $0.apply(points) }
     uncommittedTransforms = []
     undrawnPointIndex = nil
   }
 
-  func drawPoints(points: [Point], renderer: Renderer, initial: Bool, final: Bool) {
+  func drawPoints(start: Int, _ stop: Int, renderer: Renderer, initial: Bool, final: Bool) {
     fatalError("Strokes must override draw")
   }
 
   func draw(renderer: Renderer) {
     drawPoints(
-      points + predictedPoints,
+      0,
+      points.count,
       renderer: renderer,
       initial: true,
       final: true)
@@ -53,9 +56,10 @@ class Stroke: Drawable {
 
   func drawUndrawnPoints(renderer: Renderer) {
     drawPoints(
-      undrawnPoints(),
+      undrawnPointIndex ?? finalPoints.count,
+      finalPoints.count,
       renderer: renderer,
-      initial: undrawnPoints().count == points.count,
+      initial: undrawnPoints().count == finalPoints.count,
       final: false)
 
     undrawnPointIndex = nil
@@ -64,14 +68,13 @@ class Stroke: Drawable {
   func drawPredictedPoints(renderer: Renderer) {
     // We have to hand the renderer a few previous points in
     // addition to the predicted points themselves.
-    let start = max(0, points.count - undrawnPointOffset)
-    let newPoints = Array(points[start..<points.count] + predictedPoints)
-    drawPoints(newPoints, renderer: renderer, initial: false, final: true)
+    let start = max(0, finalPoints.count - undrawnPointOffset)
+    drawPoints(start, points.count, renderer: renderer, initial: false, final: true)
   }
 
   func undrawnPoints() -> [Point] {
     guard let start = undrawnPointIndex else { return [] }
-    return Array(points[start..<points.count])
+    return Array(finalPoints[start..<finalPoints.count])
   }
 
   /**

@@ -7,33 +7,33 @@ class SmoothFixedGuidedStroke : Stroke {
   override var rectOffset: Double { return 80.0 }
   override var undrawnPointOffset: Int { return 100 }
 
-  override func drawPoints(points: [Point], renderer: Renderer, initial: Bool=true, final: Bool=true) {
-    var points = points
+  override func drawPoints(start: Int, _ stop: Int, renderer: Renderer, initial: Bool=true, final: Bool=true) {
+    var guidedPoints = Array(points[start..<stop])
     renderer.color(NonPhotoBlue)
 
-    guard points.count > 2 else {
+    guard guidedPoints.count > 2 else {
       if initial && final {
-        renderer.moveTo(points[0])
-        renderer.linear(points)
+        renderer.moveTo(guidedPoints[0])
+        renderer.linear(guidedPoints)
       }
       return
     }
 
-    uncommittedTransforms.forEach { points = $0.apply(points) }
+    uncommittedTransforms.forEach { guidedPoints = $0.apply(guidedPoints) }
 
-    renderer.moveTo(points[initial ? 0 : 1])
-    renderer.catmullRom(points, initial:  initial, final: final)
+    renderer.moveTo(guidedPoints[initial ? 0 : 1])
+    renderer.catmullRom(guidedPoints, initial:  initial, final: final)
     renderer.stroke(brushSize)
   }
 
   override func undrawnPoints() -> [Point] {
-    guard uncommittedTransforms.count == 0 else { return points }
+    guard uncommittedTransforms.count == 0 else { return finalPoints }
     return super.undrawnPoints()
   }
 
   override func drawPredictedPoints(renderer: Renderer) {
     guard uncommittedTransforms.count == 0 else {
-      drawPoints(points + predictedPoints, renderer: renderer)
+      drawPoints(0, points.count, renderer: renderer)
       return
     }
     super.drawPredictedPoints(renderer)
