@@ -7,7 +7,7 @@ class Stroke: Drawable {
   var predictedPoints: [Point] = []
   var undrawnPointIndex: Int? = 0
   var rectOffset: Double { return 10.0 }
-  var guideTransform: StrokeTransformation?
+  var uncommittedTransforms: [StrokeTransformation] = []
   
   /**
    If a new point is added to the line, how many previous points will we need
@@ -15,8 +15,8 @@ class Stroke: Drawable {
    */
   var undrawnPointOffset: Int { return 1 }
 
-  init(points: [Point], transform: StrokeTransformation?) {
-    self.guideTransform = transform
+  init(points: [Point], transforms: [StrokeTransformation] = []) {
+    self.uncommittedTransforms = transforms
     self.points = points
   }
 
@@ -34,6 +34,8 @@ class Stroke: Drawable {
 
   func finalize() {
     predictedPoints = []
+    uncommittedTransforms.forEach { points = $0.apply(points) }
+    uncommittedTransforms = []
     undrawnPointIndex = nil
   }
 

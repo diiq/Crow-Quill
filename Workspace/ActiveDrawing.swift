@@ -11,10 +11,10 @@ class ActiveDrawing<I, IndexType: Hashable> : ImageDrawable {
   typealias ImageType = I
   var strokesByIndex = [IndexType : Stroke]()
   var frozen: ImageType? = nil
-  var strokeFactory: ((points: [Point], transform: StrokeTransformation?) -> Stroke)!
+  var strokeFactory: ((points: [Point], transforms: [StrokeTransformation]) -> Stroke)!
 
-  func updateStroke(index: IndexType, points: [Point], transform: StrokeTransformation?) {
-    let stroke = strokesByIndex[index] ?? newStrokeForIndex(index, transform: transform)
+  func updateStroke(index: IndexType, points: [Point], transforms: [StrokeTransformation]) {
+    let stroke = strokesByIndex[index] ?? newStrokeForIndex(index, transforms: transforms)
     for point in points {
       stroke.addPoint(point)
     }
@@ -67,9 +67,9 @@ class ActiveDrawing<I, IndexType: Hashable> : ImageDrawable {
     }
   }
 
-  private func newStrokeForIndex(index: IndexType, transform: StrokeTransformation?) -> Stroke {
+  private func newStrokeForIndex(index: IndexType, transforms: [StrokeTransformation]) -> Stroke {
     // TODO: How to choose the stroke type
-    let line = strokeFactory(points: [], transform: transform)
+    let line = strokeFactory(points: [], transforms: transforms)
     strokesByIndex[index] = line
     return line
   }

@@ -19,19 +19,28 @@ class SmoothFixedGuidedStroke : Stroke {
       return
     }
 
-    if guideTransform != nil {
-      points = guideTransform!.apply(points)
-    }
+    uncommittedTransforms.forEach { points = $0.apply(points) }
 
     renderer.moveTo(points[initial ? 0 : 1])
     renderer.catmullRom(points, initial:  initial, final: final)
     renderer.stroke(brushSize)
   }
 
+  override func undrawnPoints() -> [Point] {
+    guard uncommittedTransforms.count == 0 else { return points }
+    return super.undrawnPoints()
+  }
+
   override func drawPredictedPoints(renderer: Renderer) {
-    drawPoints(points + predictedPoints, renderer: renderer)
+    guard uncommittedTransforms.count == 0 else {
+      drawPoints(points + predictedPoints, renderer: renderer)
+      return
+    }
+    super.drawPredictedPoints(renderer)
   }
 
   override func drawUndrawnPoints(renderer: Renderer) {
+    guard uncommittedTransforms.count == 0 else { return }
+    super.drawUndrawnPoints(renderer)
   }
 }

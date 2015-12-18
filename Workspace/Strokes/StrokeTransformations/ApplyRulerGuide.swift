@@ -13,14 +13,14 @@ struct ApplyRulerGuide : StrokeTransformation {
 
     // Weighted average of distances, fading out
     let scale = log(diminishingReturns) / log(power)
-    print(scale)
+
     var runningAverages: [Double] = []
     for var i = 0; i < distances.count; i++ {
       var sum: Double = 0
       var count: Double = 0
       var distance: Double = 0
       for var j = i; j >= 0 && distance < scale; j-- {
-        distance = (points[j] - points[i]).length()
+        distance = (points[j] - points[i]).length() // Should be projected distance?
         sum += distances[j] * pow(0.95, distance)
         count += pow(0.95, distance)
       }

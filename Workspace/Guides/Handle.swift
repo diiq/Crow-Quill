@@ -6,18 +6,17 @@ protocol Handle : Drawable {
 
 class RulerHandle: Handle {
   var point: Point
-  var length: Double
+  var length: Double = 40
   weak var line: RulerGuide!
-  let handleSize: Double = 35
+  let handleSize: Double = 32
   private var handleEnd: Point {
     let direction = line.unitVector.perpendicular()
     return point + direction * length
   }
   
-  init(point: Point, line: RulerGuide, length: Double = 100) {
+  init(point: Point, line: RulerGuide) {
     self.point = point
     self.line = line
-    self.length = length
   }
 
   func draw(renderer: Renderer) {
@@ -31,11 +30,13 @@ class RulerHandle: Handle {
     renderer.circle(handleEnd, radius: handleSize)
     renderer.fill()
 
-    renderer.color(GuideEdges)
-    let direction = line.unitVector.perpendicular()
-    renderer.moveTo(point)
-    renderer.line(point, handleEnd - handleSize * direction)
-    renderer.stroke(1)
+    renderer.color(HandleEdges)
+    if handleSize < length {
+      let direction = line.unitVector.perpendicular()
+      renderer.moveTo(point)
+      renderer.line(point, handleEnd - handleSize * direction)
+      renderer.stroke(1)
+    }
     renderer.circle(handleEnd, radius: handleSize)
     renderer.stroke(0.5)
     

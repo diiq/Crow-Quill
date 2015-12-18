@@ -10,7 +10,11 @@ class Workspace<ImageType, IndexType: Hashable> {
 
   // from active drawing
   func updateActiveStroke(index: IndexType, points: [Point]) {
-    activeDrawing.updateStroke(index, points: points, transform: guides.transformationForIndex[index])
+    var transforms: [StrokeTransformation] = []
+    if guides.transformationForIndex[index] != nil {
+      transforms.append(guides.transformationForIndex[index]!)
+    }
+    activeDrawing.updateStroke(index, points: points, transforms: transforms)
   }
 
   func updateActiveStrokePredictions(index: IndexType, points: [Point]) {

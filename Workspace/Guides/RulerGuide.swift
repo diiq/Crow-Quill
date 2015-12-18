@@ -22,27 +22,19 @@ class RulerGuide : Guide {
     let end = handleA.point + 10000 * unitVector
     let perp = unitVector.perpendicular() * width
     
-    renderer.moveTo(start + perp)
-    renderer.line(start + perp, end + perp)
-    renderer.line(end + perp, end - perp)
-    renderer.line(end - perp, start - perp)
-    renderer.line(start - perp, start + perp)
+    renderer.moveTo(start - perp)
+    renderer.line(start - perp, end - perp)
+    renderer.line(end - perp, end + perp)
+    renderer.line(end + perp, start + perp)
+    renderer.line(start + perp, start - perp)
   }
   
   func draw(renderer: Renderer) {
     renderer.color(GuideFill)
 
-    renderer.shadowOn()
-    boundary(renderer)
-    renderer.stroke(1)
-    renderer.shadowOff()
-
-    boundary(renderer)
-    renderer.fill()
-
     renderer.color(GuideEdges)
     boundary(renderer)
-    renderer.stroke(0.5)
+    renderer.stroke(0.25)
 
     let start = handleA.point - 10000 * unitVector
     let end = handleA.point + 10000 * unitVector
