@@ -27,10 +27,10 @@ class ActiveDrawing<I, IndexType: Hashable> : ImageDrawable {
     }
   }
 
-  func endStroke(index: IndexType) -> Stroke? {
+  func endStroke(index: IndexType, viewTransform: StrokeTransformation) -> Stroke? {
     guard let stroke = strokesByIndex[index] else { return nil }
     strokesByIndex.removeValueForKey(index)
-    stroke.finalize()
+    stroke.finalize(viewTransform)
     frozen = nil
     return stroke
   }

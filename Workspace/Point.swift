@@ -22,6 +22,10 @@ struct Point {
   func withWeight(weight: Double) -> Point {
     return Point(x: x, y: y, weight: weight)
   }
+
+  func cgPoint() -> CGPoint {
+    return CGPoint(x: x, y: y)
+  }
 }
 
 // Maths

@@ -34,11 +34,15 @@ class Stroke: Drawable {
     predictedPoints.append(point)
   }
 
-  func finalize() {
+  func finalize(viewTransform: StrokeTransformation) {
+    // The viewTransform moves the stroke from the activeDrawing (which is 
+    // in screen space) into drawing space (which may be scale/rotated).
     predictedPoints = []
     uncommittedTransforms.forEach { finalPoints = $0.apply(points) }
     uncommittedTransforms = []
     undrawnPointIndex = nil
+
+    finalPoints = viewTransform.apply(finalPoints)
   }
 
   func drawPoints(start: Int, _ stop: Int, renderer: Renderer, initial: Bool, final: Bool) {

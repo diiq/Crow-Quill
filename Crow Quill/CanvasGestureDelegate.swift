@@ -35,15 +35,15 @@ class CanvasGestureDelegate : NSObject, UIGestureRecognizerDelegate {
 
     pinchRecognizer.addTarget(self, action:"handleScale:")
     pinchRecognizer.delegate = self
-    //view.addGestureRecognizer(pinchRecognizer)
+    view.addGestureRecognizer(pinchRecognizer)
 
     rotateRecognizer.addTarget(self, action:"handleRotation:")
     rotateRecognizer.delegate = self
-    //view.addGestureRecognizer(rotateRecognizer)
+    view.addGestureRecognizer(rotateRecognizer)
 
     panRecognizer.addTarget(self, action:"handlePan:")
     panRecognizer.delegate = self
-    //view.addGestureRecognizer(panRecognizer)
+    view.addGestureRecognizer(panRecognizer)
 
     undoTapRecognizer.addTarget(self, action:"undoStroke:")
     undoTapRecognizer.delegate = self
@@ -54,24 +54,24 @@ class CanvasGestureDelegate : NSObject, UIGestureRecognizerDelegate {
   }
 
   func handleScale(gestureRecognizer: UIPinchGestureRecognizer) {
-    guard let view = readyWithView(gestureRecognizer) else { return }
+    guard readyWithView(gestureRecognizer) else { return }
     let scale = gestureRecognizer.scale
-    view.transform = CGAffineTransformScale(view.transform, scale, scale)
+    drawing.transform = CGAffineTransformScale(drawing.transform, scale, scale)
     gestureRecognizer.scale = 1.0
   }
 
   func handleRotation(gestureRecognizer: UIRotationGestureRecognizer) {
-    guard let view = readyWithView(gestureRecognizer) else { return }
+    guard readyWithView(gestureRecognizer) else { return }
     let rotation = gestureRecognizer.rotation
-    view.transform = CGAffineTransformRotate(view.transform, rotation)
+    drawing.transform = CGAffineTransformRotate(drawing.transform, rotation)
     gestureRecognizer.rotation = 0
   }
 
   func handlePan(gestureRecognizer: UIPanGestureRecognizer) {
-    guard let view = readyWithView(gestureRecognizer) else { return }
-    let translation = gestureRecognizer.translationInView(view)
-    view.transform = CGAffineTransformTranslate(view.transform, translation.x, translation.y)
-    gestureRecognizer.setTranslation(CGPointZero, inView: view)
+    guard readyWithView(gestureRecognizer) else { return }
+    let translation = gestureRecognizer.translationInView(drawing)
+    drawing.transform = CGAffineTransformTranslate(drawing.transform, translation.x, translation.y)
+    gestureRecognizer.setTranslation(CGPointZero, inView: drawing)
   }
 
   func undoStroke(gestureRecognizer: UITapGestureRecognizer) {
@@ -93,13 +93,8 @@ class CanvasGestureDelegate : NSObject, UIGestureRecognizerDelegate {
       return answer
   }
 
-  private func readyWithView(gestureRecognizer: UIGestureRecognizer) -> UIView? {
+  private func readyWithView(gestureRecognizer: UIGestureRecognizer) -> Bool {
     let state = gestureRecognizer.state
-
-    if (state == UIGestureRecognizerState.Began || state == UIGestureRecognizerState.Changed) {
-      return gestureRecognizer.view
-    } else {
-      return nil
-    }
+    return (state == UIGestureRecognizerState.Began || state == UIGestureRecognizerState.Changed)
   }
 }

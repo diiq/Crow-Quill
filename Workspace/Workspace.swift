@@ -7,6 +7,7 @@ class Workspace<ImageType, IndexType: Hashable> {
   let activeDrawing = ActiveDrawing<ImageType, IndexType>()
   let drawing = Drawing<ImageType>()
   let guides = GuideCollection<IndexType>()
+  var viewTransform: StrokeTransformation!
 
   // from active drawing
   func updateActiveStroke(index: IndexType, points: [Point]) {
@@ -28,12 +29,12 @@ class Workspace<ImageType, IndexType: Hashable> {
   }
 
   func commitActiveStroke(index: IndexType) {
-    guard let stroke = activeDrawing.endStroke(index) else { return }
+    guard let stroke = activeDrawing.endStroke(index, viewTransform: viewTransform) else { return }
     drawing.addStroke(stroke)
   }
 
   func cancelActiveStroke(index: IndexType) {
-    activeDrawing.endStroke(index)
+    activeDrawing.endStroke(index, viewTransform: viewTransform)
   }
 
   func drawActiveStrokes<R: ImageRenderer where R.ImageType == ImageType>(renderer: R) {

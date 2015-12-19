@@ -20,6 +20,9 @@ class ViewController: UIViewController {
     activeDrawingView.setup(workspace)
     guideView.setup(workspace)
     drawingView.setup(workspace)
+    workspace.viewTransform = ActiveSpaceToCanvasSpace(
+      activeView: activeDrawingView,
+      drawingView: drawingView)
   }
 
   override func didReceiveMemoryWarning() {
