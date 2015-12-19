@@ -2,6 +2,7 @@ import UIKit
 
 class DrawingView: UIView {
   var workspace: Workspace<CGImage, UITouch>!
+  var scale: Double = 1
 
   func setup(workspace: Workspace<CGImage, UITouch>) {
     self.workspace = workspace

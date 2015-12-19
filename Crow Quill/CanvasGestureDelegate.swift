@@ -5,6 +5,7 @@ class CanvasGestureDelegate : NSObject, UIGestureRecognizerDelegate {
   private let actions: [UIGestureRecognizer]
   let drawing: DrawingView
   let view: UIView
+  let workspace: Workspace<CGImage, UITouch>
   private let pinchRecognizer = UIPinchGestureRecognizer()
   private let rotateRecognizer = UIRotationGestureRecognizer()
   private let panRecognizer: UIPanGestureRecognizer = {
@@ -26,9 +27,10 @@ class CanvasGestureDelegate : NSObject, UIGestureRecognizerDelegate {
     return it
   }()
 
-  init(view: UIView, drawing: DrawingView) {
+  init(view: UIView, drawing: DrawingView, workspace: Workspace<CGImage, UITouch>) {
     self.drawing = drawing
     self.view = view
+    self.workspace = workspace
     self.canvasMotions = [pinchRecognizer, rotateRecognizer, panRecognizer]
     self.actions = [undoTapRecognizer, redoTapRecognizer]
     super.init()
@@ -57,6 +59,7 @@ class CanvasGestureDelegate : NSObject, UIGestureRecognizerDelegate {
     guard readyWithView(gestureRecognizer) else { return }
     let scale = gestureRecognizer.scale
     drawing.transform = CGAffineTransformScale(drawing.transform, scale, scale)
+    drawing.scale = drawing.scale * Double(scale)
     gestureRecognizer.scale = 1.0
   }
 

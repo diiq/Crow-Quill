@@ -7,8 +7,8 @@ class SmoothVariableGuidedStroke: SmoothFixedPenStroke {
 
     uncommittedTransforms.forEach { guidedPoints = $0.apply(guidedPoints) }
 
-    guidedPoints = WeightedByVelocity(scale: brushSize).apply(guidedPoints)
-    guidedPoints = ThreePointWeightAverage().apply(guidedPoints)
+    //guidedPoints = WeightedByVelocity(scale: brushSize).apply(guidedPoints)
+    //guidedPoints = ThreePointWeightAverage().apply(guidedPoints)
 
     renderer.weightedCatmullRom(guidedPoints, initial: initial, final: final)
     undrawnPointIndex = nil

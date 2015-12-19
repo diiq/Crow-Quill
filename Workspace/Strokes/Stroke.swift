@@ -36,7 +36,8 @@ class Stroke: Drawable {
 
   func finalize(viewTransform: StrokeTransformation) {
     // The viewTransform moves the stroke from the activeDrawing (which is 
-    // in screen space) into drawing space (which may be scale/rotated).
+    // in screen-space) into the drawing (which is in canvas-space). This is 
+    // messed up, because of pixels.
     predictedPoints = []
     uncommittedTransforms.forEach { finalPoints = $0.apply(points) }
     uncommittedTransforms = []

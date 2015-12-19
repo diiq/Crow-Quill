@@ -15,7 +15,10 @@ class ViewController: UIViewController {
   var gestureDelegate: CanvasGestureDelegate!
 
   override func viewDidLoad() {
-    gestureDelegate = CanvasGestureDelegate(view: view, drawing: drawingView)
+    gestureDelegate = CanvasGestureDelegate(
+      view: view,
+      drawing: drawingView,
+      workspace: workspace)
     activeDrawingView.drawingView = drawingView
     activeDrawingView.setup(workspace)
     guideView.setup(workspace)

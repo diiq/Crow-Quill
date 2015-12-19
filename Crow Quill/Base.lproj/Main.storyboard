@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -19,47 +19,32 @@
                         <subviews>
                             <view opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pk8-to-KMe" customClass="DrawingView" customModule="Crow_Quill" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <animations/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <view opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7zb-dU-yd1" customClass="ActiveDrawingView" customModule="Crow_Quill" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <animations/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                             <view opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qsm-Ch-wx0" customClass="GuideView" customModule="Crow_Quill" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <animations/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                             <view opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rcW-Vh-Lwd">
                                 <rect key="frame" x="525" y="0.0" width="75" height="600"/>
                                 <subviews>
-                                    <view opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e1U-a3-pc7">
+                                    <visualEffectView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Zk-Mx-Eeh">
                                         <rect key="frame" x="0.0" y="0.0" width="75" height="600"/>
-                                        <subviews>
-                                            <toolbar opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bk6-R3-XP8">
-                                                <rect key="frame" x="0.0" y="0.0" width="75" height="600"/>
-                                                <animations/>
-                                                <color key="backgroundColor" red="0.7611331070889894" green="0.7611331070889894" blue="0.7611331070889894" alpha="0.42400323275862067" colorSpace="calibratedRGB"/>
-                                                <items/>
-                                            </toolbar>
-                                        </subviews>
-                                        <animations/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="bk6-R3-XP8" secondAttribute="trailing" id="CuC-cz-L7g"/>
-                                            <constraint firstItem="bk6-R3-XP8" firstAttribute="leading" secondItem="e1U-a3-pc7" secondAttribute="leading" id="VvM-XL-hJa"/>
-                                            <constraint firstItem="bk6-R3-XP8" firstAttribute="top" secondItem="e1U-a3-pc7" secondAttribute="top" id="gQb-Vs-M9E"/>
-                                            <constraint firstAttribute="bottom" secondItem="bk6-R3-XP8" secondAttribute="bottom" id="tnT-Nc-z4j"/>
-                                        </constraints>
-                                    </view>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gmy-fm-IRS">
+                                            <rect key="frame" x="0.0" y="0.0" width="75" height="600"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        </view>
+                                        <blurEffect style="dark"/>
+                                    </visualEffectView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="hCR-ws-830">
                                         <rect key="frame" x="0.0" y="125" width="75" height="350"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RNs-jr-QRB">
                                                 <rect key="frame" x="0.0" y="0.0" width="75" height="70"/>
-                                                <animations/>
                                                 <state key="normal" title="Undo"/>
                                                 <connections>
                                                     <action selector="undo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JLG-j4-7uX"/>
@@ -67,7 +52,6 @@
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mbf-HA-35N">
                                                 <rect key="frame" x="0.0" y="70" width="75" height="70"/>
-                                                <animations/>
                                                 <state key="normal" title="Redo"/>
                                                 <connections>
                                                     <action selector="redo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jSE-GB-HRe"/>
@@ -75,7 +59,6 @@
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wuw-8g-26b">
                                                 <rect key="frame" x="0.0" y="140" width="75" height="70"/>
-                                                <animations/>
                                                 <state key="normal" title="Pencil"/>
                                                 <connections>
                                                     <action selector="choosePencil:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LFE-pc-lj7"/>
@@ -83,7 +66,6 @@
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gme-yo-YJV">
                                                 <rect key="frame" x="0.0" y="210" width="75" height="70"/>
-                                                <animations/>
                                                 <state key="normal" title="Pen"/>
                                                 <connections>
                                                     <action selector="choosePen:" destination="BYZ-38-t0r" eventType="touchUpInside" id="M9T-7X-s9f"/>
@@ -91,36 +73,32 @@
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wPt-cG-Hwh">
                                                 <rect key="frame" x="0.0" y="280" width="75" height="70"/>
-                                                <animations/>
                                                 <state key="normal" title="Guides"/>
                                                 <connections>
                                                     <action selector="toggleGuides:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qWW-jy-D0C"/>
                                                 </connections>
                                             </button>
                                         </subviews>
-                                        <animations/>
-                                        <color key="tintColor" red="0.25098039220000001" green="0.6588235294" blue="0.90980392160000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="tintColor" cocoaTouchSystemColor="lightTextColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="350" id="pyn-NB-fzg"/>
                                         </constraints>
                                     </stackView>
                                 </subviews>
-                                <animations/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="e1U-a3-pc7" secondAttribute="bottom" id="OtF-c5-EEh"/>
+                                    <constraint firstItem="3Zk-Mx-Eeh" firstAttribute="top" secondItem="rcW-Vh-Lwd" secondAttribute="top" id="KkY-rw-h9a"/>
                                     <constraint firstItem="hCR-ws-830" firstAttribute="leading" secondItem="rcW-Vh-Lwd" secondAttribute="leading" id="Rcr-vg-p9z"/>
+                                    <constraint firstItem="3Zk-Mx-Eeh" firstAttribute="leading" secondItem="rcW-Vh-Lwd" secondAttribute="leading" id="apu-0a-N2v"/>
                                     <constraint firstAttribute="trailing" secondItem="hCR-ws-830" secondAttribute="trailing" id="k1l-Ki-cQi"/>
-                                    <constraint firstItem="e1U-a3-pc7" firstAttribute="leading" secondItem="rcW-Vh-Lwd" secondAttribute="leading" id="pdv-pt-AjA"/>
+                                    <constraint firstAttribute="trailing" secondItem="3Zk-Mx-Eeh" secondAttribute="trailing" id="t15-lG-kbs"/>
                                     <constraint firstItem="hCR-ws-830" firstAttribute="centerY" secondItem="rcW-Vh-Lwd" secondAttribute="centerY" id="t2G-2r-GVB"/>
+                                    <constraint firstAttribute="bottom" secondItem="3Zk-Mx-Eeh" secondAttribute="bottom" id="tfh-gA-osG"/>
                                     <constraint firstAttribute="width" constant="75" id="vKV-6a-Csl"/>
-                                    <constraint firstItem="e1U-a3-pc7" firstAttribute="top" secondItem="rcW-Vh-Lwd" secondAttribute="top" id="wRm-53-c9c"/>
-                                    <constraint firstAttribute="trailing" secondItem="e1U-a3-pc7" secondAttribute="trailing" id="zw3-yB-9Wb"/>
                                 </constraints>
                             </view>
                         </subviews>
-                        <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="rcW-Vh-Lwd" secondAttribute="trailing" id="2w0-gp-5ON"/>
                             <constraint firstItem="Pk8-to-KMe" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="4X9-N7-3TF"/>
