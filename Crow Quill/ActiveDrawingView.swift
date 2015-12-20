@@ -19,17 +19,21 @@ class ActiveDrawingView: UIView {
 
   override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
     for touch in touches {
-      workspace.setGuideTransform(touch, point: touch.point())
-      drawTouch(touch, withEvent: event)
+      if touch.type == .Stylus {
+        workspace.setGuideTransform(touch, point: touch.point())
+        drawTouch(touch, withEvent: event)
+        setNeedsDisplayInRect(CGRect(workspace.activeDrawing.rectForUpdatedPoints()))
+      }
     }
-    setNeedsDisplayInRect(CGRect(workspace.activeDrawing.rectForUpdatedPoints()))
   }
 
   override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
     for touch in touches {
-      drawTouch(touch, withEvent: event)
+      if touch.type == .Stylus {
+        drawTouch(touch, withEvent: event)
+        setNeedsDisplayInRect(CGRect(workspace.activeDrawing.rectForUpdatedPoints()))
+      }
     }
-    setNeedsDisplayInRect(CGRect(workspace.activeDrawing.rectForUpdatedPoints()))
   }
 
   func drawTouch(indexTouch: UITouch, withEvent event: UIEvent?) {

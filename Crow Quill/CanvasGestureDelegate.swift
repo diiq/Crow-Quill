@@ -55,24 +55,53 @@ class CanvasGestureDelegate : NSObject, UIGestureRecognizerDelegate {
     view.addGestureRecognizer(redoTapRecognizer)
   }
 
+  func setAnchorPoint(anchorPoint: CGPoint, forView view: UIView) {
+    var newPoint = CGPointMake(view.bounds.size.width * anchorPoint.x, view.bounds.size.height * anchorPoint.y)
+    var oldPoint = CGPointMake(view.bounds.size.width * view.layer.anchorPoint.x, view.bounds.size.height * view.layer.anchorPoint.y)
+
+    newPoint = CGPointApplyAffineTransform(newPoint, view.transform)
+    oldPoint = CGPointApplyAffineTransform(oldPoint, view.transform)
+
+    var position = view.layer.position
+    position.x -= oldPoint.x
+    position.x += newPoint.x
+
+    position.y -= oldPoint.y
+    position.y += newPoint.y
+
+    view.layer.position = position
+    view.layer.anchorPoint = anchorPoint
+  }
+
+  func adjustAnchorPoint(gestureRecognizer: UIGestureRecognizer) {
+    let locationInView = gestureRecognizer.locationInView(drawing)
+    let anchorPoint = CGPoint(
+      x: locationInView.x / drawing.bounds.size.width,
+      y: locationInView.y / drawing.bounds.size.height)
+    setAnchorPoint(anchorPoint, forView: drawing)
+  }
+
   func handleScale(gestureRecognizer: UIPinchGestureRecognizer) {
-    guard readyWithView(gestureRecognizer) else { return }
+    guard ready(gestureRecognizer) else { return }
     let scale = gestureRecognizer.scale
+    adjustAnchorPoint(gestureRecognizer)
     drawing.transform = CGAffineTransformScale(drawing.transform, scale, scale)
     drawing.scale = drawing.scale * Double(scale)
     gestureRecognizer.scale = 1.0
   }
 
   func handleRotation(gestureRecognizer: UIRotationGestureRecognizer) {
-    guard readyWithView(gestureRecognizer) else { return }
+    guard ready(gestureRecognizer) else { return }
     let rotation = gestureRecognizer.rotation
+    adjustAnchorPoint(gestureRecognizer)
     drawing.transform = CGAffineTransformRotate(drawing.transform, rotation)
     gestureRecognizer.rotation = 0
   }
 
   func handlePan(gestureRecognizer: UIPanGestureRecognizer) {
-    guard readyWithView(gestureRecognizer) else { return }
+    guard ready(gestureRecognizer) else { return }
     let translation = gestureRecognizer.translationInView(drawing)
+    adjustAnchorPoint(gestureRecognizer)
     drawing.transform = CGAffineTransformTranslate(drawing.transform, translation.x, translation.y)
     gestureRecognizer.setTranslation(CGPointZero, inView: drawing)
   }
@@ -96,7 +125,7 @@ class CanvasGestureDelegate : NSObject, UIGestureRecognizerDelegate {
       return answer
   }
 
-  private func readyWithView(gestureRecognizer: UIGestureRecognizer) -> Bool {
+  private func ready(gestureRecognizer: UIGestureRecognizer) -> Bool {
     let state = gestureRecognizer.state
     return (state == UIGestureRecognizerState.Began || state == UIGestureRecognizerState.Changed)
   }

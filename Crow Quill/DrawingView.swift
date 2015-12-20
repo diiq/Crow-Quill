@@ -6,6 +6,7 @@ class DrawingView: UIView {
 
   func setup(workspace: Workspace<CGImage, UITouch>) {
     self.workspace = workspace
+    layer.allowsEdgeAntialiasing = true
   }
 
   override func drawRect(rect: CGRect) {
