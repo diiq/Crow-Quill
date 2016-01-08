@@ -29,6 +29,8 @@
 		2A8321E51C0E790B00EADC0F /* GuideTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A8321E41C0E790B00EADC0F /* GuideTests.swift */; };
 		2A8321E71C0FBF9400EADC0F /* GuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A8321E61C0FBF9400EADC0F /* GuideView.swift */; };
 		2A8321E91C110B9600EADC0F /* Handle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A8321E81C110B9600EADC0F /* Handle.swift */; };
+		2A908D651C4020410004FA9E /* StampedStrokeRendererExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A908D641C4020410004FA9E /* StampedStrokeRendererExtension.swift */; };
+		2A908D681C4053810004FA9E /* StampedStrokeRendererTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A908D661C4053640004FA9E /* StampedStrokeRendererTests.swift */; };
 		2AA76F441C3F402E0058ABE5 /* StrokeSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA76F431C3F402E0058ABE5 /* StrokeSettings.swift */; };
 		2AA76F461C3F4D620058ABE5 /* ScaleWeights.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA76F451C3F4D620058ABE5 /* ScaleWeights.swift */; };
 		2AAF8DD61C06A25D00E0C356 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAF8DD51C06A25D00E0C356 /* AppDelegate.swift */; };
@@ -104,6 +106,8 @@
 		2A8321E41C0E790B00EADC0F /* GuideTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuideTests.swift; sourceTree = "<group>"; };
 		2A8321E61C0FBF9400EADC0F /* GuideView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuideView.swift; sourceTree = "<group>"; };
 		2A8321E81C110B9600EADC0F /* Handle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Handle.swift; sourceTree = "<group>"; };
+		2A908D641C4020410004FA9E /* StampedStrokeRendererExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StampedStrokeRendererExtension.swift; sourceTree = "<group>"; };
+		2A908D661C4053640004FA9E /* StampedStrokeRendererTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StampedStrokeRendererTests.swift; sourceTree = "<group>"; };
 		2AA76F431C3F402E0058ABE5 /* StrokeSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StrokeSettings.swift; sourceTree = "<group>"; };
 		2AA76F451C3F4D620058ABE5 /* ScaleWeights.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScaleWeights.swift; sourceTree = "<group>"; };
 		2AAF8DD21C06A25D00E0C356 /* Crow Quill.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Crow Quill.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -275,6 +279,7 @@
 			isa = PBXGroup;
 			children = (
 				2A1CDDC51C0B52A50070D254 /* CatmullRomRendererExtension.swift */,
+				2A908D641C4020410004FA9E /* StampedStrokeRendererExtension.swift */,
 				2AAF8E041C06A2AB00E0C356 /* Drawable.swift */,
 				2AAF8E111C06A35700E0C356 /* Renderer.swift */,
 				2A76FFCF1C149CAC0027C447 /* Color.swift */,
@@ -311,6 +316,7 @@
 				2A20748B1C08AD9E003B0918 /* SmoothFixedPenStrokeTests.swift */,
 				2AAF8E301C06A6EA00E0C356 /* SnapshotTimelineTests.swift */,
 				2AAF8E291C06A51C00E0C356 /* TestRendererTests.swift */,
+				2A908D661C4053640004FA9E /* StampedStrokeRendererTests.swift */,
 				2AAF8E321C06A6FE00E0C356 /* TimelineTests.swift */,
 				2A1245F71C0B9AC1003064A6 /* WeightedByVelocityTests.swift */,
 			);
@@ -501,6 +507,7 @@
 				2AAF8E1F1C06A3E900E0C356 /* Stroke.swift in Sources */,
 				2A8321E91C110B9600EADC0F /* Handle.swift in Sources */,
 				2AAF8E091C06A2DD00E0C356 /* ActiveDrawing.swift in Sources */,
+				2A908D651C4020410004FA9E /* StampedStrokeRendererExtension.swift in Sources */,
 				2A76FFCE1C13C8F90027C447 /* ApplyRulerGuide.swift in Sources */,
 				2AAF8E071C06A2BF00E0C356 /* Drawing.swift in Sources */,
 				2A20748E1C09FB0A003B0918 /* LinearVariablePenStroke.swift in Sources */,
@@ -533,6 +540,7 @@
 				2AAF8DEB1C06A25D00E0C356 /* Crow_QuillTests.swift in Sources */,
 				2AAF8E331C06A6FE00E0C356 /* TimelineTests.swift in Sources */,
 				2AAF8E371C06A72A00E0C356 /* DrawingTests.swift in Sources */,
+				2A908D681C4053810004FA9E /* StampedStrokeRendererTests.swift in Sources */,
 				2AAF8E351C06A71200E0C356 /* LinearFixedPenStrokeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
