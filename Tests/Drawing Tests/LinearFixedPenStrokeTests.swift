@@ -3,7 +3,7 @@ import XCTest
 
 class LinearFixedPenStrokeTests: XCTestCase {
   lazy var renderer = TestRenderer()
-  lazy var stroke : Stroke = {
+  lazy var stroke : BaseStroke = {
     let points = (1...5).map {
       return Point(x: 10.0 * Double($0), y: 50.0, weight: 1)
     }

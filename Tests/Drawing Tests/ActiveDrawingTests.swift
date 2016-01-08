@@ -71,13 +71,13 @@ class ActiveDrawingTests: XCTestCase {
 
   func testUpdateStrokePredictions() {
     drawing.updateStroke(1, points: points, transforms: [])
-    var predictions = drawing.strokesByIndex[1]?.predictedPoints
-    XCTAssertEqual(predictions!.count, 0)
+    var predictions = (drawing.strokesByIndex[1] as! BaseStroke).predictedPoints
+    XCTAssertEqual(predictions.count, 0)
 
     drawing.updateStrokePredictions(1, points: points)
-    predictions = drawing.strokesByIndex[1]?.predictedPoints
+    predictions = (drawing.strokesByIndex[1] as! BaseStroke).predictedPoints
 
-    XCTAssertEqual(predictions!.count, points.count,
+    XCTAssertEqual(predictions.count, points.count,
       "Updating a strokes's predictions sets its predictions")
   }
 
@@ -85,12 +85,12 @@ class ActiveDrawingTests: XCTestCase {
     drawing.updateStroke(1, points: points, transforms: [])
 
     drawing.updateStrokePredictions(1, points: points)
-    var predictions = drawing.strokesByIndex[1]?.predictedPoints
-    XCTAssertEqual(predictions!.count, points.count)
+    var predictions = (drawing.strokesByIndex[1] as! BaseStroke).predictedPoints
+    XCTAssertEqual(predictions.count, points.count)
 
     drawing.forgetPredictions(1)
-    predictions = drawing.strokesByIndex[1]?.predictedPoints
-    XCTAssertEqual(predictions!.count, 0,
+    predictions = (drawing.strokesByIndex[1] as! BaseStroke).predictedPoints
+    XCTAssertEqual(predictions.count, 0,
       "Forgetting predictions empties the predictions array for a stroke")
   }
 

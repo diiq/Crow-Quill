@@ -2,7 +2,7 @@
  A FixedPenStroke is a specific kind of stroke -- it has no variation in width,
  nor any roundness; it's just a line.
  */
-class SmoothFixedGuidedStroke : Stroke {
+class SmoothFixedGuidedStroke : BaseStroke {
   let brushSize: Double = 1
   override var rectOffset: Double { return 80.0 }
   override var undrawnPointOffset: Int { return 100 }
@@ -23,7 +23,7 @@ class SmoothFixedGuidedStroke : Stroke {
 
     renderer.moveTo(guidedPoints[initial ? 0 : 1])
     renderer.catmullRom(guidedPoints, initial:  initial, final: final)
-    renderer.stroke(brushSize)
+    renderer.stroke(brushSize * brushScale)
   }
 
   override func undrawnPoints() -> [Point] {

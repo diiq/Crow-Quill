@@ -12,6 +12,7 @@ class ActiveDrawing<I, IndexType: Hashable> : ImageDrawable {
   var strokesByIndex = [IndexType : Stroke]()
   var frozen: ImageType? = nil
   var strokeFactory: ((points: [Point], transforms: [StrokeTransformation]) -> Stroke)!
+  var scalar: Double = 1
 
   func updateStroke(index: IndexType, points: [Point], transforms: [StrokeTransformation]) {
     let stroke = strokesByIndex[index] ?? newStrokeForIndex(index, transforms: transforms)
@@ -51,7 +52,7 @@ class ActiveDrawing<I, IndexType: Hashable> : ImageDrawable {
 
   func forgetPredictions(index: IndexType) {
     guard let stroke = strokesByIndex[index] else { return }
-    stroke.predictedPoints = []
+    stroke.forgetPredictions()
   }
 
   func draw<R: ImageRenderer where R.ImageType == ImageType>(renderer: R) {
@@ -69,7 +70,8 @@ class ActiveDrawing<I, IndexType: Hashable> : ImageDrawable {
 
   private func newStrokeForIndex(index: IndexType, transforms: [StrokeTransformation]) -> Stroke {
     // TODO: How to choose the stroke type
-    let line = strokeFactory(points: [], transforms: transforms)
+    var line = strokeFactory(points: [], transforms: transforms)
+    line.brushScale = scalar
     strokesByIndex[index] = line
     return line
   }

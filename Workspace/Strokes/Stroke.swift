@@ -1,8 +1,22 @@
 /**
  A stroke is a drawable that's made of a linear series of points.
  */
+protocol Stroke: Drawable {
+  func draw(renderer: Renderer)
+  func addPoint(point: Point)
+  func addPredictedPoint(point: Point)
+  func finalize(viewTransform: StrokeTransformation)
+  func drawUndrawnPoints(renderer: Renderer)
+  func drawPredictedPoints(renderer: Renderer)
+  func undrawnRect() -> (minX: Double, minY: Double, maxX: Double, maxY: Double)
+  func forgetPredictions()
+  func pointCount() -> Int
+  var brushScale: Double { get set }
+}
 
-class Stroke: Drawable {
+
+class BaseStroke: Stroke {
+  var brushScale: Double = 1
   var finalPoints: [Point] = []
   var predictedPoints: [Point] = []
   var undrawnPointIndex: Int? = 0
@@ -32,6 +46,10 @@ class Stroke: Drawable {
 
   func addPredictedPoint(point: Point) {
     predictedPoints.append(point)
+  }
+
+  func forgetPredictions() {
+    predictedPoints = []
   }
 
   func finalize(viewTransform: StrokeTransformation) {
@@ -80,6 +98,10 @@ class Stroke: Drawable {
   func undrawnPoints() -> [Point] {
     guard let start = undrawnPointIndex else { return [] }
     return Array(finalPoints[start..<finalPoints.count])
+  }
+
+  func pointCount() -> Int {
+    return points.count
   }
 
   /**

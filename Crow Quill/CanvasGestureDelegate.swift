@@ -89,7 +89,7 @@ class CanvasGestureDelegate : NSObject, UIGestureRecognizerDelegate {
     drawing.scale = drawing.scale * Double(scale)
     adjustAnchorPoint(gestureRecognizer)
     drawing.transform = CGAffineTransformScale(drawing.transform, scale, scale)
-
+    workspace.activeDrawing.scalar *= Double(scale)
     gestureRecognizer.scale = 1.0
   }
 

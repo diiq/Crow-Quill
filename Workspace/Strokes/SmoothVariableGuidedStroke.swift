@@ -4,6 +4,7 @@ class SmoothVariableGuidedStroke: SmoothFixedPenStroke {
   override func drawPoints(start: Int, _ end: Int, renderer: Renderer, initial: Bool=true, final: Bool=true) {
     renderer.color(Color(r: 0, g: 0, b: 0, a: 1))
     var guidedPoints = Array(points[start..<end])
+    guidedPoints = ScaleWeights(scalar: brushScale).apply(guidedPoints)
 
     uncommittedTransforms.forEach { guidedPoints = $0.apply(guidedPoints) }
 

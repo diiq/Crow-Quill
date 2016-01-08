@@ -64,7 +64,7 @@ class Drawing<Image>: ImageDrawable {
 
   private func pointsSinceSnapshot() -> Int {
     let liveStrokes = strokes.events(since: mostRecentSnapshotIndex())
-    let counts = liveStrokes.map { return $0.points.count }
+    let counts = liveStrokes.map { return $0.pointCount() }
     return counts.reduce(0, combine: +)
   }
 }
