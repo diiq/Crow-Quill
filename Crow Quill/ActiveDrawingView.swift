@@ -1,7 +1,6 @@
 import UIKit
 
 class ActiveDrawingView: UIView {
-  let isPredictionEnabled = UIDevice.currentDevice().userInterfaceIdiom == .Pad
   var workspace: Workspace<CGImage, UITouch>!
   var drawingView: DrawingView!
 
@@ -43,10 +42,8 @@ class ActiveDrawingView: UIView {
     let touches = event?.coalescedTouchesForTouch(indexTouch) ?? []
     workspace.updateActiveStroke(indexTouch, points: touches.map { $0.point() })
 
-    if isPredictionEnabled {
-      let predictedTouches = event?.predictedTouchesForTouch(indexTouch) ?? []
-      workspace.updateActiveStrokePredictions(indexTouch, points: predictedTouches.map { $0.point() })
-    }
+    let predictedTouches = event?.predictedTouchesForTouch(indexTouch) ?? []
+    workspace.updateActiveStrokePredictions(indexTouch, points: predictedTouches.map { $0.point() })
   }
 
   override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {

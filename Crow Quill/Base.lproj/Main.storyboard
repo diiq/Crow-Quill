@@ -18,8 +18,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pk8-to-KMe" customClass="DrawingView" customModule="Crow_Quill" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <rect key="frame" x="-1700" y="-1700" width="4000" height="4000"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="4000" id="8kj-C2-Tf0"/>
+                                    <constraint firstAttribute="height" constant="4000" id="F8f-M9-XmA"/>
+                                </constraints>
                             </view>
                             <view opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7zb-dU-yd1" customClass="ActiveDrawingView" customModule="Crow_Quill" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
@@ -101,13 +105,12 @@
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="rcW-Vh-Lwd" secondAttribute="trailing" id="2w0-gp-5ON"/>
-                            <constraint firstItem="Pk8-to-KMe" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="4X9-N7-3TF"/>
+                            <constraint firstItem="Pk8-to-KMe" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="4X9-N7-3TF"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="qsm-Ch-wx0" secondAttribute="bottom" id="69m-qN-gU7"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="rcW-Vh-Lwd" secondAttribute="bottom" id="9Wl-kv-8XO"/>
                             <constraint firstAttribute="trailing" secondItem="7zb-dU-yd1" secondAttribute="trailing" id="AnI-dy-U76"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Pk8-to-KMe" secondAttribute="bottom" id="QUl-1z-A0v"/>
-                            <constraint firstAttribute="trailing" secondItem="Pk8-to-KMe" secondAttribute="trailing" id="Qg0-OW-QSL"/>
-                            <constraint firstItem="Pk8-to-KMe" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="QmT-T0-oyC"/>
+                            <constraint firstItem="Pk8-to-KMe" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="QmT-T0-oyC"/>
                             <constraint firstAttribute="trailing" secondItem="qsm-Ch-wx0" secondAttribute="trailing" id="XOx-4X-W15"/>
                             <constraint firstItem="7zb-dU-yd1" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="oVw-iH-OFW"/>
                             <constraint firstItem="qsm-Ch-wx0" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="oiI-1N-X6I"/>
@@ -116,6 +119,11 @@
                             <constraint firstItem="rcW-Vh-Lwd" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="u2O-R8-nHr"/>
                             <constraint firstAttribute="bottom" secondItem="7zb-dU-yd1" secondAttribute="bottom" id="xhc-bW-P0H"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="QUl-1z-A0v"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="activeDrawingView" destination="7zb-dU-yd1" id="Jat-bj-ysD"/>
