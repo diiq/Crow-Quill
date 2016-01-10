@@ -26,6 +26,7 @@ class ViewController: UIViewController {
     workspace.viewTransform = ActiveSpaceToCanvasSpace(
       activeView: activeDrawingView,
       drawingView: drawingView)
+    choosePen()
   }
 
   override func didReceiveMemoryWarning() {
@@ -50,10 +51,10 @@ class ViewController: UIViewController {
   }
 
   @IBAction func choosePencil(sender: AnyObject) {
-    workspace.activeDrawing.strokeFactory = SmoothFixedGuidedStroke.init
+    workspace.activeDrawing.strokeFactory = SmoothStampedPenStrok.init
   }
 
-  @IBAction func choosePen(sender: AnyObject) {
+  @IBAction func choosePen(sender: AnyObject! = nil) {
     workspace.activeDrawing.strokeFactory = SmoothVariableGuidedStroke.init
   }
 }
