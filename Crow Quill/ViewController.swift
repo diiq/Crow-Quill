@@ -51,7 +51,7 @@ class ViewController: UIViewController {
   }
 
   @IBAction func choosePencil(sender: AnyObject) {
-    workspace.activeDrawing.strokeFactory = SmoothStampedPenStrok.init
+    workspace.activeDrawing.strokeFactory = SmoothStampedPenStroke.init
   }
 
   @IBAction func choosePen(sender: AnyObject! = nil) {

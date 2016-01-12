@@ -9,7 +9,9 @@ struct Point {
   let x: Double
   let y: Double
   let weight: Double
-  init(x: Double, y: Double, weight: Double = -1) {
+  let altitude: Double
+
+  init(x: Double, y: Double, weight: Double = -1, altitude: Double=90) {
     if x.isNaN || y.isNaN {
       // TODO For development env only. Remove before deploy.
       fatalError("NaNish point created.")
@@ -17,6 +19,7 @@ struct Point {
     self.x = x
     self.y = y
     self.weight = weight
+    self.altitude = altitude
   }
 
   func withWeight(weight: Double) -> Point {
@@ -108,7 +111,12 @@ extension UITouch {
   func point() -> Point {
     let location = preciseLocationInView(view)
     let weight = (type == .Stylus) ? force : -1
-    return Point(x: Double(location.x), y: Double(location.y), weight: Double(weight))
+    let altitude = (type == .Stylus) ? altitudeAngle : 90
+    return Point(
+      x: Double(location.x),
+      y: Double(location.y),
+      weight: Double(weight),
+      altitude: Double(altitude))
   }
 }
 

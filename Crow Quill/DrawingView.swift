@@ -5,6 +5,7 @@ class DrawingView: UIView {
   var scale: Double = 1
 
   func setup(workspace: Workspace<CGImage, UITouch>) {
+    self.backgroundColor = UIColor(patternImage: UIImage(named: "paper.png")!);
     self.workspace = workspace
     layer.allowsEdgeAntialiasing = true
   }

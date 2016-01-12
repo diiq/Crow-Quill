@@ -19,7 +19,7 @@
                         <subviews>
                             <view opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pk8-to-KMe" customClass="DrawingView" customModule="Crow_Quill" customModuleProvider="target">
                                 <rect key="frame" x="-1700" y="-1700" width="4000" height="4000"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="4000" id="8kj-C2-Tf0"/>
                                     <constraint firstAttribute="height" constant="4000" id="F8f-M9-XmA"/>
