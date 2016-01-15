@@ -2,18 +2,6 @@ import XCTest
 @testable import Crow_Quill
 
 class ArrayExtensionTests: XCTestCase {
-  func testPartitionIncludeHeadAndTail() {
-    let arr = [1, 2, 3, 4, 5]
-    let expected = [[1], [1, 2], [1, 2, 3], [2, 3, 4], [3, 4, 5], [4, 5], [5]]
-    XCTAssertEqual(arr.partition(3, step: 1, includeHead: true, includeTail: true), expected)
-  }
-
-  func testPartition() {
-    let arr = [1, 2, 3, 4, 5]
-    let expected = [[1, 2, 3], [2, 3, 4], [3, 4, 5]]
-    XCTAssertEqual(arr.partition(3, step: 1), expected)
-  }
-
   func testSlidingWindow() {
     let arr = [1, 2, 3, 4, 5]
     let result: [Int] = arr.slidingWindow { focus, before, after in

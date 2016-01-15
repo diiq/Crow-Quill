@@ -31,7 +31,7 @@ struct Point {
   }
 }
 
-// Maths
+// Vector Maths
 
 extension Point {
   func length() -> Double {

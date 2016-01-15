@@ -1,6 +1,9 @@
 /**
- A FixedPenStroke is a specific kind of stroke -- it has no variation in width,
- nor any roundness; it's just a line.
+ A VariablePenStroke varies its width with pressure or velocity. This one uses 
+ linear interpolation.
+ 
+ This class is used mostly for testing new ideas for strokes; linear
+ interpolation is not good enough for production code.
  */
 class LinearVariablePenStroke : BaseStroke {
   let brushSize: Double = 5

@@ -55,31 +55,12 @@ class CanvasGestureDelegate : NSObject, UIGestureRecognizerDelegate {
     view.addGestureRecognizer(redoTapRecognizer)
   }
 
-  // TODO move this into view
-  func setAnchorPoint(anchorPoint: CGPoint, forView view: UIView) {
-    var newPoint = CGPointMake(view.bounds.size.width * anchorPoint.x, view.bounds.size.height * anchorPoint.y)
-    var oldPoint = CGPointMake(view.bounds.size.width * view.layer.anchorPoint.x, view.bounds.size.height * view.layer.anchorPoint.y)
-
-    newPoint = CGPointApplyAffineTransform(newPoint, view.transform)
-    oldPoint = CGPointApplyAffineTransform(oldPoint, view.transform)
-
-    var position = view.layer.position
-    position.x -= oldPoint.x
-    position.x += newPoint.x
-
-    position.y -= oldPoint.y
-    position.y += newPoint.y
-
-    view.layer.position = position
-    view.layer.anchorPoint = anchorPoint
-  }
-
   func adjustAnchorPoint(gestureRecognizer: UIGestureRecognizer) {
     let locationInView = gestureRecognizer.locationInView(drawing)
     let anchorPoint = CGPoint(
       x: locationInView.x / drawing.bounds.size.width,
       y: locationInView.y / drawing.bounds.size.height)
-    setAnchorPoint(anchorPoint, forView: drawing)
+    drawing.setAnchorPoint(anchorPoint)
   }
 
   func handleScale(gestureRecognizer: UIPinchGestureRecognizer) {

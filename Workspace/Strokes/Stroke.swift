@@ -124,7 +124,7 @@ class BaseStroke: Stroke {
     return (
       minX: minX - rectOffset,
       minY: minY - rectOffset,
-      maxX: maxX + rectOffset ,
+      maxX: maxX + rectOffset,
       maxY: maxY + rectOffset)
   }
 }

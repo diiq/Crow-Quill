@@ -1,8 +1,6 @@
-let NonPhotoBlue = Color(r: 0.64, g: 0.86, b: 0.93, a: 1)
-
 /**
  A FixedPenStroke is a specific kind of stroke -- it has no variation in width,
- nor any roundness; it's just a line.
+ nor any roundness; it's just a line. This one uses Catmull-Rom interpolation.
  */
 class SmoothFixedPenStroke : BaseStroke {
   let brushSize: Double = 1

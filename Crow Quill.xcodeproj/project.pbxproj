@@ -31,7 +31,7 @@
 		2A8321E91C110B9600EADC0F /* Handle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A8321E81C110B9600EADC0F /* Handle.swift */; };
 		2A908D651C4020410004FA9E /* StampedStrokeRendererExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A908D641C4020410004FA9E /* StampedStrokeRendererExtension.swift */; };
 		2A908D681C4053810004FA9E /* StampedStrokeRendererTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A908D661C4053640004FA9E /* StampedStrokeRendererTests.swift */; };
-		2AA76F441C3F402E0058ABE5 /* StrokeSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA76F431C3F402E0058ABE5 /* StrokeSettings.swift */; };
+		2A908D6A1C4939EF0004FA9E /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A908D691C4939EF0004FA9E /* ViewExtensions.swift */; };
 		2AA76F461C3F4D620058ABE5 /* ScaleWeights.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA76F451C3F4D620058ABE5 /* ScaleWeights.swift */; };
 		2AA76F481C41A4670058ABE5 /* SmoothStampedStroke.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA76F471C41A4670058ABE5 /* SmoothStampedStroke.swift */; };
 		2AA76F4A1C45CB3A0058ABE5 /* SmoothImageStampedStroke.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA76F491C45CB3A0058ABE5 /* SmoothImageStampedStroke.swift */; };
@@ -110,7 +110,7 @@
 		2A8321E81C110B9600EADC0F /* Handle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Handle.swift; sourceTree = "<group>"; };
 		2A908D641C4020410004FA9E /* StampedStrokeRendererExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StampedStrokeRendererExtension.swift; sourceTree = "<group>"; };
 		2A908D661C4053640004FA9E /* StampedStrokeRendererTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StampedStrokeRendererTests.swift; sourceTree = "<group>"; };
-		2AA76F431C3F402E0058ABE5 /* StrokeSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StrokeSettings.swift; sourceTree = "<group>"; };
+		2A908D691C4939EF0004FA9E /* ViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
 		2AA76F451C3F4D620058ABE5 /* ScaleWeights.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScaleWeights.swift; sourceTree = "<group>"; };
 		2AA76F471C41A4670058ABE5 /* SmoothStampedStroke.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmoothStampedStroke.swift; sourceTree = "<group>"; };
 		2AA76F491C45CB3A0058ABE5 /* SmoothImageStampedStroke.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmoothImageStampedStroke.swift; sourceTree = "<group>"; };
@@ -241,6 +241,7 @@
 				2A8321E61C0FBF9400EADC0F /* GuideView.swift */,
 				2AAF8DD71C06A25D00E0C356 /* ViewController.swift */,
 				2AAF8E221C06A43900E0C356 /* CanvasGestureDelegate.swift */,
+				2A908D691C4939EF0004FA9E /* ViewExtensions.swift */,
 				2AAF8DD51C06A25D00E0C356 /* AppDelegate.swift */,
 				2AAF8DDC1C06A25D00E0C356 /* Assets.xcassets */,
 				2AAF8DE11C06A25D00E0C356 /* Info.plist */,
@@ -305,7 +306,6 @@
 				2AA76F491C45CB3A0058ABE5 /* SmoothImageStampedStroke.swift */,
 				2A20748F1C0A3B20003B0918 /* SmoothVariablePenStroke.swift */,
 				2AAF8E1E1C06A3E900E0C356 /* Stroke.swift */,
-				2AA76F431C3F402E0058ABE5 /* StrokeSettings.swift */,
 			);
 			path = Strokes;
 			sourceTree = "<group>";
@@ -500,7 +500,6 @@
 				2A1245F61C0B98FE003064A6 /* WeightedByVelocity.swift in Sources */,
 				2A1CDDCD1C0B5F0A0070D254 /* PerpendicularOutset.swift in Sources */,
 				2ACCA5D81C122DF6005CE39B /* RulerGuide.swift in Sources */,
-				2AA76F441C3F402E0058ABE5 /* StrokeSettings.swift in Sources */,
 				2AB438191C1213F1007AF436 /* GuideCollection.swift in Sources */,
 				2A19672A1C25D5220088D949 /* ActiveSpaceToCanvasSpace.swift in Sources */,
 				2AAF8E1B1C06A3C200E0C356 /* LinearFixedPenStroke.swift in Sources */,
@@ -510,6 +509,7 @@
 				2AAF8E231C06A43900E0C356 /* CanvasGestureDelegate.swift in Sources */,
 				2A1CDDC61C0B52A50070D254 /* CatmullRomRendererExtension.swift in Sources */,
 				2AAF8E1D1C06A3DC00E0C356 /* SmoothFixedPenStroke.swift in Sources */,
+				2A908D6A1C4939EF0004FA9E /* ViewExtensions.swift in Sources */,
 				2AAF8E1F1C06A3E900E0C356 /* Stroke.swift in Sources */,
 				2A8321E91C110B9600EADC0F /* Handle.swift in Sources */,
 				2AAF8E091C06A2DD00E0C356 /* ActiveDrawing.swift in Sources */,

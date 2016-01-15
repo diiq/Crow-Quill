@@ -1,6 +1,7 @@
 /**
  A FixedPenStroke is a specific kind of stroke -- it has no variation in width,
- nor any roundness; it's just a line.
+ nor any roundness; it's just a line. A guided stroke reacts live to guides. 
+ This one uses Catmull-Rom interpolation.
  */
 class SmoothFixedGuidedStroke : BaseStroke {
   let brushSize: Double = 1

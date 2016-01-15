@@ -22,8 +22,6 @@ class Workspace<ImageType, IndexType: Hashable> {
     activeDrawing.updateStrokePredictions(index, points: points)
   }
 
-  // rectforupdatedpoints
-
   func forgetActiveStrokePredictions(index: IndexType) {
     activeDrawing.forgetPredictions(index)
   }
