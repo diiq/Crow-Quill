@@ -52,6 +52,10 @@ class TestRenderer: Renderer, ImageRenderer {
   func color(color: Color) {
     currentImage.append("color")
   }
+
+  func placeImage(start start: Point, width: Double, height: Double, name: String) {
+
+  }
 }
 
 

@@ -34,6 +34,7 @@
 		2AA76F441C3F402E0058ABE5 /* StrokeSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA76F431C3F402E0058ABE5 /* StrokeSettings.swift */; };
 		2AA76F461C3F4D620058ABE5 /* ScaleWeights.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA76F451C3F4D620058ABE5 /* ScaleWeights.swift */; };
 		2AA76F481C41A4670058ABE5 /* SmoothStampedStroke.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA76F471C41A4670058ABE5 /* SmoothStampedStroke.swift */; };
+		2AA76F4A1C45CB3A0058ABE5 /* SmoothImageStampedStroke.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA76F491C45CB3A0058ABE5 /* SmoothImageStampedStroke.swift */; };
 		2AAF8DD61C06A25D00E0C356 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAF8DD51C06A25D00E0C356 /* AppDelegate.swift */; };
 		2AAF8DD81C06A25D00E0C356 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAF8DD71C06A25D00E0C356 /* ViewController.swift */; };
 		2AAF8DDB1C06A25D00E0C356 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2AAF8DD91C06A25D00E0C356 /* Main.storyboard */; };
@@ -112,6 +113,7 @@
 		2AA76F431C3F402E0058ABE5 /* StrokeSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StrokeSettings.swift; sourceTree = "<group>"; };
 		2AA76F451C3F4D620058ABE5 /* ScaleWeights.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScaleWeights.swift; sourceTree = "<group>"; };
 		2AA76F471C41A4670058ABE5 /* SmoothStampedStroke.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmoothStampedStroke.swift; sourceTree = "<group>"; };
+		2AA76F491C45CB3A0058ABE5 /* SmoothImageStampedStroke.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmoothImageStampedStroke.swift; sourceTree = "<group>"; };
 		2AAF8DD21C06A25D00E0C356 /* Crow Quill.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Crow Quill.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AAF8DD51C06A25D00E0C356 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2AAF8DD71C06A25D00E0C356 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -300,6 +302,7 @@
 				2A1967251C1CFB910088D949 /* SmoothFixedGuidedStroke.swift */,
 				2A1967271C1D114F0088D949 /* SmoothVariableGuidedStroke.swift */,
 				2AA76F471C41A4670058ABE5 /* SmoothStampedStroke.swift */,
+				2AA76F491C45CB3A0058ABE5 /* SmoothImageStampedStroke.swift */,
 				2A20748F1C0A3B20003B0918 /* SmoothVariablePenStroke.swift */,
 				2AAF8E1E1C06A3E900E0C356 /* Stroke.swift */,
 				2AA76F431C3F402E0058ABE5 /* StrokeSettings.swift */,
@@ -513,6 +516,7 @@
 				2A908D651C4020410004FA9E /* StampedStrokeRendererExtension.swift in Sources */,
 				2A76FFCE1C13C8F90027C447 /* ApplyRulerGuide.swift in Sources */,
 				2AAF8E071C06A2BF00E0C356 /* Drawing.swift in Sources */,
+				2AA76F4A1C45CB3A0058ABE5 /* SmoothImageStampedStroke.swift in Sources */,
 				2AA76F481C41A4670058ABE5 /* SmoothStampedStroke.swift in Sources */,
 				2A20748E1C09FB0A003B0918 /* LinearVariablePenStroke.swift in Sources */,
 				2AAF8E051C06A2AB00E0C356 /* Drawable.swift in Sources */,

@@ -90,10 +90,15 @@ class UIRenderer: Renderer, ImageRenderer {
 
   func image(image: ImageType) {
     // Gotta figure out scaling here.
-    CGContextTranslateCTM(context, 0, bounds.height);
-    CGContextScaleCTM(context, 1.0, -1.0);
+    CGContextTranslateCTM(context, 0, bounds.height)
+    CGContextScaleCTM(context, 1.0, -1.0)
     CGContextDrawImage(context, bounds , image)
-    CGContextScaleCTM(context, 1.0, -1.0);
-    CGContextTranslateCTM(context, 0, -bounds.height);
+    CGContextScaleCTM(context, 1.0, -1.0)
+    CGContextTranslateCTM(context, 0, -bounds.height)
+  }
+
+  func placeImage(start start: Point, width: Double, height: Double, name: String) {
+    let img = UIImage(named: "pencil.png")?.CGImage
+    CGContextDrawImage(context, CGRect(x: start.x, y: start.y, width: width, height: height), img)
   }
 }

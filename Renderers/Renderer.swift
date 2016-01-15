@@ -23,6 +23,7 @@ protocol Renderer {
   func fill()
   func shadowOn()
   func shadowOff()
+  func placeImage(start start: Point, width: Double, height: Double, name: String)
 }
 
 /**
