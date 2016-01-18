@@ -51,17 +51,18 @@ class RulerGuide : Guide {
     let start = handleA.point - 10000 * unitVector
     let end = handleA.point + 10000 * unitVector
     let perp = unitVector.perpendicular() * width
-    renderer.color(GuideEdges)
     
     // Outer boundary
+    renderer.color(GuideEdges.with_opacity(0.2))
     renderer.moveTo(start - perp)
     renderer.line(start - perp, end - perp)
     renderer.line(end - perp, end + perp)
     renderer.line(end + perp, start + perp)
     renderer.line(start + perp, start - perp)
     renderer.stroke(0.25)
-
+    
     // Center line
+    renderer.color(GuideEdges)
     renderer.moveTo(start)
     renderer.line(start, end)
     renderer.stroke(1)

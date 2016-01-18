@@ -20,4 +20,4 @@ protocol Guide : Drawable {
 
 let GuideEdges = Color(r: 0.7, g: 0.2, b: 0.2, a: 0.9)
 let HandleEdges = Color(r: 0.7, g: 0.7, b: 0.7, a: 1.0)
-let GuideFill = Color(r: 0.98, g: 0.98, b: 0.99, a: 0.75)
+let GuideFill = Color(r: 0.5, g: 0.5, b: 0.5, a: 1)

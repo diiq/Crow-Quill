@@ -45,6 +45,7 @@ extension Renderer {
     let cp2Contrib = 3 * (1 - t) * pow(t, 2) * points.cp2
     let bContrib = pow(t, 3) * points.b
     let weight = points.a.weight + t*(points.b.weight - points.a.weight)
-    return (aContrib + cp1Contrib + cp2Contrib + bContrib).withWeight(weight)
+    let altitude = points.a.altitude + t*(points.b.altitude - points.a.altitude)
+    return (aContrib + cp1Contrib + cp2Contrib + bContrib).withWeight(weight).withAltitude(altitude)
   }
 }

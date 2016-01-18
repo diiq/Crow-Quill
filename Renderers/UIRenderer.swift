@@ -99,6 +99,8 @@ class UIRenderer: Renderer, ImageRenderer {
 
   func placeImage(start start: Point, width: Double, height: Double, name: String) {
     let img = UIImage(named: "pencil.png")?.CGImage
+    CGContextSetBlendMode(context, .Multiply)
     CGContextDrawImage(context, CGRect(x: start.x, y: start.y, width: width, height: height), img)
+    CGContextSetBlendMode(context, .Normal)
   }
 }

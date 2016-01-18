@@ -6,7 +6,7 @@ protocol Handle : Drawable {
 
 class RulerHandle: Handle {
   let handleSize: Double = 32
-  let length: Double = 40
+  let length: Double = 0
   var point: Point
   weak var line: RulerGuide!
   
@@ -34,15 +34,15 @@ class RulerHandle: Handle {
   }
   
   func draw(renderer: Renderer) {
-    renderer.color(GuideFill)
+    //renderer.color(GuideFill)
 
-    renderer.shadowOn()
-    renderer.circle(handleEnd, radius: handleSize)
-    renderer.stroke(1)
-    renderer.shadowOff()
+    //renderer.shadowOn()
+    //renderer.circle(handleEnd, radius: handleSize)
+    //renderer.stroke(1)
+    //renderer.shadowOff()
 
-    renderer.circle(handleEnd, radius: handleSize)
-    renderer.fill()
+    //renderer.circle(handleEnd, radius: handleSize)
+    //renderer.fill()
 
     renderer.color(HandleEdges)
     
@@ -53,8 +53,8 @@ class RulerHandle: Handle {
       renderer.stroke(1)
     }
     
-    renderer.circle(handleEnd, radius: handleSize)
-    renderer.stroke(0.5)
+    //renderer.circle(handleEnd, radius: handleSize)
+    //renderer.stroke(0.5)
     
     renderer.circle(handleEnd, radius: handleSize / 5)
     renderer.fill()

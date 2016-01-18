@@ -5,13 +5,14 @@ import Darwin
  UITouch.
  */
 
+
 struct Point {
   let x: Double
   let y: Double
   let weight: Double
   let altitude: Double
 
-  init(x: Double, y: Double, weight: Double = -1, altitude: Double=90) {
+  init(x: Double, y: Double, weight: Double = -1, altitude: Double=3.14/2) {
     if x.isNaN || y.isNaN {
       // TODO For development env only. Remove before deploy.
       fatalError("NaNish point created.")
@@ -23,9 +24,13 @@ struct Point {
   }
 
   func withWeight(weight: Double) -> Point {
-    return Point(x: x, y: y, weight: weight)
+    return Point(x: x, y: y, weight: weight, altitude: altitude)
   }
 
+  func withAltitude(altitude: Double) -> Point {
+    return Point(x: x, y: y, weight: weight, altitude: altitude)
+  }
+  
   func cgPoint() -> CGPoint {
     return CGPoint(x: x, y: y)
   }
@@ -111,7 +116,7 @@ extension UITouch {
   func point() -> Point {
     let location = preciseLocationInView(view)
     let weight = (type == .Stylus) ? force : -1
-    let altitude = (type == .Stylus) ? altitudeAngle : 90
+    let altitude = (type == .Stylus) ? altitudeAngle : 3.14/2
     return Point(
       x: Double(location.x),
       y: Double(location.y),
