@@ -27,16 +27,17 @@ extension Renderer {
     minimumGap: Double,
     tStart: Double = 0,
     tEnd: Double = 1) {
-      let start = bezierPoint(points, t: tStart)
-      let end = bezierPoint(points, t: tEnd)
-      guard (start - end).length() > minimumGap else { return }
-      let tMid = tStart + (tEnd - tStart)/2
-      let midPoint = bezierPoint(points, t: tMid)
-      stamper(point: midPoint, renderer: self)
-      stampedBezier(points, stamper: stamper, minimumGap: minimumGap, tStart: tStart, tEnd: tMid)
-      stampedBezier(points, stamper: stamper, minimumGap: minimumGap, tStart: tMid, tEnd: tEnd)
+    let start = bezierPoint(points, t: tStart)
+    let end = bezierPoint(points, t: tEnd)
+    let avgWeight = (start.weight + end.weight) / 2
+    let length = (start - end).length()
+    guard minimumGap * avgWeight > 0 else { return }
+    let stampCount = max(Int(length / (minimumGap * avgWeight) ), 1)
+    for i in 0..<stampCount {
+      let point = bezierPoint(points, t: Double(i)/Double(stampCount))
+      stamper(point: point, renderer: self)
+    }
   }
-
 
   // Returns a point along a smooth bezier curve, where 0 <= t <= 1
   func bezierPoint(points: BezierPoints, t: Double) -> Point {

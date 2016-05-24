@@ -12,7 +12,7 @@ protocol StrokeTransformation {
 extension Array {
   func slidingWindow<T>(block: (focus: Element, before: Element?, after: Element?) -> T?) -> [T] {
     var result: [T] = []
-    for var i = 0; i < count; i++ {
+    for i in 0 ..< count {
       let ret = block(focus: self[i], before: self[safe: i - 1], after: self[safe: i + 1])
       if ret != nil {
         result.append(ret!)

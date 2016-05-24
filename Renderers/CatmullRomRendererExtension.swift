@@ -29,7 +29,7 @@ extension Renderer {
 
     let start = initial ? 0 : 1
     let end = final ? points.count : points.count - 1
-    for var i = start; i < end - 1; i++ {
+    for i in start ..< end - 1 {
       bezier(points[i], controlPoints1[i], controlPoints2[i+1], points[i+1])
     }
   }
@@ -82,7 +82,7 @@ extension Renderer {
 
     let start = initial ? 0 : 1
     let end = final ? points.count : points.count - 1
-    for var i = start; i < end - 1; i++ {
+    for i in start ..< end - 1 {
       moveTo(outsetPointsForward[i])
       bezier(outsetPointsForward[i], fwdControlPoints1[i], fwdControlPoints2[i+1], outsetPointsForward[i+1])
       arc(outsetPointsForward[i+1], outsetPointsBack[i+1])
@@ -107,7 +107,8 @@ extension Renderer {
 
       let start = initial ? 0 : 1
       let end = final ? points.count : points.count - 1
-      for var i = start; i < end - 1; i++ {
+      guard start < end - 1 else { return }
+      for i in start ..< end - 1 {
         stamper(point: points[i], renderer: self)
         let bezier = (a: points[i], cp1: controlPoints1[i], cp2: controlPoints2[i+1], b: points[i+1])
         stampedBezier(bezier, stamper: stamper, minimumGap: minGap)

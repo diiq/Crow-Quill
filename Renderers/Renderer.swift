@@ -32,7 +32,7 @@ protocol Renderer {
  and displaying snapshots of the drawing, purely for performance reasons.
  */
 protocol ImageRenderer: Renderer {
-  typealias ImageType
+  associatedtype ImageType
 
   /// The rendered image
   var currentImage: ImageType { get }

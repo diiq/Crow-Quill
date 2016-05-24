@@ -15,22 +15,22 @@ struct ApplyRulerGuide : StrokeTransformation {
     let scale = log(diminishingReturns) / log(power)
 
     var runningAverages: [Double] = []
-    for var i = 0; i < distances.count; i++ {
+    for i in 0 ..< distances.count {
       var sum: Double = 0
       var count: Double = 0
       var distance: Double = 0
-      for var j = i; j >= 0 && distance < scale; j-- {
+      for var j = i; j >= 0 && distance < scale; j -= 1 {
         distance = (points[j] - points[i]).length() // Should be projected distance?
         sum += distances[j] * pow(0.95, distance)
         count += pow(0.95, distance)
       }
       distance = 0
-      for var j = i; j < distances.count && distance < scale; j++ {
+      for var j = i; j < distances.count && distance < scale; j += 1 {
         distance = (points[j] - points[i]).length()
         sum += distances[j] * pow(0.95, distance)
         count += pow(0.95, distance)
       }
-      count--
+      count -= 1
       sum -= distances[i]
       runningAverages.append(sum / count)
     }

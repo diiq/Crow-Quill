@@ -16,7 +16,7 @@ class LinearVariablePenStroke : BaseStroke {
     }
 
     var weightedPoints: [Point] = []
-    for (var i = start+1; i < stop; i++) {
+    for i in start+1 ..< stop {
       let a = points[i]
       let aWeight = min(brushSize * brushScale, (1/(a - points[i-1]).length() + 0.01) * brushSize  * brushScale * 5)
       weightedPoints.append(Point(x: a.x, y: a.y, weight: aWeight))

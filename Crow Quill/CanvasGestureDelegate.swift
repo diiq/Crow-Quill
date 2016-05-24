@@ -35,23 +35,23 @@ class CanvasGestureDelegate : NSObject, UIGestureRecognizerDelegate {
     self.actions = [undoTapRecognizer, redoTapRecognizer]
     super.init()
 
-    pinchRecognizer.addTarget(self, action:"handleScale:")
+    pinchRecognizer.addTarget(self, action:#selector(CanvasGestureDelegate.handleScale(_:)))
     pinchRecognizer.delegate = self
     view.addGestureRecognizer(pinchRecognizer)
 
-    rotateRecognizer.addTarget(self, action:"handleRotation:")
+    rotateRecognizer.addTarget(self, action:#selector(CanvasGestureDelegate.handleRotation(_:)))
     rotateRecognizer.delegate = self
     view.addGestureRecognizer(rotateRecognizer)
 
-    panRecognizer.addTarget(self, action:"handlePan:")
+    panRecognizer.addTarget(self, action:#selector(CanvasGestureDelegate.handlePan(_:)))
     panRecognizer.delegate = self
     view.addGestureRecognizer(panRecognizer)
 
-    undoTapRecognizer.addTarget(self, action:"undoStroke:")
+    undoTapRecognizer.addTarget(self, action:#selector(CanvasGestureDelegate.undoStroke(_:)))
     undoTapRecognizer.delegate = self
     view.addGestureRecognizer(undoTapRecognizer)
 
-    redoTapRecognizer.addTarget(self, action:"redoStroke:")
+    redoTapRecognizer.addTarget(self, action:#selector(CanvasGestureDelegate.redoStroke(_:)))
     view.addGestureRecognizer(redoTapRecognizer)
   }
 
