@@ -99,8 +99,13 @@ class UIRenderer: Renderer, ImageRenderer {
 
   func placeImage(start start: Point, width: Double, height: Double, name: String) {
     let img = UIImage(named: "pencil.png")?.CGImage
-    CGContextSetBlendMode(context, .Multiply)
+    CGContextSetAlpha(context, 0.5)
+    CGContextTranslateCTM(context, CGFloat(start.x + width / 2), CGFloat(start.y + height / 2));
+    CGContextRotateCTM(context, CGFloat(start.x + start.y));
+    CGContextTranslateCTM(context, -CGFloat(start.x + width / 2), -CGFloat(start.y + height / 2));
     CGContextDrawImage(context, CGRect(x: start.x, y: start.y, width: width, height: height), img)
-    CGContextSetBlendMode(context, .Normal)
+    CGContextTranslateCTM(context, CGFloat(start.x + width / 2), CGFloat(start.y + height / 2));
+    CGContextRotateCTM(context, -CGFloat(start.x + start.y));
+    CGContextTranslateCTM(context, -CGFloat(start.x + width / 2), -CGFloat(start.y + height / 2));
   }
 }

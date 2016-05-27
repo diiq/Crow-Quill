@@ -1,11 +1,11 @@
-class SmoothImageStampedPenStroke: SmoothFixedPenStroke {
-  let brushSizer: Double = 20
+class SmoothImageStampedStroke: BaseStroke {
+  let brushSize: Double = 5
   
   override var rectOffset: Double { return 10.0 * brushSize }
   
   override func drawPoints(start: Int, _ end: Int, renderer: Renderer, initial: Bool=true, final: Bool=true) {
     func stamper(point: Point, renderer: Renderer) {
-      let size = point.weight*brushSizer*brushScale
+      let size = point.weight*brushSize*brushScale
       renderer.placeImage(
         start: point-Point(x: size/2, y: size/2),
         width: size,
@@ -17,7 +17,7 @@ class SmoothImageStampedPenStroke: SmoothFixedPenStroke {
     
     let weightedPoints = Array(points[start..<end])
     
-    renderer.stampedCatmullRom(weightedPoints, stamper: stamper, minGap: brushSizer*brushScale*10, initial: initial, final: final)
+    renderer.stampedCatmullRom(weightedPoints, stamper: stamper, minGap: brushSize*brushScale*10, initial: initial, final: final)
     undrawnPointIndex = nil
   }
 }

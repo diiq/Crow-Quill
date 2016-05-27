@@ -20,7 +20,7 @@ class Drawing<Image>: ImageDrawable {
   typealias ImageType = Image
   private var strokes = Timeline<Stroke>()
   private var snapshots = SnapshotTimeline<ImageType>()
-  var pointsPerSnapshot = 10000
+  var pointsPerSnapshot = 1000
 
   func draw<R: ImageRenderer where R.ImageType == ImageType>(renderer: R) {
     // Draw the most recent snapshot

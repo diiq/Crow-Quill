@@ -21,6 +21,7 @@ class ViewController: UIViewController {
       workspace: workspace)
     activeDrawingView.drawingView = drawingView
     activeDrawingView.setup(workspace)
+    
     guideView.setup(workspace)
     drawingView.setup(workspace)
     workspace.viewTransform = ActiveSpaceToCanvasSpace(
@@ -51,7 +52,7 @@ class ViewController: UIViewController {
   }
 
   @IBAction func choosePencil(sender: AnyObject) {
-    workspace.activeDrawing.strokeFactory = SmoothStampedPenStroke.init
+    workspace.activeDrawing.strokeFactory = SmoothImageStampedStroke.init
   }
 
   @IBAction func choosePen(sender: AnyObject! = nil) {
