@@ -1,0 +1,39 @@
+scss_files: "**/*.scss"
+
+linters:
+  BorderZero:
+    enabled: false
+
+  HexLength:
+    enabled: false
+
+  IdSelector:
+    enabled: false
+
+  LeadingZero:
+    enabled: false
+
+  NestingDepth:
+    max_depth: 4
+
+  PlaceholderInExtend:
+    enabled: false
+
+  PropertySortOrder:
+    enabled: true
+    order: concentric
+
+  QualifyingElement:
+    allow_element_with_attribute: true
+
+  SelectorDepth:
+    max_depth: 4
+
+  Shorthand:
+    enabled: false
+
+  QualifyingElement:
+    enabled: false
+
+  ColorVariable:
+    enabled: false
