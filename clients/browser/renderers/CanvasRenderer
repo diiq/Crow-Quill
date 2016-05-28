@@ -1,0 +1,99 @@
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var CanvasRenderer = function () {
+  function CanvasRenderer(context) {
+    _classCallCheck(this, CanvasRenderer);
+
+    this.context = context;
+    this.context.lineCap = 'round';
+  }
+
+  _createClass(CanvasRenderer, [{
+    key: 'currentImage',
+    value: function currentImage() {
+      return this.context.getImageData(0, 0, this.context.width, this.context.height);
+    }
+  }, {
+    key: 'line',
+    value: function line(a, b) {
+      this.context.push('line: ' + a + ', ' + b);
+    }
+  }, {
+    key: 'arc',
+    value: function arc(a, b) {
+      var delta = b - a;
+      var center = a + delta / 2;
+      var radius = delta.length() / 2;
+      this.context.arc(center.x, center.y, radius, a.minus(center).radians(), b.minus(center).radians());
+    }
+  }, {
+    key: 'circle',
+    value: function circle(center, radius) {
+      this.context.arc(center.x, center.y, radius, 0, 2 * Math.PI);
+    }
+  }, {
+    key: 'bezier',
+    value: function bezier(a, cp1, cp2, b) {
+      this.context.bezierCurveTo(cp1.x, cp1.y, cp2.x, cp2.y, b.x, b.y);
+    }
+  }, {
+    key: 'image',
+    value: function image(_image) {
+      this.context.drawImage(_image);
+    }
+  }, {
+    key: 'moveTo',
+    value: function moveTo(point) {
+      this.context.moveTo(point.x, point.y);
+    }
+  }, {
+    key: 'stroke',
+    value: function stroke(lineWidth) {
+      this.context.lineWidth = lineWidth;
+      this.context.stroke();
+    }
+  }, {
+    key: 'fill',
+    value: function fill() {
+      this.context.fill();
+    }
+  }, {
+    key: 'shadowOn',
+    value: function shadowOn() {
+      this.context.shadowColor = '#333333';
+      this.context.shadowBlur = 1.5;
+    }
+  }, {
+    key: 'shadowOff',
+    value: function shadowOff() {
+      this.context.push('shadow off');
+    }
+  }, {
+    key: 'clear',
+    value: function clear() {
+      this.context = [];
+    }
+  }, {
+    key: 'color',
+    value: function color(_color) {
+      this.context.fillStyle = _color;
+      this.context.strokeStyle = _color;
+    }
+  }, {
+    key: 'placeImage',
+    value: function placeImage(start, width, height, name) {}
+  }]);
+
+  return CanvasRenderer;
+}();
+
+exports.default = CanvasRenderer;
+

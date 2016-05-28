@@ -1,0 +1,53 @@
+{
+  // Define globals exposed by modern browsers.
+  "browser": true,
+
+  // Allow ES6.
+  "esnext": true,
+
+  // Force all variable names to use either camelCase style or UPPER_CASE
+  // with underscores.
+  "camelcase": true,
+
+  // Prohibit use of == and != in favor of === and !==.
+  "eqeqeq": true,
+
+  // Enforce tab width of 2 spaces.
+  "indent": 2,
+
+  // Enforce line length to 80 characters
+  "maxlen": 80,
+
+  // Require capitalized names for constructor functions.
+  "newcap": true,
+
+  // Enforce use of single quotation marks for strings.
+  "quotmark": "single",
+
+  // Enforce placing 'use strict' at the top function scope
+  "strict": false,
+
+  // Prohibit use of explicitly undeclared variables.
+  "undef": true,
+
+  // Warn when variables are defined but never used.
+  "unused": true,
+
+  // otherwise use strict complains about bind(this) - EGH
+  "validthis": true,
+
+  // added because we need them - EGH
+  "predef": [
+    "document",
+    "window",
+    "_"
+  ],
+
+  /*
+   * RELAXING OPTIONS
+   * =================
+   */
+
+  // Suppress warnings about == null comparisons.
+  "eqnull": true
+}

@@ -13,6 +13,7 @@
   "dependencies": {
     "lodash": "~3.1.0",
     "bourbon": "~4.2.x",
-    "neat": "~1.7.x"
+    "neat": "~1.7.x",
+    "requirejs": "^2.2.0"
   }
 }

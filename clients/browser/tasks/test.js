@@ -1,6 +1,6 @@
 var gulp = require('gulp');
 var changed = require('gulp-changed');
-var es6transpiler = require('gulp-es6-transpiler');
+var babel = require('gulp-babel');
 var gutil = require('gulp-util');
 var plumber = require('gulp-plumber');
 var sourcemaps = require('gulp-sourcemaps');
@@ -13,7 +13,9 @@ gulp.task('build/test/unit', function() {
     }))
     .pipe(sourcemaps.init())
     .pipe(plumber(compileError))
-    .pipe(es6transpiler())
+    .pipe(babel({
+      presets: ['es2015']
+    }))
     .pipe(plumber.stop())
     .pipe(sourcemaps.write())
     .pipe(gulp.dest('build/test'));

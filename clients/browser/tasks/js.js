@@ -1,5 +1,5 @@
 var gulp = require('gulp');
-var es6transpiler = require('gulp-es6-transpiler');
+var babel = require('gulp-babel');
 var argv = require('yargs').argv;
 var changed = require('gulp-changed');
 var concat = require('gulp-concat');
@@ -8,14 +8,22 @@ var gutil = require('gulp-util');
 var plumber = require('gulp-plumber');
 var revall = require('gulp-rev-all');
 var sourcemaps = require('gulp-sourcemaps');
-
+var rollup = require('gulp-rollup');
+var rollupIncludePaths = require('rollup-plugin-includepaths');
 
 gulp.task('build/dev/js', function() {
-  gulp.src(['app/app.js', '!app/**/*Test.js', 'config/dev.js'])
+  gulp.src(['app/app.js'])
     .pipe(changed('build/dev', {extension: '.js'}))
     .pipe(sourcemaps.init())
     .pipe(plumber(compileError))
-    .pipe(es6transpiler())
+    .pipe(rollup({
+        sourceMap: true,
+        plugins: [
+          rollupIncludePaths({paths: ['app']})
+        ]}))
+    .pipe(babel({
+			presets: ['es2015']
+		}))
     .pipe(plumber.stop())
     .pipe(sourcemaps.write())
     .pipe(gulp.dest('build/dev'));
@@ -29,18 +37,24 @@ gulp.task('build/dist/main.js', function() {
     process.exit(1);
   }
 
-  gulp.src(['app/**/*.coffee', '!app/**/*Test.coffee', configFile])
-    .pipe(es6transpiler())
-    .pipe(concat('main.js'))
-    .pipe(revall())
-    .pipe(gulp.dest('build/dist.tmp'));
+  gulp.src(['app/app.js'])
+    .pipe(plumber(compileError))
+    .pipe(rollup({
+        plugins: [
+          rollupIncludePaths({paths: ['app']})
+        ]}))
+    .pipe(babel({
+			presets: ['es2015']
+		}))
+    .pipe(plumber.stop())
+    .pipe(gulp.dest('build/dist'));
 });
 
 // This is here to make the terminal beep when js compilation fails
 var compileError = function(error) {
   gutil.beep();
   gutil.log(
-    gutil.colors.red('CoffeeScript compilation error:'),
+    gutil.colors.red('JS compilation error:'),
     error.toString()
   );
 };

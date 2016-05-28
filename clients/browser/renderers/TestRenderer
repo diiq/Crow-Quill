@@ -1,0 +1,92 @@
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var TestRenderer = function () {
+  function TestRenderer() {
+    _classCallCheck(this, TestRenderer);
+
+    this.image = [];
+  }
+
+  _createClass(TestRenderer, [{
+    key: 'currentImage',
+    value: function currentImage() {
+      return _.clone(this.image);
+    }
+  }, {
+    key: 'line',
+    value: function line(a, b) {
+      this.image.push('line: ' + a + ', ' + b);
+    }
+  }, {
+    key: 'arc',
+    value: function arc(a, b) {
+      this.image.push('arc: ' + a + ', ' + b);
+    }
+  }, {
+    key: 'circle',
+    value: function circle(center, radius) {
+      this.image.push('circle: ' + center + ', ' + radius);
+    }
+  }, {
+    key: 'bezier',
+    value: function bezier(a, cp1, cp2, b) {
+      this.image.push('bezier: ' + a + ', [' + cp1 + ', ' + cp2 + '], ' + b);
+    }
+  }, {
+    key: 'image',
+    value: function image(_image) {
+      this.image.append(_image);
+    }
+  }, {
+    key: 'moveTo',
+    value: function moveTo(point) {
+      this.image.push('move: ' + point + ')');
+    }
+  }, {
+    key: 'stroke',
+    value: function stroke(lineWidth) {
+      this.image.push('stroke (' + lineWidth + ')');
+    }
+  }, {
+    key: 'fill',
+    value: function fill() {
+      this.image.push('fill');
+    }
+  }, {
+    key: 'shadowOn',
+    value: function shadowOn() {
+      this.image.push('shadow on');
+    }
+  }, {
+    key: 'shadowOff',
+    value: function shadowOff() {
+      this.image.push('shadow off');
+    }
+  }, {
+    key: 'clear',
+    value: function clear() {
+      this.image = [];
+    }
+  }, {
+    key: 'color',
+    value: function color(_color) {
+      this.image.push('color ' + _color);
+    }
+  }, {
+    key: 'placeImage',
+    value: function placeImage(start, width, height, name) {}
+  }]);
+
+  return TestRenderer;
+}();
+
+exports.default = TestRenderer;
+

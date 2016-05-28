@@ -5,13 +5,13 @@ var path = require('path');
 var reload = browserSync.reload;
 
 
-gulp.task('watch', ['watch/dev', 'watch/test']);
+gulp.task('watch', ['watch/dev']);
 
 gulp.task('watch/dev', ['build/dev'], function() {
-  gulp.watch(['app/**/*.coffee', '!app/**/*Test.coffee', 'config/dev.coffee'], ['build/dev/js', 'jasmine', 'build/dev/index.html', reload]);
+  gulp.watch(['app/**/*.js', '!app/**/*Test.js', 'config/dev.js'], ['build/dev/js', 'jasmine', 'build/dev/index.html', reload]);
   gulp.watch(['app/**/*.scss'], ['build/dev/css', function() {}]);
   gulp.watch(['app/index.html'], ['build/dev/index.html', reload]);
-  gulp.watch(['app/**/*.coffee', 'app/**/*.scss', 'bower_components/**/*.js', '!app/**/*Test.coffee'], function(event) {
+  gulp.watch(['app/**/*.js', 'app/**/*.scss', 'bower_components/**/*.js', '!app/**/*Test.js'], function(event) {
     if (event.type === "added") {
       gulp.start('build/dev/index.html', function() {
         return reload();
@@ -41,9 +41,9 @@ gulp.task('watch/dev', ['build/dev'], function() {
 });
 
 gulp.task('watch/test', ['build/test/unit', 'jasmine'], function() {
-  gulp.watch(['app/**/*Test.coffee'], ['jasmine']);
+  gulp.watch(['app/**/*Test.js'], ['jasmine']);
 
-  return gulp.watch(['app/**/*Test.coffee'], function(event) {
+  return gulp.watch(['app/**/*Test.js'], function(event) {
     if (event.type === "deleted") {
       return del(getDestPathFromSrcPath(event.path, 'build/test'));
     }
@@ -55,8 +55,8 @@ var getDestPathFromSrcPath = function(srcFile, destDirectory) {
   relPath = path.relative(path.resolve('app'), srcFile);
   destPath = path.resolve(destDirectory, relPath);
   switch (path.extname(srcFile)) {
-    case ".coffee":
-      return path.join(path.dirname(destPath), path.basename(destPath, ".coffee")) + ".js";
+    case ".js":
+      return path.join(path.dirname(destPath), path.basename(destPath, ".js")) + ".js";
     case ".scss":
       return path.join(path.dirname(destPath), path.basename(destPath, ".scss")) + ".css";
     default:
