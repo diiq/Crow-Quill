@@ -5,10 +5,10 @@ var path = require('path');
 var reload = browserSync.reload;
 
 
-gulp.task('watch', ['watch/dev']);
+gulp.task('watch', ['watch/dev', 'watch/test', 'test/unit/watch']);
 
 gulp.task('watch/dev', ['build/dev'], function() {
-  gulp.watch(['app/**/*.js', '!app/**/*Test.js', 'config/dev.js'], ['build/dev/js', 'jasmine', 'build/dev/index.html', reload]);
+  gulp.watch(['app/**/*.js', '!app/**/*Test.js', 'config/dev.js'], ['build/dev/js', 'build/dev/index.html', reload]);
   gulp.watch(['app/**/*.scss'], ['build/dev/css', function() {}]);
   gulp.watch(['app/index.html'], ['build/dev/index.html', reload]);
   gulp.watch(['app/**/*.js', 'app/**/*.scss', 'bower_components/**/*.js', '!app/**/*Test.js'], function(event) {
@@ -40,8 +40,8 @@ gulp.task('watch/dev', ['build/dev'], function() {
   });
 });
 
-gulp.task('watch/test', ['build/test/unit', 'jasmine'], function() {
-  gulp.watch(['app/**/*Test.js'], ['jasmine']);
+gulp.task('watch/test', ['build/test/unit'], function() {
+  gulp.watch(['app/**/*Test.js'], ['build/test/unit']);
 
   return gulp.watch(['app/**/*Test.js'], function(event) {
     if (event.type === "deleted") {

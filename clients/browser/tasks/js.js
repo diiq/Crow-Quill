@@ -11,6 +11,7 @@ var sourcemaps = require('gulp-sourcemaps');
 var rollup = require('gulp-rollup');
 var rollupIncludePaths = require('rollup-plugin-includepaths');
 
+
 gulp.task('build/dev/js', function() {
   gulp.src(['app/app.js'])
     .pipe(changed('build/dev', {extension: '.js'}))
@@ -26,6 +27,10 @@ gulp.task('build/dev/js', function() {
 		}))
     .pipe(plumber.stop())
     .pipe(sourcemaps.write())
+    .pipe(gulp.dest('build/dev'));
+
+  gulp.src(['config/dev.js'])
+    .pipe(concat('config.js'))
     .pipe(gulp.dest('build/dev'));
 });
 

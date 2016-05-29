@@ -7,9 +7,9 @@ gulp.task(
   [
     'build/dev/index.html',
     'build/dev/js',
-//    'build/dev/css',
+    'build/dev/css',
     'build/dev/bower',
-//    'build/dev/images'
+    'build/dev/images'
   ]);
 
 // Build the tests and test dependencies

@@ -4,15 +4,22 @@ var babel = require('gulp-babel');
 var gutil = require('gulp-util');
 var plumber = require('gulp-plumber');
 var sourcemaps = require('gulp-sourcemaps');
+var rollup = require('gulp-rollup');
+var rollupIncludePaths = require('rollup-plugin-includepaths');
 
 
 gulp.task('build/test/unit', function() {
-  return gulp.src(['app/**/*Test.coffee'])
+  return gulp.src(['app/**/*Test.js'])
     .pipe(changed('build/test', {
       extension: '.js'
     }))
     .pipe(sourcemaps.init())
     .pipe(plumber(compileError))
+    .pipe(rollup({
+      sourceMap: true,
+      plugins: [
+        rollupIncludePaths({paths: ['app']})
+      ]}))
     .pipe(babel({
       presets: ['es2015']
     }))
@@ -23,5 +30,5 @@ gulp.task('build/test/unit', function() {
 
 var compileError = function(error) {
   gutil.beep();
-  return gutil.log(gutil.colors.red('CoffeeScript test compilation error:'), error.toString());
+  return gutil.log(gutil.colors.red('js test compilation error:'), error.toString());
 };
