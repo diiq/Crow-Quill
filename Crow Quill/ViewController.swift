@@ -35,26 +35,26 @@ class ViewController: UIViewController {
   }
 
   /// MARK Actions
-  @IBAction func undo(sender: AnyObject) {
+  @IBAction func undo(_ sender: AnyObject) {
     workspace.undo()
     drawingView.setNeedsDisplay()
   }
 
-  @IBAction func redo(sender: AnyObject) {
+  @IBAction func redo(_ sender: AnyObject) {
     workspace.redo()
     drawingView.setNeedsDisplay()
   }
 
-  @IBAction func toggleGuides(sender: AnyObject) {
+  @IBAction func toggleGuides(_ sender: AnyObject) {
     workspace.toggleGuides()
     guideView.setNeedsDisplay()
   }
 
-  @IBAction func choosePencil(sender: AnyObject) {
+  @IBAction func choosePencil(_ sender: AnyObject) {
     workspace.activeDrawing.strokeFactory = SmoothStampedPenStroke.init
   }
 
-  @IBAction func choosePen(sender: AnyObject! = nil) {
+  @IBAction func choosePen(_ sender: AnyObject! = nil) {
     workspace.activeDrawing.strokeFactory = SmoothVariableGuidedStroke.init
   }
 }

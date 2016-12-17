@@ -5,10 +5,10 @@ class UIRenderer: Renderer, ImageRenderer {
   typealias ImageType = CGImage
   var bounds: CGRect
   var context : CGContext!
-  var currentColor = UIColor(red:0.2, green:0.2, blue:0.2, alpha:1.0).CGColor
+  var currentColor = UIColor(red:0.2, green:0.2, blue:0.2, alpha:1.0).cgColor
   var currentImage: ImageType {
     get {
-      return CGBitmapContextCreateImage(context)!
+      return context.makeImage()!
     }
   }
 
@@ -16,89 +16,84 @@ class UIRenderer: Renderer, ImageRenderer {
     self.bounds = bounds
   }
 
-  func moveTo(point: Point) {
-    CGContextBeginPath(context)
-    CGContextMoveToPoint(context, CGFloat(point.x), CGFloat(point.y))
+  func moveTo(_ point: Point) {
+    context.beginPath()
+    context.move(to: CGPoint(x: CGFloat(point.x), y: CGFloat(point.y)))
   }
 
-  func line(a: Point, _ b: Point) {
-    CGContextAddLineToPoint(context, CGFloat(b.x), CGFloat(b.y))
+  func line(_ a: Point, _ b: Point) {
+    context.addLine(to: CGPoint(x: CGFloat(b.x), y: CGFloat(b.y)))
   }
 
-  func arc(a: Point, _ b: Point) {
+  func arc(_ a: Point, _ b: Point) {
     let delta = b - a
     let center = a + delta / 2
     let radius = delta.length() / 2
-    CGContextAddArc(context,
-      CGFloat(center.x),
-      CGFloat(center.y),
-      CGFloat(radius),
-      CGFloat((a - center).radians()),
-      CGFloat((b - center).radians()),
-      1)
+    context.addArc(
+      center: center.cgPoint(),
+      radius: CGFloat(radius),
+      startAngle: CGFloat((a - center).radians()),
+      endAngle: CGFloat((b - center).radians()),
+      clockwise: true)
   }
 
-  func circle(center: Point, radius: Double) {
-    CGContextAddArc(context,
-      CGFloat(center.x),
-      CGFloat(center.y),
-      CGFloat(radius),
-      0,
-      2*3.141593,
-      1)
+  func circle(_ center: Point, radius: Double) {
+    context.addArc(
+      center: center.cgPoint(),
+      radius: CGFloat(radius),
+      startAngle: 0,
+      endAngle: 2*3.141593,
+      clockwise: true)
   }
 
-  func bezier(a: Point, _ cp1: Point, _ cp2: Point, _ b: Point) {
-    CGContextAddCurveToPoint(
-      context,
-      CGFloat(cp1.x),
-      CGFloat(cp1.y),
-      CGFloat(cp2.x),
-      CGFloat(cp2.y),
-      CGFloat(b.x),
-      CGFloat(b.y))
+  func bezier(_ a: Point, _ cp1: Point, _ cp2: Point, _ b: Point) {
+    context.addCurve(
+      to: b.cgPoint(),
+      control1: cp1.cgPoint(),
+      control2: cp2.cgPoint()
+    )
   }
 
-  func color(color: Color) {
+  func color(_ color: Color) {
     currentColor = UIColor(
       red:CGFloat(color.r),
       green:CGFloat(color.g),
       blue:CGFloat(color.b),
-      alpha:CGFloat(color.a)).CGColor
+      alpha:CGFloat(color.a)).cgColor
   }
 
-  func stroke(lineWidth: Double) {
-    CGContextSetLineCap(context, .Butt)
-    CGContextSetStrokeColorWithColor(context, currentColor)
-    CGContextSetLineWidth(context, CGFloat(lineWidth))
-    CGContextStrokePath(context)
+  func stroke(_ lineWidth: Double) {
+    context.setLineCap(.butt)
+    context.setStrokeColor(currentColor)
+    context.setLineWidth(CGFloat(lineWidth))
+    context.strokePath()
   }
 
   func fill() {
-    CGContextSetFillColorWithColor(context, currentColor)
-    CGContextClosePath(context)
-    CGContextFillPath(context)
+    context.setFillColor(currentColor)
+    context.closePath()
+    (context).fillPath()
   }
 
   func shadowOn() {
-    CGContextSetShadowWithColor(context, CGSize(width: 0, height: 0), 1.5, UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).CGColor)
+    context.setShadow(offset: CGSize(width: 0, height: 0), blur: 1.5, color: UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor)
   }
 
   func shadowOff() {
-    CGContextSetShadowWithColor(context, CGSize(width: 0.5, height: 0.5), 1, nil)
+    context.setShadow(offset: CGSize(width: 0.5, height: 0.5), blur: 1, color: nil)
   }
 
-  func image(image: ImageType) {
+  func image(_ image: ImageType) {
     // Gotta figure out scaling here.
-    CGContextTranslateCTM(context, 0, bounds.height)
-    CGContextScaleCTM(context, 1.0, -1.0)
-    CGContextDrawImage(context, bounds , image)
-    CGContextScaleCTM(context, 1.0, -1.0)
-    CGContextTranslateCTM(context, 0, -bounds.height)
+    context.translateBy(x: 0, y: bounds.height)
+    context.scaleBy(x: 1.0, y: -1.0)
+    context.draw(image, in: bounds )
+    context.scaleBy(x: 1.0, y: -1.0)
+    context.translateBy(x: 0, y: -bounds.height)
   }
 
-  func placeImage(start start: Point, width: Double, height: Double, name: String) {
-    let img = UIImage(named: "pencil.png")?.CGImage
-    CGContextDrawImage(context, CGRect(x: start.x, y: start.y, width: width, height: height), img)
+  func placeImage(start: Point, width: Double, height: Double, name: String) {
+    let img = UIImage(named: "pencil.png")?.cgImage
+    context.draw(img!, in: CGRect(x: start.x, y: start.y, width: width, height: height))
   }
 }

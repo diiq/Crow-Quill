@@ -22,7 +22,7 @@ struct Point {
     self.altitude = altitude
   }
 
-  func withWeight(weight: Double) -> Point {
+  func withWeight(_ weight: Double) -> Point {
     return Point(x: x, y: y, weight: weight)
   }
 
@@ -53,7 +53,7 @@ extension Point {
     return atan2(y, x)
   }
   
-  func dot(point: Point) -> Double {
+  func dot(_ point: Point) -> Double {
     return x * point.x + y * point.y
   }
   
@@ -109,9 +109,9 @@ extension UITouch {
    abstraction stack.
    */
   func point() -> Point {
-    let location = preciseLocationInView(view)
-    let weight = (type == .Stylus) ? force : -1
-    let altitude = (type == .Stylus) ? altitudeAngle : 90
+    let location = preciseLocation(in: view)
+    let weight = (type == .stylus) ? force : -1
+    let altitude = (type == .stylus) ? altitudeAngle : 90
     return Point(
       x: Double(location.x),
       y: Double(location.y),

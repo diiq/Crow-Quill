@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1212" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="ipad12_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -14,38 +18,30 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" multipleTouchEnabled="YES" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pk8-to-KMe" customClass="DrawingView" customModule="Crow_Quill" customModuleProvider="target">
-                                <rect key="frame" x="-1700" y="-1700" width="4000" height="4000"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <rect key="frame" x="-1488" y="-1317" width="4000" height="4000"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="4000" id="8kj-C2-Tf0"/>
                                     <constraint firstAttribute="height" constant="4000" id="F8f-M9-XmA"/>
                                 </constraints>
                             </view>
-                            <view opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7zb-dU-yd1" customClass="ActiveDrawingView" customModule="Crow_Quill" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </view>
-                            <view opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qsm-Ch-wx0" customClass="GuideView" customModule="Crow_Quill" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </view>
                             <view opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rcW-Vh-Lwd">
-                                <rect key="frame" x="525" y="0.0" width="75" height="600"/>
+                                <rect key="frame" x="949" y="0.0" width="75" height="1366"/>
                                 <subviews>
                                     <visualEffectView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Zk-Mx-Eeh">
-                                        <rect key="frame" x="0.0" y="0.0" width="75" height="600"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="75" height="1366"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gmy-fm-IRS">
-                                            <rect key="frame" x="0.0" y="0.0" width="75" height="600"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="75" height="1366"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         </view>
                                         <blurEffect style="dark"/>
                                     </visualEffectView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="hCR-ws-830">
-                                        <rect key="frame" x="0.0" y="125" width="75" height="350"/>
+                                        <rect key="frame" x="0.0" y="508" width="75" height="350"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RNs-jr-QRB">
                                                 <rect key="frame" x="0.0" y="0.0" width="75" height="70"/>
@@ -89,7 +85,7 @@
                                         </constraints>
                                     </stackView>
                                 </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="3Zk-Mx-Eeh" firstAttribute="top" secondItem="rcW-Vh-Lwd" secondAttribute="top" id="KkY-rw-h9a"/>
                                     <constraint firstItem="hCR-ws-830" firstAttribute="leading" secondItem="rcW-Vh-Lwd" secondAttribute="leading" id="Rcr-vg-p9z"/>
@@ -101,22 +97,27 @@
                                     <constraint firstAttribute="width" constant="75" id="vKV-6a-Csl"/>
                                 </constraints>
                             </view>
+                            <view opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7zb-dU-yd1" customClass="ActiveDrawingView" customModule="Crow_Quill" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                            <view opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qsm-Ch-wx0" customClass="GuideView" customModule="Crow_Quill" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="rcW-Vh-Lwd" secondAttribute="trailing" id="2w0-gp-5ON"/>
                             <constraint firstItem="Pk8-to-KMe" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="4X9-N7-3TF"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="qsm-Ch-wx0" secondAttribute="bottom" id="69m-qN-gU7"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="rcW-Vh-Lwd" secondAttribute="bottom" id="9Wl-kv-8XO"/>
-                            <constraint firstAttribute="trailing" secondItem="7zb-dU-yd1" secondAttribute="trailing" id="AnI-dy-U76"/>
                             <constraint firstItem="Pk8-to-KMe" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="QmT-T0-oyC"/>
                             <constraint firstAttribute="trailing" secondItem="qsm-Ch-wx0" secondAttribute="trailing" id="XOx-4X-W15"/>
-                            <constraint firstItem="7zb-dU-yd1" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="oVw-iH-OFW"/>
                             <constraint firstItem="qsm-Ch-wx0" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="oiI-1N-X6I"/>
                             <constraint firstItem="qsm-Ch-wx0" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="sXB-Zq-gwZ"/>
-                            <constraint firstItem="7zb-dU-yd1" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="tvV-Jv-vgr"/>
                             <constraint firstItem="rcW-Vh-Lwd" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="u2O-R8-nHr"/>
-                            <constraint firstAttribute="bottom" secondItem="7zb-dU-yd1" secondAttribute="bottom" id="xhc-bW-P0H"/>
                         </constraints>
                     </view>
                     <connections>

@@ -18,11 +18,11 @@
 
 class Drawing<Image>: ImageDrawable {
   typealias ImageType = Image
-  private var strokes = Timeline<Stroke>()
-  private var snapshots = SnapshotTimeline<ImageType>()
+  fileprivate var strokes = Timeline<Stroke>()
+  fileprivate var snapshots = SnapshotTimeline<ImageType>()
   var pointsPerSnapshot = 10000
 
-  func draw<R: ImageRenderer where R.ImageType == ImageType>(renderer: R) {
+  func draw<R: ImageRenderer>(_ renderer: R) where R.ImageType == ImageType {
     // Draw the most recent snapshot
     snapshots.currentSnapshot()?.draw(renderer)
 
@@ -39,7 +39,7 @@ class Drawing<Image>: ImageDrawable {
     }
   }
 
-  func addStroke(stroke: Stroke) {
+  func addStroke(_ stroke: Stroke) {
     strokes.add(stroke)
     snapshots.modified()
   }
@@ -54,18 +54,18 @@ class Drawing<Image>: ImageDrawable {
     snapshots.redoTo(strokes.currentIndex)
   }
 
-  private func mostRecentSnapshotIndex() -> Int {
+  fileprivate func mostRecentSnapshotIndex() -> Int {
     return snapshots.currentSnapshot()?.eventIndex ?? 0
   }
 
-  private func shouldSnapshot() -> Bool {
+  fileprivate func shouldSnapshot() -> Bool {
     return pointsSinceSnapshot() > pointsPerSnapshot
   }
 
-  private func pointsSinceSnapshot() -> Int {
+  fileprivate func pointsSinceSnapshot() -> Int {
     let liveStrokes = strokes.events(since: mostRecentSnapshotIndex())
     let counts = liveStrokes.map { return $0.pointCount() }
-    return counts.reduce(0, combine: +)
+    return counts.reduce(0, +)
   }
 }
 

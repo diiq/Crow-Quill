@@ -3,7 +3,7 @@
  produces an image.
  */
 protocol Drawable {
-  func draw(renderer: Renderer)
+  func draw(_ renderer: Renderer)
 }
 
 /**
@@ -12,6 +12,6 @@ protocol Drawable {
  snapshot.
  */
 protocol ImageDrawable {
-  typealias ImageType
-  func draw<R: ImageRenderer where R.ImageType == ImageType>(renderer: R)
+  associatedtype ImageType
+  func draw<R: ImageRenderer>(_ renderer: R) where R.ImageType == ImageType
 }

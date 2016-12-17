@@ -4,7 +4,7 @@ struct Snapshot<I> : ImageDrawable {
   let snapshot: ImageType
   let eventIndex: Int
 
-  func draw<R: ImageRenderer where R.ImageType == ImageType>(renderer: R) {
+  func draw<R: ImageRenderer>(_ renderer: R) where R.ImageType == ImageType {
     renderer.image(self.snapshot)
   }
 }

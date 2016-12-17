@@ -7,7 +7,7 @@ class SmoothFixedGuidedStroke : BaseStroke {
   override var rectOffset: Double { return 80.0 }
   override var undrawnPointOffset: Int { return 100 }
 
-  override func drawPoints(start: Int, _ stop: Int, renderer: Renderer, initial: Bool=true, final: Bool=true) {
+  override func drawPoints(_ start: Int, _ stop: Int, renderer: Renderer, initial: Bool=true, final: Bool=true) {
     var guidedPoints = Array(points[start..<stop])
     renderer.color(NonPhotoBlue)
 
@@ -31,7 +31,7 @@ class SmoothFixedGuidedStroke : BaseStroke {
     return super.undrawnPoints()
   }
 
-  override func drawPredictedPoints(renderer: Renderer) {
+  override func drawPredictedPoints(_ renderer: Renderer) {
     guard uncommittedTransforms.count == 0 else {
       drawPoints(0, points.count, renderer: renderer)
       return
@@ -39,7 +39,7 @@ class SmoothFixedGuidedStroke : BaseStroke {
     super.drawPredictedPoints(renderer)
   }
 
-  override func drawUndrawnPoints(renderer: Renderer) {
+  override func drawUndrawnPoints(_ renderer: Renderer) {
     guard uncommittedTransforms.count == 0 else { return }
     super.drawUndrawnPoints(renderer)
   }

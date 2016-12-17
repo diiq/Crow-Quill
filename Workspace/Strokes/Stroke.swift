@@ -2,12 +2,12 @@
  A stroke is a drawable that's made of a linear series of points.
  */
 protocol Stroke: Drawable {
-  func draw(renderer: Renderer)
-  func addPoint(point: Point)
-  func addPredictedPoint(point: Point)
-  func finalize(viewTransform: StrokeTransformation)
-  func drawUndrawnPoints(renderer: Renderer)
-  func drawPredictedPoints(renderer: Renderer)
+  func draw(_ renderer: Renderer)
+  func addPoint(_ point: Point)
+  func addPredictedPoint(_ point: Point)
+  func finalize(_ viewTransform: StrokeTransformation)
+  func drawUndrawnPoints(_ renderer: Renderer)
+  func drawPredictedPoints(_ renderer: Renderer)
   func undrawnRect() -> (minX: Double, minY: Double, maxX: Double, maxY: Double)
   func forgetPredictions()
   func pointCount() -> Int
@@ -36,7 +36,7 @@ class BaseStroke: Stroke {
     self.finalPoints = points
   }
 
-  func addPoint(point: Point) {
+  func addPoint(_ point: Point) {
     if undrawnPointIndex == nil {
       undrawnPointIndex = max(finalPoints.count - undrawnPointOffset, 0)
       // [ done done gmove ] [ predicted predicted 
@@ -44,7 +44,7 @@ class BaseStroke: Stroke {
     finalPoints.append(point)
   }
 
-  func addPredictedPoint(point: Point) {
+  func addPredictedPoint(_ point: Point) {
     predictedPoints.append(point)
   }
 
@@ -52,7 +52,7 @@ class BaseStroke: Stroke {
     predictedPoints = []
   }
 
-  func finalize(viewTransform: StrokeTransformation) {
+  func finalize(_ viewTransform: StrokeTransformation) {
     // The viewTransform moves the stroke from the activeDrawing (which is 
     // in screen-space) into the drawing (which is in canvas-space). This is 
     // messed up, because of pixels.
@@ -64,11 +64,11 @@ class BaseStroke: Stroke {
     finalPoints = viewTransform.apply(finalPoints)
   }
 
-  func drawPoints(start: Int, _ stop: Int, renderer: Renderer, initial: Bool, final: Bool) {
+  func drawPoints(_ start: Int, _ stop: Int, renderer: Renderer, initial: Bool, final: Bool) {
     fatalError("Strokes must override draw")
   }
 
-  func draw(renderer: Renderer) {
+  func draw(_ renderer: Renderer) {
     drawPoints(
       0,
       points.count,
@@ -77,7 +77,7 @@ class BaseStroke: Stroke {
       final: true)
   }
 
-  func drawUndrawnPoints(renderer: Renderer) {
+  func drawUndrawnPoints(_ renderer: Renderer) {
     drawPoints(
       undrawnPointIndex ?? finalPoints.count,
       finalPoints.count,
@@ -88,7 +88,7 @@ class BaseStroke: Stroke {
     undrawnPointIndex = nil
   }
 
-  func drawPredictedPoints(renderer: Renderer) {
+  func drawPredictedPoints(_ renderer: Renderer) {
     // We have to hand the renderer a few previous points in
     // addition to the predicted points themselves.
     let start = max(0, finalPoints.count - undrawnPointOffset)
@@ -117,10 +117,10 @@ class BaseStroke: Stroke {
     // This line might be wrong -- might cause over-drawing:
     guard points.count > 0 else { return (minX: 0, minY: 0, maxX: 0, maxY: 0) }
 
-    let maxX = (points.map { $0.x }).maxElement()!
-    let maxY = (points.map { $0.y }).maxElement()!
-    let minX = (points.map { $0.x }).minElement()!
-    let minY = (points.map { $0.y }).minElement()!
+    let maxX = (points.map { $0.x }).max()!
+    let maxY = (points.map { $0.y }).max()!
+    let minX = (points.map { $0.x }).min()!
+    let minY = (points.map { $0.y }).min()!
     return (
       minX: minX - rectOffset,
       minY: minY - rectOffset,

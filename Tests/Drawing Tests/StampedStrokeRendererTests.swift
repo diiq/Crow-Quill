@@ -4,7 +4,7 @@
   class TestStampedRendererTests: XCTestCase {
     let renderer = TestRenderer()
     func testDrawsStampedLine() {
-      func stamper(point: Point, renderer: Renderer) {
+      func stamper(_ point: Point, renderer: Renderer) {
         renderer.circle(point, radius: point.weight)
       }
       
@@ -30,7 +30,7 @@
     }
     
     func testDrawsStampedLinear() {
-      func stamper(point: Point, renderer: Renderer) {
+      func stamper(_ point: Point, renderer: Renderer) {
         renderer.circle(point, radius: point.weight)
       }
       
@@ -71,7 +71,7 @@
 
 
     func testDrawsStampedBezier() {
-      func stamper(point: Point, renderer: Renderer) {
+      func stamper(_ point: Point, renderer: Renderer) {
         renderer.circle(point, radius: point.weight)
       }
 

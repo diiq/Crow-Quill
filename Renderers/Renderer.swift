@@ -13,17 +13,17 @@ import Darwin
  */
 protocol Renderer {
   /// Draws a straight, unweighted, black line from <ax, ay> to <bx, by>
-  func moveTo(point: Point)
-  func line(a: Point, _ b: Point)
-  func arc(a: Point, _ b: Point)
-  func circle(center: Point, radius: Double)
-  func bezier(a: Point, _ cp1: Point, _ cp2: Point, _ b: Point)
-  func color(color: Color)
-  func stroke(lineWidth: Double)
+  func moveTo(_ point: Point)
+  func line(_ a: Point, _ b: Point)
+  func arc(_ a: Point, _ b: Point)
+  func circle(_ center: Point, radius: Double)
+  func bezier(_ a: Point, _ cp1: Point, _ cp2: Point, _ b: Point)
+  func color(_ color: Color)
+  func stroke(_ lineWidth: Double)
   func fill()
   func shadowOn()
   func shadowOff()
-  func placeImage(start start: Point, width: Double, height: Double, name: String)
+  func placeImage(start: Point, width: Double, height: Double, name: String)
 }
 
 /**
@@ -32,17 +32,17 @@ protocol Renderer {
  and displaying snapshots of the drawing, purely for performance reasons.
  */
 protocol ImageRenderer: Renderer {
-  typealias ImageType
+  associatedtype ImageType
 
   /// The rendered image
   var currentImage: ImageType { get }
 
   /// Places an existing image into the image being rendered.
-  func image(image: ImageType)
+  func image(_ image: ImageType)
 }
 
 extension Renderer {
-  func linear(points: [Point]) {
+  func linear(_ points: [Point]) {
     var lastPoint = points[0]
     moveTo(lastPoint)
     points[1..<points.count].forEach {
@@ -51,7 +51,7 @@ extension Renderer {
     }
   }
 
-  func weightedLine(a: Point, _ b: Point) {
+  func weightedLine(_ a: Point, _ b: Point) {
     let perpendicular = (b - a).perpendicular()
     let aPlus = a + perpendicular * a.weight
     let aMinus = a - perpendicular * a.weight
@@ -66,7 +66,7 @@ extension Renderer {
     fill()
   }
 
-  func weightedLinear(points: [Point]) {
+  func weightedLinear(_ points: [Point]) {
     var lastPoint = points[0]
     moveTo(lastPoint)
     points[1..<points.count].forEach {

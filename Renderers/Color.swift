@@ -4,7 +4,7 @@ struct Color {
   let b: Double
   let a: Double
 
-  func with_opacity(a: Double) -> Color {
+  func with_opacity(_ a: Double) -> Color {
     return Color(r: r, g: g, b: b, a: a)
   }
 }

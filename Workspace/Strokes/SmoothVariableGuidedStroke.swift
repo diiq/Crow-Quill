@@ -1,7 +1,7 @@
 class SmoothVariableGuidedStroke: SmoothFixedPenStroke {
   override var rectOffset: Double { return 50.0 }
 
-  override func drawPoints(start: Int, _ end: Int, renderer: Renderer, initial: Bool=true, final: Bool=true) {
+  override func drawPoints(_ start: Int, _ end: Int, renderer: Renderer, initial: Bool=true, final: Bool=true) {
     renderer.color(Color(r: 0, g: 0, b: 0, a: 1))
     var guidedPoints = Array(points[start..<end])
     guidedPoints = ScaleWeights(scalar: brushScale).apply(guidedPoints)
@@ -17,7 +17,7 @@ class SmoothVariableGuidedStroke: SmoothFixedPenStroke {
     return super.undrawnPoints()
   }
 
-  override func drawPredictedPoints(renderer: Renderer) {
+  override func drawPredictedPoints(_ renderer: Renderer) {
     guard uncommittedTransforms.count == 0 else {
       drawPoints(0, points.count, renderer: renderer)
       return
@@ -25,7 +25,7 @@ class SmoothVariableGuidedStroke: SmoothFixedPenStroke {
     super.drawPredictedPoints(renderer)
   }
 
-  override func drawUndrawnPoints(renderer: Renderer) {
+  override func drawUndrawnPoints(_ renderer: Renderer) {
     guard uncommittedTransforms.count == 0 else { return }
     super.drawUndrawnPoints(renderer)
   }

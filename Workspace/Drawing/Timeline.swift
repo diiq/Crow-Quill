@@ -6,8 +6,8 @@
  */
 
 class Timeline<Event> {
-  private var array: [Event] = []
-  private var maxRedoIndex: Int = 0
+  fileprivate var array: [Event] = []
+  fileprivate var maxRedoIndex: Int = 0
   var currentIndex: Int = 0
 
   func canUndo() -> Bool {
@@ -28,7 +28,7 @@ class Timeline<Event> {
     currentIndex += 1
   }
 
-  func add(event: Event) {
+  func add(_ event: Event) {
     if array.count > currentIndex {
       array[currentIndex] = event
     } else {

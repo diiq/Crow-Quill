@@ -11,8 +11,8 @@ Should these be drawables?
 Is there something simpler that can be done?
 */
 protocol Guide : Drawable {
-  func handleFor(point: Point) -> Handle?
-  func appliesToPoint(point: Point) -> Bool
+  func handleFor(_ point: Point) -> Handle?
+  func appliesToPoint(_ point: Point) -> Bool
   var transformation: StrokeTransformation { get }
   var active: Bool { get set }
 }

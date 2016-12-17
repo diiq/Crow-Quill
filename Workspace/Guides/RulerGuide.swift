@@ -17,7 +17,7 @@ class RulerGuide : Guide {
     return (handleA.point - handleB.point).unit()
   }
   
-  func boundary(renderer: Renderer) {
+  func boundary(_ renderer: Renderer) {
     let start = handleA.point - 10000 * unitVector
     let end = handleA.point + 10000 * unitVector
     let perp = unitVector.perpendicular() * width
@@ -29,7 +29,7 @@ class RulerGuide : Guide {
     renderer.line(start + perp, start - perp)
   }
   
-  func draw(renderer: Renderer) {
+  func draw(_ renderer: Renderer) {
     renderer.color(GuideEdges)
     boundary(renderer)
     renderer.stroke(0.25)
@@ -44,11 +44,11 @@ class RulerGuide : Guide {
     handleB.draw(renderer)
   }
   
-  func projected(point: Point) -> Point {
+  func projected(_ point: Point) -> Point {
     return unitVector.dot(point - handleA.point) * unitVector + handleA.point
   }
 
-  func projector() -> (point: Point) -> Point {
+  func projector() -> (_ point: Point) -> Point {
     let permaUnit = unitVector
     let permaA = handleA.point
     return {
@@ -56,7 +56,7 @@ class RulerGuide : Guide {
     }
   }
   
-  func handleFor(point: Point) -> Handle? {
+  func handleFor(_ point: Point) -> Handle? {
     if handleA.pointInside(point) {
       return handleA
     } else if handleB.pointInside(point) {
@@ -66,7 +66,7 @@ class RulerGuide : Guide {
     }
   }
 
-  func appliesToPoint(point: Point) -> Bool {
+  func appliesToPoint(_ point: Point) -> Bool {
     return (point - projected(point)).length() < width
   }
   

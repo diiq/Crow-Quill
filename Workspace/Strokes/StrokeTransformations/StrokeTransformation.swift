@@ -6,11 +6,11 @@
  chained.
 */
 protocol StrokeTransformation {
-  func apply(points: [Point]) -> [Point]
+  func apply(_ points: [Point]) -> [Point]
 }
 
 extension Array {
-  func partition (n: Int, step maybeStep: Int? = nil, includeHead: Bool=false, includeTail: Bool=false) -> [Array] {
+  func partition (_ n: Int, step maybeStep: Int? = nil, includeHead: Bool=false, includeTail: Bool=false) -> [Array] {
     var result = [Array]()
 
     // If no step is supplied move n each step.
@@ -18,17 +18,17 @@ extension Array {
     let end = includeTail ? count : count - n + 1
     let start = includeHead ? 1 - n : 0
 
-    for var i = start; i < end; i += step { 
-      result.append(Array(self[max(i, 0)..<min(count, i + n)]))
+    for i in stride(from: start, to: end, by: step) {
+      result.append(Array(self[[i, 0].max()!..<[count, i + n].min()!]))
     }
 
     return result
   }
 
-  func slidingWindow<T>(block: (focus: Element, before: Element?, after: Element?) -> T?) -> [T] {
+  func slidingWindow<T>(_ block: (_ focus: Element, _ before: Element?, _ after: Element?) -> T?) -> [T] {
     var result: [T] = []
-    for var i = 0; i < count; i++ {
-      let ret = block(focus: self[i], before: self[safe: i - 1], after: self[safe: i + 1])
+    for i in 0 ..< count {
+      let ret = block(self[i], self[safe: i - 1], self[safe: i + 1])
       if ret != nil {
         result.append(ret!)
       }

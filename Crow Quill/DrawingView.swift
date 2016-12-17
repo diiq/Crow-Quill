@@ -4,13 +4,13 @@ class DrawingView: UIView {
   var workspace: Workspace<CGImage, UITouch>!
   var scale: Double = 1
 
-  func setup(workspace: Workspace<CGImage, UITouch>) {
+  func setup(_ workspace: Workspace<CGImage, UITouch>) {
     self.backgroundColor = UIColor(patternImage: UIImage(named: "paper.png")!);
     self.workspace = workspace
     layer.allowsEdgeAntialiasing = true
   }
 
-  override func drawRect(rect: CGRect) {
+  override func draw(_ rect: CGRect) {
     let context = UIGraphicsGetCurrentContext()!
     let renderer = UIRenderer(bounds: bounds)
     renderer.context = context

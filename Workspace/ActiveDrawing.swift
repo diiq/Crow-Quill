@@ -11,28 +11,29 @@ class ActiveDrawing<I, IndexType: Hashable> : ImageDrawable {
   typealias ImageType = I
   var strokesByIndex = [IndexType : Stroke]()
   var frozen: ImageType? = nil
-  var strokeFactory: ((points: [Point], transforms: [StrokeTransformation]) -> Stroke)!
+  var strokeFactory: ((_ points: [Point], _ transforms: [StrokeTransformation]) -> Stroke)!
   var scalar: Double = 1
 
-  func updateStroke(index: IndexType, points: [Point], transforms: [StrokeTransformation]) {
+  func updateStroke(_ index: IndexType, points: [Point], transforms: [StrokeTransformation]) {
     let stroke = strokesByIndex[index] ?? newStrokeForIndex(index, transforms: transforms)
     for point in points {
       stroke.addPoint(point)
     }
   }
 
-  func updateStrokePredictions(index: IndexType, points: [Point]) {
+  func updateStrokePredictions(_ index: IndexType, points: [Point]) {
     guard let stroke = strokesByIndex[index] else { return }
     for point in points {
       stroke.addPredictedPoint(point)
     }
   }
 
-  func endStroke(index: IndexType, viewTransform: StrokeTransformation) -> Stroke? {
+  func endStroke(_ index: IndexType, viewTransform: StrokeTransformation) -> Stroke? {
     guard let stroke = strokesByIndex[index] else { return nil }
-    strokesByIndex.removeValueForKey(index)
+    strokesByIndex.removeValue(forKey: index)
     stroke.finalize(viewTransform)
     frozen = nil
+    print("returning", stroke.pointCount())
     return stroke
   }
 
@@ -42,20 +43,20 @@ class ActiveDrawing<I, IndexType: Hashable> : ImageDrawable {
    */
   func rectForUpdatedPoints() -> (x: Double, y: Double, width: Double, height: Double) {
     let rects = strokesByIndex.values.map { $0.undrawnRect() }
-    let maxX = (rects.map { $0.maxX }).maxElement()!
-    let maxY = (rects.map { $0.maxY }).maxElement()!
-    let minX = (rects.map { $0.minX }).minElement()!
-    let minY = (rects.map { $0.minY }).minElement()!
+    let maxX = (rects.map { $0.maxX }).max()!
+    let maxY = (rects.map { $0.maxY }).max()!
+    let minX = (rects.map { $0.minX }).min()!
+    let minY = (rects.map { $0.minY }).min()!
 
     return (x: minX, y: minY, width: maxX - minX, height: maxY - minY)
   }
 
-  func forgetPredictions(index: IndexType) {
+  func forgetPredictions(_ index: IndexType) {
     guard let stroke = strokesByIndex[index] else { return }
     stroke.forgetPredictions()
   }
 
-  func draw<R: ImageRenderer where R.ImageType == ImageType>(renderer: R) {
+  func draw<R: ImageRenderer>(_ renderer: R) where R.ImageType == ImageType {
     if frozen != nil {
       renderer.image(frozen!)
     }
@@ -68,9 +69,9 @@ class ActiveDrawing<I, IndexType: Hashable> : ImageDrawable {
     }
   }
 
-  private func newStrokeForIndex(index: IndexType, transforms: [StrokeTransformation]) -> Stroke {
+  fileprivate func newStrokeForIndex(_ index: IndexType, transforms: [StrokeTransformation]) -> Stroke {
     // TODO: How to choose the stroke type
-    var line = strokeFactory(points: [], transforms: transforms)
+    var line = strokeFactory([], transforms)
     line.brushScale = scalar
     strokesByIndex[index] = line
     return line

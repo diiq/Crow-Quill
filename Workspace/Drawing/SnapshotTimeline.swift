@@ -21,7 +21,7 @@ class SnapshotTimeline<ImageType> {
 
   /// Winds the timeline to the appropriate snapshot, given the index of an
   /// event in the full timeline.
-  func undoTo(action: Int) {
+  func undoTo(_ action: Int) {
     var latest = snapshots.latest()
     while latest != nil && latest!.eventIndex > action {
       snapshots.undo()
@@ -31,7 +31,7 @@ class SnapshotTimeline<ImageType> {
 
   /// Winds the timeline to the appropriate snapshot, given the index of an
   /// event in the full timeline.
-  func redoTo(action: Int) {
+  func redoTo(_ action: Int) {
     var latest = snapshots.latest()
     while snapshots.canRedo() && (latest == nil || latest!.eventIndex <= action) {
       snapshots.redo()
@@ -51,7 +51,7 @@ class SnapshotTimeline<ImageType> {
     snapshots.modified()
   }
 
-  func add(snapshot: ImageType, index: Int) {
+  func add(_ snapshot: ImageType, index: Int) {
     snapshots.add(
       Snapshot<ImageType>(snapshot: snapshot, eventIndex: index)
     )

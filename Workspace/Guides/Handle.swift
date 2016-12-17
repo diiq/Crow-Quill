@@ -1,7 +1,7 @@
 protocol Handle : Drawable {
   var point: Point { get }
-  func move(newPoint: Point)
-  func pointInside(point: Point) -> Bool
+  func move(_ newPoint: Point)
+  func pointInside(_ point: Point) -> Bool
 }
 
 class RulerHandle: Handle {
@@ -9,7 +9,7 @@ class RulerHandle: Handle {
   var length: Double = 40
   weak var line: RulerGuide!
   let handleSize: Double = 32
-  private var handleEnd: Point {
+  fileprivate var handleEnd: Point {
     let direction = line.unitVector.perpendicular()
     return point + direction * length
   }
@@ -19,7 +19,7 @@ class RulerHandle: Handle {
     self.line = line
   }
 
-  func draw(renderer: Renderer) {
+  func draw(_ renderer: Renderer) {
     renderer.color(GuideFill)
 
     renderer.shadowOn()
@@ -44,11 +44,11 @@ class RulerHandle: Handle {
     renderer.fill()
   }
 
-  func pointInside(point: Point) -> Bool {
+  func pointInside(_ point: Point) -> Bool {
     return (point - handleEnd).length() < handleSize
   }
 
-  func move(newPoint: Point) {
+  func move(_ newPoint: Point) {
     let oldPoint = point
     let direction = line.unitVector.perpendicular()
     point = newPoint - (direction * length)

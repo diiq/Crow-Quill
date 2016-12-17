@@ -7,21 +7,21 @@ class GuideCollection<IndexType: Hashable> {
     return guides.filter { return $0.active }
   }
 
-  func draw(renderer: Renderer) {
+  func draw(_ renderer: Renderer) {
     activeGuides.forEach { $0.draw(renderer) }
   }
 
-  func pointInside(point: Point) -> Bool {
+  func pointInside(_ point: Point) -> Bool {
     return handleFor(point) != nil
   }
 
-  func move(index: IndexType, point: Point) {
+  func move(_ index: IndexType, point: Point) {
     guard let handle = handleForIndex[index] ?? savedHandleForIndex(index, point: point) else { return }
     handle.move(point)
   }
 
-  func endMove(index: IndexType) {
-    handleForIndex.removeValueForKey(index)
+  func endMove(_ index: IndexType) {
+    handleForIndex.removeValue(forKey: index)
   }
 
   func toggleActive() {
@@ -32,7 +32,7 @@ class GuideCollection<IndexType: Hashable> {
     }
   }
 
-  func setGuideTransformationForIndex(index: IndexType, point: Point) {
+  func setGuideTransformationForIndex(_ index: IndexType, point: Point) {
     for guide in activeGuides {
       if guide.appliesToPoint(point) {
         transformationForIndex[index] = guide.transformation
@@ -41,7 +41,7 @@ class GuideCollection<IndexType: Hashable> {
     }
   }
 
-  private func handleFor(point: Point) -> Handle? {
+  fileprivate func handleFor(_ point: Point) -> Handle? {
     for guide in activeGuides {
       let handle = guide.handleFor(point)
       if handle != nil {
@@ -51,7 +51,7 @@ class GuideCollection<IndexType: Hashable> {
     return nil
   }
 
-  private func savedHandleForIndex(index: IndexType, point: Point) -> Handle? {
+  fileprivate func savedHandleForIndex(_ index: IndexType, point: Point) -> Handle? {
     guard let handle = handleFor(point) else { return nil }
     handleForIndex[index] = handle
     return handle

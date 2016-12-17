@@ -8,7 +8,7 @@ class SmoothFixedPenStroke : BaseStroke {
   let brushSize: Double = 1
   override var undrawnPointOffset: Int { return 3 }
 
-  override func drawPoints(start: Int, _ end: Int, renderer: Renderer, initial: Bool=true, final: Bool=true) {
+  override func drawPoints(_ start: Int, _ end: Int, renderer: Renderer, initial: Bool=true, final: Bool=true) {
     renderer.color(NonPhotoBlue)
 
     guard points.count > 2 else {
